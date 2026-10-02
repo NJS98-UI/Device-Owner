@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#FF1A6FF0</color>
+
+    <!-- 深灰色配色方案 -->
+    <color name="dark_gray_primary">#FF222836</color>
+    <color name="dark_gray_secondary">#FF3A4256</color>
+    <color name="dark_gray_background">#FF0A0E14</color>
+    <color name="dark_gray_surface">#FF151A24</color>
+
+    <!-- 夜间模式配色（与主程序深色 UI 一致） -->
+    <color name="menu_background">#33151A24</color>
+    <color name="button_background">#33222836</color>
+    <color name="button_accent">#FF1A6FF0</color>
+    <color name="button_text">#FFE8ECF1</color>
+    <color name="page_background">#330A0E14</color>
+    <color name="card_background">#33151A24</color>
+    <color name="text_primary">#FFE8ECF1</color>
+    <color name="text_secondary">#FF8B99A8</color>
+    <color name="text_hint">#FF5C6B7A</color>
+    <color name="input_background">#331C2330</color>
+    <color name="nav_header_background">#FF151A24</color>
+
+    <!-- 导航菜单配色 - 夜间模式 -->
+    <color name="nav_background">#33151A24</color>
+    <color name="nav_header_gradient_start">#FF222836</color>
+    <color name="nav_header_gradient_center">#FF151A24</color>
+    <color name="nav_header_gradient_end">#FF0A0E14</color>
+    <color name="nav_header_text">#FFE8ECF1</color>
+    <color name="nav_header_text_secondary">#FF8B99A8</color>
+    <color name="nav_item_selected_background">#201A6FF0</color>
+    <color name="nav_item_pressed_background">#101A6FF0</color>
+    <color name="nav_ripple_color">#301A6FF0</color>
+    <color name="nav_divider_color">#26E8ECF1</color>
+    <color name="nav_icon_background">#20E8ECF1</color>
+    <color name="nav_icon_tint">#FF8B99A8</color>
+    <color name="nav_icon_tint_selected">#FFE8ECF1</color>
+    <color name="nav_text_primary">#FFE8ECF1</color>
+    <color name="nav_text_secondary">#FF8B99A8</color>
+    <color name="nav_logo_background">#FF222836</color>
+    <color name="nav_logo_foreground">#FFFFFFFF</color>
+    <color name="nav_logo_accent">#FF1A6FF0</color>
+    <color name="nav_section_title">#FF5C6B7A</color>
+    <color name="nav_version_text">#FF5C6B7A</color>
+
+    <!-- 多选模式选中背景 - 夜间模式 -->
+    <color name="item_selected_background">#331A6FF0</color>
+
+    <!-- 视频预览区配色 - 夜间模式（使用页面底色） -->
+    <color name="preview_background">@color/page_background</color>
+    <color name="preview_frame_background">#33151A24</color>
+    <color name="preview_grid_divider">@color/page_background</color>
+    <color name="preview_placeholder_text">#FF8B99A8</color>
+    <color name="preview_controls_background">@color/page_background</color>
+
+    <!-- 使用提示对话框配色 - 夜间模式 -->
+    <color name="dialog_guide_background">#33151A24</color>
+    <color name="dialog_guide_title">#FFE8ECF1</color>
+    <color name="dialog_guide_content">#FFC5CDD6</color>
+    <color name="dialog_guide_accent">#FF1A6FF0</color>
+    <color name="dialog_guide_secondary">#FF8B99A8</color>
+    <color name="dialog_guide_divider">#33E8ECF1</color>
+    <color name="dialog_guide_button_bg">#FF1A6FF0</color>
+    <color name="dialog_guide_button_text">#FFFFFFFF</color>
+    <color name="dialog_guide_button_ripple">#30FFFFFF</color>
+</resources>

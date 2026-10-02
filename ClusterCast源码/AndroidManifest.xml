@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.jietu.clustercast"
+    android:versionCode="75"
+    android:versionName="18.47">
+
+    <uses-sdk android:minSdkVersion="27" android:targetSdkVersion="28"/>
+    <!-- 前台服务保活：常驻监听车机系统发的三指手势广播 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <!-- 开机自启 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <!-- v14 悬浮模式：仪表屏上加 TYPE_APPLICATION_OVERLAY 悬浮层（浮在原车内容上层），
+         不加这权限系统会拒 addView，自动退回搬屏模式 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <!-- 跟随前台取「最近前台应用」。这是普通 appops 权限，声明即可安装；
+         这台 ROM 没有授权设置页，装好后用 adb 授权一次：
+         adb shell pm grant com.jietu.clustercast android.permission.PACKAGE_USAGE_STATS -->
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+    <!-- 盲区页/记录仪：四路环视与 DVR 是标准 Camera2 设备（id 4=前 5=右 6=左 7=后 2=DVR），
+         运行时弹窗授权一次即可，无需 root/平台签名 -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+
+    <!-- ===== EVCam 记录仪功能（v18 全量移植） ===== -->
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+
+    <queries>
+        <provider android:authorities="com.kooo.evcc.displays"/>
+    </queries>
+
+    <application
+        android:name=".App"
+        android:label="@string/app_name"
+        android:icon="@mipmap/cc_launcher"
+        android:theme="@style/Theme.MaterialComponents.NoActionBar"
+        android:usesCleartextTraffic="true"
+        android:supportsRtl="true">
+
+        <activity android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".AppPicker"
+            android:exported="false"
+            android:screenOrientation="landscape"/>
+        <service android:name=".CastService" android:exported="false"/>
+        <service android:name=".MusicListener"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService"/>
+            </intent-filter>
+        </service>
+        <receiver android:name=".BootReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".DoorScanReceiver" android:exported="true"/>
+        <receiver android:name=".CastAdminReceiver"
+            android:permission="android.permission.BIND_DEVICE_ADMIN"
+            android:exported="true">
+            <meta-data android:name="android.app.device_admin"
+                android:resource="@xml/device_admin"/>
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- ===== EVCam 组件 ===== -->
+        <provider
+            android:name="com.kooo.evcam.KeepAliveProvider"
+            android:authorities="com.jietu.clustercast.keepalive"
+            android:exported="false"
+            android:initOrder="2147483647"/>
+        <!-- WorkManager 默认初始化（无 manifest 合并器，手写等价块） -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="com.jietu.clustercast.androidx-startup"
+            android:exported="false">
+            <meta-data android:name="androidx.work.WorkManagerInitializer" android:value="androidx.startup"/>
+        </provider>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.jietu.clustercast.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+        <activity android:name="com.kooo.evcam.PhotoViewerActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Cam.Fullscreen"/>
+        <activity android:name="com.kooo.evcam.VideoPlayerActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Cam.Fullscreen"/>
+        <activity android:name="com.kooo.evcam.TransparentBootActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Cam.Transparent"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:taskAffinity=""/>
+        <activity android:name="com.kooo.evcam.LogcatViewerActivity"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+            android:screenOrientation="landscape"
+            android:exported="false"/>
+
+        <service android:name="com.kooo.evcam.CameraForegroundService"
+            android:foregroundServiceType="camera"
+            android:exported="false"/>
+        <service android:name="com.kooo.evcam.FloatingWindowService"
+            android:exported="false"/>
+        <service android:name="com.kooo.evcam.BlindSpotService"
+            android:exported="false"/>
+        <service android:name="com.kooo.evcam.service.CameraRecordingService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="camera"/>
+        <service android:name="com.kooo.evcam.service.BlindSpotOverlayService"
+            android:enabled="true"
+            android:exported="false"/>
+        <service android:name="com.kooo.evcam.service.RecordingFloatingService"
+            android:enabled="true"
+            android:exported="false"/>
+
+        <service android:name="com.kooo.evcam.KeepAliveAccessibilityService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config"/>
+        </service>
+
+        <receiver android:name="com.kooo.evcam.BootReceiver" android:enabled="true" android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.kooo.evcam.KeepAliveReceiver" android:enabled="true" android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.SCREEN_ON"/>
+                <action android:name="android.intent.action.SCREEN_OFF"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+                <action android:name="android.intent.action.BATTERY_CHANGED"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+                <action android:name="android.bluetooth.adapter.action.CONNECTION_STATE_CHANGED"/>
+                <action android:name="android.bluetooth.device.action.ACL_CONNECTED"/>
+                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.wifi.STATE_CHANGE"/>
+                <action android:name="android.net.wifi.SCAN_RESULTS"/>
+                <action android:name="android.intent.action.HEADSET_PLUG"/>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+                <action android:name="com.kooo.evcam.ACTION_KEEP_ALIVE"/>
+            </intent-filter>
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED"/>
+                <action android:name="android.intent.action.MEDIA_REMOVED"/>
+                <action android:name="android.intent.action.MEDIA_EJECT"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>
