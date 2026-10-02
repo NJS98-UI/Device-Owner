@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <!-- 四路环视（id4前/5右/6左/7后）是标准 Camera2 设备：运行时弹窗授权一次就行，
+         不需要 root / adb / 平台签名。摄像头通路实测必须用我们自己的 Camera2 栈，
+         EVCam 那套在这台车上黑屏，已弃用。 -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!-- 记录仪对齐盯盯车：录像带一条 AAC 音轨，所以要 RECORD_AUDIO。
+         AudioRecord 不抢音频焦点；真起不来（麦克风被语音占用）只在日志写原因，
+         画面照常录。 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <!-- 前台服务类型：Android 11 上 camera/microphone 型前台服务才能稳定占住镜头。 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA"/>
+    <!-- 沉浸dock 要写系统设置表里原车自己的 com.desaysv.status.bar.status。
+         这权限申请不来，装包时在电脑上授权一次就行，重启不失效：
+         adb shell pm grant com.ahui.clustercast android.permission.WRITE_SECURE_SETTINGS -->
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+    <!-- 「跟随前台」要读 usagestats；同样是装包时 adb 授权一次：
+         adb shell pm grant com.ahui.clustercast android.permission.PACKAGE_USAGE_STATS -->
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions"
+        xmlns:tools="http://schemas.android.com/tools"/>
+
+    <application android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher"
+        android:theme="@style/Theme.ClusterCast">
+
+        <activity android:name=".MainActivity"
+            android:exported="true" android:launchMode="singleTop" android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- 选投屏应用：一排5个、图标在上名字在下 -->
+        <activity android:name=".AppPicker"
+            android:exported="false" android:screenOrientation="landscape"/>
+
+        <!-- 录像回放：列 四宫格/锁定 的 mp4，用系统 VideoView 播 -->
+        <activity android:name=".PlayerActivity"
+            android:exported="false" android:screenOrientation="landscape"/>
+
+        <!-- 整屏镜像（参考开源 ScreenMirro 的 MediaProjection+Surface 直通）：
+             授权收集页一次性弹系统录屏框；镜像页跑在 display 2 -->
+        <activity android:name=".MirrorGrantActivity"
+            android:exported="false" android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name=".MirrorActivity"
+            android:exported="false" android:launchMode="singleInstance"
+            android:theme="@style/Theme.ClusterCast.Cluster" android:screenOrientation="landscape"/>
+
+        <!-- 仪表屏极简页：只跑在 display 2，singleInstance 保证重复三指左滑不会叠出一堆任务 -->
+        <activity android:name=".ClusterActivity"
+            android:exported="false" android:launchMode="singleInstance"
+            android:theme="@style/Theme.ClusterCast.Cluster" android:screenOrientation="landscape"/>
+
+        <service android:name=".CastService" android:exported="false"/>
+
+        <!-- 仪表屏全屏覆盖层：普通 Activity 会被限制在上半区，悬浮窗才能铺满物理屏 -->
+        <service android:name=".ClusterOverlay" android:exported="false"/>
+
+        <!-- 只为读当前媒体会话（正在放什么歌），授权一条 adb 命令即可，重启不失效 -->
+        <service android:name=".MusicListener" android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService"/>
+            </intent-filter>
+        </service>
+
+        <receiver android:name=".BootReceiver" android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

@@ -1,0 +1,7 @@
+-keep class com.ahui.clustercast.** { *; }
+-keep class kotlin.Metadata { *; }
+-keepclassmembers class kotlin.** { *; }
+-keepclasseswithmembers class kotlin.jvm.internal.** { *; }
+-dontobfuscate
+-dontwarn **
+-ignorewarnings

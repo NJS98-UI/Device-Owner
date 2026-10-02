@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ahui.vehprobe">
+
+    <!-- 车控写验证包：只走 VDBus（/system/framework/vdbus.jar 运行时用 DexClassLoader 载入）。
+         CAR_INFO service 是 exported 且没有 permission，所以这个包一个权限都不申请。 -->
+
+    <application
+        android:label="@string/app_name"
+        android:allowBackup="false">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Material.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

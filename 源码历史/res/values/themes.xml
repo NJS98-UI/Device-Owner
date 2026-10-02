@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.ClusterCast" parent="@android:style/Theme.Material.Light.NoActionBar"/>
+
+    <!-- 仪表屏极简页：整屏纯黑，不要标题栏 -->
+    <style name="Theme.ClusterCast.Cluster" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+</resources>

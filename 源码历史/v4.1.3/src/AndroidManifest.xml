@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ahui.clustercast"
+    android:versionCode="28" android:versionName="4.2.2">
+
+    <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="28"/>
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <!-- 四路环视（id4前/5右/6左/7后）是标准 Camera2 设备：运行时弹窗授权一次就行，
+         不需要 root / adb / 平台签名。故意不申请 RECORD_AUDIO——录像只录画面，
+         免得跟原车倒车音源抢音频焦点。 -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <!-- dock 全屏沉浸要写 settings 里的 policy_control。这权限申请不来，
+         装包时在电脑上授权一次就行，重启不失效：
+         adb shell pm grant com.ahui.clustercast android.permission.WRITE_SECURE_SETTINGS -->
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+
+    <application android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher"
+        android:theme="@style/Theme.ClusterCast">
+
+        <activity android:name=".MainActivity"
+            android:exported="true" android:launchMode="singleTop" android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- 选投屏应用：一排5个、图标在上名字在下 -->
+        <activity android:name=".AppPicker"
+            android:exported="false" android:screenOrientation="landscape"/>
+
+        <!-- 仪表屏极简页：只跑在 display 2，singleInstance 保证重复三指左滑不会叠出一堆任务 -->
+        <activity android:name=".ClusterActivity"
+            android:exported="false" android:launchMode="singleInstance"
+            android:theme="@style/Theme.ClusterCast.Cluster" android:screenOrientation="landscape"/>
+
+        <service android:name=".CastService" android:exported="false"/>
+
+        <!-- 只为读当前媒体会话（正在放什么歌），授权一条 adb 命令即可，重启不失效 -->
+        <service android:name=".MusicListener" android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService"/>
+            </intent-filter>
+        </service>
+
+        <receiver android:name=".BootReceiver" android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>
