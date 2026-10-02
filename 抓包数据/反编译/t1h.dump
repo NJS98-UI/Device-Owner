@@ -1,0 +1,2066 @@
+  Class descriptor  : 'Lcom/desaysv/launcher/card/T1hMediaCard;'
+  Access flags      : 0x0011 (PUBLIC FINAL)
+  Superclass        : 'Lcom/desaysv/launcher/card/base/VBCard;'
+  Interfaces        -
+  Static fields     -
+  Instance fields   -
+    #0              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'mBeforePlayStatus'
+      type          : 'I'
+      access        : 0x0002 (PRIVATE)
+    #1              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'mInterconnStatusObserver$delegate'
+      type          : 'Lkotlin/Lazy;'
+      access        : 0x0012 (PRIVATE FINAL)
+    #2              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'mIsCardEditingObserver'
+      type          : 'Lcom/desaysv/launcher/card/T1hMediaCard$mIsCardEditingObserver$1;'
+      access        : 0x0012 (PRIVATE FINAL)
+    #3              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'mMainViewModel'
+      type          : 'Lcom/desaysv/launcher/viewmodel/MainViewModel;'
+      access        : 0x0002 (PRIVATE)
+    #4              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'mMediaTypePropertyChangedCallback'
+      type          : 'Landroidx/databinding/Observable$OnPropertyChangedCallback;'
+      access        : 0x0002 (PRIVATE)
+    #5              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'onTouchListener'
+      type          : 'Landroid/view/View$OnTouchListener;'
+      access        : 0x0012 (PRIVATE FINAL)
+  Direct methods    -
+    #0              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : '$r8$lambda$SJniS_LFDzCgDDAvF0lyjK4di3Y'
+      type          : '(Lcom/desaysv/launcher/card/T1hMediaCard;Landroid/view/View;Landroid/view/MotionEvent;)Z'
+      access        : 0x1009 (PUBLIC STATIC SYNTHETIC)
+      code          -
+      registers     : 3
+      ins           : 3
+      outs          : 3
+      insns size    : 5 16-bit code units
+014ab0:                                        |[014ab0] com.desaysv.launcher.card.T1hMediaCard.$r8$lambda$SJniS_LFDzCgDDAvF0lyjK4di3Y:(Lcom/desaysv/launcher/card/T1hMediaCard;Landroid/view/View;Landroid/view/MotionEvent;)Z
+014ac0: 7130 6803 1002                         |0000: invoke-static {v0, v1, v2}, Lcom/desaysv/launcher/card/T1hMediaCard;.onTouchListener$lambda$15:(Lcom/desaysv/launcher/card/T1hMediaCard;Landroid/view/View;Landroid/view/MotionEvent;)Z // method@0368
+014ac6: 0a00                                   |0003: move-result v0
+014ac8: 0f00                                   |0004: return v0
+      catches       : (none)
+      positions     :
+      locals        :
+
+    #1              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : '<init>'
+      type          : '(Landroid/content/Context;)V'
+      access        : 0x10001 (PUBLIC CONSTRUCTOR)
+      code          -
+      registers     : 3
+      ins           : 2
+      outs          : 2
+      insns size    : 55 16-bit code units
+014ce4:                                        |[014ce4] com.desaysv.launcher.card.T1hMediaCard.<init>:(Landroid/content/Context;)V
+014cf4: 1a00 0306                              |0000: const-string v0, "context" // string@0603
+014cf8: 7120 ce08 0200                         |0002: invoke-static {v2, v0}, Lkotlin/jvm/internal/Intrinsics;.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V // method@08ce
+014cfe: 7020 b906 2100                         |0005: invoke-direct {v1, v2}, Lcom/desaysv/launcher/card/base/VBCard;.<init>:(Landroid/content/Context;)V // method@06b9
+014d04: 0000                                   |0008: nop // spacer
+014d06: 1a00 7f04                              |0009: const-string v0, "T1hMediaCard" // string@047f
+014d0a: 6e20 7103 0100                         |000b: invoke-virtual {v1, v0}, Lcom/desaysv/launcher/card/T1hMediaCard;.setTAG:(Ljava/lang/String;)V // method@0371
+014d10: 0000                                   |000e: nop // spacer
+014d12: 2200 ec00                              |000f: new-instance v0, Lcom/desaysv/launcher/card/T1hMediaCard$mIsCardEditingObserver$1; // type@00ec
+014d16: 7020 4303 1000                         |0011: invoke-direct {v0, v1}, Lcom/desaysv/launcher/card/T1hMediaCard$mIsCardEditingObserver$1;.<init>:(Lcom/desaysv/launcher/card/T1hMediaCard;)V // method@0343
+014d1c: 5b10 8600                              |0014: iput-object v0, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.mIsCardEditingObserver:Lcom/desaysv/launcher/card/T1hMediaCard$mIsCardEditingObserver$1; // field@0086
+014d20: 2200 ee00                              |0016: new-instance v0, Lcom/desaysv/launcher/card/T1hMediaCard$mMediaTypePropertyChangedCallback$1; // type@00ee
+014d24: 7020 4803 1000                         |0018: invoke-direct {v0, v1}, Lcom/desaysv/launcher/card/T1hMediaCard$mMediaTypePropertyChangedCallback$1;.<init>:(Lcom/desaysv/launcher/card/T1hMediaCard;)V // method@0348
+014d2a: 1f00 6500                              |001b: check-cast v0, Landroidx/databinding/Observable$OnPropertyChangedCallback; // type@0065
+014d2e: 5b10 8800                              |001d: iput-object v0, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.mMediaTypePropertyChangedCallback:Landroidx/databinding/Observable$OnPropertyChangedCallback; // field@0088
+014d32: 2200 eb00                              |001f: new-instance v0, Lcom/desaysv/launcher/card/T1hMediaCard$mInterconnStatusObserver$2; // type@00eb
+014d36: 7020 3f03 1000                         |0021: invoke-direct {v0, v1}, Lcom/desaysv/launcher/card/T1hMediaCard$mInterconnStatusObserver$2;.<init>:(Lcom/desaysv/launcher/card/T1hMediaCard;)V // method@033f
+014d3c: 1f00 ea01                              |0024: check-cast v0, Lkotlin/jvm/functions/Function0; // type@01ea
+014d40: 7110 c208 0000                         |0026: invoke-static {v0}, Lkotlin/LazyKt;.lazy:(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy; // method@08c2
+014d46: 0c00                                   |0029: move-result-object v0
+014d48: 5b10 8500                              |002a: iput-object v0, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.mInterconnStatusObserver$delegate:Lkotlin/Lazy; // field@0085
+014d4c: 1210                                   |002c: const/4 v0, #int 1 // #1
+014d4e: 5910 8400                              |002d: iput v0, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.mBeforePlayStatus:I // field@0084
+014d52: 2200 e900                              |002f: new-instance v0, Lcom/desaysv/launcher/card/T1hMediaCard$$ExternalSyntheticLambda0; // type@00e9
+014d56: 7020 3a03 1000                         |0031: invoke-direct {v0, v1}, Lcom/desaysv/launcher/card/T1hMediaCard$$ExternalSyntheticLambda0;.<init>:(Lcom/desaysv/launcher/card/T1hMediaCard;)V // method@033a
+014d5c: 5b10 8900                              |0034: iput-object v0, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.onTouchListener:Landroid/view/View$OnTouchListener; // field@0089
+014d60: 0e00                                   |0036: return-void
+      catches       : (none)
+      positions     :
+        0x0005 line=94
+        0x0008 line=45
+        0x0009 line=46
+        0x000e line=47
+        0x000f line=52
+        0x0016 line=72
+        0x001f line=88
+        0x002c line=313
+        0x002f line=366
+        0x0036 line=95
+      locals        :
+        0x0000 - 0x0037 reg=1 this Lcom/desaysv/launcher/card/T1hMediaCard;
+        0x0000 - 0x0037 reg=2 context Landroid/content/Context;
+
+    #2              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : '<init>'
+      type          : '(Landroid/content/Context;Landroid/util/AttributeSet;)V'
+      access        : 0x10001 (PUBLIC CONSTRUCTOR)
+      code          -
+      registers     : 4
+      ins           : 3
+      outs          : 3
+      insns size    : 55 16-bit code units
+014d64:                                        |[014d64] com.desaysv.launcher.card.T1hMediaCard.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V
+014d74: 1a00 0306                              |0000: const-string v0, "context" // string@0603
+014d78: 7120 ce08 0200                         |0002: invoke-static {v2, v0}, Lkotlin/jvm/internal/Intrinsics;.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V // method@08ce
+014d7e: 7030 ba06 2103                         |0005: invoke-direct {v1, v2, v3}, Lcom/desaysv/launcher/card/base/VBCard;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V // method@06ba
+014d84: 0000                                   |0008: nop // spacer
+014d86: 1a00 7f04                              |0009: const-string v0, "T1hMediaCard" // string@047f
+014d8a: 6e20 7103 0100                         |000b: invoke-virtual {v1, v0}, Lcom/desaysv/launcher/card/T1hMediaCard;.setTAG:(Ljava/lang/String;)V // method@0371
+014d90: 0000                                   |000e: nop // spacer
+014d92: 2200 ec00                              |000f: new-instance v0, Lcom/desaysv/launcher/card/T1hMediaCard$mIsCardEditingObserver$1; // type@00ec
+014d96: 7020 4303 1000                         |0011: invoke-direct {v0, v1}, Lcom/desaysv/launcher/card/T1hMediaCard$mIsCardEditingObserver$1;.<init>:(Lcom/desaysv/launcher/card/T1hMediaCard;)V // method@0343
+014d9c: 5b10 8600                              |0014: iput-object v0, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.mIsCardEditingObserver:Lcom/desaysv/launcher/card/T1hMediaCard$mIsCardEditingObserver$1; // field@0086
+014da0: 2200 ee00                              |0016: new-instance v0, Lcom/desaysv/launcher/card/T1hMediaCard$mMediaTypePropertyChangedCallback$1; // type@00ee
+014da4: 7020 4803 1000                         |0018: invoke-direct {v0, v1}, Lcom/desaysv/launcher/card/T1hMediaCard$mMediaTypePropertyChangedCallback$1;.<init>:(Lcom/desaysv/launcher/card/T1hMediaCard;)V // method@0348
+014daa: 1f00 6500                              |001b: check-cast v0, Landroidx/databinding/Observable$OnPropertyChangedCallback; // type@0065
+014dae: 5b10 8800                              |001d: iput-object v0, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.mMediaTypePropertyChangedCallback:Landroidx/databinding/Observable$OnPropertyChangedCallback; // field@0088
+014db2: 2200 eb00                              |001f: new-instance v0, Lcom/desaysv/launcher/card/T1hMediaCard$mInterconnStatusObserver$2; // type@00eb
+014db6: 7020 3f03 1000                         |0021: invoke-direct {v0, v1}, Lcom/desaysv/launcher/card/T1hMediaCard$mInterconnStatusObserver$2;.<init>:(Lcom/desaysv/launcher/card/T1hMediaCard;)V // method@033f
+014dbc: 1f00 ea01                              |0024: check-cast v0, Lkotlin/jvm/functions/Function0; // type@01ea
+014dc0: 7110 c208 0000                         |0026: invoke-static {v0}, Lkotlin/LazyKt;.lazy:(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy; // method@08c2
+014dc6: 0c00                                   |0029: move-result-object v0
+014dc8: 5b10 8500                              |002a: iput-object v0, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.mInterconnStatusObserver$delegate:Lkotlin/Lazy; // field@0085
+014dcc: 1210                                   |002c: const/4 v0, #int 1 // #1
+014dce: 5910 8400                              |002d: iput v0, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.mBeforePlayStatus:I // field@0084
+014dd2: 2200 e900                              |002f: new-instance v0, Lcom/desaysv/launcher/card/T1hMediaCard$$ExternalSyntheticLambda0; // type@00e9
+014dd6: 7020 3a03 1000                         |0031: invoke-direct {v0, v1}, Lcom/desaysv/launcher/card/T1hMediaCard$$ExternalSyntheticLambda0;.<init>:(Lcom/desaysv/launcher/card/T1hMediaCard;)V // method@033a
+014ddc: 5b10 8900                              |0034: iput-object v0, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.onTouchListener:Landroid/view/View$OnTouchListener; // field@0089
+014de0: 0e00                                   |0036: return-void
+      catches       : (none)
+      positions     :
+        0x0005 line=97
+        0x0008 line=45
+        0x0009 line=46
+        0x000e line=47
+        0x000f line=52
+        0x0016 line=72
+        0x001f line=88
+        0x002c line=313
+        0x002f line=366
+        0x0036 line=98
+      locals        :
+        0x0000 - 0x0037 reg=1 this Lcom/desaysv/launcher/card/T1hMediaCard;
+        0x0000 - 0x0037 reg=2 context Landroid/content/Context;
+        0x0000 - 0x0037 reg=3 attrs Landroid/util/AttributeSet;
+
+    #3              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : '<init>'
+      type          : '(Landroid/content/Context;Landroid/util/AttributeSet;I)V'
+      access        : 0x10001 (PUBLIC CONSTRUCTOR)
+      code          -
+      registers     : 5
+      ins           : 4
+      outs          : 4
+      insns size    : 59 16-bit code units
+014de4:                                        |[014de4] com.desaysv.launcher.card.T1hMediaCard.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+014df4: 1a00 0306                              |0000: const-string v0, "context" // string@0603
+014df8: 7120 ce08 0200                         |0002: invoke-static {v2, v0}, Lkotlin/jvm/internal/Intrinsics;.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V // method@08ce
+014dfe: 0000                                   |0005: nop // spacer
+014e00: 0000                                   |0006: nop // spacer
+014e02: 0000                                   |0007: nop // spacer
+014e04: 0000                                   |0008: nop // spacer
+014e06: 7040 bb06 2143                         |0009: invoke-direct {v1, v2, v3, v4}, Lcom/desaysv/launcher/card/base/VBCard;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V // method@06bb
+014e0c: 0000                                   |000c: nop // spacer
+014e0e: 1a00 7f04                              |000d: const-string v0, "T1hMediaCard" // string@047f
+014e12: 6e20 7103 0100                         |000f: invoke-virtual {v1, v0}, Lcom/desaysv/launcher/card/T1hMediaCard;.setTAG:(Ljava/lang/String;)V // method@0371
+014e18: 0000                                   |0012: nop // spacer
+014e1a: 2200 ec00                              |0013: new-instance v0, Lcom/desaysv/launcher/card/T1hMediaCard$mIsCardEditingObserver$1; // type@00ec
+014e1e: 7020 4303 1000                         |0015: invoke-direct {v0, v1}, Lcom/desaysv/launcher/card/T1hMediaCard$mIsCardEditingObserver$1;.<init>:(Lcom/desaysv/launcher/card/T1hMediaCard;)V // method@0343
+014e24: 5b10 8600                              |0018: iput-object v0, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.mIsCardEditingObserver:Lcom/desaysv/launcher/card/T1hMediaCard$mIsCardEditingObserver$1; // field@0086
+014e28: 2200 ee00                              |001a: new-instance v0, Lcom/desaysv/launcher/card/T1hMediaCard$mMediaTypePropertyChangedCallback$1; // type@00ee
+014e2c: 7020 4803 1000                         |001c: invoke-direct {v0, v1}, Lcom/desaysv/launcher/card/T1hMediaCard$mMediaTypePropertyChangedCallback$1;.<init>:(Lcom/desaysv/launcher/card/T1hMediaCard;)V // method@0348
+014e32: 1f00 6500                              |001f: check-cast v0, Landroidx/databinding/Observable$OnPropertyChangedCallback; // type@0065
+014e36: 5b10 8800                              |0021: iput-object v0, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.mMediaTypePropertyChangedCallback:Landroidx/databinding/Observable$OnPropertyChangedCallback; // field@0088
+014e3a: 2200 eb00                              |0023: new-instance v0, Lcom/desaysv/launcher/card/T1hMediaCard$mInterconnStatusObserver$2; // type@00eb
+014e3e: 7020 3f03 1000                         |0025: invoke-direct {v0, v1}, Lcom/desaysv/launcher/card/T1hMediaCard$mInterconnStatusObserver$2;.<init>:(Lcom/desaysv/launcher/card/T1hMediaCard;)V // method@033f
+014e44: 1f00 ea01                              |0028: check-cast v0, Lkotlin/jvm/functions/Function0; // type@01ea
+014e48: 7110 c208 0000                         |002a: invoke-static {v0}, Lkotlin/LazyKt;.lazy:(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy; // method@08c2
+014e4e: 0c00                                   |002d: move-result-object v0
+014e50: 5b10 8500                              |002e: iput-object v0, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.mInterconnStatusObserver$delegate:Lkotlin/Lazy; // field@0085
+014e54: 1210                                   |0030: const/4 v0, #int 1 // #1
+014e56: 5910 8400                              |0031: iput v0, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.mBeforePlayStatus:I // field@0084
+014e5a: 2200 e900                              |0033: new-instance v0, Lcom/desaysv/launcher/card/T1hMediaCard$$ExternalSyntheticLambda0; // type@00e9
+014e5e: 7020 3a03 1000                         |0035: invoke-direct {v0, v1}, Lcom/desaysv/launcher/card/T1hMediaCard$$ExternalSyntheticLambda0;.<init>:(Lcom/desaysv/launcher/card/T1hMediaCard;)V // method@033a
+014e64: 5b10 8900                              |0038: iput-object v0, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.onTouchListener:Landroid/view/View$OnTouchListener; // field@0089
+014e68: 0e00                                   |003a: return-void
+      catches       : (none)
+      positions     :
+        0x0005 line=100
+        0x0006 line=101
+        0x0007 line=102
+        0x0008 line=103
+        0x0009 line=100
+        0x000c line=45
+        0x000d line=46
+        0x0012 line=47
+        0x0013 line=52
+        0x001a line=72
+        0x0023 line=88
+        0x0030 line=313
+        0x0033 line=366
+        0x003a line=104
+      locals        :
+        0x0000 - 0x003b reg=1 this Lcom/desaysv/launcher/card/T1hMediaCard;
+        0x0000 - 0x003b reg=2 context Landroid/content/Context;
+        0x0000 - 0x003b reg=3 attrs Landroid/util/AttributeSet;
+        0x0000 - 0x003b reg=4 defStyleAttr I
+
+    #4              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'access$getMMainViewModel$p'
+      type          : '(Lcom/desaysv/launcher/card/T1hMediaCard;)Lcom/desaysv/launcher/viewmodel/MainViewModel;'
+      access        : 0x1019 (PUBLIC STATIC FINAL SYNTHETIC)
+      code          -
+      registers     : 2
+      ins           : 1
+      outs          : 0
+      insns size    : 3 16-bit code units
+014c9c:                                        |[014c9c] com.desaysv.launcher.card.T1hMediaCard.access$getMMainViewModel$p:(Lcom/desaysv/launcher/card/T1hMediaCard;)Lcom/desaysv/launcher/viewmodel/MainViewModel;
+014cac: 5410 8700                              |0000: iget-object v0, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.mMainViewModel:Lcom/desaysv/launcher/viewmodel/MainViewModel; // field@0087
+014cb0: 1100                                   |0002: return-object v0
+      catches       : (none)
+      positions     :
+        0x0000 line=44
+      locals        :
+        0x0000 - 0x0003 reg=1 $this Lcom/desaysv/launcher/card/T1hMediaCard;
+
+    #5              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'getMInterconnStatusObserver'
+      type          : '()Landroidx/lifecycle/Observer;'
+      access        : 0x0012 (PRIVATE FINAL)
+      code          -
+      registers     : 2
+      ins           : 1
+      outs          : 1
+      insns size    : 9 16-bit code units
+014a8c:                                        |[014a8c] com.desaysv.launcher.card.T1hMediaCard.getMInterconnStatusObserver:()Landroidx/lifecycle/Observer;
+014a9c: 5410 8500                              |0000: iget-object v0, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.mInterconnStatusObserver$delegate:Lkotlin/Lazy; // field@0085
+014aa0: 7210 c108 0000                         |0002: invoke-interface {v0}, Lkotlin/Lazy;.getValue:()Ljava/lang/Object; // method@08c1
+014aa6: 0c00                                   |0005: move-result-object v0
+014aa8: 1f00 7000                              |0006: check-cast v0, Landroidx/lifecycle/Observer; // type@0070
+014aac: 1100                                   |0008: return-object v0
+      catches       : (none)
+      positions     :
+        0x0000 line=88
+      locals        :
+        0x0000 - 0x0009 reg=1 this Lcom/desaysv/launcher/card/T1hMediaCard;
+
+    #6              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'onTouchListener$lambda$15'
+      type          : '(Lcom/desaysv/launcher/card/T1hMediaCard;Landroid/view/View;Landroid/view/MotionEvent;)Z'
+      access        : 0x001a (PRIVATE STATIC FINAL)
+      code          -
+      registers     : 7
+      ins           : 3
+      outs          : 2
+      insns size    : 120 16-bit code units
+014b84:                                        |[014b84] com.desaysv.launcher.card.T1hMediaCard.onTouchListener$lambda$15:(Lcom/desaysv/launcher/card/T1hMediaCard;Landroid/view/View;Landroid/view/MotionEvent;)Z
+014b94: 1a00 b10a                              |0000: const-string v0, "this$0" // string@0ab1
+014b98: 7120 ce08 0400                         |0002: invoke-static {v4, v0}, Lkotlin/jvm/internal/Intrinsics;.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V // method@08ce
+014b9e: 6e10 5903 0400                         |0005: invoke-virtual {v4}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMViewModel:()Lcom/desay/launcher/libbase/viewmodel/base/BaseViewModel; // method@0359
+014ba4: 0c00                                   |0008: move-result-object v0
+014ba6: 1f00 ae01                              |0009: check-cast v0, Lcom/desaysv/launcher/viewmodel/MediaViewModel; // type@01ae
+014baa: 1211                                   |000b: const/4 v1, #int 1 // #1
+014bac: 1202                                   |000c: const/4 v2, #int 0 // #0
+014bae: 3800 0a00                              |000d: if-eqz v0, 0017 // +000a
+014bb2: 6e10 3608 0000                         |000f: invoke-virtual {v0}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.isAAOrCarplayType:()Z // method@0836
+014bb8: 0a00                                   |0012: move-result v0
+014bba: 3900 0400                              |0013: if-nez v0, 0017 // +0004
+014bbe: 0110                                   |0015: move v0, v1
+014bc0: 2802                                   |0016: goto 0018 // +0002
+014bc2: 0120                                   |0017: move v0, v2
+014bc4: 3900 5f00                              |0018: if-nez v0, 0077 // +005f
+014bc8: 7110 8f08 0100                         |001a: invoke-static {v1}, Ljava/lang/Boolean;.valueOf:(Z)Ljava/lang/Boolean; // method@088f
+014bce: 0c00                                   |001d: move-result-object v0
+014bd0: 6203 7a01                              |001e: sget-object v3, Lcom/desaysv/launcher/card/base/CardManager;.Companion:Lcom/desaysv/launcher/card/base/CardManager$Companion; // field@017a
+014bd4: 6e10 b606 0300                         |0020: invoke-virtual {v3}, Lcom/desaysv/launcher/card/base/CardManager$Companion;.getSIntance:()Lcom/desaysv/launcher/card/base/CardManager; // method@06b6
+014bda: 0c03                                   |0023: move-result-object v3
+014bdc: 6e10 b706 0300                         |0024: invoke-virtual {v3}, Lcom/desaysv/launcher/card/base/CardManager;.getMIsCardEditing:()Landroidx/databinding/ObservableField; // method@06b7
+014be2: 0c03                                   |0027: move-result-object v3
+014be4: 6e10 d700 0300                         |0028: invoke-virtual {v3}, Landroidx/databinding/ObservableField;.get:()Ljava/lang/Object; // method@00d7
+014bea: 0c03                                   |002b: move-result-object v3
+014bec: 7120 ca08 3000                         |002c: invoke-static {v0, v3}, Lkotlin/jvm/internal/Intrinsics;.areEqual:(Ljava/lang/Object;Ljava/lang/Object;)Z // method@08ca
+014bf2: 0a00                                   |002f: move-result v0
+014bf4: 3800 0300                              |0030: if-eqz v0, 0033 // +0003
+014bf8: 2845                                   |0032: goto 0077 // +0045
+014bfa: 6e10 6300 0600                         |0033: invoke-virtual {v6}, Landroid/view/MotionEvent;.getAction:()I // method@0063
+014c00: 0a00                                   |0036: move-result v0
+014c02: 3310 1200                              |0037: if-ne v0, v1, 0049 // +0012
+014c06: 6e10 5b03 0400                         |0039: invoke-virtual {v4}, Lcom/desaysv/launcher/card/T1hMediaCard;.getTAG:()Ljava/lang/String; // method@035b
+014c0c: 0c00                                   |003c: move-result-object v0
+014c0e: 0000                                   |003d: nop // spacer
+014c10: 1a01 dd08                              |003e: const-string v1, "onTouch button ---> ACTION_UP" // string@08dd
+014c14: 7120 2001 1000                         |0040: invoke-static {v0, v1}, Lcom/desay/launcher/libbase/utils/Log;.d:(Ljava/lang/String;Ljava/lang/String;)V // method@0120
+014c1a: 7110 cb08 0500                         |0043: invoke-static {v5}, Lkotlin/jvm/internal/Intrinsics;.checkNotNull:(Ljava/lang/Object;)V // method@08cb
+014c20: 6e20 7503 5400                         |0046: invoke-virtual {v4, v5}, Lcom/desaysv/launcher/card/T1hMediaCard;.viewKeyUp:(Landroid/view/View;)V // method@0375
+014c26: 6e10 6300 0600                         |0049: invoke-virtual {v6}, Landroid/view/MotionEvent;.getAction:()I // method@0063
+014c2c: 0a00                                   |004c: move-result v0
+014c2e: 1231                                   |004d: const/4 v1, #int 3 // #3
+014c30: 3310 1200                              |004e: if-ne v0, v1, 0060 // +0012
+014c34: 6e10 5b03 0400                         |0050: invoke-virtual {v4}, Lcom/desaysv/launcher/card/T1hMediaCard;.getTAG:()Ljava/lang/String; // method@035b
+014c3a: 0c00                                   |0053: move-result-object v0
+014c3c: 0000                                   |0054: nop // spacer
+014c3e: 1a01 db08                              |0055: const-string v1, "onTouch button ---> ACTION_CANCEL" // string@08db
+014c42: 7120 2001 1000                         |0057: invoke-static {v0, v1}, Lcom/desay/launcher/libbase/utils/Log;.d:(Ljava/lang/String;Ljava/lang/String;)V // method@0120
+014c48: 7110 cb08 0500                         |005a: invoke-static {v5}, Lkotlin/jvm/internal/Intrinsics;.checkNotNull:(Ljava/lang/Object;)V // method@08cb
+014c4e: 6e20 7503 5400                         |005d: invoke-virtual {v4, v5}, Lcom/desaysv/launcher/card/T1hMediaCard;.viewKeyUp:(Landroid/view/View;)V // method@0375
+014c54: 6e10 6300 0600                         |0060: invoke-virtual {v6}, Landroid/view/MotionEvent;.getAction:()I // method@0063
+014c5a: 0a00                                   |0063: move-result v0
+014c5c: 3900 1200                              |0064: if-nez v0, 0076 // +0012
+014c60: 6e10 5b03 0400                         |0066: invoke-virtual {v4}, Lcom/desaysv/launcher/card/T1hMediaCard;.getTAG:()Ljava/lang/String; // method@035b
+014c66: 0c00                                   |0069: move-result-object v0
+014c68: 0000                                   |006a: nop // spacer
+014c6a: 1a01 dc08                              |006b: const-string v1, "onTouch button ---> ACTION_DOWN" // string@08dc
+014c6e: 7120 2001 1000                         |006d: invoke-static {v0, v1}, Lcom/desay/launcher/libbase/utils/Log;.d:(Ljava/lang/String;Ljava/lang/String;)V // method@0120
+014c74: 7110 cb08 0500                         |0070: invoke-static {v5}, Lkotlin/jvm/internal/Intrinsics;.checkNotNull:(Ljava/lang/Object;)V // method@08cb
+014c7a: 6e20 7403 5400                         |0073: invoke-virtual {v4, v5}, Lcom/desaysv/launcher/card/T1hMediaCard;.viewKeyDown:(Landroid/view/View;)V // method@0374
+014c80: 0f02                                   |0076: return v2
+014c82: 0f02                                   |0077: return v2
+      catches       : (none)
+      positions     :
+        0x0005 line=367
+        0x0033 line=370
+        0x0039 line=372
+        0x003d line=373
+        0x003e line=371
+        0x0043 line=375
+        0x0049 line=377
+        0x0050 line=379
+        0x0054 line=380
+        0x0055 line=378
+        0x005a line=382
+        0x0060 line=384
+        0x0066 line=386
+        0x006a line=387
+        0x006b line=385
+        0x0070 line=389
+        0x0076 line=391
+        0x0077 line=368
+      locals        :
+        0x0000 - 0x0078 reg=4 this$0 Lcom/desaysv/launcher/card/T1hMediaCard;
+        0x0000 - 0x0078 reg=5 v Landroid/view/View;
+        0x0000 - 0x0078 reg=6 event Landroid/view/MotionEvent;
+
+  Virtual methods   -
+    #0              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'changeTheme'
+      type          : '(I)V'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 15
+      ins           : 2
+      outs          : 3
+      insns size    : 862 16-bit code units
+014e6c:                                        |[014e6c] com.desaysv.launcher.card.T1hMediaCard.changeTheme:(I)V
+014e7c: 6e20 6c03 ed00                         |0000: invoke-virtual {v13, v14}, Lcom/desaysv/launcher/card/T1hMediaCard;.setCardShadow:(I)V // method@036c
+014e82: 6e10 5a03 0d00                         |0003: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+014e88: 0c00                                   |0006: move-result-object v0
+014e8a: 1f00 7901                              |0007: check-cast v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+014e8e: 1201                                   |0009: const/4 v1, #int 0 // #0
+014e90: 3800 0b00                              |000a: if-eqz v0, 0015 // +000b
+014e94: 5400 d701                              |000c: iget-object v0, v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.tvTitle:Landroid/widget/TextView; // field@01d7
+014e98: 3800 0700                              |000e: if-eqz v0, 0015 // +0007
+014e9c: 6e10 b900 0000                         |0010: invoke-virtual {v0}, Landroid/widget/TextView;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams; // method@00b9
+014ea2: 0c00                                   |0013: move-result-object v0
+014ea4: 2802                                   |0014: goto 0016 // +0002
+014ea6: 0710                                   |0015: move-object v0, v1
+014ea8: 1a02 5608                              |0016: const-string v2, "null cannot be cast to non-null type androidx.constraintlayout.widget.ConstraintLayout.LayoutParams" // string@0856
+014eac: 7120 cc08 2000                         |0018: invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;.checkNotNull:(Ljava/lang/Object;Ljava/lang/String;)V // method@08cc
+014eb2: 1f00 6100                              |001b: check-cast v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams; // type@0061
+014eb6: 1203                                   |001d: const/4 v3, #int 0 // #0
+014eb8: 1504 b041                              |001e: const/high16 v4, #int 1102053376 // #41b0
+014ebc: 1505 a041                              |0020: const/high16 v5, #int 1101004800 // #41a0
+014ec0: 1506 5042                              |0022: const/high16 v6, #int 1112539136 // #4250
+014ec4: 1507 c041                              |0024: const/high16 v7, #int 1103101952 // #41c0
+014ec8: 2b0e be02 0000                         |0026: packed-switch v14, 000002e4 // +000002be
+014ece: 7110 1f01 0700                         |0029: invoke-static {v7}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+014ed4: 0a08                                   |002c: move-result v8
+014ed6: 280f                                   |002d: goto 003c // +000f
+014ed8: 7110 1f01 0400                         |002e: invoke-static {v4}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+014ede: 0a08                                   |0031: move-result v8
+014ee0: 280a                                   |0032: goto 003c // +000a
+014ee2: 7110 1f01 0500                         |0033: invoke-static {v5}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+014ee8: 0a08                                   |0036: move-result v8
+014eea: 2805                                   |0037: goto 003c // +0005
+014eec: 7110 1f01 0600                         |0038: invoke-static {v6}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+014ef2: 0a08                                   |003b: move-result v8
+014ef4: 6e20 ca00 8000                         |003c: invoke-virtual {v0, v8}, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;.setMarginStart:(I)V // method@00ca
+014efa: 1508 2042                              |003f: const/high16 v8, #int 1109393408 // #4220
+014efe: 2b0e af02 0000                         |0041: packed-switch v14, 000002f0 // +000002af
+014f04: 7110 1f01 0700                         |0044: invoke-static {v7}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+014f0a: 0a09                                   |0047: move-result v9
+014f0c: 280c                                   |0048: goto 0054 // +000c
+014f0e: 1509 6041                              |0049: const/high16 v9, #int 1096810496 // #4160
+014f12: 7110 1f01 0900                         |004b: invoke-static {v9}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+014f18: 0a09                                   |004e: move-result v9
+014f1a: 2805                                   |004f: goto 0054 // +0005
+014f1c: 7110 1f01 0800                         |0050: invoke-static {v8}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+014f22: 0a09                                   |0053: move-result v9
+014f24: 5909 1100                              |0054: iput v9, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;.topMargin:I // field@0011
+014f28: 12e9                                   |0056: const/4 v9, #int -2 // #fe
+014f2a: 126a                                   |0057: const/4 v10, #int 6 // #6
+014f2c: 33ae 0900                              |0058: if-ne v14, v10, 0061 // +0009
+014f30: 150b 6c43                              |005a: const/high16 v11, #int 1131151360 // #436c
+014f34: 7110 1f01 0b00                         |005c: invoke-static {v11}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+014f3a: 0a0b                                   |005f: move-result v11
+014f3c: 2802                                   |0060: goto 0062 // +0002
+014f3e: 019b                                   |0061: move v11, v9
+014f40: 590b 1200                              |0062: iput v11, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;.width:I // field@0012
+014f44: 6e10 5a03 0d00                         |0064: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+014f4a: 0c0b                                   |0067: move-result-object v11
+014f4c: 1f0b 7901                              |0068: check-cast v11, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+014f50: 380b 0500                              |006a: if-eqz v11, 006f // +0005
+014f54: 54bb d701                              |006c: iget-object v11, v11, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.tvTitle:Landroid/widget/TextView; // field@01d7
+014f58: 2802                                   |006e: goto 0070 // +0002
+014f5a: 071b                                   |006f: move-object v11, v1
+014f5c: 390b 0300                              |0070: if-nez v11, 0073 // +0003
+014f60: 2807                                   |0072: goto 0079 // +0007
+014f62: 070c                                   |0073: move-object v12, v0
+014f64: 1f0c 5100                              |0074: check-cast v12, Landroid/view/ViewGroup$LayoutParams; // type@0051
+014f68: 6e20 bf00 cb00                         |0076: invoke-virtual {v11, v12}, Landroid/widget/TextView;.setLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)V // method@00bf
+014f6e: 0000                                   |0079: nop // spacer
+014f70: 0000                                   |007a: nop // spacer
+014f72: 6e10 5a03 0d00                         |007b: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+014f78: 0c00                                   |007e: move-result-object v0
+014f7a: 1f00 7901                              |007f: check-cast v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+014f7e: 3800 0b00                              |0081: if-eqz v0, 008c // +000b
+014f82: 5400 d501                              |0083: iget-object v0, v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.singerTv:Landroid/widget/TextView; // field@01d5
+014f86: 3800 0700                              |0085: if-eqz v0, 008c // +0007
+014f8a: 6e10 b900 0000                         |0087: invoke-virtual {v0}, Landroid/widget/TextView;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams; // method@00b9
+014f90: 0c00                                   |008a: move-result-object v0
+014f92: 2802                                   |008b: goto 008d // +0002
+014f94: 0710                                   |008c: move-object v0, v1
+014f96: 7120 cc08 2000                         |008d: invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;.checkNotNull:(Ljava/lang/Object;Ljava/lang/String;)V // method@08cc
+014f9c: 1f00 6100                              |0090: check-cast v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams; // type@0061
+014fa0: 1203                                   |0092: const/4 v3, #int 0 // #0
+014fa2: 33ae 0800                              |0093: if-ne v14, v10, 009b // +0008
+014fa6: 1509 a042                              |0095: const/high16 v9, #int 1117782016 // #42a0
+014faa: 7110 1f01 0900                         |0097: invoke-static {v9}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+014fb0: 0a09                                   |009a: move-result v9
+014fb2: 5909 1200                              |009b: iput v9, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;.width:I // field@0012
+014fb6: 1209                                   |009d: const/4 v9, #int 0 // #0
+014fb8: 33ae 0900                              |009e: if-ne v14, v10, 00a7 // +0009
+014fbc: 150b 8c43                              |00a0: const/high16 v11, #int 1133248512 // #438c
+014fc0: 7110 1f01 0b00                         |00a2: invoke-static {v11}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+014fc6: 0a0b                                   |00a5: move-result v11
+014fc8: 2802                                   |00a6: goto 00a8 // +0002
+014fca: 019b                                   |00a7: move v11, v9
+014fcc: 590b 0f00                              |00a8: iput v11, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;.leftMargin:I // field@000f
+014fd0: 2b0e 4e02 0000                         |00aa: packed-switch v14, 000002f8 // +0000024e
+014fd6: 150b 8040                              |00ad: const/high16 v11, #int 1082130432 // #4080
+014fda: 2803                                   |00af: goto 00b2 // +0003
+014fdc: 150b 10c2                              |00b0: const/high16 v11, #int -1039138816 // #c210
+014fe0: 7110 1f01 0b00                         |00b2: invoke-static {v11}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+014fe6: 0a0b                                   |00b5: move-result v11
+014fe8: 2802                                   |00b6: goto 00b8 // +0002
+014fea: 019b                                   |00b7: move v11, v9
+014fec: 590b 1100                              |00b8: iput v11, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;.topMargin:I // field@0011
+014ff0: 33ae 0400                              |00ba: if-ne v14, v10, 00be // +0004
+014ff4: 019a                                   |00bc: move v10, v9
+014ff6: 2804                                   |00bd: goto 00c1 // +0004
+014ff8: 140a 0203 0a7f                         |00be: const v10, #float 1.83449e+38 // #7f0a0302
+014ffe: 590a 1000                              |00c1: iput v10, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;.leftToLeft:I // field@0010
+015002: 6e10 5a03 0d00                         |00c3: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+015008: 0c0a                                   |00c6: move-result-object v10
+01500a: 1f0a 7901                              |00c7: check-cast v10, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+01500e: 380a 0500                              |00c9: if-eqz v10, 00ce // +0005
+015012: 54aa d501                              |00cb: iget-object v10, v10, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.singerTv:Landroid/widget/TextView; // field@01d5
+015016: 2802                                   |00cd: goto 00cf // +0002
+015018: 071a                                   |00ce: move-object v10, v1
+01501a: 390a 0300                              |00cf: if-nez v10, 00d2 // +0003
+01501e: 2807                                   |00d1: goto 00d8 // +0007
+015020: 070b                                   |00d2: move-object v11, v0
+015022: 1f0b 5100                              |00d3: check-cast v11, Landroid/view/ViewGroup$LayoutParams; // type@0051
+015026: 6e20 bf00 ba00                         |00d5: invoke-virtual {v10, v11}, Landroid/widget/TextView;.setLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)V // method@00bf
+01502c: 0000                                   |00d8: nop // spacer
+01502e: 0000                                   |00d9: nop // spacer
+015030: 6e10 5a03 0d00                         |00da: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+015036: 0c00                                   |00dd: move-result-object v0
+015038: 1f00 7901                              |00de: check-cast v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+01503c: 3800 0b00                              |00e0: if-eqz v0, 00eb // +000b
+015040: 5400 d601                              |00e2: iget-object v0, v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.tvRadio:Landroid/widget/TextView; // field@01d6
+015044: 3800 0700                              |00e4: if-eqz v0, 00eb // +0007
+015048: 6e10 b900 0000                         |00e6: invoke-virtual {v0}, Landroid/widget/TextView;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams; // method@00b9
+01504e: 0c00                                   |00e9: move-result-object v0
+015050: 2802                                   |00ea: goto 00ec // +0002
+015052: 0710                                   |00eb: move-object v0, v1
+015054: 7120 cc08 2000                         |00ec: invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;.checkNotNull:(Ljava/lang/Object;Ljava/lang/String;)V // method@08cc
+01505a: 1f00 6100                              |00ef: check-cast v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams; // type@0061
+01505e: 1203                                   |00f1: const/4 v3, #int 0 // #0
+015060: 2b0e 0e02 0000                         |00f2: packed-switch v14, 00000300 // +0000020e
+015066: 7110 1f01 0700                         |00f5: invoke-static {v7}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+01506c: 0a0a                                   |00f8: move-result v10
+01506e: 280f                                   |00f9: goto 0108 // +000f
+015070: 7110 1f01 0400                         |00fa: invoke-static {v4}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+015076: 0a0a                                   |00fd: move-result v10
+015078: 280a                                   |00fe: goto 0108 // +000a
+01507a: 7110 1f01 0500                         |00ff: invoke-static {v5}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+015080: 0a0a                                   |0102: move-result v10
+015082: 2805                                   |0103: goto 0108 // +0005
+015084: 7110 1f01 0600                         |0104: invoke-static {v6}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+01508a: 0a0a                                   |0107: move-result v10
+01508c: 6e20 ca00 a000                         |0108: invoke-virtual {v0, v10}, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;.setMarginStart:(I)V // method@00ca
+015092: 150a 4041                              |010b: const/high16 v10, #int 1094713344 // #4140
+015096: 2b0e ff01 0000                         |010d: packed-switch v14, 0000030c // +000001ff
+01509c: 7110 1f01 0700                         |0110: invoke-static {v7}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+0150a2: 0a08                                   |0113: move-result v8
+0150a4: 280a                                   |0114: goto 011e // +000a
+0150a6: 7110 1f01 0a00                         |0115: invoke-static {v10}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+0150ac: 0a08                                   |0118: move-result v8
+0150ae: 2805                                   |0119: goto 011e // +0005
+0150b0: 7110 1f01 0800                         |011a: invoke-static {v8}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+0150b6: 0a08                                   |011d: move-result v8
+0150b8: 5908 1100                              |011e: iput v8, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;.topMargin:I // field@0011
+0150bc: 6e10 5a03 0d00                         |0120: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+0150c2: 0c08                                   |0123: move-result-object v8
+0150c4: 1f08 7901                              |0124: check-cast v8, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+0150c8: 3808 0500                              |0126: if-eqz v8, 012b // +0005
+0150cc: 5488 d601                              |0128: iget-object v8, v8, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.tvRadio:Landroid/widget/TextView; // field@01d6
+0150d0: 2802                                   |012a: goto 012c // +0002
+0150d2: 0718                                   |012b: move-object v8, v1
+0150d4: 3908 0300                              |012c: if-nez v8, 012f // +0003
+0150d8: 2807                                   |012e: goto 0135 // +0007
+0150da: 070b                                   |012f: move-object v11, v0
+0150dc: 1f0b 5100                              |0130: check-cast v11, Landroid/view/ViewGroup$LayoutParams; // type@0051
+0150e0: 6e20 bf00 b800                         |0132: invoke-virtual {v8, v11}, Landroid/widget/TextView;.setLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)V // method@00bf
+0150e6: 0000                                   |0135: nop // spacer
+0150e8: 0000                                   |0136: nop // spacer
+0150ea: 6e10 5a03 0d00                         |0137: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+0150f0: 0c00                                   |013a: move-result-object v0
+0150f2: 1f00 7901                              |013b: check-cast v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+0150f6: 3800 0b00                              |013d: if-eqz v0, 0148 // +000b
+0150fa: 5400 cf01                              |013f: iget-object v0, v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.ivAlbum:Landroid/widget/ImageView; // field@01cf
+0150fe: 3800 0700                              |0141: if-eqz v0, 0148 // +0007
+015102: 6e10 b000 0000                         |0143: invoke-virtual {v0}, Landroid/widget/ImageView;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams; // method@00b0
+015108: 0c00                                   |0146: move-result-object v0
+01510a: 2802                                   |0147: goto 0149 // +0002
+01510c: 0710                                   |0148: move-object v0, v1
+01510e: 7120 cc08 2000                         |0149: invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;.checkNotNull:(Ljava/lang/Object;Ljava/lang/String;)V // method@08cc
+015114: 1f00 6100                              |014c: check-cast v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams; // type@0061
+015118: 1203                                   |014e: const/4 v3, #int 0 // #0
+01511a: 2b0e c501 0000                         |014f: packed-switch v14, 00000314 // +000001c5
+015120: 1508 e042                              |0152: const/high16 v8, #int 1121976320 // #42e0
+015124: 2811                                   |0154: goto 0165 // +0011
+015126: 1508 b842                              |0155: const/high16 v8, #int 1119354880 // #42b8
+01512a: 7110 1f01 0800                         |0157: invoke-static {v8}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+015130: 0a08                                   |015a: move-result v8
+015132: 280e                                   |015b: goto 0169 // +000e
+015134: 1508 0443                              |015c: const/high16 v8, #int 1124335616 // #4304
+015138: 7110 1f01 0800                         |015e: invoke-static {v8}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+01513e: 0a08                                   |0161: move-result v8
+015140: 2807                                   |0162: goto 0169 // +0007
+015142: 1508 c042                              |0163: const/high16 v8, #int 1119879168 // #42c0
+015146: 7110 1f01 0800                         |0165: invoke-static {v8}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+01514c: 0a08                                   |0168: move-result v8
+01514e: 5908 1200                              |0169: iput v8, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;.width:I // field@0012
+015152: 5208 1200                              |016b: iget v8, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;.width:I // field@0012
+015156: 5908 0e00                              |016d: iput v8, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;.height:I // field@000e
+01515a: 2b0e b101 0000                         |016f: packed-switch v14, 00000320 // +000001b1
+015160: 1508 0842                              |0172: const/high16 v8, #int 1107820544 // #4208
+015164: 7110 1f01 0800                         |0174: invoke-static {v8}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+01516a: 0a09                                   |0177: move-result v9
+01516c: 280b                                   |0178: goto 0183 // +000b
+01516e: 1508 2442                              |0179: const/high16 v8, #int 1109655552 // #4224
+015172: 28f9                                   |017b: goto 0174 // -0007
+015174: 2807                                   |017c: goto 0183 // +0007
+015176: 1508 9841                              |017d: const/high16 v8, #int 1100480512 // #4198
+01517a: 7110 1f01 0800                         |017f: invoke-static {v8}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+015180: 0a09                                   |0182: move-result v9
+015182: 5909 1100                              |0183: iput v9, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;.topMargin:I // field@0011
+015186: 2b0e a701 0000                         |0185: packed-switch v14, 0000032c // +000001a7
+01518c: 1505 4042                              |0188: const/high16 v5, #int 1111490560 // #4240
+015190: 280f                                   |018a: goto 0199 // +000f
+015192: 1505 7c42                              |018b: const/high16 v5, #int 1115422720 // #427c
+015196: 7110 1f01 0500                         |018d: invoke-static {v5}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+01519c: 0a05                                   |0190: move-result v5
+01519e: 280c                                   |0191: goto 019d // +000c
+0151a0: 7110 1f01 0500                         |0192: invoke-static {v5}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+0151a6: 0a05                                   |0195: move-result v5
+0151a8: 2807                                   |0196: goto 019d // +0007
+0151aa: 1505 9442                              |0197: const/high16 v5, #int 1116995584 // #4294
+0151ae: 7110 1f01 0500                         |0199: invoke-static {v5}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+0151b4: 0a05                                   |019c: move-result v5
+0151b6: 6e20 c900 5000                         |019d: invoke-virtual {v0, v5}, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;.setMarginEnd:(I)V // method@00c9
+0151bc: 6e10 5a03 0d00                         |01a0: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+0151c2: 0c05                                   |01a3: move-result-object v5
+0151c4: 1f05 7901                              |01a4: check-cast v5, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+0151c8: 3805 0500                              |01a6: if-eqz v5, 01ab // +0005
+0151cc: 5455 cf01                              |01a8: iget-object v5, v5, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.ivAlbum:Landroid/widget/ImageView; // field@01cf
+0151d0: 2802                                   |01aa: goto 01ac // +0002
+0151d2: 0715                                   |01ab: move-object v5, v1
+0151d4: 3905 0300                              |01ac: if-nez v5, 01af // +0003
+0151d8: 2807                                   |01ae: goto 01b5 // +0007
+0151da: 0708                                   |01af: move-object v8, v0
+0151dc: 1f08 5100                              |01b0: check-cast v8, Landroid/view/ViewGroup$LayoutParams; // type@0051
+0151e0: 6e20 b400 8500                         |01b2: invoke-virtual {v5, v8}, Landroid/widget/ImageView;.setLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)V // method@00b4
+0151e6: 0000                                   |01b5: nop // spacer
+0151e8: 0000                                   |01b6: nop // spacer
+0151ea: 6e10 5a03 0d00                         |01b7: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+0151f0: 0c00                                   |01ba: move-result-object v0
+0151f2: 1f00 7901                              |01bb: check-cast v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+0151f6: 3800 0b00                              |01bd: if-eqz v0, 01c8 // +000b
+0151fa: 5400 d201                              |01bf: iget-object v0, v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.ivPre:Landroid/widget/ImageView; // field@01d2
+0151fe: 3800 0700                              |01c1: if-eqz v0, 01c8 // +0007
+015202: 6e10 b000 0000                         |01c3: invoke-virtual {v0}, Landroid/widget/ImageView;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams; // method@00b0
+015208: 0c00                                   |01c6: move-result-object v0
+01520a: 2802                                   |01c7: goto 01c9 // +0002
+01520c: 0710                                   |01c8: move-object v0, v1
+01520e: 7120 cc08 2000                         |01c9: invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;.checkNotNull:(Ljava/lang/Object;Ljava/lang/String;)V // method@08cc
+015214: 1f00 6100                              |01cc: check-cast v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams; // type@0061
+015218: 1203                                   |01ce: const/4 v3, #int 0 // #0
+01521a: 2b0e 6901 0000                         |01cf: packed-switch v14, 00000338 // +00000169
+015220: 7110 1f01 0700                         |01d2: invoke-static {v7}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+015226: 0a04                                   |01d5: move-result v4
+015228: 2811                                   |01d6: goto 01e7 // +0011
+01522a: 7110 1f01 0400                         |01d7: invoke-static {v4}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+015230: 0a04                                   |01da: move-result v4
+015232: 280c                                   |01db: goto 01e7 // +000c
+015234: 1504 0041                              |01dc: const/high16 v4, #int 1090519040 // #4100
+015238: 7110 1f01 0400                         |01de: invoke-static {v4}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+01523e: 0a04                                   |01e1: move-result v4
+015240: 2805                                   |01e2: goto 01e7 // +0005
+015242: 7110 1f01 0600                         |01e3: invoke-static {v6}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+015248: 0a04                                   |01e6: move-result v4
+01524a: 6e20 ca00 4000                         |01e7: invoke-virtual {v0, v4}, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;.setMarginStart:(I)V // method@00ca
+015250: 2b0e 5a01 0000                         |01ea: packed-switch v14, 00000344 // +0000015a
+015256: 7110 1f01 0700                         |01ed: invoke-static {v7}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+01525c: 0a04                                   |01f0: move-result v4
+01525e: 280c                                   |01f1: goto 01fd // +000c
+015260: 1504 6042                              |01f2: const/high16 v4, #int 1113587712 // #4260
+015264: 7110 1f01 0400                         |01f4: invoke-static {v4}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+01526a: 0a04                                   |01f7: move-result v4
+01526c: 2805                                   |01f8: goto 01fd // +0005
+01526e: 7110 1f01 0a00                         |01f9: invoke-static {v10}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+015274: 0a04                                   |01fc: move-result v4
+015276: 5904 0d00                              |01fd: iput v4, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;.bottomMargin:I // field@000d
+01527a: 6e10 5a03 0d00                         |01ff: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+015280: 0c04                                   |0202: move-result-object v4
+015282: 1f04 7901                              |0203: check-cast v4, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+015286: 3804 0500                              |0205: if-eqz v4, 020a // +0005
+01528a: 5444 d201                              |0207: iget-object v4, v4, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.ivPre:Landroid/widget/ImageView; // field@01d2
+01528e: 2802                                   |0209: goto 020b // +0002
+015290: 0714                                   |020a: move-object v4, v1
+015292: 3904 0300                              |020b: if-nez v4, 020e // +0003
+015296: 2807                                   |020d: goto 0214 // +0007
+015298: 0705                                   |020e: move-object v5, v0
+01529a: 1f05 5100                              |020f: check-cast v5, Landroid/view/ViewGroup$LayoutParams; // type@0051
+01529e: 6e20 b400 5400                         |0211: invoke-virtual {v4, v5}, Landroid/widget/ImageView;.setLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)V // method@00b4
+0152a4: 0000                                   |0214: nop // spacer
+0152a6: 0000                                   |0215: nop // spacer
+0152a8: 6e10 5a03 0d00                         |0216: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+0152ae: 0c00                                   |0219: move-result-object v0
+0152b0: 1f00 7901                              |021a: check-cast v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+0152b4: 3800 0b00                              |021c: if-eqz v0, 0227 // +000b
+0152b8: 5400 d301                              |021e: iget-object v0, v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.ivSource:Landroid/widget/ImageView; // field@01d3
+0152bc: 3800 0700                              |0220: if-eqz v0, 0227 // +0007
+0152c0: 6e10 b000 0000                         |0222: invoke-virtual {v0}, Landroid/widget/ImageView;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams; // method@00b0
+0152c6: 0c00                                   |0225: move-result-object v0
+0152c8: 2802                                   |0226: goto 0228 // +0002
+0152ca: 0710                                   |0227: move-object v0, v1
+0152cc: 7120 cc08 2000                         |0228: invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;.checkNotNull:(Ljava/lang/Object;Ljava/lang/String;)V // method@08cc
+0152d2: 1f00 6100                              |022b: check-cast v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams; // type@0061
+0152d6: 1202                                   |022d: const/4 v2, #int 0 // #0
+0152d8: 1503 18c2                              |022e: const/high16 v3, #int -1038614528 // #c218
+0152dc: 2b0e 1c01 0000                         |0230: packed-switch v14, 0000034c // +0000011c
+0152e2: 7110 1f01 0300                         |0233: invoke-static {v3}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+0152e8: 0a04                                   |0236: move-result v4
+0152ea: 2807                                   |0237: goto 023e // +0007
+0152ec: 1504 a0c1                              |0238: const/high16 v4, #int -1046478848 // #c1a0
+0152f0: 7110 1f01 0400                         |023a: invoke-static {v4}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+0152f6: 0a04                                   |023d: move-result v4
+0152f8: 5904 0d00                              |023e: iput v4, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;.bottomMargin:I // field@000d
+0152fc: 1254                                   |0240: const/4 v4, #int 5 // #5
+0152fe: 334e 0400                              |0241: if-ne v14, v4, 0245 // +0004
+015302: 1503 f0c1                              |0243: const/high16 v3, #int -1041235968 // #c1f0
+015306: 7110 1f01 0300                         |0245: invoke-static {v3}, Lcom/desay/launcher/libbase/utils/DisplayUtil;.dp2px:(F)I // method@011f
+01530c: 0a03                                   |0248: move-result v3
+01530e: 6e20 c900 3000                         |0249: invoke-virtual {v0, v3}, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;.setMarginEnd:(I)V // method@00c9
+015314: 6e10 5a03 0d00                         |024c: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+01531a: 0c03                                   |024f: move-result-object v3
+01531c: 1f03 7901                              |0250: check-cast v3, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+015320: 3803 0400                              |0252: if-eqz v3, 0256 // +0004
+015324: 5431 d301                              |0254: iget-object v1, v3, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.ivSource:Landroid/widget/ImageView; // field@01d3
+015328: 3901 0300                              |0256: if-nez v1, 0259 // +0003
+01532c: 2807                                   |0258: goto 025f // +0007
+01532e: 0703                                   |0259: move-object v3, v0
+015330: 1f03 5100                              |025a: check-cast v3, Landroid/view/ViewGroup$LayoutParams; // type@0051
+015334: 6e20 b400 3100                         |025c: invoke-virtual {v1, v3}, Landroid/widget/ImageView;.setLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)V // method@00b4
+01533a: 0000                                   |025f: nop // spacer
+01533c: 0000                                   |0260: nop // spacer
+01533e: 6e10 5403 0d00                         |0261: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getContext:()Landroid/content/Context; // method@0354
+015344: 0c00                                   |0264: move-result-object v0
+015346: 2201 d401                              |0265: new-instance v1, Ljava/lang/StringBuilder; // type@01d4
+01534a: 7010 9f08 0100                         |0267: invoke-direct {v1}, Ljava/lang/StringBuilder;.<init>:()V // method@089f
+015350: 6202 9f01                              |026a: sget-object v2, Lcom/desaysv/launcher/constant/ThemeResConstant;.INSTANCE:Lcom/desaysv/launcher/constant/ThemeResConstant; // field@019f
+015354: 6e10 5303 0d00                         |026c: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getCardType:()Lcom/desaysv/launcher/card/base/ICard$CardType; // method@0353
+01535a: 0c03                                   |026f: move-result-object v3
+01535c: 6e20 d006 3200                         |0270: invoke-virtual {v2, v3}, Lcom/desaysv/launcher/constant/ThemeResConstant;.getCardBgResName:(Lcom/desaysv/launcher/card/base/ICard$CardType;)Ljava/lang/String; // method@06d0
+015362: 0c02                                   |0273: move-result-object v2
+015364: 6e20 a508 2100                         |0274: invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder; // method@08a5
+01536a: 0c01                                   |0277: move-result-object v1
+01536c: 6e20 a208 e100                         |0278: invoke-virtual {v1, v14}, Ljava/lang/StringBuilder;.append:(I)Ljava/lang/StringBuilder; // method@08a2
+015372: 0c01                                   |027b: move-result-object v1
+015374: 6e10 a708 0100                         |027c: invoke-virtual {v1}, Ljava/lang/StringBuilder;.toString:()Ljava/lang/String; // method@08a7
+01537a: 0c01                                   |027f: move-result-object v1
+01537c: 1a02 3908                              |0280: const-string v2, "mipmap" // string@0839
+015380: 7130 2101 1002                         |0282: invoke-static {v0, v1, v2}, Lcom/desay/launcher/libbase/utils/ViewUtil;.getResId:(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I // method@0121
+015386: 0a00                                   |0285: move-result v0
+015388: 6e10 5a03 0d00                         |0286: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+01538e: 0c01                                   |0289: move-result-object v1
+015390: 1f01 7901                              |028a: check-cast v1, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+015394: 3801 0900                              |028c: if-eqz v1, 0295 // +0009
+015398: 5411 d401                              |028e: iget-object v1, v1, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.mainCardLayout:Lcom/desaysv/svlibbasewidget/SVShadowLayout; // field@01d4
+01539c: 3801 0500                              |0290: if-eqz v1, 0295 // +0005
+0153a0: 6e20 8c08 0100                         |0292: invoke-virtual {v1, v0}, Lcom/desaysv/svlibbasewidget/SVShadowLayout;.setBackgroundResource:(I)V // method@088c
+0153a6: 2c0e bf00 0000                         |0295: sparse-switch v14, 00000354 // +000000bf
+0153ac: 6e10 5a03 0d00                         |0298: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+0153b2: 0c01                                   |029b: move-result-object v1
+0153b4: 1f01 7901                              |029c: check-cast v1, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+0153b8: 3801 3200                              |029e: if-eqz v1, 02d0 // +0032
+0153bc: 5411 d201                              |02a0: iget-object v1, v1, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.ivPre:Landroid/widget/ImageView; // field@01d2
+0153c0: 3801 2e00                              |02a2: if-eqz v1, 02d0 // +002e
+0153c4: 1402 b204 087f                         |02a4: const v2, #float 1.80799e+38 // #7f0804b2
+0153ca: 6e20 b300 2100                         |02a7: invoke-virtual {v1, v2}, Landroid/widget/ImageView;.setImageResource:(I)V // method@00b3
+0153d0: 2826                                   |02aa: goto 02d0 // +0026
+0153d2: 6e10 5a03 0d00                         |02ab: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+0153d8: 0c01                                   |02ae: move-result-object v1
+0153da: 1f01 7901                              |02af: check-cast v1, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+0153de: 3801 0c00                              |02b1: if-eqz v1, 02bd // +000c
+0153e2: 5411 d201                              |02b3: iget-object v1, v1, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.ivPre:Landroid/widget/ImageView; // field@01d2
+0153e6: 3801 0800                              |02b5: if-eqz v1, 02bd // +0008
+0153ea: 1402 b304 087f                         |02b7: const v2, #float 1.80799e+38 // #7f0804b3
+0153f0: 6e20 b300 2100                         |02ba: invoke-virtual {v1, v2}, Landroid/widget/ImageView;.setImageResource:(I)V // method@00b3
+0153f6: 6e10 5a03 0d00                         |02bd: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+0153fc: 0c01                                   |02c0: move-result-object v1
+0153fe: 1f01 7901                              |02c1: check-cast v1, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+015402: 3801 1f00                              |02c3: if-eqz v1, 02e2 // +001f
+015406: 5411 d001                              |02c5: iget-object v1, v1, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.ivNext:Landroid/widget/ImageView; // field@01d0
+01540a: 3801 1b00                              |02c7: if-eqz v1, 02e2 // +001b
+01540e: 1402 ad04 087f                         |02c9: const v2, #float 1.80799e+38 // #7f0804ad
+015414: 6e20 b300 2100                         |02cc: invoke-virtual {v1, v2}, Landroid/widget/ImageView;.setImageResource:(I)V // method@00b3
+01541a: 2813                                   |02cf: goto 02e2 // +0013
+01541c: 6e10 5a03 0d00                         |02d0: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+015422: 0c01                                   |02d3: move-result-object v1
+015424: 1f01 7901                              |02d4: check-cast v1, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+015428: 3801 0c00                              |02d6: if-eqz v1, 02e2 // +000c
+01542c: 5411 d001                              |02d8: iget-object v1, v1, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.ivNext:Landroid/widget/ImageView; // field@01d0
+015430: 3801 0800                              |02da: if-eqz v1, 02e2 // +0008
+015434: 1402 ac04 087f                         |02dc: const v2, #float 1.80799e+38 // #7f0804ac
+01543a: 6e20 b300 2100                         |02df: invoke-virtual {v1, v2}, Landroid/widget/ImageView;.setImageResource:(I)V // method@00b3
+015440: 0e00                                   |02e2: return-void
+015442: 0000                                   |02e3: nop // spacer
+015444: 0001 0400 0300 0000 1200 0000 0300 ... |02e4: packed-switch-data (12 units)
+01545c: 0001 0200 0500 0000 0f00 0000 0800 ... |02f0: packed-switch-data (8 units)
+01546c: 0001 0200 0500 0000 0d00 0000 0600 ... |02f8: packed-switch-data (8 units)
+01547c: 0001 0400 0300 0000 1200 0000 0300 ... |0300: packed-switch-data (12 units)
+015494: 0001 0200 0500 0000 0d00 0000 0800 ... |030c: packed-switch-data (8 units)
+0154a4: 0001 0400 0300 0000 1400 0000 0300 ... |0314: packed-switch-data (12 units)
+0154bc: 0001 0400 0300 0000 0e00 0000 0300 ... |0320: packed-switch-data (12 units)
+0154d4: 0001 0400 0300 0000 1200 0000 0300 ... |032c: packed-switch-data (12 units)
+0154ec: 0001 0400 0300 0000 1400 0000 0300 ... |0338: packed-switch-data (12 units)
+015504: 0001 0200 0500 0000 0f00 0000 0800 ... |0344: packed-switch-data (8 units)
+015514: 0001 0200 0500 0000 0800 0000 0800 ... |034c: packed-switch-data (8 units)
+015524: 0002 0200 0300 0000 0600 0000 1600 ... |0354: sparse-switch-data (10 units)
+      catches       : (none)
+      positions     :
+        0x0000 line=215
+        0x0003 line=217
+        0x001e line=218
+        0x0029 line=220
+        0x0033 line=219
+        0x0038 line=218
+        0x003f line=221
+        0x0056 line=222
+        0x0064 line=223
+        0x0079 line=224
+        0x007a line=217
+        0x007b line=226
+        0x0093 line=227
+        0x009d line=228
+        0x00aa line=229
+        0x00ad line=230
+        0x00b7 line=229
+        0x00ba line=231
+        0x00c3 line=232
+        0x00d8 line=233
+        0x00d9 line=226
+        0x00da line=235
+        0x00f2 line=236
+        0x00f5 line=238
+        0x00ff line=237
+        0x0104 line=236
+        0x010b line=239
+        0x0110 line=240
+        0x0115 line=239
+        0x0120 line=241
+        0x0135 line=242
+        0x0136 line=235
+        0x0137 line=244
+        0x014f line=245
+        0x0152 line=247
+        0x0155 line=246
+        0x015c line=245
+        0x0163 line=247
+        0x0169 line=245
+        0x016b line=248
+        0x016f line=249
+        0x0172 line=251
+        0x017c line=250
+        0x017d line=249
+        0x0185 line=252
+        0x0188 line=254
+        0x018b line=253
+        0x0192 line=252
+        0x0197 line=254
+        0x019d line=252
+        0x01a0 line=255
+        0x01b5 line=256
+        0x01b6 line=244
+        0x01b7 line=258
+        0x01cf line=259
+        0x01d2 line=263
+        0x01d7 line=262
+        0x01dc line=261
+        0x01e3 line=260
+        0x01e7 line=259
+        0x01ea line=265
+        0x01ed line=266
+        0x01f9 line=265
+        0x01ff line=267
+        0x0214 line=268
+        0x0215 line=258
+        0x0216 line=270
+        0x022e line=271
+        0x0233 line=272
+        0x023e line=271
+        0x0240 line=273
+        0x024c line=274
+        0x025f line=275
+        0x0260 line=270
+        0x0261 line=277
+        0x0286 line=278
+        0x0295 line=283
+        0x0298 line=287
+        0x02ab line=284
+        0x02bd line=285
+        0x02d0 line=288
+        0x02e2 line=290
+      locals        :
+        0x001d - 0x007a reg=0 $this$changeTheme_u24lambda_u246 Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
+        0x001e - 0x007a reg=3 $i$a$-apply-T1hMediaCard$changeTheme$1 I
+        0x0092 - 0x00d9 reg=0 $this$changeTheme_u24lambda_u247 Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
+        0x0093 - 0x00d9 reg=3 $i$a$-apply-T1hMediaCard$changeTheme$2 I
+        0x00f1 - 0x0136 reg=0 $this$changeTheme_u24lambda_u248 Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
+        0x00f2 - 0x0136 reg=3 $i$a$-apply-T1hMediaCard$changeTheme$3 I
+        0x014e - 0x01b6 reg=0 $this$changeTheme_u24lambda_u249 Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
+        0x014f - 0x01b6 reg=3 $i$a$-apply-T1hMediaCard$changeTheme$4 I
+        0x01ce - 0x0215 reg=0 $this$changeTheme_u24lambda_u2410 Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
+        0x01cf - 0x0215 reg=3 $i$a$-apply-T1hMediaCard$changeTheme$5 I
+        0x022d - 0x0260 reg=0 $this$changeTheme_u24lambda_u2411 Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
+        0x022e - 0x0260 reg=2 $i$a$-apply-T1hMediaCard$changeTheme$6 I
+        0x0286 - 0x035e reg=0 bgResId I
+        0x0000 - 0x035e reg=13 this Lcom/desaysv/launcher/card/T1hMediaCard;
+        0x0000 - 0x035e reg=14 theme I
+
+    #1              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'deleteCard'
+      type          : '()V'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 3
+      ins           : 1
+      outs          : 2
+      insns size    : 10 16-bit code units
+015538:                                        |[015538] com.desaysv.launcher.card.T1hMediaCard.deleteCard:()V
+015548: 6200 6802                              |0000: sget-object v0, Lcom/desaysv/launcher/utils/CardUtils;.Companion:Lcom/desaysv/launcher/utils/CardUtils$Companion; // field@0268
+01554c: 6e10 5303 0200                         |0002: invoke-virtual {v2}, Lcom/desaysv/launcher/card/T1hMediaCard;.getCardType:()Lcom/desaysv/launcher/card/base/ICard$CardType; // method@0353
+015552: 0c01                                   |0005: move-result-object v1
+015554: 6e20 0b08 1000                         |0006: invoke-virtual {v0, v1}, Lcom/desaysv/launcher/utils/CardUtils$Companion;.deleteCard:(Lcom/desaysv/launcher/card/base/ICard$CardType;)V // method@080b
+01555a: 0e00                                   |0009: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=442
+        0x0009 line=443
+      locals        :
+        0x0000 - 0x000a reg=2 this Lcom/desaysv/launcher/card/T1hMediaCard;
+
+    #2              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'getCardType'
+      type          : '()Lcom/desaysv/launcher/card/base/ICard$CardType;'
+      access        : 0x0001 (PUBLIC)
+      code          -
+      registers     : 2
+      ins           : 1
+      outs          : 0
+      insns size    : 3 16-bit code units
+014c84:                                        |[014c84] com.desaysv.launcher.card.T1hMediaCard.getCardType:()Lcom/desaysv/launcher/card/base/ICard$CardType;
+014c94: 6200 8b01                              |0000: sget-object v0, Lcom/desaysv/launcher/card/base/ICard$CardType;.CARD_MEDIA:Lcom/desaysv/launcher/card/base/ICard$CardType; // field@018b
+014c98: 1100                                   |0002: return-object v0
+      catches       : (none)
+      positions     :
+        0x0000 line=116
+      locals        :
+        0x0000 - 0x0003 reg=1 this Lcom/desaysv/launcher/card/T1hMediaCard;
+
+    #3              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'getMBeforePlayStatus'
+      type          : '()I'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 2
+      ins           : 1
+      outs          : 0
+      insns size    : 3 16-bit code units
+014cb4:                                        |[014cb4] com.desaysv.launcher.card.T1hMediaCard.getMBeforePlayStatus:()I
+014cc4: 5210 8400                              |0000: iget v0, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.mBeforePlayStatus:I // field@0084
+014cc8: 0f00                                   |0002: return v0
+      catches       : (none)
+      positions     :
+        0x0000 line=313
+      locals        :
+        0x0000 - 0x0003 reg=1 this Lcom/desaysv/launcher/card/T1hMediaCard;
+
+    #4              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'getMMediaTypePropertyChangedCallback'
+      type          : '()Landroidx/databinding/Observable$OnPropertyChangedCallback;'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 2
+      ins           : 1
+      outs          : 0
+      insns size    : 3 16-bit code units
+014a74:                                        |[014a74] com.desaysv.launcher.card.T1hMediaCard.getMMediaTypePropertyChangedCallback:()Landroidx/databinding/Observable$OnPropertyChangedCallback;
+014a84: 5410 8800                              |0000: iget-object v0, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.mMediaTypePropertyChangedCallback:Landroidx/databinding/Observable$OnPropertyChangedCallback; // field@0088
+014a88: 1100                                   |0002: return-object v0
+      catches       : (none)
+      positions     :
+        0x0000 line=72
+      locals        :
+        0x0000 - 0x0003 reg=1 this Lcom/desaysv/launcher/card/T1hMediaCard;
+
+    #5              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'getViewModelClass'
+      type          : '()Ljava/lang/Class;'
+      access        : 0x0001 (PUBLIC)
+      code          -
+      registers     : 2
+      ins           : 1
+      outs          : 0
+      insns size    : 3 16-bit code units
+014ccc:                                        |[014ccc] com.desaysv.launcher.card.T1hMediaCard.getViewModelClass:()Ljava/lang/Class;
+014cdc: 1c00 ae01                              |0000: const-class v0, Lcom/desaysv/launcher/viewmodel/MediaViewModel; // type@01ae
+014ce0: 1100                                   |0002: return-object v0
+      catches       : (none)
+      positions     :
+        0x0002 line=112
+      locals        :
+        0x0000 - 0x0003 reg=1 this Lcom/desaysv/launcher/card/T1hMediaCard;
+
+    #6              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'initObserve'
+      type          : '()V'
+      access        : 0x0004 (PROTECTED)
+      code          -
+      registers     : 12
+      ins           : 1
+      outs          : 3
+      insns size    : 227 16-bit code units
+01555c:                                        |[01555c] com.desaysv.launcher.card.T1hMediaCard.initObserve:()V
+01556c: 6e10 5b03 0b00                         |0000: invoke-virtual {v11}, Lcom/desaysv/launcher/card/T1hMediaCard;.getTAG:()Ljava/lang/String; // method@035b
+015572: 0c00                                   |0003: move-result-object v0
+015574: 1a01 3007                              |0004: const-string v1, "initObserve called" // string@0730
+015578: 7120 5100 1000                         |0006: invoke-static {v0, v1}, Landroid/util/Log;.d:(Ljava/lang/String;Ljava/lang/String;)I // method@0051
+01557e: 6f10 be06 0b00                         |0009: invoke-super {v11}, Lcom/desaysv/launcher/card/base/VBCard;.initObserve:()V // method@06be
+015584: 6e10 5a03 0b00                         |000c: invoke-virtual {v11}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+01558a: 0c00                                   |000f: move-result-object v0
+01558c: 1f00 7901                              |0010: check-cast v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+015590: 3800 1100                              |0012: if-eqz v0, 0023 // +0011
+015594: 1201                                   |0014: const/4 v1, #int 0 // #0
+015596: 6e10 5903 0b00                         |0015: invoke-virtual {v11}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMViewModel:()Lcom/desay/launcher/libbase/viewmodel/base/BaseViewModel; // method@0359
+01559c: 0c02                                   |0018: move-result-object v2
+01559e: 1f02 ae01                              |0019: check-cast v2, Lcom/desaysv/launcher/viewmodel/MediaViewModel; // type@01ae
+0155a2: 6e20 e406 2000                         |001b: invoke-virtual {v0, v2}, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.setMediaViewModel:(Lcom/desaysv/launcher/viewmodel/MediaViewModel;)V // method@06e4
+0155a8: 6e20 e506 b000                         |001e: invoke-virtual {v0, v11}, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.setT1hMediaCard:(Lcom/desaysv/launcher/card/T1hMediaCard;)V // method@06e5
+0155ae: 0000                                   |0021: nop // spacer
+0155b0: 0000                                   |0022: nop // spacer
+0155b2: 6e10 5203 0b00                         |0023: invoke-virtual {v11}, Lcom/desaysv/launcher/card/T1hMediaCard;.getActivityViewModelStoreOwner:()Landroidx/lifecycle/ViewModelStoreOwner; // method@0352
+0155b8: 0c00                                   |0026: move-result-object v0
+0155ba: 3800 1400                              |0027: if-eqz v0, 003b // +0014
+0155be: 1201                                   |0029: const/4 v1, #int 0 // #0
+0155c0: 2202 7300                              |002a: new-instance v2, Landroidx/lifecycle/ViewModelProvider; // type@0073
+0155c4: 7020 e100 0200                         |002c: invoke-direct {v2, v0}, Landroidx/lifecycle/ViewModelProvider;.<init>:(Landroidx/lifecycle/ViewModelStoreOwner;)V // method@00e1
+0155ca: 1c03 ad01                              |002f: const-class v3, Lcom/desaysv/launcher/viewmodel/MainViewModel; // type@01ad
+0155ce: 6e20 e200 3200                         |0031: invoke-virtual {v2, v3}, Landroidx/lifecycle/ViewModelProvider;.get:(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel; // method@00e2
+0155d4: 0c02                                   |0034: move-result-object v2
+0155d6: 1f02 ad01                              |0035: check-cast v2, Lcom/desaysv/launcher/viewmodel/MainViewModel; // type@01ad
+0155da: 5bb2 8700                              |0037: iput-object v2, v11, Lcom/desaysv/launcher/card/T1hMediaCard;.mMainViewModel:Lcom/desaysv/launcher/viewmodel/MainViewModel; // field@0087
+0155de: 0000                                   |0039: nop // spacer
+0155e0: 0000                                   |003a: nop // spacer
+0155e2: 6e10 5903 0b00                         |003b: invoke-virtual {v11}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMViewModel:()Lcom/desay/launcher/libbase/viewmodel/base/BaseViewModel; // method@0359
+0155e8: 0c00                                   |003e: move-result-object v0
+0155ea: 1f00 ae01                              |003f: check-cast v0, Lcom/desaysv/launcher/viewmodel/MediaViewModel; // type@01ae
+0155ee: 1201                                   |0041: const/4 v1, #int 0 // #0
+0155f0: 1202                                   |0042: const/4 v2, #int 0 // #0
+0155f2: 3800 6500                              |0043: if-eqz v0, 00a8 // +0065
+0155f6: 1203                                   |0045: const/4 v3, #int 0 // #0
+0155f8: 6e10 5403 0b00                         |0046: invoke-virtual {v11}, Lcom/desaysv/launcher/card/T1hMediaCard;.getContext:()Landroid/content/Context; // method@0354
+0155fe: 0c04                                   |0049: move-result-object v4
+015600: 6e10 1600 0400                         |004a: invoke-virtual {v4}, Landroid/content/Context;.getResources:()Landroid/content/res/Resources; // method@0016
+015606: 0c04                                   |004d: move-result-object v4
+015608: 1405 7200 117f                         |004e: const v5, #float 1.9274e+38 // #7f110072
+01560e: 6e20 2500 5400                         |0051: invoke-virtual {v4, v5}, Landroid/content/res/Resources;.getString:(I)Ljava/lang/String; // method@0025
+015614: 0c04                                   |0054: move-result-object v4
+015616: 6e10 5403 0b00                         |0055: invoke-virtual {v11}, Lcom/desaysv/launcher/card/T1hMediaCard;.getContext:()Landroid/content/Context; // method@0354
+01561c: 0c05                                   |0058: move-result-object v5
+01561e: 6e10 1600 0500                         |0059: invoke-virtual {v5}, Landroid/content/Context;.getResources:()Landroid/content/res/Resources; // method@0016
+015624: 0c05                                   |005c: move-result-object v5
+015626: 1406 7300 117f                         |005d: const v6, #float 1.9274e+38 // #7f110073
+01562c: 6e20 2500 6500                         |0060: invoke-virtual {v5, v6}, Landroid/content/res/Resources;.getString:(I)Ljava/lang/String; // method@0025
+015632: 0c05                                   |0063: move-result-object v5
+015634: 6e10 5403 0b00                         |0064: invoke-virtual {v11}, Lcom/desaysv/launcher/card/T1hMediaCard;.getContext:()Landroid/content/Context; // method@0354
+01563a: 0c06                                   |0067: move-result-object v6
+01563c: 6e10 1600 0600                         |0068: invoke-virtual {v6}, Landroid/content/Context;.getResources:()Landroid/content/res/Resources; // method@0016
+015642: 0c06                                   |006b: move-result-object v6
+015644: 1407 8301 117f                         |006c: const v7, #float 1.92746e+38 // #7f110183
+01564a: 6e20 2500 7600                         |006f: invoke-virtual {v6, v7}, Landroid/content/res/Resources;.getString:(I)Ljava/lang/String; // method@0025
+015650: 0c06                                   |0072: move-result-object v6
+015652: 6e10 5403 0b00                         |0073: invoke-virtual {v11}, Lcom/desaysv/launcher/card/T1hMediaCard;.getContext:()Landroid/content/Context; // method@0354
+015658: 0c07                                   |0076: move-result-object v7
+01565a: 6e10 1600 0700                         |0077: invoke-virtual {v7}, Landroid/content/Context;.getResources:()Landroid/content/res/Resources; // method@0016
+015660: 0c07                                   |007a: move-result-object v7
+015662: 1408 8201 117f                         |007b: const v8, #float 1.92746e+38 // #7f110182
+015668: 6e20 2500 8700                         |007e: invoke-virtual {v7, v8}, Landroid/content/res/Resources;.getString:(I)Ljava/lang/String; // method@0025
+01566e: 0c07                                   |0081: move-result-object v7
+015670: 6e20 3f08 4000                         |0082: invoke-virtual {v0, v4}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.setDefaultTitle:(Ljava/lang/String;)V // method@083f
+015676: 6e20 4108 7000                         |0085: invoke-virtual {v0, v7}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.setmDefaultSinger:(Ljava/lang/String;)V // method@0841
+01567c: 6e20 4008 7000                         |0088: invoke-virtual {v0, v7}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.setUnkownSinger:(Ljava/lang/String;)V // method@0840
+015682: 6e20 4208 6000                         |008b: invoke-virtual {v0, v6}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.setmUnkownFreq:(Ljava/lang/String;)V // method@0842
+015688: 5408 6a02                              |008e: iget-object v8, v0, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.mDefalutVDMediaInfo:Lcom/desaysv/ivi/vdb/event/id/media/bean/VDMediaInfo; // field@026a
+01568c: 6e20 5001 6800                         |0090: invoke-virtual {v8, v6}, Lcom/desaysv/ivi/vdb/event/id/media/bean/VDMediaInfo;.putTitle:(Ljava/lang/String;)V // method@0150
+015692: 5408 6a02                              |0093: iget-object v8, v0, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.mDefalutVDMediaInfo:Lcom/desaysv/ivi/vdb/event/id/media/bean/VDMediaInfo; // field@026a
+015696: 1a09 0000                              |0095: const-string v9, "" // string@0000
+01569a: 6e20 4f01 9800                         |0097: invoke-virtual {v8, v9}, Lcom/desaysv/ivi/vdb/event/id/media/bean/VDMediaInfo;.putArtist:(Ljava/lang/String;)V // method@014f
+0156a0: 5408 6c02                              |009a: iget-object v8, v0, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.mMediaType:Landroidx/databinding/ObservableField; // field@026c
+0156a4: 54b9 8800                              |009c: iget-object v9, v11, Lcom/desaysv/launcher/card/T1hMediaCard;.mMediaTypePropertyChangedCallback:Landroidx/databinding/Observable$OnPropertyChangedCallback; // field@0088
+0156a8: 6e20 d600 9800                         |009e: invoke-virtual {v8, v9}, Landroidx/databinding/ObservableField;.addOnPropertyChangedCallback:(Landroidx/databinding/Observable$OnPropertyChangedCallback;)V // method@00d6
+0156ae: 54b8 8800                              |00a1: iget-object v8, v11, Lcom/desaysv/launcher/card/T1hMediaCard;.mMediaTypePropertyChangedCallback:Landroidx/databinding/Observable$OnPropertyChangedCallback; // field@0088
+0156b2: 6e30 d500 2801                         |00a3: invoke-virtual {v8, v2, v1}, Landroidx/databinding/Observable$OnPropertyChangedCallback;.onPropertyChanged:(Landroidx/databinding/Observable;I)V // method@00d5
+0156b8: 0000                                   |00a6: nop // spacer
+0156ba: 0000                                   |00a7: nop // spacer
+0156bc: 6200 1f00                              |00a8: sget-object v0, Lcom/desaysv/appmenu/utils/KTUtils;.Companion:Lcom/desaysv/appmenu/utils/KTUtils$Companion; // field@001f
+0156c0: 54b3 8700                              |00aa: iget-object v3, v11, Lcom/desaysv/launcher/card/T1hMediaCard;.mMainViewModel:Lcom/desaysv/launcher/viewmodel/MainViewModel; // field@0087
+0156c4: 6e10 5703 0b00                         |00ac: invoke-virtual {v11}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMLifecycleOwner:()Landroidx/lifecycle/LifecycleOwner; // method@0357
+0156ca: 0c04                                   |00af: move-result-object v4
+0156cc: 1205                                   |00b0: const/4 v5, #int 0 // #0
+0156ce: 3803 1300                              |00b1: if-eqz v3, 00c4 // +0013
+0156d2: 3804 1100                              |00b3: if-eqz v4, 00c4 // +0011
+0156d6: 0736                                   |00b5: move-object v6, v3
+0156d8: 0747                                   |00b6: move-object v7, v4
+0156da: 1208                                   |00b7: const/4 v8, #int 0 // #0
+0156dc: 6e10 3108 0600                         |00b8: invoke-virtual {v6}, Lcom/desaysv/launcher/viewmodel/MainViewModel;.getMInterconnStatusLiveData:()Landroidx/lifecycle/MutableLiveData; // method@0831
+0156e2: 0c09                                   |00bb: move-result-object v9
+0156e4: 7010 5603 0b00                         |00bc: invoke-direct {v11}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMInterconnStatusObserver:()Landroidx/lifecycle/Observer; // method@0356
+0156ea: 0c0a                                   |00bf: move-result-object v10
+0156ec: 6e30 df00 790a                         |00c0: invoke-virtual {v9, v7, v10}, Landroidx/lifecycle/MutableLiveData;.observe:(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Observer;)V // method@00df
+0156f2: 0000                                   |00c3: nop // spacer
+0156f4: 0000                                   |00c4: nop // spacer
+0156f6: 7100 0001 0000                         |00c5: invoke-static {}, Lcom/desay/launcher/common/model/AudioSourceModel;.getInstance:()Lcom/desay/launcher/common/model/AudioSourceModel; // method@0100
+0156fc: 0c00                                   |00c8: move-result-object v0
+0156fe: 6e10 0101 0000                         |00c9: invoke-virtual {v0}, Lcom/desay/launcher/common/model/AudioSourceModel;.refreshAllInfo:()V // method@0101
+015704: 6200 7a01                              |00cc: sget-object v0, Lcom/desaysv/launcher/card/base/CardManager;.Companion:Lcom/desaysv/launcher/card/base/CardManager$Companion; // field@017a
+015708: 6e10 b606 0000                         |00ce: invoke-virtual {v0}, Lcom/desaysv/launcher/card/base/CardManager$Companion;.getSIntance:()Lcom/desaysv/launcher/card/base/CardManager; // method@06b6
+01570e: 0c00                                   |00d1: move-result-object v0
+015710: 6e10 b706 0000                         |00d2: invoke-virtual {v0}, Lcom/desaysv/launcher/card/base/CardManager;.getMIsCardEditing:()Landroidx/databinding/ObservableField; // method@06b7
+015716: 0c00                                   |00d5: move-result-object v0
+015718: 54b3 8600                              |00d6: iget-object v3, v11, Lcom/desaysv/launcher/card/T1hMediaCard;.mIsCardEditingObserver:Lcom/desaysv/launcher/card/T1hMediaCard$mIsCardEditingObserver$1; // field@0086
+01571c: 1f03 6500                              |00d8: check-cast v3, Landroidx/databinding/Observable$OnPropertyChangedCallback; // type@0065
+015720: 6e20 d600 3000                         |00da: invoke-virtual {v0, v3}, Landroidx/databinding/ObservableField;.addOnPropertyChangedCallback:(Landroidx/databinding/Observable$OnPropertyChangedCallback;)V // method@00d6
+015726: 54b0 8600                              |00dd: iget-object v0, v11, Lcom/desaysv/launcher/card/T1hMediaCard;.mIsCardEditingObserver:Lcom/desaysv/launcher/card/T1hMediaCard$mIsCardEditingObserver$1; // field@0086
+01572a: 6e30 4403 2001                         |00df: invoke-virtual {v0, v2, v1}, Lcom/desaysv/launcher/card/T1hMediaCard$mIsCardEditingObserver$1;.onPropertyChanged:(Landroidx/databinding/Observable;I)V // method@0344
+015730: 0e00                                   |00e2: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=130
+        0x0009 line=131
+        0x000c line=132
+        0x0015 line=133
+        0x001e line=134
+        0x0021 line=135
+        0x0022 line=132
+        0x0023 line=137
+        0x002a line=138
+        0x0039 line=139
+        0x003a line=137
+        0x003b line=141
+        0x0046 line=142
+        0x0055 line=143
+        0x0064 line=144
+        0x0073 line=145
+        0x0082 line=146
+        0x0085 line=147
+        0x0088 line=148
+        0x008b line=149
+        0x008e line=150
+        0x0093 line=151
+        0x009a line=153
+        0x00a1 line=154
+        0x00a6 line=156
+        0x00a7 line=141
+        0x00a8 line=158
+        0x00b1 line=454
+        0x00b8 line=159
+        0x00c3 line=160
+        0x00c4 line=454
+        0x00c5 line=162
+        0x00cc line=164
+        0x00dd line=165
+        0x00e2 line=166
+      locals        :
+        0x0014 - 0x0022 reg=0 binding Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;
+        0x0015 - 0x0022 reg=1 $i$a$-let-T1hMediaCard$initObserve$1 I
+        0x0029 - 0x003a reg=0 it Landroidx/lifecycle/ViewModelStoreOwner;
+        0x002a - 0x003a reg=1 $i$a$-let-T1hMediaCard$initObserve$2 I
+        0x0045 - 0x00a7 reg=0 it Lcom/desaysv/launcher/viewmodel/MediaViewModel;
+        0x0046 - 0x00a7 reg=3 $i$a$-let-T1hMediaCard$initObserve$3 I
+        0x0055 - 0x00a7 reg=4 default_music Ljava/lang/String;
+        0x0064 - 0x00a7 reg=5 default_signer Ljava/lang/String;
+        0x0073 - 0x00a7 reg=6 unknownFreq Ljava/lang/String;
+        0x0082 - 0x00a7 reg=7 unknown Ljava/lang/String;
+        0x00b6 - 0x00c4 reg=6 vm Lcom/desaysv/launcher/viewmodel/MainViewModel;
+        0x00b7 - 0x00c4 reg=7 lifecycleOwner Landroidx/lifecycle/LifecycleOwner;
+        0x00b8 - 0x00c4 reg=8 $i$a$-safeLet-T1hMediaCard$initObserve$4 I
+        0x00aa - 0x00c5 reg=0 this_$iv Lcom/desaysv/appmenu/utils/KTUtils$Companion;
+        0x00ac - 0x00c5 reg=3 p1$iv Ljava/lang/Object;
+        0x00b0 - 0x00c5 reg=4 p2$iv Ljava/lang/Object;
+        0x00b1 - 0x00c5 reg=5 $i$f$safeLet I
+        0x0000 - 0x00e3 reg=11 this Lcom/desaysv/launcher/card/T1hMediaCard;
+
+    #7              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'initView'
+      type          : '(Landroid/content/Context;)V'
+      access        : 0x0004 (PROTECTED)
+      code          -
+      registers     : 5
+      ins           : 2
+      outs          : 2
+      insns size    : 100 16-bit code units
+015734:                                        |[015734] com.desaysv.launcher.card.T1hMediaCard.initView:(Landroid/content/Context;)V
+015744: 1a00 0306                              |0000: const-string v0, "context" // string@0603
+015748: 7120 ce08 0400                         |0002: invoke-static {v4, v0}, Lkotlin/jvm/internal/Intrinsics;.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V // method@08ce
+01574e: 6f20 bf06 4300                         |0005: invoke-super {v3, v4}, Lcom/desaysv/launcher/card/base/VBCard;.initView:(Landroid/content/Context;)V // method@06bf
+015754: 6200 9d01                              |0008: sget-object v0, Lcom/desaysv/launcher/constant/LauncherThemeConstant;.INSTANCE:Lcom/desaysv/launcher/constant/LauncherThemeConstant; // field@019d
+015758: 6e10 ce06 0000                         |000a: invoke-virtual {v0}, Lcom/desaysv/launcher/constant/LauncherThemeConstant;.getCARD_THEME:()I // method@06ce
+01575e: 0a00                                   |000d: move-result v0
+015760: 6e20 7003 0300                         |000e: invoke-virtual {v3, v0}, Lcom/desaysv/launcher/card/T1hMediaCard;.setMTheme:(I)V // method@0370
+015766: 6e10 5a03 0300                         |0011: invoke-virtual {v3}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+01576c: 0c00                                   |0014: move-result-object v0
+01576e: 1f00 7901                              |0015: check-cast v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+015772: 1201                                   |0017: const/4 v1, #int 0 // #0
+015774: 3800 0500                              |0018: if-eqz v0, 001d // +0005
+015778: 5400 d101                              |001a: iget-object v0, v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.ivPlay:Landroid/widget/ImageView; // field@01d1
+01577c: 2802                                   |001c: goto 001e // +0002
+01577e: 0710                                   |001d: move-object v0, v1
+015780: 1f00 4f00                              |001e: check-cast v0, Landroid/view/View; // type@004f
+015784: 5432 8900                              |0020: iget-object v2, v3, Lcom/desaysv/launcher/card/T1hMediaCard;.onTouchListener:Landroid/view/View$OnTouchListener; // field@0089
+015788: 7120 0a01 2000                         |0022: invoke-static {v0, v2}, Lcom/desay/launcher/common/utils/ViewClickEffectUtils;.addClickScale93:(Landroid/view/View;Landroid/view/View$OnTouchListener;)V // method@010a
+01578e: 6e10 5a03 0300                         |0025: invoke-virtual {v3}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+015794: 0c00                                   |0028: move-result-object v0
+015796: 1f00 7901                              |0029: check-cast v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+01579a: 3800 0500                              |002b: if-eqz v0, 0030 // +0005
+01579e: 5400 d201                              |002d: iget-object v0, v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.ivPre:Landroid/widget/ImageView; // field@01d2
+0157a2: 2802                                   |002f: goto 0031 // +0002
+0157a4: 0710                                   |0030: move-object v0, v1
+0157a6: 1f00 4f00                              |0031: check-cast v0, Landroid/view/View; // type@004f
+0157aa: 5432 8900                              |0033: iget-object v2, v3, Lcom/desaysv/launcher/card/T1hMediaCard;.onTouchListener:Landroid/view/View$OnTouchListener; // field@0089
+0157ae: 7120 0a01 2000                         |0035: invoke-static {v0, v2}, Lcom/desay/launcher/common/utils/ViewClickEffectUtils;.addClickScale93:(Landroid/view/View;Landroid/view/View$OnTouchListener;)V // method@010a
+0157b4: 6e10 5a03 0300                         |0038: invoke-virtual {v3}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+0157ba: 0c00                                   |003b: move-result-object v0
+0157bc: 1f00 7901                              |003c: check-cast v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+0157c0: 3800 0500                              |003e: if-eqz v0, 0043 // +0005
+0157c4: 5400 d001                              |0040: iget-object v0, v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.ivNext:Landroid/widget/ImageView; // field@01d0
+0157c8: 2802                                   |0042: goto 0044 // +0002
+0157ca: 0710                                   |0043: move-object v0, v1
+0157cc: 1f00 4f00                              |0044: check-cast v0, Landroid/view/View; // type@004f
+0157d0: 5432 8900                              |0046: iget-object v2, v3, Lcom/desaysv/launcher/card/T1hMediaCard;.onTouchListener:Landroid/view/View$OnTouchListener; // field@0089
+0157d4: 7120 0a01 2000                         |0048: invoke-static {v0, v2}, Lcom/desay/launcher/common/utils/ViewClickEffectUtils;.addClickScale93:(Landroid/view/View;Landroid/view/View$OnTouchListener;)V // method@010a
+0157da: 6e10 5a03 0300                         |004b: invoke-virtual {v3}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+0157e0: 0c00                                   |004e: move-result-object v0
+0157e2: 1f00 7901                              |004f: check-cast v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+0157e6: 3800 0400                              |0051: if-eqz v0, 0055 // +0004
+0157ea: 5401 d301                              |0053: iget-object v1, v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.ivSource:Landroid/widget/ImageView; // field@01d3
+0157ee: 1f01 4f00                              |0055: check-cast v1, Landroid/view/View; // type@004f
+0157f2: 7110 0901 0100                         |0057: invoke-static {v1}, Lcom/desay/launcher/common/utils/ViewClickEffectUtils;.addClickScale93:(Landroid/view/View;)V // method@0109
+0157f8: 6200 9d01                              |005a: sget-object v0, Lcom/desaysv/launcher/constant/LauncherThemeConstant;.INSTANCE:Lcom/desaysv/launcher/constant/LauncherThemeConstant; // field@019d
+0157fc: 6e10 ce06 0000                         |005c: invoke-virtual {v0}, Lcom/desaysv/launcher/constant/LauncherThemeConstant;.getCARD_THEME:()I // method@06ce
+015802: 0a00                                   |005f: move-result v0
+015804: 6e20 5003 0300                         |0060: invoke-virtual {v3, v0}, Lcom/desaysv/launcher/card/T1hMediaCard;.changeTheme:(I)V // method@0350
+01580a: 0e00                                   |0063: return-void
+      catches       : (none)
+      positions     :
+        0x0005 line=120
+        0x0008 line=121
+        0x0011 line=122
+        0x0025 line=123
+        0x0038 line=124
+        0x004b line=125
+        0x005a line=126
+        0x0063 line=127
+      locals        :
+        0x0000 - 0x0064 reg=3 this Lcom/desaysv/launcher/card/T1hMediaCard;
+        0x0000 - 0x0064 reg=4 context Landroid/content/Context;
+
+    #8              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'isPlayDefaultTheme'
+      type          : '()Z'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 3
+      ins           : 1
+      outs          : 1
+      insns size    : 22 16-bit code units
+014acc:                                        |[014acc] com.desaysv.launcher.card.T1hMediaCard.isPlayDefaultTheme:()Z
+014adc: 6200 9d01                              |0000: sget-object v0, Lcom/desaysv/launcher/constant/LauncherThemeConstant;.INSTANCE:Lcom/desaysv/launcher/constant/LauncherThemeConstant; // field@019d
+014ae0: 6e10 ce06 0000                         |0002: invoke-virtual {v0}, Lcom/desaysv/launcher/constant/LauncherThemeConstant;.getCARD_THEME:()I // method@06ce
+014ae6: 0a00                                   |0005: move-result v0
+014ae8: 1231                                   |0006: const/4 v1, #int 3 // #3
+014aea: 3210 0d00                              |0007: if-eq v0, v1, 0014 // +000d
+014aee: 6200 9d01                              |0009: sget-object v0, Lcom/desaysv/launcher/constant/LauncherThemeConstant;.INSTANCE:Lcom/desaysv/launcher/constant/LauncherThemeConstant; // field@019d
+014af2: 6e10 ce06 0000                         |000b: invoke-virtual {v0}, Lcom/desaysv/launcher/constant/LauncherThemeConstant;.getCARD_THEME:()I // method@06ce
+014af8: 0a00                                   |000e: move-result v0
+014afa: 1261                                   |000f: const/4 v1, #int 6 // #6
+014afc: 3210 0400                              |0010: if-eq v0, v1, 0014 // +0004
+014b00: 1210                                   |0012: const/4 v0, #int 1 // #1
+014b02: 2802                                   |0013: goto 0015 // +0002
+014b04: 1200                                   |0014: const/4 v0, #int 0 // #0
+014b06: 0f00                                   |0015: return v0
+      catches       : (none)
+      positions     :
+        0x0000 line=296
+        0x000b line=297
+        0x0015 line=296
+      locals        :
+        0x0000 - 0x0016 reg=2 this Lcom/desaysv/launcher/card/T1hMediaCard;
+
+    #9              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'isShowAlbumBg'
+      type          : '(I)Z'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 7
+      ins           : 2
+      outs          : 1
+      insns size    : 54 16-bit code units
+014b08:                                        |[014b08] com.desaysv.launcher.card.T1hMediaCard.isShowAlbumBg:(I)Z
+014b18: 6200 9d01                              |0000: sget-object v0, Lcom/desaysv/launcher/constant/LauncherThemeConstant;.INSTANCE:Lcom/desaysv/launcher/constant/LauncherThemeConstant; // field@019d
+014b1c: 6e10 ce06 0000                         |0002: invoke-virtual {v0}, Lcom/desaysv/launcher/constant/LauncherThemeConstant;.getCARD_THEME:()I // method@06ce
+014b22: 0a00                                   |0005: move-result v0
+014b24: 1201                                   |0006: const/4 v1, #int 0 // #0
+014b26: 1212                                   |0007: const/4 v2, #int 1 // #1
+014b28: 3320 2c00                              |0008: if-ne v0, v2, 0034 // +002c
+014b2c: 6e10 5903 0500                         |000a: invoke-virtual {v5}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMViewModel:()Lcom/desay/launcher/libbase/viewmodel/base/BaseViewModel; // method@0359
+014b32: 0c00                                   |000d: move-result-object v0
+014b34: 1f00 ae01                              |000e: check-cast v0, Lcom/desaysv/launcher/viewmodel/MediaViewModel; // type@01ae
+014b38: 3800 1f00                              |0010: if-eqz v0, 002f // +001f
+014b3c: 5400 6b02                              |0012: iget-object v0, v0, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.mMediaInfoData:Landroidx/databinding/ObservableField; // field@026b
+014b40: 3800 1b00                              |0014: if-eqz v0, 002f // +001b
+014b44: 6e10 d700 0000                         |0016: invoke-virtual {v0}, Landroidx/databinding/ObservableField;.get:()Ljava/lang/Object; // method@00d7
+014b4a: 0c00                                   |0019: move-result-object v0
+014b4c: 1f00 ab00                              |001a: check-cast v0, Lcom/desaysv/ivi/vdb/event/id/media/bean/VDMediaInfo; // type@00ab
+014b50: 3800 1300                              |001c: if-eqz v0, 002f // +0013
+014b54: 0000                                   |001e: nop // spacer
+014b56: 0000                                   |001f: nop // spacer
+014b58: 1203                                   |0020: const/4 v3, #int 0 // #0
+014b5a: 1304 0e00                              |0021: const/16 v4, #int 14 // #e
+014b5e: 3246 0900                              |0023: if-eq v6, v4, 002c // +0009
+014b62: 1304 1000                              |0025: const/16 v4, #int 16 // #10
+014b66: 3346 0300                              |0027: if-ne v6, v4, 002a // +0003
+014b6a: 2803                                   |0029: goto 002c // +0003
+014b6c: 0110                                   |002a: move v0, v1
+014b6e: 2802                                   |002b: goto 002d // +0002
+014b70: 0120                                   |002c: move v0, v2
+014b72: 0000                                   |002d: nop // spacer
+014b74: 2802                                   |002e: goto 0030 // +0002
+014b76: 0110                                   |002f: move v0, v1
+014b78: 3800 0400                              |0030: if-eqz v0, 0034 // +0004
+014b7c: 0121                                   |0032: move v1, v2
+014b7e: 2802                                   |0033: goto 0035 // +0002
+014b80: 0000                                   |0034: nop // spacer
+014b82: 0f01                                   |0035: return v1
+      catches       : (none)
+      positions     :
+        0x0000 line=304
+        0x001c line=305
+        0x001e line=304
+        0x001f line=305
+        0x0021 line=306
+        0x002d line=305
+        0x002e line=304
+        0x002f line=307
+        0x0035 line=304
+      locals        :
+        0x0020 - 0x002d reg=0 it Lcom/desaysv/ivi/vdb/event/id/media/bean/VDMediaInfo;
+        0x0021 - 0x002d reg=3 $i$a$-let-T1hMediaCard$isShowAlbumBg$1 I
+        0x0000 - 0x0036 reg=5 this Lcom/desaysv/launcher/card/T1hMediaCard;
+        0x0000 - 0x0036 reg=6 mediaType I
+
+    #10              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'onAttachedToWindow'
+      type          : '()V'
+      access        : 0x0004 (PROTECTED)
+      code          -
+      registers     : 3
+      ins           : 1
+      outs          : 2
+      insns size    : 13 16-bit code units
+01580c:                                        |[01580c] com.desaysv.launcher.card.T1hMediaCard.onAttachedToWindow:()V
+01581c: 6f10 c006 0200                         |0000: invoke-super {v2}, Lcom/desaysv/launcher/card/base/VBCard;.onAttachedToWindow:()V // method@06c0
+015822: 6e10 5b03 0200                         |0003: invoke-virtual {v2}, Lcom/desaysv/launcher/card/T1hMediaCard;.getTAG:()Ljava/lang/String; // method@035b
+015828: 0c00                                   |0006: move-result-object v0
+01582a: 1a01 6b08                              |0007: const-string v1, "onAttachedToWindow called" // string@086b
+01582e: 7120 5100 1000                         |0009: invoke-static {v0, v1}, Landroid/util/Log;.d:(Ljava/lang/String;Ljava/lang/String;)I // method@0051
+015834: 0e00                                   |000c: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=175
+        0x0003 line=176
+        0x000c line=177
+      locals        :
+        0x0000 - 0x000d reg=2 this Lcom/desaysv/launcher/card/T1hMediaCard;
+
+    #11              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'onConfigurationChangedDestory'
+      type          : '()V'
+      access        : 0x0001 (PUBLIC)
+      code          -
+      registers     : 1
+      ins           : 1
+      outs          : 1
+      insns size    : 4 16-bit code units
+015838:                                        |[015838] com.desaysv.launcher.card.T1hMediaCard.onConfigurationChangedDestory:()V
+015848: 6f10 c206 0000                         |0000: invoke-super {v0}, Lcom/desaysv/launcher/card/base/VBCard;.onConfigurationChangedDestory:()V // method@06c2
+01584e: 0e00                                   |0003: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=395
+        0x0003 line=396
+      locals        :
+        0x0000 - 0x0004 reg=0 this Lcom/desaysv/launcher/card/T1hMediaCard;
+
+    #12              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'onDetachedFromWindow'
+      type          : '()V'
+      access        : 0x0004 (PROTECTED)
+      code          -
+      registers     : 3
+      ins           : 1
+      outs          : 2
+      insns size    : 68 16-bit code units
+015850:                                        |[015850] com.desaysv.launcher.card.T1hMediaCard.onDetachedFromWindow:()V
+015860: 6e10 5b03 0200                         |0000: invoke-virtual {v2}, Lcom/desaysv/launcher/card/T1hMediaCard;.getTAG:()Ljava/lang/String; // method@035b
+015866: 0c00                                   |0003: move-result-object v0
+015868: 1a01 8208                              |0004: const-string v1, "onDetachedFromWindow called" // string@0882
+01586c: 7120 5100 1000                         |0006: invoke-static {v0, v1}, Landroid/util/Log;.d:(Ljava/lang/String;Ljava/lang/String;)I // method@0051
+015872: 6f10 c306 0200                         |0009: invoke-super {v2}, Lcom/desaysv/launcher/card/base/VBCard;.onDetachedFromWindow:()V // method@06c3
+015878: 6200 7a01                              |000c: sget-object v0, Lcom/desaysv/launcher/card/base/CardManager;.Companion:Lcom/desaysv/launcher/card/base/CardManager$Companion; // field@017a
+01587c: 6e10 b606 0000                         |000e: invoke-virtual {v0}, Lcom/desaysv/launcher/card/base/CardManager$Companion;.getSIntance:()Lcom/desaysv/launcher/card/base/CardManager; // method@06b6
+015882: 0c00                                   |0011: move-result-object v0
+015884: 6e10 b706 0000                         |0012: invoke-virtual {v0}, Lcom/desaysv/launcher/card/base/CardManager;.getMIsCardEditing:()Landroidx/databinding/ObservableField; // method@06b7
+01588a: 0c00                                   |0015: move-result-object v0
+01588c: 5421 8600                              |0016: iget-object v1, v2, Lcom/desaysv/launcher/card/T1hMediaCard;.mIsCardEditingObserver:Lcom/desaysv/launcher/card/T1hMediaCard$mIsCardEditingObserver$1; // field@0086
+015890: 1f01 6500                              |0018: check-cast v1, Landroidx/databinding/Observable$OnPropertyChangedCallback; // type@0065
+015894: 6e20 d800 1000                         |001a: invoke-virtual {v0, v1}, Landroidx/databinding/ObservableField;.removeOnPropertyChangedCallback:(Landroidx/databinding/Observable$OnPropertyChangedCallback;)V // method@00d8
+01589a: 6e10 5903 0200                         |001d: invoke-virtual {v2}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMViewModel:()Lcom/desay/launcher/libbase/viewmodel/base/BaseViewModel; // method@0359
+0158a0: 0c00                                   |0020: move-result-object v0
+0158a2: 1f00 ae01                              |0021: check-cast v0, Lcom/desaysv/launcher/viewmodel/MediaViewModel; // type@01ae
+0158a6: 3800 0b00                              |0023: if-eqz v0, 002e // +000b
+0158aa: 5400 6c02                              |0025: iget-object v0, v0, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.mMediaType:Landroidx/databinding/ObservableField; // field@026c
+0158ae: 3800 0700                              |0027: if-eqz v0, 002e // +0007
+0158b2: 5421 8800                              |0029: iget-object v1, v2, Lcom/desaysv/launcher/card/T1hMediaCard;.mMediaTypePropertyChangedCallback:Landroidx/databinding/Observable$OnPropertyChangedCallback; // field@0088
+0158b6: 6e20 d800 1000                         |002b: invoke-virtual {v0, v1}, Landroidx/databinding/ObservableField;.removeOnPropertyChangedCallback:(Landroidx/databinding/Observable$OnPropertyChangedCallback;)V // method@00d8
+0158bc: 5420 8700                              |002e: iget-object v0, v2, Lcom/desaysv/launcher/card/T1hMediaCard;.mMainViewModel:Lcom/desaysv/launcher/viewmodel/MainViewModel; // field@0087
+0158c0: 3800 0f00                              |0030: if-eqz v0, 003f // +000f
+0158c4: 6e10 3108 0000                         |0032: invoke-virtual {v0}, Lcom/desaysv/launcher/viewmodel/MainViewModel;.getMInterconnStatusLiveData:()Landroidx/lifecycle/MutableLiveData; // method@0831
+0158ca: 0c00                                   |0035: move-result-object v0
+0158cc: 3800 0900                              |0036: if-eqz v0, 003f // +0009
+0158d0: 7010 5603 0200                         |0038: invoke-direct {v2}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMInterconnStatusObserver:()Landroidx/lifecycle/Observer; // method@0356
+0158d6: 0c01                                   |003b: move-result-object v1
+0158d8: 6e20 e000 1000                         |003c: invoke-virtual {v0, v1}, Landroidx/lifecycle/MutableLiveData;.removeObserver:(Landroidx/lifecycle/Observer;)V // method@00e0
+0158de: 1210                                   |003f: const/4 v0, #int 1 // #1
+0158e0: 6e20 6d03 0200                         |0040: invoke-virtual {v2, v0}, Lcom/desaysv/launcher/card/T1hMediaCard;.setFirstAttachedToWindow:(Z)V // method@036d
+0158e6: 0e00                                   |0043: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=180
+        0x0009 line=181
+        0x000c line=182
+        0x001d line=183
+        0x002e line=185
+        0x003f line=187
+        0x0043 line=188
+      locals        :
+        0x0000 - 0x0044 reg=2 this Lcom/desaysv/launcher/card/T1hMediaCard;
+
+    #13              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'onFinishInflate'
+      type          : '()V'
+      access        : 0x0004 (PROTECTED)
+      code          -
+      registers     : 3
+      ins           : 1
+      outs          : 2
+      insns size    : 13 16-bit code units
+0158e8:                                        |[0158e8] com.desaysv.launcher.card.T1hMediaCard.onFinishInflate:()V
+0158f8: 6f10 c406 0200                         |0000: invoke-super {v2}, Lcom/desaysv/launcher/card/base/VBCard;.onFinishInflate:()V // method@06c4
+0158fe: 6e10 5b03 0200                         |0003: invoke-virtual {v2}, Lcom/desaysv/launcher/card/T1hMediaCard;.getTAG:()Ljava/lang/String; // method@035b
+015904: 0c00                                   |0006: move-result-object v0
+015906: 1a01 8f08                              |0007: const-string v1, "onFinishInflate called" // string@088f
+01590a: 7120 5100 1000                         |0009: invoke-static {v0, v1}, Landroid/util/Log;.d:(Ljava/lang/String;Ljava/lang/String;)I // method@0051
+015910: 0e00                                   |000c: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=107
+        0x0003 line=108
+        0x000c line=109
+      locals        :
+        0x0000 - 0x000d reg=2 this Lcom/desaysv/launcher/card/T1hMediaCard;
+
+    #14              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'onNextClick'
+      type          : '()V'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 3
+      ins           : 1
+      outs          : 2
+      insns size    : 47 16-bit code units
+015914:                                        |[015914] com.desaysv.launcher.card.T1hMediaCard.onNextClick:()V
+015924: 6e10 5b03 0200                         |0000: invoke-virtual {v2}, Lcom/desaysv/launcher/card/T1hMediaCard;.getTAG:()Ljava/lang/String; // method@035b
+01592a: 0c00                                   |0003: move-result-object v0
+01592c: 1a01 a308                              |0004: const-string v1, "onNextClick called" // string@08a3
+015930: 7120 5100 1000                         |0006: invoke-static {v0, v1}, Landroid/util/Log;.d:(Ljava/lang/String;Ljava/lang/String;)I // method@0051
+015936: 1210                                   |0009: const/4 v0, #int 1 // #1
+015938: 7110 8f08 0000                         |000a: invoke-static {v0}, Ljava/lang/Boolean;.valueOf:(Z)Ljava/lang/Boolean; // method@088f
+01593e: 0c00                                   |000d: move-result-object v0
+015940: 6201 7a01                              |000e: sget-object v1, Lcom/desaysv/launcher/card/base/CardManager;.Companion:Lcom/desaysv/launcher/card/base/CardManager$Companion; // field@017a
+015944: 6e10 b606 0100                         |0010: invoke-virtual {v1}, Lcom/desaysv/launcher/card/base/CardManager$Companion;.getSIntance:()Lcom/desaysv/launcher/card/base/CardManager; // method@06b6
+01594a: 0c01                                   |0013: move-result-object v1
+01594c: 6e10 b706 0100                         |0014: invoke-virtual {v1}, Lcom/desaysv/launcher/card/base/CardManager;.getMIsCardEditing:()Landroidx/databinding/ObservableField; // method@06b7
+015952: 0c01                                   |0017: move-result-object v1
+015954: 6e10 d700 0100                         |0018: invoke-virtual {v1}, Landroidx/databinding/ObservableField;.get:()Ljava/lang/Object; // method@00d7
+01595a: 0c01                                   |001b: move-result-object v1
+01595c: 7120 ca08 1000                         |001c: invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;.areEqual:(Ljava/lang/Object;Ljava/lang/Object;)Z // method@08ca
+015962: 0a00                                   |001f: move-result v0
+015964: 3800 0300                              |0020: if-eqz v0, 0023 // +0003
+015968: 0e00                                   |0022: return-void
+01596a: 6e10 5903 0200                         |0023: invoke-virtual {v2}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMViewModel:()Lcom/desay/launcher/libbase/viewmodel/base/BaseViewModel; // method@0359
+015970: 0c00                                   |0026: move-result-object v0
+015972: 1f00 ae01                              |0027: check-cast v0, Lcom/desaysv/launcher/viewmodel/MediaViewModel; // type@01ae
+015976: 3800 0500                              |0029: if-eqz v0, 002e // +0005
+01597a: 6e10 3808 0000                         |002b: invoke-virtual {v0}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.onNextClick:()V // method@0838
+015980: 0e00                                   |002e: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=426
+        0x0009 line=427
+        0x0022 line=428
+        0x0023 line=430
+        0x002e line=431
+      locals        :
+        0x0000 - 0x002f reg=2 this Lcom/desaysv/launcher/card/T1hMediaCard;
+
+    #15              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'onPlayClick'
+      type          : '()V'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 3
+      ins           : 1
+      outs          : 2
+      insns size    : 47 16-bit code units
+015984:                                        |[015984] com.desaysv.launcher.card.T1hMediaCard.onPlayClick:()V
+015994: 6e10 5b03 0200                         |0000: invoke-virtual {v2}, Lcom/desaysv/launcher/card/T1hMediaCard;.getTAG:()Ljava/lang/String; // method@035b
+01599a: 0c00                                   |0003: move-result-object v0
+01599c: 1a01 a908                              |0004: const-string v1, "onPlayClick called" // string@08a9
+0159a0: 7120 5100 1000                         |0006: invoke-static {v0, v1}, Landroid/util/Log;.d:(Ljava/lang/String;Ljava/lang/String;)I // method@0051
+0159a6: 1210                                   |0009: const/4 v0, #int 1 // #1
+0159a8: 7110 8f08 0000                         |000a: invoke-static {v0}, Ljava/lang/Boolean;.valueOf:(Z)Ljava/lang/Boolean; // method@088f
+0159ae: 0c00                                   |000d: move-result-object v0
+0159b0: 6201 7a01                              |000e: sget-object v1, Lcom/desaysv/launcher/card/base/CardManager;.Companion:Lcom/desaysv/launcher/card/base/CardManager$Companion; // field@017a
+0159b4: 6e10 b606 0100                         |0010: invoke-virtual {v1}, Lcom/desaysv/launcher/card/base/CardManager$Companion;.getSIntance:()Lcom/desaysv/launcher/card/base/CardManager; // method@06b6
+0159ba: 0c01                                   |0013: move-result-object v1
+0159bc: 6e10 b706 0100                         |0014: invoke-virtual {v1}, Lcom/desaysv/launcher/card/base/CardManager;.getMIsCardEditing:()Landroidx/databinding/ObservableField; // method@06b7
+0159c2: 0c01                                   |0017: move-result-object v1
+0159c4: 6e10 d700 0100                         |0018: invoke-virtual {v1}, Landroidx/databinding/ObservableField;.get:()Ljava/lang/Object; // method@00d7
+0159ca: 0c01                                   |001b: move-result-object v1
+0159cc: 7120 ca08 1000                         |001c: invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;.areEqual:(Ljava/lang/Object;Ljava/lang/Object;)Z // method@08ca
+0159d2: 0a00                                   |001f: move-result v0
+0159d4: 3800 0300                              |0020: if-eqz v0, 0023 // +0003
+0159d8: 0e00                                   |0022: return-void
+0159da: 6e10 5903 0200                         |0023: invoke-virtual {v2}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMViewModel:()Lcom/desay/launcher/libbase/viewmodel/base/BaseViewModel; // method@0359
+0159e0: 0c00                                   |0026: move-result-object v0
+0159e2: 1f00 ae01                              |0027: check-cast v0, Lcom/desaysv/launcher/viewmodel/MediaViewModel; // type@01ae
+0159e6: 3800 0500                              |0029: if-eqz v0, 002e // +0005
+0159ea: 6e10 3908 0000                         |002b: invoke-virtual {v0}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.onPlayClick:()V // method@0839
+0159f0: 0e00                                   |002e: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=418
+        0x0009 line=419
+        0x0022 line=420
+        0x0023 line=422
+        0x002e line=423
+      locals        :
+        0x0000 - 0x002f reg=2 this Lcom/desaysv/launcher/card/T1hMediaCard;
+
+    #16              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'onPreClick'
+      type          : '()V'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 3
+      ins           : 1
+      outs          : 2
+      insns size    : 47 16-bit code units
+0159f4:                                        |[0159f4] com.desaysv.launcher.card.T1hMediaCard.onPreClick:()V
+015a04: 6e10 5b03 0200                         |0000: invoke-virtual {v2}, Lcom/desaysv/launcher/card/T1hMediaCard;.getTAG:()Ljava/lang/String; // method@035b
+015a0a: 0c00                                   |0003: move-result-object v0
+015a0c: 1a01 ae08                              |0004: const-string v1, "onPreClick called" // string@08ae
+015a10: 7120 5100 1000                         |0006: invoke-static {v0, v1}, Landroid/util/Log;.d:(Ljava/lang/String;Ljava/lang/String;)I // method@0051
+015a16: 1210                                   |0009: const/4 v0, #int 1 // #1
+015a18: 7110 8f08 0000                         |000a: invoke-static {v0}, Ljava/lang/Boolean;.valueOf:(Z)Ljava/lang/Boolean; // method@088f
+015a1e: 0c00                                   |000d: move-result-object v0
+015a20: 6201 7a01                              |000e: sget-object v1, Lcom/desaysv/launcher/card/base/CardManager;.Companion:Lcom/desaysv/launcher/card/base/CardManager$Companion; // field@017a
+015a24: 6e10 b606 0100                         |0010: invoke-virtual {v1}, Lcom/desaysv/launcher/card/base/CardManager$Companion;.getSIntance:()Lcom/desaysv/launcher/card/base/CardManager; // method@06b6
+015a2a: 0c01                                   |0013: move-result-object v1
+015a2c: 6e10 b706 0100                         |0014: invoke-virtual {v1}, Lcom/desaysv/launcher/card/base/CardManager;.getMIsCardEditing:()Landroidx/databinding/ObservableField; // method@06b7
+015a32: 0c01                                   |0017: move-result-object v1
+015a34: 6e10 d700 0100                         |0018: invoke-virtual {v1}, Landroidx/databinding/ObservableField;.get:()Ljava/lang/Object; // method@00d7
+015a3a: 0c01                                   |001b: move-result-object v1
+015a3c: 7120 ca08 1000                         |001c: invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;.areEqual:(Ljava/lang/Object;Ljava/lang/Object;)Z // method@08ca
+015a42: 0a00                                   |001f: move-result v0
+015a44: 3800 0300                              |0020: if-eqz v0, 0023 // +0003
+015a48: 0e00                                   |0022: return-void
+015a4a: 6e10 5903 0200                         |0023: invoke-virtual {v2}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMViewModel:()Lcom/desay/launcher/libbase/viewmodel/base/BaseViewModel; // method@0359
+015a50: 0c00                                   |0026: move-result-object v0
+015a52: 1f00 ae01                              |0027: check-cast v0, Lcom/desaysv/launcher/viewmodel/MediaViewModel; // type@01ae
+015a56: 3800 0500                              |0029: if-eqz v0, 002e // +0005
+015a5a: 6e10 3a08 0000                         |002b: invoke-virtual {v0}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.onPreClick:()V // method@083a
+015a60: 0e00                                   |002e: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=434
+        0x0009 line=435
+        0x0022 line=436
+        0x0023 line=438
+        0x002e line=439
+      locals        :
+        0x0000 - 0x002f reg=2 this Lcom/desaysv/launcher/card/T1hMediaCard;
+
+    #17              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'onVisibilityAggregated'
+      type          : '(Z)V'
+      access        : 0x0001 (PUBLIC)
+      code          -
+      registers     : 5
+      ins           : 2
+      outs          : 2
+      insns size    : 37 16-bit code units
+015a64:                                        |[015a64] com.desaysv.launcher.card.T1hMediaCard.onVisibilityAggregated:(Z)V
+015a74: 6f20 c906 4300                         |0000: invoke-super {v3, v4}, Lcom/desaysv/launcher/card/base/VBCard;.onVisibilityAggregated:(Z)V // method@06c9
+015a7a: 6e10 5b03 0300                         |0003: invoke-virtual {v3}, Lcom/desaysv/launcher/card/T1hMediaCard;.getTAG:()Ljava/lang/String; // method@035b
+015a80: 0c00                                   |0006: move-result-object v0
+015a82: 2201 d401                              |0007: new-instance v1, Ljava/lang/StringBuilder; // type@01d4
+015a86: 7010 9f08 0100                         |0009: invoke-direct {v1}, Ljava/lang/StringBuilder;.<init>:()V // method@089f
+015a8c: 1a02 e808                              |000c: const-string v2, "onVisibilityAggregated called " // string@08e8
+015a90: 6e20 a508 2100                         |000e: invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder; // method@08a5
+015a96: 0c01                                   |0011: move-result-object v1
+015a98: 6e20 a608 4100                         |0012: invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;.append:(Z)Ljava/lang/StringBuilder; // method@08a6
+015a9e: 0c01                                   |0015: move-result-object v1
+015aa0: 6e10 a708 0100                         |0016: invoke-virtual {v1}, Ljava/lang/StringBuilder;.toString:()Ljava/lang/String; // method@08a7
+015aa6: 0c01                                   |0019: move-result-object v1
+015aa8: 7120 5100 1000                         |001a: invoke-static {v0, v1}, Landroid/util/Log;.d:(Ljava/lang/String;Ljava/lang/String;)I // method@0051
+015aae: 5430 8700                              |001d: iget-object v0, v3, Lcom/desaysv/launcher/card/T1hMediaCard;.mMainViewModel:Lcom/desaysv/launcher/viewmodel/MainViewModel; // field@0087
+015ab2: 3800 0500                              |001f: if-eqz v0, 0024 // +0005
+015ab6: 6e20 3308 4000                         |0021: invoke-virtual {v0, v4}, Lcom/desaysv/launcher/viewmodel/MainViewModel;.showMediaCard:(I)V // method@0833
+015abc: 0e00                                   |0024: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=169
+        0x0003 line=170
+        0x001d line=171
+        0x0024 line=172
+      locals        :
+        0x0000 - 0x0025 reg=3 this Lcom/desaysv/launcher/card/T1hMediaCard;
+        0x0000 - 0x0025 reg=4 isVisible Z
+
+    #18              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'openMedia'
+      type          : '()V'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 6
+      ins           : 1
+      outs          : 4
+      insns size    : 91 16-bit code units
+015ac0:                                        |[015ac0] com.desaysv.launcher.card.T1hMediaCard.openMedia:()V
+015ad0: 6e10 5b03 0500                         |0000: invoke-virtual {v5}, Lcom/desaysv/launcher/card/T1hMediaCard;.getTAG:()Ljava/lang/String; // method@035b
+015ad6: 0c00                                   |0003: move-result-object v0
+015ad8: 1a01 1709                              |0004: const-string v1, "openMedia called" // string@0917
+015adc: 7120 5100 1000                         |0006: invoke-static {v0, v1}, Landroid/util/Log;.d:(Ljava/lang/String;Ljava/lang/String;)I // method@0051
+015ae2: 1210                                   |0009: const/4 v0, #int 1 // #1
+015ae4: 7110 8f08 0000                         |000a: invoke-static {v0}, Ljava/lang/Boolean;.valueOf:(Z)Ljava/lang/Boolean; // method@088f
+015aea: 0c00                                   |000d: move-result-object v0
+015aec: 6201 7a01                              |000e: sget-object v1, Lcom/desaysv/launcher/card/base/CardManager;.Companion:Lcom/desaysv/launcher/card/base/CardManager$Companion; // field@017a
+015af0: 6e10 b606 0100                         |0010: invoke-virtual {v1}, Lcom/desaysv/launcher/card/base/CardManager$Companion;.getSIntance:()Lcom/desaysv/launcher/card/base/CardManager; // method@06b6
+015af6: 0c01                                   |0013: move-result-object v1
+015af8: 6e10 b706 0100                         |0014: invoke-virtual {v1}, Lcom/desaysv/launcher/card/base/CardManager;.getMIsCardEditing:()Landroidx/databinding/ObservableField; // method@06b7
+015afe: 0c01                                   |0017: move-result-object v1
+015b00: 6e10 d700 0100                         |0018: invoke-virtual {v1}, Landroidx/databinding/ObservableField;.get:()Ljava/lang/Object; // method@00d7
+015b06: 0c01                                   |001b: move-result-object v1
+015b08: 7120 ca08 1000                         |001c: invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;.areEqual:(Ljava/lang/Object;Ljava/lang/Object;)Z // method@08ca
+015b0e: 0a00                                   |001f: move-result v0
+015b10: 3800 0300                              |0020: if-eqz v0, 0023 // +0003
+015b14: 0e00                                   |0022: return-void
+015b16: 6e10 5a03 0500                         |0023: invoke-virtual {v5}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+015b1c: 0c00                                   |0026: move-result-object v0
+015b1e: 1f00 7901                              |0027: check-cast v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+015b22: 3800 1700                              |0029: if-eqz v0, 0040 // +0017
+015b26: 5400 d401                              |002b: iget-object v0, v0, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.mainCardLayout:Lcom/desaysv/svlibbasewidget/SVShadowLayout; // field@01d4
+015b2a: 3800 1300                              |002d: if-eqz v0, 0040 // +0013
+015b2e: 1201                                   |002f: const/4 v1, #int 0 // #0
+015b30: 6202 7a01                              |0030: sget-object v2, Lcom/desaysv/launcher/card/base/CardManager;.Companion:Lcom/desaysv/launcher/card/base/CardManager$Companion; // field@017a
+015b34: 6e10 b606 0200                         |0032: invoke-virtual {v2}, Lcom/desaysv/launcher/card/base/CardManager$Companion;.getSIntance:()Lcom/desaysv/launcher/card/base/CardManager; // method@06b6
+015b3a: 0c02                                   |0035: move-result-object v2
+015b3c: 0753                                   |0036: move-object v3, v5
+015b3e: 1f03 5f01                              |0037: check-cast v3, Lcom/desaysv/launcher/card/base/Card; // type@015f
+015b42: 0754                                   |0039: move-object v4, v5
+015b44: 1f04 4f00                              |003a: check-cast v4, Landroid/view/View; // type@004f
+015b48: 6e30 b806 3204                         |003c: invoke-virtual {v2, v3, v4}, Lcom/desaysv/launcher/card/base/CardManager;.setLastClickCard:(Lcom/desaysv/launcher/card/base/Card;Landroid/view/View;)V // method@06b8
+015b4e: 0000                                   |003f: nop // spacer
+015b50: 0000                                   |0040: nop // spacer
+015b52: 6e10 5903 0500                         |0041: invoke-virtual {v5}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMViewModel:()Lcom/desay/launcher/libbase/viewmodel/base/BaseViewModel; // method@0359
+015b58: 0c00                                   |0044: move-result-object v0
+015b5a: 1f00 ae01                              |0045: check-cast v0, Lcom/desaysv/launcher/viewmodel/MediaViewModel; // type@01ae
+015b5e: 3800 0900                              |0047: if-eqz v0, 0050 // +0009
+015b62: 0751                                   |0049: move-object v1, v5
+015b64: 1f01 4f00                              |004a: check-cast v1, Landroid/view/View; // type@004f
+015b68: 1272                                   |004c: const/4 v2, #int 7 // #7
+015b6a: 6e30 3b08 1002                         |004d: invoke-virtual {v0, v1, v2}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.openMedia:(Landroid/view/View;I)V // method@083b
+015b70: 6200 1e00                              |0050: sget-object v0, Lcom/desaysv/appmenu/utils/AppUtils;.Companion:Lcom/desaysv/appmenu/utils/AppUtils$Companion; // field@001e
+015b74: 1201                                   |0052: const/4 v1, #int 0 // #0
+015b76: 1302 0b00                              |0053: const/16 v2, #int 11 // #b
+015b7a: 1a03 a805                              |0055: const-string v3, "com.desaysv.mediacenter" // string@05a8
+015b7e: 6e40 3d01 3021                         |0057: invoke-virtual {v0, v3, v1, v2}, Lcom/desaysv/appmenu/utils/AppUtils$Companion;.track:(Ljava/lang/String;Ljava/lang/String;I)V // method@013d
+015b84: 0e00                                   |005a: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=403
+        0x0009 line=404
+        0x0022 line=405
+        0x0023 line=408
+        0x0030 line=409
+        0x003f line=410
+        0x0040 line=408
+        0x0041 line=413
+        0x0050 line=414
+        0x005a line=415
+      locals        :
+        0x002f - 0x0040 reg=0 it Lcom/desaysv/svlibbasewidget/SVShadowLayout;
+        0x0030 - 0x0040 reg=1 $i$a$-let-T1hMediaCard$openMedia$1 I
+        0x0000 - 0x005b reg=5 this Lcom/desaysv/launcher/card/T1hMediaCard;
+
+    #19              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'setMBeforePlayStatus'
+      type          : '(I)V'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 2
+      ins           : 2
+      outs          : 0
+      insns size    : 3 16-bit code units
+015b88:                                        |[015b88] com.desaysv.launcher.card.T1hMediaCard.setMBeforePlayStatus:(I)V
+015b98: 5901 8400                              |0000: iput v1, v0, Lcom/desaysv/launcher/card/T1hMediaCard;.mBeforePlayStatus:I // field@0084
+015b9c: 0e00                                   |0002: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=313
+      locals        :
+        0x0000 - 0x0003 reg=0 this Lcom/desaysv/launcher/card/T1hMediaCard;
+        0x0000 - 0x0003 reg=1 <set-?> I
+
+    #20              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'setMMediaTypePropertyChangedCallback'
+      type          : '(Landroidx/databinding/Observable$OnPropertyChangedCallback;)V'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 3
+      ins           : 2
+      outs          : 2
+      insns size    : 8 16-bit code units
+015ba0:                                        |[015ba0] com.desaysv.launcher.card.T1hMediaCard.setMMediaTypePropertyChangedCallback:(Landroidx/databinding/Observable$OnPropertyChangedCallback;)V
+015bb0: 1a00 ba01                              |0000: const-string v0, "<set-?>" // string@01ba
+015bb4: 7120 ce08 0200                         |0002: invoke-static {v2, v0}, Lkotlin/jvm/internal/Intrinsics;.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V // method@08ce
+015bba: 5b12 8800                              |0005: iput-object v2, v1, Lcom/desaysv/launcher/card/T1hMediaCard;.mMediaTypePropertyChangedCallback:Landroidx/databinding/Observable$OnPropertyChangedCallback; // field@0088
+015bbe: 0e00                                   |0007: return-void
+      catches       : (none)
+      positions     :
+        0x0005 line=72
+        0x0007 line=86
+      locals        :
+        0x0000 - 0x0008 reg=1 this Lcom/desaysv/launcher/card/T1hMediaCard;
+        0x0000 - 0x0008 reg=2 <set-?> Landroidx/databinding/Observable$OnPropertyChangedCallback;
+
+    #21              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'showSourceCard'
+      type          : '()V'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 4
+      ins           : 1
+      outs          : 2
+      insns size    : 41 16-bit code units
+015bc0:                                        |[015bc0] com.desaysv.launcher.card.T1hMediaCard.showSourceCard:()V
+015bd0: 6e10 5b03 0300                         |0000: invoke-virtual {v3}, Lcom/desaysv/launcher/card/T1hMediaCard;.getTAG:()Ljava/lang/String; // method@035b
+015bd6: 0c00                                   |0003: move-result-object v0
+015bd8: 1a01 820a                              |0004: const-string v1, "showSourceCard called" // string@0a82
+015bdc: 7120 5100 1000                         |0006: invoke-static {v0, v1}, Landroid/util/Log;.d:(Ljava/lang/String;Ljava/lang/String;)I // method@0051
+015be2: 1210                                   |0009: const/4 v0, #int 1 // #1
+015be4: 7110 8f08 0000                         |000a: invoke-static {v0}, Ljava/lang/Boolean;.valueOf:(Z)Ljava/lang/Boolean; // method@088f
+015bea: 0c01                                   |000d: move-result-object v1
+015bec: 6202 7a01                              |000e: sget-object v2, Lcom/desaysv/launcher/card/base/CardManager;.Companion:Lcom/desaysv/launcher/card/base/CardManager$Companion; // field@017a
+015bf0: 6e10 b606 0200                         |0010: invoke-virtual {v2}, Lcom/desaysv/launcher/card/base/CardManager$Companion;.getSIntance:()Lcom/desaysv/launcher/card/base/CardManager; // method@06b6
+015bf6: 0c02                                   |0013: move-result-object v2
+015bf8: 6e10 b706 0200                         |0014: invoke-virtual {v2}, Lcom/desaysv/launcher/card/base/CardManager;.getMIsCardEditing:()Landroidx/databinding/ObservableField; // method@06b7
+015bfe: 0c02                                   |0017: move-result-object v2
+015c00: 6e10 d700 0200                         |0018: invoke-virtual {v2}, Landroidx/databinding/ObservableField;.get:()Ljava/lang/Object; // method@00d7
+015c06: 0c02                                   |001b: move-result-object v2
+015c08: 7120 ca08 2100                         |001c: invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;.areEqual:(Ljava/lang/Object;Ljava/lang/Object;)Z // method@08ca
+015c0e: 0a01                                   |001f: move-result v1
+015c10: 3801 0300                              |0020: if-eqz v1, 0023 // +0003
+015c14: 0e00                                   |0022: return-void
+015c16: 6201 6702                              |0023: sget-object v1, Lcom/desaysv/launcher/manager/MessageManager;.Companion:Lcom/desaysv/launcher/manager/MessageManager$Companion; // field@0267
+015c1a: 6e20 0208 0100                         |0025: invoke-virtual {v1, v0}, Lcom/desaysv/launcher/manager/MessageManager$Companion;.notifyToShowMediaSourceCard:(Z)V // method@0802
+015c20: 0e00                                   |0028: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=446
+        0x0009 line=447
+        0x0022 line=448
+        0x0023 line=450
+        0x0028 line=451
+      locals        :
+        0x0000 - 0x0029 reg=3 this Lcom/desaysv/launcher/card/T1hMediaCard;
+
+    #22              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'updateMediaSource'
+      type          : '(I)V'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 15
+      ins           : 2
+      outs          : 2
+      insns size    : 152 16-bit code units
+015c24:                                        |[015c24] com.desaysv.launcher.card.T1hMediaCard.updateMediaSource:(I)V
+015c34: 6200 1f00                              |0000: sget-object v0, Lcom/desaysv/appmenu/utils/KTUtils;.Companion:Lcom/desaysv/appmenu/utils/KTUtils$Companion; // field@001f
+015c38: 6e10 5903 0d00                         |0002: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMViewModel:()Lcom/desay/launcher/libbase/viewmodel/base/BaseViewModel; // method@0359
+015c3e: 0c01                                   |0005: move-result-object v1
+015c40: 6e10 5a03 0d00                         |0006: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMbinding:()Landroidx/databinding/ViewDataBinding; // method@035a
+015c46: 0c02                                   |0009: move-result-object v2
+015c48: 1203                                   |000a: const/4 v3, #int 0 // #0
+015c4a: 3801 8b00                              |000b: if-eqz v1, 0096 // +008b
+015c4e: 3802 8900                              |000d: if-eqz v2, 0096 // +0089
+015c52: 0724                                   |000f: move-object v4, v2
+015c54: 1f04 7901                              |0010: check-cast v4, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding; // type@0179
+015c58: 0715                                   |0012: move-object v5, v1
+015c5a: 1f05 ae01                              |0013: check-cast v5, Lcom/desaysv/launcher/viewmodel/MediaViewModel; // type@01ae
+015c5e: 1206                                   |0015: const/4 v6, #int 0 // #0
+015c60: 5457 6c02                              |0016: iget-object v7, v5, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.mMediaType:Landroidx/databinding/ObservableField; // field@026c
+015c64: 6e10 d700 0700                         |0018: invoke-virtual {v7}, Landroidx/databinding/ObservableField;.get:()Ljava/lang/Object; // method@00d7
+015c6a: 0c07                                   |001b: move-result-object v7
+015c6c: 1f07 ce01                              |001c: check-cast v7, Ljava/lang/Integer; // type@01ce
+015c70: 3907 0700                              |001e: if-nez v7, 0025 // +0007
+015c74: 1217                                   |0020: const/4 v7, #int 1 // #1
+015c76: 7110 9708 0700                         |0021: invoke-static {v7}, Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer; // method@0897
+015c7c: 0c07                                   |0024: move-result-object v7
+015c7e: 7110 cb08 0700                         |0025: invoke-static {v7}, Lkotlin/jvm/internal/Intrinsics;.checkNotNull:(Ljava/lang/Object;)V // method@08cb
+015c84: 1f07 cf01                              |0028: check-cast v7, Ljava/lang/Number; // type@01cf
+015c88: 6e10 9908 0700                         |002a: invoke-virtual {v7}, Ljava/lang/Number;.intValue:()I // method@0899
+015c8e: 0a07                                   |002d: move-result v7
+015c90: 6e10 5b03 0d00                         |002e: invoke-virtual {v13}, Lcom/desaysv/launcher/card/T1hMediaCard;.getTAG:()Ljava/lang/String; // method@035b
+015c96: 0c08                                   |0031: move-result-object v8
+015c98: 2209 d401                              |0032: new-instance v9, Ljava/lang/StringBuilder; // type@01d4
+015c9c: 7010 9f08 0900                         |0034: invoke-direct {v9}, Ljava/lang/StringBuilder;.<init>:()V // method@089f
+015ca2: 1a0a f40a                              |0037: const-string v10, "updateMediaSource mediaType:" // string@0af4
+015ca6: 6e20 a508 a900                         |0039: invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder; // method@08a5
+015cac: 0c09                                   |003c: move-result-object v9
+015cae: 6e20 a208 7900                         |003d: invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;.append:(I)Ljava/lang/StringBuilder; // method@08a2
+015cb4: 0c09                                   |0040: move-result-object v9
+015cb6: 1a0a 4100                              |0041: const-string v10, " status:" // string@0041
+015cba: 6e20 a508 a900                         |0043: invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder; // method@08a5
+015cc0: 0c09                                   |0046: move-result-object v9
+015cc2: 6e20 a208 e900                         |0047: invoke-virtual {v9, v14}, Ljava/lang/StringBuilder;.append:(I)Ljava/lang/StringBuilder; // method@08a2
+015cc8: 0c09                                   |004a: move-result-object v9
+015cca: 6e10 a708 0900                         |004b: invoke-virtual {v9}, Ljava/lang/StringBuilder;.toString:()Ljava/lang/String; // method@08a7
+015cd0: 0c09                                   |004e: move-result-object v9
+015cd2: 7120 5100 9800                         |004f: invoke-static {v8, v9}, Landroid/util/Log;.d:(Ljava/lang/String;Ljava/lang/String;)I // method@0051
+015cd8: 1308 1200                              |0052: const/16 v8, #int 18 // #12
+015cdc: 3387 0a00                              |0054: if-ne v7, v8, 005e // +000a
+015ce0: 6208 9a01                              |0056: sget-object v8, Lcom/desaysv/launcher/constant/InterconnStatus;.CARPLAY:Lcom/desaysv/launcher/constant/InterconnStatus; // field@019a
+015ce4: 6e10 cd06 0800                         |0058: invoke-virtual {v8}, Lcom/desaysv/launcher/constant/InterconnStatus;.getValue:()I // method@06cd
+015cea: 0a08                                   |005b: move-result v8
+015cec: 338e 1a00                              |005c: if-ne v14, v8, 0076 // +001a
+015cf0: 1308 1300                              |005e: const/16 v8, #int 19 // #13
+015cf4: 3387 0a00                              |0060: if-ne v7, v8, 006a // +000a
+015cf8: 6208 9b01                              |0062: sget-object v8, Lcom/desaysv/launcher/constant/InterconnStatus;.HICAR:Lcom/desaysv/launcher/constant/InterconnStatus; // field@019b
+015cfc: 6e10 cd06 0800                         |0064: invoke-virtual {v8}, Lcom/desaysv/launcher/constant/InterconnStatus;.getValue:()I // method@06cd
+015d02: 0a08                                   |0067: move-result v8
+015d04: 338e 0e00                              |0068: if-ne v14, v8, 0076 // +000e
+015d08: 1308 1400                              |006a: const/16 v8, #int 20 // #14
+015d0c: 3387 2300                              |006c: if-ne v7, v8, 008f // +0023
+015d10: 6208 9901                              |006e: sget-object v8, Lcom/desaysv/launcher/constant/InterconnStatus;.ANDRIOD_AUTO:Lcom/desaysv/launcher/constant/InterconnStatus; // field@0199
+015d14: 6e10 cd06 0800                         |0070: invoke-virtual {v8}, Lcom/desaysv/launcher/constant/InterconnStatus;.getValue:()I // method@06cd
+015d1a: 0a08                                   |0073: move-result v8
+015d1c: 328e 1b00                              |0074: if-eq v14, v8, 008f // +001b
+015d20: 5448 d301                              |0076: iget-object v8, v4, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.ivSource:Landroid/widget/ImageView; // field@01d3
+015d24: 2209 1e00                              |0078: new-instance v9, Landroid/graphics/ColorMatrix; // type@001e
+015d28: 7010 2700 0900                         |007a: invoke-direct {v9}, Landroid/graphics/ColorMatrix;.<init>:()V // method@0027
+015d2e: 079a                                   |007d: move-object v10, v9
+015d30: 120b                                   |007e: const/4 v11, #int 0 // #0
+015d32: 120c                                   |007f: const/4 v12, #int 0 // #0
+015d34: 6e20 2800 ca00                         |0080: invoke-virtual {v10, v12}, Landroid/graphics/ColorMatrix;.setSaturation:(F)V // method@0028
+015d3a: 0000                                   |0083: nop // spacer
+015d3c: 220a 1f00                              |0084: new-instance v10, Landroid/graphics/ColorMatrixColorFilter; // type@001f
+015d40: 7020 2900 9a00                         |0086: invoke-direct {v10, v9}, Landroid/graphics/ColorMatrixColorFilter;.<init>:(Landroid/graphics/ColorMatrix;)V // method@0029
+015d46: 1f0a 1d00                              |0089: check-cast v10, Landroid/graphics/ColorFilter; // type@001d
+015d4a: 6e20 b200 a800                         |008b: invoke-virtual {v8, v10}, Landroid/widget/ImageView;.setColorFilter:(Landroid/graphics/ColorFilter;)V // method@00b2
+015d50: 2807                                   |008e: goto 0095 // +0007
+015d52: 5448 d301                              |008f: iget-object v8, v4, Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;.ivSource:Landroid/widget/ImageView; // field@01d3
+015d56: 1209                                   |0091: const/4 v9, #int 0 // #0
+015d58: 6e20 b200 9800                         |0092: invoke-virtual {v8, v9}, Landroid/widget/ImageView;.setColorFilter:(Landroid/graphics/ColorFilter;)V // method@00b2
+015d5e: 0000                                   |0095: nop // spacer
+015d60: 0000                                   |0096: nop // spacer
+015d62: 0e00                                   |0097: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=194
+        0x000b line=455
+        0x0016 line=195
+        0x002e line=196
+        0x0052 line=197
+        0x005e line=198
+        0x006a line=199
+        0x0076 line=200
+        0x007f line=201
+        0x0083 line=202
+        0x0084 line=200
+        0x008f line=204
+        0x0095 line=206
+        0x0096 line=455
+        0x0097 line=207
+      locals        :
+        0x007e - 0x0084 reg=10 $this$updateMediaSource_u24lambda_u245_u24lambda_u244 Landroid/graphics/ColorMatrix;
+        0x007f - 0x0084 reg=11 $i$a$-apply-T1hMediaCard$updateMediaSource$1$1 I
+        0x0012 - 0x0096 reg=4 binding Lcom/desaysv/launcher/databinding/CardT1hMediaBinding;
+        0x0015 - 0x0096 reg=5 VM Lcom/desaysv/launcher/viewmodel/MediaViewModel;
+        0x0016 - 0x0096 reg=6 $i$a$-safeLet-T1hMediaCard$updateMediaSource$1 I
+        0x002e - 0x0096 reg=7 type I
+        0x0002 - 0x0097 reg=0 this_$iv Lcom/desaysv/appmenu/utils/KTUtils$Companion;
+        0x0006 - 0x0097 reg=1 p1$iv Ljava/lang/Object;
+        0x000a - 0x0097 reg=2 p2$iv Ljava/lang/Object;
+        0x000b - 0x0097 reg=3 $i$f$safeLet I
+        0x0000 - 0x0098 reg=13 this Lcom/desaysv/launcher/card/T1hMediaCard;
+        0x0000 - 0x0098 reg=14 interconnStatus I
+
+    #23              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'viewKeyDown'
+      type          : '(Landroid/view/View;)V'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 8
+      ins           : 2
+      outs          : 2
+      insns size    : 132 16-bit code units
+015d64:                                        |[015d64] com.desaysv.launcher.card.T1hMediaCard.viewKeyDown:(Landroid/view/View;)V
+015d74: 1a00 010b                              |0000: const-string v0, "v" // string@0b01
+015d78: 7120 ce08 0700                         |0002: invoke-static {v7, v0}, Lkotlin/jvm/internal/Intrinsics;.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V // method@08ce
+015d7e: 6e10 5903 0600                         |0005: invoke-virtual {v6}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMViewModel:()Lcom/desay/launcher/libbase/viewmodel/base/BaseViewModel; // method@0359
+015d84: 0c00                                   |0008: move-result-object v0
+015d86: 1f00 ae01                              |0009: check-cast v0, Lcom/desaysv/launcher/viewmodel/MediaViewModel; // type@01ae
+015d8a: 3800 6d00                              |000b: if-eqz v0, 0078 // +006d
+015d8e: 1201                                   |000d: const/4 v1, #int 0 // #0
+015d90: 6e10 8d00 0700                         |000e: invoke-virtual {v7}, Landroid/view/View;.getId:()I // method@008d
+015d96: 0a02                                   |0011: move-result v2
+015d98: 1303 0a00                              |0012: const/16 v3, #int 10 // #a
+015d9c: 2b02 6600 0000                         |0014: packed-switch v2, 0000007a // +00000066
+015da2: 285f                                   |0017: goto 0076 // +005f
+015da4: 6e20 3e08 3000                         |0018: invoke-virtual {v0, v3}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.pre:(I)V // method@083e
+015daa: 285b                                   |001b: goto 0076 // +005b
+015dac: 6e10 5b03 0600                         |001c: invoke-virtual {v6}, Lcom/desaysv/launcher/card/T1hMediaCard;.getTAG:()Ljava/lang/String; // method@035b
+015db2: 0c02                                   |001f: move-result-object v2
+015db4: 2204 d401                              |0020: new-instance v4, Ljava/lang/StringBuilder; // type@01d4
+015db8: 7010 9f08 0400                         |0022: invoke-direct {v4}, Ljava/lang/StringBuilder;.<init>:()V // method@089f
+015dbe: 1a05 110b                              |0025: const-string v5, "viewKeyUp viewmodel.currVDMediaInfo = " // string@0b11
+015dc2: 6e20 a508 5400                         |0027: invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder; // method@08a5
+015dc8: 0c04                                   |002a: move-result-object v4
+015dca: 6e10 3408 0000                         |002b: invoke-virtual {v0}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.getCurrVDMediaInfo:()Lcom/desaysv/ivi/vdb/event/id/media/bean/VDMediaInfo; // method@0834
+015dd0: 0c05                                   |002e: move-result-object v5
+015dd2: 6e20 a408 5400                         |002f: invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder; // method@08a4
+015dd8: 0c04                                   |0032: move-result-object v4
+015dda: 6e10 a708 0400                         |0033: invoke-virtual {v4}, Ljava/lang/StringBuilder;.toString:()Ljava/lang/String; // method@08a7
+015de0: 0c04                                   |0036: move-result-object v4
+015de2: 7120 2001 4200                         |0037: invoke-static {v2, v4}, Lcom/desay/launcher/libbase/utils/Log;.d:(Ljava/lang/String;Ljava/lang/String;)V // method@0120
+015de8: 6e10 3408 0000                         |003a: invoke-virtual {v0}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.getCurrVDMediaInfo:()Lcom/desaysv/ivi/vdb/event/id/media/bean/VDMediaInfo; // method@0834
+015dee: 0c02                                   |003d: move-result-object v2
+015df0: 3902 0300                              |003e: if-nez v2, 0041 // +0003
+015df4: 0e00                                   |0040: return-void
+015df6: 6e10 3508 0000                         |0041: invoke-virtual {v0}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.getPlayStatusValue:()I // method@0835
+015dfc: 0a02                                   |0044: move-result v2
+015dfe: 5962 8400                              |0045: iput v2, v6, Lcom/desaysv/launcher/card/T1hMediaCard;.mBeforePlayStatus:I // field@0084
+015e02: 6e10 5b03 0600                         |0047: invoke-virtual {v6}, Lcom/desaysv/launcher/card/T1hMediaCard;.getTAG:()Ljava/lang/String; // method@035b
+015e08: 0c02                                   |004a: move-result-object v2
+015e0a: 2204 d401                              |004b: new-instance v4, Ljava/lang/StringBuilder; // type@01d4
+015e0e: 7010 9f08 0400                         |004d: invoke-direct {v4}, Ljava/lang/StringBuilder;.<init>:()V // method@089f
+015e14: 1a05 0e0b                              |0050: const-string v5, "viewKeyDown mBeforePlayStatus= " // string@0b0e
+015e18: 6e20 a508 5400                         |0052: invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder; // method@08a5
+015e1e: 0c04                                   |0055: move-result-object v4
+015e20: 5265 8400                              |0056: iget v5, v6, Lcom/desaysv/launcher/card/T1hMediaCard;.mBeforePlayStatus:I // field@0084
+015e24: 6e20 a208 5400                         |0058: invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;.append:(I)Ljava/lang/StringBuilder; // method@08a2
+015e2a: 0c04                                   |005b: move-result-object v4
+015e2c: 6e10 a708 0400                         |005c: invoke-virtual {v4}, Ljava/lang/StringBuilder;.toString:()Ljava/lang/String; // method@08a7
+015e32: 0c04                                   |005f: move-result-object v4
+015e34: 7120 2001 4200                         |0060: invoke-static {v2, v4}, Lcom/desay/launcher/libbase/utils/Log;.d:(Ljava/lang/String;Ljava/lang/String;)V // method@0120
+015e3a: 5262 8400                              |0063: iget v2, v6, Lcom/desaysv/launcher/card/T1hMediaCard;.mBeforePlayStatus:I // field@0084
+015e3e: 1214                                   |0065: const/4 v4, #int 1 // #1
+015e40: 3342 0700                              |0066: if-ne v2, v4, 006d // +0007
+015e44: 0000                                   |0068: nop // spacer
+015e46: 6e20 3c08 3000                         |0069: invoke-virtual {v0, v3}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.pause:(I)V // method@083c
+015e4c: 280a                                   |006c: goto 0076 // +000a
+015e4e: 0000                                   |006d: nop // spacer
+015e50: 0000                                   |006e: nop // spacer
+015e52: 6e20 3d08 3000                         |006f: invoke-virtual {v0, v3}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.play:(I)V // method@083d
+015e58: 2804                                   |0072: goto 0076 // +0004
+015e5a: 6e20 3708 3000                         |0073: invoke-virtual {v0, v3}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.next:(I)V // method@0837
+015e60: 0000                                   |0076: nop // spacer
+015e62: 0000                                   |0077: nop // spacer
+015e64: 0e00                                   |0078: return-void
+015e66: 0000                                   |0079: nop // spacer
+015e68: 0001 0300 5001 0a7f 5f00 0000 0800 ... |007a: packed-switch-data (10 units)
+      catches       : (none)
+      positions     :
+        0x0005 line=342
+        0x000e line=343
+        0x0018 line=360
+        0x001c line=345
+        0x003a line=346
+        0x0040 line=348
+        0x0041 line=351
+        0x0047 line=352
+        0x0063 line=353
+        0x0068 line=354
+        0x0069 line=353
+        0x006d line=355
+        0x006e line=356
+        0x006f line=355
+        0x0073 line=359
+        0x0076 line=362
+        0x0077 line=342
+        0x0078 line=363
+      locals        :
+        0x000d - 0x0077 reg=0 viewmodel Lcom/desaysv/launcher/viewmodel/MediaViewModel;
+        0x000e - 0x0077 reg=1 $i$a$-let-T1hMediaCard$viewKeyDown$1 I
+        0x0000 - 0x0084 reg=6 this Lcom/desaysv/launcher/card/T1hMediaCard;
+        0x0000 - 0x0084 reg=7 v Landroid/view/View;
+
+    #24              : (in Lcom/desaysv/launcher/card/T1hMediaCard;)
+      name          : 'viewKeyUp'
+      type          : '(Landroid/view/View;)V'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 8
+      ins           : 2
+      outs          : 2
+      insns size    : 96 16-bit code units
+015e7c:                                        |[015e7c] com.desaysv.launcher.card.T1hMediaCard.viewKeyUp:(Landroid/view/View;)V
+015e8c: 1a00 010b                              |0000: const-string v0, "v" // string@0b01
+015e90: 7120 ce08 0700                         |0002: invoke-static {v7, v0}, Lkotlin/jvm/internal/Intrinsics;.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V // method@08ce
+015e96: 6e10 5903 0600                         |0005: invoke-virtual {v6}, Lcom/desaysv/launcher/card/T1hMediaCard;.getMViewModel:()Lcom/desay/launcher/libbase/viewmodel/base/BaseViewModel; // method@0359
+015e9c: 0c00                                   |0008: move-result-object v0
+015e9e: 1f00 ae01                              |0009: check-cast v0, Lcom/desaysv/launcher/viewmodel/MediaViewModel; // type@01ae
+015ea2: 3800 4900                              |000b: if-eqz v0, 0054 // +0049
+015ea6: 1201                                   |000d: const/4 v1, #int 0 // #0
+015ea8: 6e10 8d00 0700                         |000e: invoke-virtual {v7}, Landroid/view/View;.getId:()I // method@008d
+015eae: 0a02                                   |0011: move-result v2
+015eb0: 1303 0b00                              |0012: const/16 v3, #int 11 // #b
+015eb4: 2b02 4200 0000                         |0014: packed-switch v2, 00000056 // +00000042
+015eba: 283b                                   |0017: goto 0052 // +003b
+015ebc: 6e20 3e08 3000                         |0018: invoke-virtual {v0, v3}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.pre:(I)V // method@083e
+015ec2: 2837                                   |001b: goto 0052 // +0037
+015ec4: 6e10 3408 0000                         |001c: invoke-virtual {v0}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.getCurrVDMediaInfo:()Lcom/desaysv/ivi/vdb/event/id/media/bean/VDMediaInfo; // method@0834
+015eca: 0c02                                   |001f: move-result-object v2
+015ecc: 3902 0300                              |0020: if-nez v2, 0023 // +0003
+015ed0: 0e00                                   |0022: return-void
+015ed2: 6e10 5b03 0600                         |0023: invoke-virtual {v6}, Lcom/desaysv/launcher/card/T1hMediaCard;.getTAG:()Ljava/lang/String; // method@035b
+015ed8: 0c02                                   |0026: move-result-object v2
+015eda: 2204 d401                              |0027: new-instance v4, Ljava/lang/StringBuilder; // type@01d4
+015ede: 7010 9f08 0400                         |0029: invoke-direct {v4}, Ljava/lang/StringBuilder;.<init>:()V // method@089f
+015ee4: 1a05 100b                              |002c: const-string v5, "viewKeyUp mBeforePlayStatus= " // string@0b10
+015ee8: 6e20 a508 5400                         |002e: invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder; // method@08a5
+015eee: 0c04                                   |0031: move-result-object v4
+015ef0: 5265 8400                              |0032: iget v5, v6, Lcom/desaysv/launcher/card/T1hMediaCard;.mBeforePlayStatus:I // field@0084
+015ef4: 6e20 a208 5400                         |0034: invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;.append:(I)Ljava/lang/StringBuilder; // method@08a2
+015efa: 0c04                                   |0037: move-result-object v4
+015efc: 6e10 a708 0400                         |0038: invoke-virtual {v4}, Ljava/lang/StringBuilder;.toString:()Ljava/lang/String; // method@08a7
+015f02: 0c04                                   |003b: move-result-object v4
+015f04: 7120 2001 4200                         |003c: invoke-static {v2, v4}, Lcom/desay/launcher/libbase/utils/Log;.d:(Ljava/lang/String;Ljava/lang/String;)V // method@0120
+015f0a: 5262 8400                              |003f: iget v2, v6, Lcom/desaysv/launcher/card/T1hMediaCard;.mBeforePlayStatus:I // field@0084
+015f0e: 1214                                   |0041: const/4 v4, #int 1 // #1
+015f10: 3342 0700                              |0042: if-ne v2, v4, 0049 // +0007
+015f14: 0000                                   |0044: nop // spacer
+015f16: 6e20 3c08 3000                         |0045: invoke-virtual {v0, v3}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.pause:(I)V // method@083c
+015f1c: 280a                                   |0048: goto 0052 // +000a
+015f1e: 0000                                   |0049: nop // spacer
+015f20: 0000                                   |004a: nop // spacer
+015f22: 6e20 3d08 3000                         |004b: invoke-virtual {v0, v3}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.play:(I)V // method@083d
+015f28: 2804                                   |004e: goto 0052 // +0004
+015f2a: 6e20 3708 3000                         |004f: invoke-virtual {v0, v3}, Lcom/desaysv/launcher/viewmodel/MediaViewModel;.next:(I)V // method@0837
+015f30: 0000                                   |0052: nop // spacer
+015f32: 0000                                   |0053: nop // spacer
+015f34: 0e00                                   |0054: return-void
+015f36: 0000                                   |0055: nop // spacer
+015f38: 0001 0300 5001 0a7f 3b00 0000 0800 ... |0056: packed-switch-data (10 units)
+      catches       : (none)
+      positions     :
+        0x0005 line=315
+        0x000e line=316
+        0x0018 line=335
+        0x001c line=318
+        0x0022 line=320
+        0x0023 line=325
+        0x0027 line=326
+        0x003c line=324
+        0x003f line=328
+        0x0044 line=329
+        0x0045 line=328
+        0x0049 line=330
+        0x004a line=331
+        0x004b line=330
+        0x004f line=334
+        0x0052 line=337
+        0x0053 line=315
+        0x0054 line=339
+      locals        :
+        0x000d - 0x0053 reg=0 viewmodel Lcom/desaysv/launcher/viewmodel/MediaViewModel;
+        0x000e - 0x0053 reg=1 $i$a$-let-T1hMediaCard$viewKeyUp$1 I
+        0x0000 - 0x0060 reg=6 this Lcom/desaysv/launcher/card/T1hMediaCard;
+        0x0000 - 0x0060 reg=7 v Landroid/view/View;
+
+  source_file_idx   : 1152 (T1hMediaCard.kt)
+
+Class #59            -

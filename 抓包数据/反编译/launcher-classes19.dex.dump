@@ -1,0 +1,356 @@
+Processing 'classes19.dex'...
+Opened 'classes19.dex', DEX version '039'
+Class #0            -
+  Class descriptor  : 'Lcom/desaysv/appmenu/BR;'
+  Access flags      : 0x0001 (PUBLIC)
+  Superclass        : 'Ljava/lang/Object;'
+  Interfaces        -
+  Static fields     -
+    #0              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'AppInfo'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 1
+    #1              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'AppListAdapter'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 2
+    #2              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'AppUtils'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 3
+    #3              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'CarModelCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 4
+    #4              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'CarViewModel'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 5
+    #5              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'CardManager'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 6
+    #6              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'CardUtils'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 7
+    #7              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'ItemViewHolder'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 8
+    #8              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'MediaViewModel'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 9
+    #9              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'ResidentAppCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 10
+    #10              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'ResidentAppViewModel'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 11
+    #11              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hAlipayCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 12
+    #12              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hBTPhoneCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 13
+    #13              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hBedModeCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 14
+    #14              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hCarCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 15
+    #15              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hCarWashCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 16
+    #16              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hComfortModeCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 17
+    #17              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hDVRCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 18
+    #18              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hGameCenterCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 19
+    #19              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hHealthDetectionCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 20
+    #20              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hHealthyCabinCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 21
+    #21              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hHicarCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 22
+    #22              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hIQYCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 23
+    #23              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hLauncherServiceObserver'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 24
+    #24              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hLeishiKTVCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 25
+    #25              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hMapCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 26
+    #26              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hMediaCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 27
+    #27              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hPhevCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 28
+    #28              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hQueenModeCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 29
+    #29              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hResidentAppCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 30
+    #30              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hRoadBookCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 31
+    #31              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hRomanticModeCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 32
+    #32              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemAlipay'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 33
+    #33              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemApp'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 34
+    #34              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemBTPhone'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 35
+    #35              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemBigBedMode'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 36
+    #36              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemCar'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 37
+    #37              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemCarWash'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 38
+    #38              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemComfortMode'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 39
+    #39              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemDvr'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 40
+    #40              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemGameCenter'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 41
+    #41              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemHealthDetection'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 42
+    #42              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemHealthyCabin'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 43
+    #43              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemHicar'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 44
+    #44              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemIQY'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 45
+    #45              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemLeishiKtv'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 46
+    #46              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemMap'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 47
+    #47              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemMedia'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 48
+    #48              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemPhev'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 49
+    #49              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemQueenMode'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 50
+    #50              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemRoadBook'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 51
+    #51              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemRomanticMode'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 52
+    #52              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemVehiclePayment'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 53
+    #53              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemVolcanoCarEntertainment'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 54
+    #54              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hTobeSelectedItemWeather'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 55
+    #55              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hVehiclePaymentCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 56
+    #56              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hVolcanoCarEntertainmentCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 57
+    #57              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'T1hWeatherCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 58
+    #58              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'ThreeDCarCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 59
+    #59              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'UserCard'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 60
+    #60              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'UserDataViewModel'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 61
+    #61              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'ViewHolder'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 62
+    #62              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'WeatherViewModel'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 63
+    #63              : (in Lcom/desaysv/appmenu/BR;)
+      name          : '_all'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 0
+    #64              : (in Lcom/desaysv/appmenu/BR;)
+      name          : 'saverView'
+      type          : 'I'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+      value         : 64
+  Instance fields   -
+  Direct methods    -
+    #0              : (in Lcom/desaysv/appmenu/BR;)
+      name          : '<init>'
+      type          : '()V'
+      access        : 0x10001 (PUBLIC CONSTRUCTOR)
+      code          -
+      registers     : 1
+      ins           : 1
+      outs          : 1
+      insns size    : 4 16-bit code units
+0003e4:                                        |[0003e4] com.desaysv.appmenu.BR.<init>:()V
+0003f4: 7010 0100 0000                         |0000: invoke-direct {v0}, Ljava/lang/Object;.<init>:()V // method@0001
+0003fa: 0e00                                   |0003: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=3
+      locals        :
+        0x0000 - 0x0004 reg=0 this Lcom/desaysv/appmenu/BR;
+
+  Virtual methods   -
+  source_file_idx   : 4 (BR.java)
+
