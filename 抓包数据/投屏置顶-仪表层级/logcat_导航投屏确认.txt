@@ -1,0 +1,5 @@
+09-21 02:37:47.975 D/VDB-EXTRA-CarInfoProxy( 2073): [sendItemValues] moduleID:327681, cmdID:232, value:[3]
+09-21 02:37:48.231 I/ClusterCast( 2073): 仪表已切到导航模式（原=极简模式，通道=VDBus+Proxy）
+09-21 02:37:48.232 I/ClusterCast( 2073): 投屏区域已写成仪表整屏 1920x720（Z 序由系统决定，量出来没铺满会照实写）
+09-21 02:37:48.242 I/Caster  ( 2073): startOnDisplay com.arcvideo.car.iqy.video/com.arcvideo.car.iqy.video.SplashActivity -> display 2
+09-21 02:37:48.243 I/ClusterCast( 2073): 已投屏 爱奇艺

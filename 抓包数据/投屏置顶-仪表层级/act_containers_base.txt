@@ -1,0 +1,77 @@
+ACTIVITY MANAGER CONTAINERS (dumpsys activity containers)
+ROOT type=undefined mode=fullscreen override-mode=undefined
+  #2 Display 0 name="HDMI 屏幕" type=undefined mode=fullscreen override-mode=fullscreen
+   #1 mOverlayContainers type=undefined mode=fullscreen override-mode=undefined
+   #0 mWindowContainers type=undefined mode=fullscreen override-mode=undefined
+    #0 DisplayArea.Root type=undefined mode=fullscreen override-mode=undefined
+     #5 Leaf:17:48 type=undefined mode=fullscreen override-mode=undefined
+      #10 WindowToken{91b6c93 android.os.BinderProxy@12f6d82} type=undefined mode=fullscreen override-mode=undefined
+       #0 87434d0 RightInterceptView type=undefined mode=fullscreen override-mode=undefined
+      #9 WindowToken{366c7f6 android.os.BinderProxy@2595c91} type=undefined mode=fullscreen override-mode=undefined
+       #0 2fa1664 LeftInterceptView type=undefined mode=fullscreen override-mode=undefined
+      #8 WindowToken{e79a32a android.os.BinderProxy@4e157ff} type=undefined mode=fullscreen override-mode=undefined
+       #0 5fd751b right_slideback type=undefined mode=fullscreen override-mode=undefined
+      #7 WindowToken{22f8f07 android.os.BinderProxy@f958146} type=undefined mode=fullscreen override-mode=undefined
+       #0 23e3834 left_slideback type=undefined mode=fullscreen override-mode=undefined
+      #6 WindowToken{d54853c android.os.BinderProxy@57a4b2f} type=undefined mode=fullscreen override-mode=undefined
+       #0 5fd32c5 SystemUI_Container_Copilot type=undefined mode=fullscreen override-mode=undefined
+      #5 WindowToken{a172d99 android.os.BinderProxy@916e0} type=undefined mode=fullscreen override-mode=undefined
+       #0 919385e SystemUI_Container type=undefined mode=fullscreen override-mode=undefined
+      #4 WindowToken{52a3f3 android.os.BinderProxy@e2d6662} type=undefined mode=fullscreen override-mode=undefined
+       #0 21608b0 SystemUI_smallPanel type=undefined mode=fullscreen override-mode=undefined
+      #3 WindowToken{5584750 android.os.Binder@a923913} type=undefined mode=fullscreen override-mode=undefined
+      #2 WindowToken{948fb3f android.os.Binder@76c9b5e} type=undefined mode=fullscreen override-mode=undefined
+      #1 WindowToken{ca0f014 android.os.BinderProxy@3ad8d81} type=undefined mode=fullscreen override-mode=undefined
+       #0 d2480bd NavigationBar0 type=undefined mode=fullscreen override-mode=undefined
+      #0 WindowToken{9aed647 android.os.BinderProxy@8745d86} type=undefined mode=fullscreen override-mode=undefined
+       #0 66af9d StatusBar0 type=undefined mode=fullscreen override-mode=undefined
+     #4 ImeContainer type=undefined mode=fullscreen override-mode=undefined
+      #0 WindowToken{729116a android.os.Binder@441d355} type=undefined mode=fullscreen override-mode=undefined
+       #0 fdcfb70 InputMethod type=undefined mode=fullscreen override-mode=undefined
+     #3 Leaf:3:14 type=undefined mode=fullscreen override-mode=undefined
+     #2 DefaultTaskDisplayArea type=undefined mode=fullscreen override-mode=undefined
+      #3 Task=3424 type=standard mode=fullscreen override-mode=undefined
+       #0 ActivityRecord{d0308aa u0 com.ahui.clustercast/.MainActivity t3424} type=standard mode=fullscreen override-mode=undefined
+        #0 2f621c8 com.ahui.clustercast/com.ahui.clustercast.MainActivity type=standard mode=fullscreen override-mode=undefined
+      #2 Task=3423 type=standard mode=fullscreen override-mode=undefined
+       #1 ActivityRecord{b41f43 u0 com.sfcar.launcher/.navigation.FragmentHostActivity t3423} type=standard mode=fullscreen override-mode=undefined
+        #0 36f6c9f com.sfcar.launcher/com.sfcar.launcher.navigation.FragmentHostActivity type=standard mode=fullscreen override-mode=undefined
+       #0 ActivityRecord{e9c8f9 u0 com.sfcar.launcher/.main.MainActivity t3423} type=standard mode=fullscreen override-mode=undefined
+        #0 515546a com.sfcar.launcher/com.sfcar.launcher.main.MainActivity type=standard mode=fullscreen override-mode=undefined
+      #1 Task=3422 type=standard mode=fullscreen override-mode=undefined
+       #0 ActivityRecord{90d7296 u0 com.kugou.android.auto/.ui.activity.main.MediaActivity t3422} type=standard mode=fullscreen override-mode=undefined
+        #0 2ece893 com.kugou.android.auto/com.kugou.android.auto.ui.activity.main.MediaActivity type=standard mode=fullscreen override-mode=undefined
+      #0 Task=1 type=home mode=fullscreen override-mode=undefined
+       #0 Task=2 type=home mode=fullscreen override-mode=undefined
+        #0 ActivityRecord{a46f002 u0 com.desaysv.launcher/.activity.LauncherActivity t2} type=home mode=fullscreen override-mode=undefined
+         #0 388e637 com.desaysv.launcher/com.desaysv.launcher.activity.LauncherActivity type=home mode=fullscreen override-mode=undefined
+     #1 Leaf:2:2 type=undefined mode=fullscreen override-mode=undefined
+     #0 Leaf:0:1 type=undefined mode=fullscreen override-mode=undefined
+  #1 Display 2 name="HDMI 屏幕" type=undefined mode=fullscreen override-mode=fullscreen
+   #1 mOverlayContainers type=undefined mode=fullscreen override-mode=undefined
+   #0 mWindowContainers type=undefined mode=fullscreen override-mode=undefined
+    #0 DisplayArea.Root type=undefined mode=fullscreen override-mode=undefined
+     #5 Leaf:17:48 type=undefined mode=fullscreen override-mode=undefined
+      #1 WindowToken{97764e android.os.Binder@430ed49} type=undefined mode=fullscreen override-mode=undefined
+      #0 WindowToken{5cd0955 android.os.Binder@25a5c0c} type=undefined mode=fullscreen override-mode=undefined
+     #4 ImeContainer type=undefined mode=fullscreen override-mode=undefined
+     #3 Leaf:3:14 type=undefined mode=fullscreen override-mode=undefined
+     #2 DefaultTaskDisplayArea type=undefined mode=fullscreen override-mode=undefined
+      #0 Task=3428 type=standard mode=fullscreen override-mode=undefined
+       #0 ActivityRecord{9ca3bdd u0 com.arcvideo.car.iqy.video/com.arcvideo.car.home.activity.MainActivity t3428} type=standard mode=fullscreen override-mode=undefined
+        #0 4ca354c com.arcvideo.car.iqy.video/com.arcvideo.car.home.activity.MainActivity type=standard mode=fullscreen override-mode=undefined
+     #1 Leaf:2:2 type=undefined mode=fullscreen override-mode=undefined
+     #0 Leaf:0:1 type=undefined mode=fullscreen override-mode=undefined
+  #0 Display 5 name="TAG_APP_DISPLAY_NAME" type=undefined mode=fullscreen override-mode=fullscreen
+   #1 mOverlayContainers type=undefined mode=fullscreen override-mode=undefined
+   #0 mWindowContainers type=undefined mode=fullscreen override-mode=undefined
+    #0 DisplayArea.Root type=undefined mode=fullscreen override-mode=undefined
+     #5 Leaf:17:48 type=undefined mode=fullscreen override-mode=undefined
+      #1 WindowToken{882887c android.os.Binder@4dd536f} type=undefined mode=fullscreen override-mode=undefined
+      #0 WindowToken{e5c0c5b android.os.Binder@de30f6a} type=undefined mode=fullscreen override-mode=undefined
+     #4 ImeContainer type=undefined mode=fullscreen override-mode=undefined
+     #3 Leaf:3:14 type=undefined mode=fullscreen override-mode=undefined
+     #2 DefaultTaskDisplayArea type=undefined mode=fullscreen override-mode=undefined
+     #1 Leaf:2:2 type=undefined mode=fullscreen override-mode=undefined
+     #0 Leaf:0:1 type=undefined mode=fullscreen override-mode=undefined
+ 

@@ -1,0 +1,2253 @@
+DUMP OF SERVICE package:
+Service Resolver Table:
+  Non-Data Actions:
+      action.desaysv.ivi.vds.carlan.SERVICE:
+        20679be com.desaysv.ivi.vds.carlan/.service.CarLanService filter ccdea1f
+          Action: "action.desaysv.ivi.vds.carlan.SERVICE"
+          mPriority=1000, mOrder=0, mHasStaticPartialTypes=false, mHasDynamicPartialTypes=false
+
+Key Set Manager:
+  [com.desaysv.ivi.vds.carlan]
+      Signing KeySets: 1
+
+Packages:
+  Package [com.desaysv.ivi.vds.carlan] (df9981d):
+    userId=1000
+    sharedUser=SharedUserSetting{4d17c7 android.uid.system/1000}
+    pkg=Package{879dc88 com.desaysv.ivi.vds.carlan}
+    codePath=/product/app/SVVDSCarLan
+    resourcePath=/product/app/SVVDSCarLan
+    legacyNativeLibraryDir=/product/app/SVVDSCarLan/lib
+    primaryCpuAbi=arm64-v8a
+    secondaryCpuAbi=null
+    versionCode=1 minSdk=26 targetSdk=30
+    versionName=Chery-8155_11_ac384c3_2025-12-03_2512051255_R
+    splits=[base]
+    apkSigningVersion=3
+    applicationInfo=ApplicationInfo{879dc88 com.desaysv.ivi.vds.carlan}
+    flags=[ SYSTEM HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP ]
+    privateFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION ALLOW_AUDIO_PLAYBACK_CAPTURE PRODUCT PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    forceQueryable=false
+    queriesPackages=[]
+    dataDir=/data/user/0/com.desaysv.ivi.vds.carlan
+    supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
+    timeStamp=2025-12-05 18:17:31
+    firstInstallTime=2025-01-09 03:23:20
+    lastUpdateTime=2025-12-05 18:17:31
+    signatures=PackageSignatures{6448621 version:3, signatures:[e3e431f9], past signatures:[]}
+    installPermissionsFixed=true
+    pkgFlags=[ SYSTEM HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP ]
+    requested permissions:
+      android.permission.INTERNET
+      android.permission.CHANGE_NETWORK_STATE
+      android.permission.CHANGE_WIFI_STATE
+      android.permission.ACCESS_NETWORK_STATE
+      android.permission.ACCESS_WIFI_STATE
+      android.permission.FOREGROUND_SERVICE
+      ivi.vds.permission.SERVICE
+      android.permission.READ_EXTERNAL_STORAGE: restricted=true
+      android.permission.WRITE_EXTERNAL_STORAGE: restricted=true
+      android.permission.MANAGE_EXTERNAL_STORAGE
+      android.permission.QUERY_ALL_PACKAGES
+    install permissions:
+      android.permission.REAL_GET_TASKS: granted=true
+      android.permission.REMOTE_AUDIO_PLAYBACK: granted=true
+      android.permission.REGISTER_WINDOW_MANAGER_LISTENERS: granted=true
+      android.permission.BIND_INCALL_SERVICE: granted=true
+      android.permission.WRITE_SETTINGS: granted=true
+      android.permission.CONTROL_KEYGUARD: granted=true
+      android.permission.CONFIGURE_WIFI_DISPLAY: granted=true
+      com.android.systemui.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.BIND_ATTENTION_SERVICE: granted=true
+      android.permission.TABLET_MODE: granted=true
+      android.permission.BIND_DEVICE_ADMIN: granted=true
+      android.permission.MODIFY_AUDIO_SETTINGS: granted=true
+      android.permission.MANAGE_EXTERNAL_STORAGE: granted=true
+      android.permission.ACCESS_NOTIFICATION_POLICY: granted=true
+      android.permission.MODIFY_AUDIO_ROUTING: granted=true
+      android.permission.GET_APP_OPS_STATS: granted=true
+      android.permission.INSTALL_LOCATION_PROVIDER: granted=true
+      android.permission.USE_RESERVED_DISK: granted=true
+      com.desaysv.svhvac.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.MANAGE_ACCOUNTS: granted=true
+      android.permission.SYSTEM_ALERT_WINDOW: granted=true
+      android.permission.BROADCAST_PHONE_ACCOUNT_REGISTRATION: granted=true
+      android.car.permission.CONTROL_CAR_CLIMATE: granted=true
+      android.permission.START_TASKS_FROM_RECENTS: granted=true
+      android.car.permission.CAR_VENDOR_EXTENSION: granted=true
+      android.permission.GET_TOP_ACTIVITY_INFO: granted=true
+      com.huawei.permission.NEARBY_OPERATOR_FUNCTION: granted=true
+      android.permission.PROVIDE_TRUST_AGENT: granted=true
+      android.permission.MONITOR_INPUT: granted=true
+      android.permission.SET_VOLUME_KEY_LONG_PRESS_LISTENER: granted=true
+      android.permission.BROADCAST_CALLLOG_INFO: granted=true
+      android.permission.INSTALL_PACKAGES: granted=true
+      com.android.permission.WHITELIST_BLUETOOTH_DEVICE: granted=true
+      android.permission.ACCESS_FM_RADIO: granted=true
+      android.permission.CHANGE_COMPONENT_ENABLED_STATE: granted=true
+      android.permission.BIND_QUICK_SETTINGS_TILE: granted=true
+      com.lion.usercenter.broadcasttest.RECV_LOGIN: granted=true
+      android.permission.INTERNAL_SYSTEM_WINDOW: granted=true
+      com.desaysv.jetour.weather.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.NETWORK_SETTINGS: granted=true
+      android.permission.CHANGE_OVERLAY_PACKAGES: granted=true
+      android.permission.START_ANY_ACTIVITY: granted=true
+      com.desaysv.ivi.fota.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.CALL_PRIVILEGED: granted=true
+      android.permission.MANAGE_APP_TOKENS: granted=true
+      android.permission.CHANGE_NETWORK_STATE: granted=true
+      android.permission.MASTER_CLEAR: granted=true
+      android.permission.FOREGROUND_SERVICE: granted=true
+      android.permission.RESET_SHORTCUT_MANAGER_THROTTLING: granted=true
+      android.permission.RESET_FINGERPRINT_LOCKOUT: granted=true
+      android.permission.RECEIVE_BOOT_COMPLETED: granted=true
+      com.desaysv.smartsotre.control: granted=true
+      com.desaysv.launcher.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      com.desaysv.userconcerns.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.MANAGE_ROLE_HOLDERS: granted=true
+      android.permission.PEERS_MAC_ADDRESS: granted=true
+      android.permission.DEVICE_POWER: granted=true
+      android.permission.SET_TIME_ZONE: granted=true
+      android.permission.REMOVE_TASKS: granted=true
+      com.desaysv.mediacenter.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.EXPAND_STATUS_BAR: granted=true
+      android.permission.MANAGE_PROFILE_AND_DEVICE_OWNERS: granted=true
+      android.car.permission.CAR_CONTROL_AUDIO_VOLUME: granted=true
+      android.permission.READ_PROFILE: granted=true
+      android.permission.BLUETOOTH: granted=true
+      android.permission.CHANGE_WIFI_MULTICAST_STATE: granted=true
+      com.desaysv.weather.RESPONSE_WEATHER_DATA: granted=true
+      com.android.alarm.permission.SET_ALARM: granted=true
+      android.permission.WRITE_MEDIA_STORAGE: granted=true
+      android.permission.WRITE_BLOCKED_NUMBERS: granted=true
+      android.permission.WATCH_APPOPS: granted=true
+      android.permission.GET_TASKS: granted=true
+      com.desaysv.smartstore.icon.READ: granted=true
+      android.permission.INTERNET: granted=true
+      android.permission.BIND_RESOLVER_RANKER_SERVICE: granted=true
+      android.permission.REORDER_TASKS: granted=true
+      android.permission.ACCESS_BROADCAST_RADIO: granted=true
+      android.permission.GET_INTENT_SENDER_INTENT: granted=true
+      com.desaysv.MEDIA_CENTER_CUSTOM_PERMISSION: granted=true
+      android.permission.BLUETOOTH_ADMIN: granted=true
+      android.permission.CONTROL_VPN: granted=true
+      android.permission.UPDATE_DEVICE_STATS: granted=true
+      android.permission.BLUETOOTH_STACK: granted=true
+      android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS: granted=true
+      android.permission.NET_ADMIN: granted=true
+      android.car.permission.CAR_POWER: granted=true
+      android.permission.BIND_CONNECTION_SERVICE: granted=true
+      com.desaysv.showroommode.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.ACCESS_INSTANT_APPS: granted=true
+      android.permission.CONTROL_REMOTE_APP_TRANSITION_ANIMATIONS: granted=true
+      android.permission.MODIFY_THEME_OVERLAY: granted=true
+      android.permission.TRUST_LISTENER: granted=true
+      android.permission.ACCESS_CONTEXT_HUB: granted=true
+      android.permission.MANAGE_USB: granted=true
+      android.permission.INTERACT_ACROSS_USERS_FULL: granted=true
+      android.permission.CHANGE_ACCESSIBILITY_VOLUME: granted=true
+      android.permission.BIND_APPWIDGET: granted=true
+      android.permission.STOP_APP_SWITCHES: granted=true
+      android.permission.RECEIVE_MEDIA_RESOURCE_USAGE: granted=true
+      android.permission.BATTERY_STATS: granted=true
+      android.permission.PACKAGE_USAGE_STATS: granted=true
+      android.permission.MOUNT_UNMOUNT_FILESYSTEMS: granted=true
+      com.haibingtech.voice.assistant.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.TETHER_PRIVILEGED: granted=true
+      android.permission.WRITE_SECURE_SETTINGS: granted=true
+      com.desaysv.jetour.t1n.psmap.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.SET_ACTIVITY_WATCHER: granted=true
+      android.permission.READ_BLOCKED_NUMBERS: granted=true
+      android.permission.STATUS_BAR_SERVICE: granted=true
+      com.desaysv.smartstore.iconFile: granted=true
+      android.permission.NFC_HANDOVER_STATUS: granted=true
+      android.permission.USE_FULL_SCREEN_INTENT: granted=true
+      android.permission.ACCESS_LOCATION_EXTRA_COMMANDS: granted=true
+      android.permission.READ_PRIVILEGED_PHONE_STATE: granted=true
+      android.permission.TRIGGER_TIME_ZONE_RULES_CHECK: granted=true
+      android.permission.BROADCAST_STICKY: granted=true
+      android.permission.BLUETOOTH_PRIVILEGED: granted=true
+      com.desaysv.weather.REQUEST_WEATHER_DATA: granted=true
+      android.permission.WRITE_SMS: granted=true
+      android.permission.CONTROL_DISPLAY_BRIGHTNESS: granted=true
+      android.permission.SUBSTITUTE_NOTIFICATION_APP_NAME: granted=true
+      com.desaysv.t1j.scenarioengine.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.intent.category.MASTER_CLEAR.permission.C2D_MESSAGE: granted=true
+      android.permission.ACCESS_KEYGUARD_SECURE_STORAGE: granted=true
+      android.permission.BIND_JOB_SERVICE: granted=true
+      android.permission.CONFIRM_FULL_BACKUP: granted=true
+      android.permission.CHANGE_WIFI_STATE: granted=true
+      android.permission.MODIFY_DAY_NIGHT_MODE: granted=true
+      android.permission.SET_ORIENTATION: granted=true
+      android.permission.MANAGE_USERS: granted=true
+      ivi.vds.permission.SERVICE: granted=true
+      android.permission.DELETE_CACHE_FILES: granted=true
+      android.permission.ACCESS_NETWORK_STATE: granted=true
+      android.permission.DISABLE_KEYGUARD: granted=true
+      android.permission.INTERNAL_DELETE_CACHE_FILES: granted=true
+      android.permission.CHANGE_CONFIGURATION: granted=true
+      android.permission.LOCAL_MAC_ADDRESS: granted=true
+      android.permission.READ_LOGS: granted=true
+      android.permission.INTERACT_ACROSS_USERS: granted=true
+      android.permission.SET_WALLPAPER: granted=true
+      com.desaysv.account.jetour.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.READ_DREAM_STATE: granted=true
+      android.permission.READ_NETWORK_USAGE_HISTORY: granted=true
+      android.permission.KILL_BACKGROUND_PROCESSES: granted=true
+      android.permission.USE_FINGERPRINT: granted=true
+      android.permission.REQUEST_NETWORK_SCORES: granted=true
+      android.permission.ACCESS_VOICE_INTERACTION_SERVICE: granted=true
+      android.permission.CONNECTIVITY_USE_RESTRICTED_NETWORKS: granted=true
+      com.desaysv.bigdata.service.permission: granted=true
+      com.desaysv.account.host.provider.READ_WRITE: granted=true
+      android.permission.WRITE_DREAM_STATE: granted=true
+      android.permission.REBOOT: granted=true
+      android.permission.MOUNT_FORMAT_FILESYSTEMS: granted=true
+      com.desaysv.usermanuals.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.MANAGE_NETWORK_POLICY: granted=true
+      android.permission.GRANT_RUNTIME_PERMISSIONS: granted=true
+      android.permission.MANAGE_NOTIFICATIONS: granted=true
+      com.android.systemui.permission.SELF: granted=true
+      com.desaysv.t1n.appstore.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.NET_TUNNELING: granted=true
+      android.permission.SEND_SHOW_SUSPENDED_APP_DETAILS: granted=true
+      android.permission.CONNECTIVITY_INTERNAL: granted=true
+      android.permission.MANAGE_MEDIA_PROJECTION: granted=true
+      android.permission.START_ACTIVITIES_FROM_BACKGROUND: granted=true
+      android.permission.LOADER_USAGE_STATS: granted=true
+      android.permission.OVERRIDE_WIFI_CONFIG: granted=true
+      android.permission.FORCE_STOP_PACKAGES: granted=true
+      com.desaysv.personalizedsetting.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.HIDE_NON_SYSTEM_OVERLAY_WINDOWS: granted=true
+      android.permission.HANDLE_CALL_INTENT: granted=true
+      android.permission.MEDIA_RESOURCE_OVERRIDE_PID: granted=true
+      android.permission.VIBRATE: granted=true
+      com.android.certinstaller.INSTALL_AS_USER: granted=true
+      android.permission.MODIFY_ACCESSIBILITY_DATA: granted=true
+      android.permission.MANAGE_ACTIVITY_STACKS: granted=true
+      android.permission.HANDLE_CAR_MODE_CHANGES: granted=true
+      com.huawei.permission.HISIGHT_ACCESS: granted=true
+      android.permission.CHANGE_DEVICE_IDLE_TEMP_WHITELIST: granted=true
+      android.permission.MANAGE_SLICE_PERMISSIONS: granted=true
+      android.permission.GET_DETAILED_TASKS: granted=true
+      android.permission.ACCESS_WIFI_STATE: granted=true
+      android.permission.MANAGE_APP_OPS_MODES: granted=true
+      com.desaysv.vpa.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.REQUEST_INSTALL_PACKAGES: granted=true
+      android.permission.MODIFY_PHONE_STATE: granted=true
+      android.permission.ACCESS_VR_MANAGER: granted=true
+      android.permission.STATUS_BAR: granted=true
+      android.permission.READ_FRAME_BUFFER: granted=true
+      android.permission.QUERY_ALL_PACKAGES: granted=true
+      android.permission.RECORD_AUDIO: granted=true, flags=[ USER_SENSITIVE_WHEN_GRANTED]
+      android.permission.DUMP: granted=true
+      android.permission.READ_DEVICE_CONFIG: granted=true
+      android.permission.LOCATION_HARDWARE: granted=true
+      android.permission.WAKE_LOCK: granted=true
+      android.permission.INJECT_EVENTS: granted=true
+      android.permission.BIND_NETWORK_RECOMMENDATION_SERVICE: granted=true
+      android.permission.UPDATE_APP_OPS_STATS: granted=true
+      android.permission.OBSERVE_GRANT_REVOKE_PERMISSIONS: granted=true
+      android.permission.SET_SCREEN_COMPATIBILITY: granted=true
+      android.permission.MEDIA_CONTENT_CONTROL: granted=true
+      android.permission.DELETE_PACKAGES: granted=true
+    User 0: ceDataInode=737557 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false
+
+Queries:
+  system apps queryable: false
+  forceQueryable:
+    [com.desaysv.ivi.vds.tuner,com.android.car,com.desaysv.ivi.vds.bt,com.audio.MicphoneService,com.desaysv.showroommode,com.desaysv.ivi.vds.vr,com.desaysv.ivi.vds.rvc,com.desaysv.userconcerns,com.desaysv.ivi.vds.tsp,com.desaysv.licensemanager,com.desaysv.meterinteraction,com.desaysv.setting,com.desaysv.usermanuals,com.dji.autoivi,com.desaysv.carmodel,com.desaysv.ivi.vds.carstate,com.haibingtech.voice.assistant,com.desaysv.vrservice,com.desaysv.ivi.fota,com.desaysv.bluetooth.phone,com.desaysv.mediadvp,com.desaysv.ivi.vds.log,com.desaysv.easyfix.bigdata,com.desaysv.vrcontrol,com.desaysv.datacollectservice,com.desaysv.mediacenter,com.desaysv.svuploadlogapp,com.desaysv.generatecdkey,com.desaysv.t1n.appstore,com.desaysv.ftpserver,com.desaysv.bigdata,com.desaysv.jetour.t1n.psmap,com.desaysv.svhvac,com.lion.datapoint,com.desaysv.ivi.vds.media,android,com.desaysv.launcher,com.desaysv.ivi.vds.navi,com.desaysv.ivi.adapterservice,com.desaysv.hicar,com.desaysv.account.jetour,com.android.server.telecom,com.desaysv.assistant,com.desaysv.personalizedsetting,com.desaysv.vehicle.carplayapp,com.android.location.fused,com.desaysv.ivi.vds.upgrade,com.desaysv.vpa,com.android.keychain,com.huawei.nearby,com.desaysv.t1j.scenarioengine,com.android.systemui,com.desaysv.ivi.vds.carlan,com.desaysv.ivi.vds.carinfo,com.desaysv.ivi.vds.sms,com.desaysv.engmode,com.desaysv.jetour.weather,com.huawei.dmsdpdevice,com.android.providers.settings]
+  queries via package name:
+  queries via intent:
+    [com.desaysv.ivi.vds.tuner,com.android.car,com.desaysv.ivi.vds.bt,com.audio.MicphoneService,com.desaysv.showroommode,com.desaysv.ivi.vds.vr,com.desaysv.ivi.vds.rvc,com.desaysv.userconcerns,com.desaysv.ivi.vds.tsp,com.desaysv.licensemanager,com.desaysv.meterinteraction,com.desaysv.setting,com.desaysv.usermanuals,com.dji.autoivi,com.desaysv.carmodel,com.desaysv.ivi.vds.carstate,com.haibingtech.voice.assistant,com.desaysv.vrservice,com.desaysv.ivi.fota,com.desaysv.bluetooth.phone,com.desaysv.mediadvp,com.desaysv.ivi.vds.log,com.desaysv.easyfix.bigdata,com.desaysv.vrcontrol,com.desaysv.datacollectservice,com.desaysv.mediacenter,com.desaysv.svuploadlogapp,com.desaysv.generatecdkey,com.desaysv.t1n.appstore,com.desaysv.ftpserver,com.desaysv.bigdata,com.desaysv.jetour.t1n.psmap,com.desaysv.svhvac,com.lion.datapoint,com.desaysv.ivi.vds.media,android,com.desaysv.launcher,com.desaysv.ivi.vds.navi,com.desaysv.ivi.adapterservice,com.desaysv.hicar,com.desaysv.account.jetour,com.android.server.telecom,com.desaysv.assistant,com.desaysv.personalizedsetting,com.desaysv.vehicle.carplayapp,com.android.location.fused,com.desaysv.ivi.vds.upgrade,com.desaysv.vpa,com.android.keychain,com.huawei.nearby,com.desaysv.t1j.scenarioengine,com.android.systemui,com.desaysv.ivi.vds.carlan,com.desaysv.ivi.vds.carinfo,com.desaysv.ivi.vds.sms,com.desaysv.engmode,com.desaysv.jetour.weather,com.huawei.dmsdpdevice,com.android.providers.settings]:
+      com.android.cts.priv.ctsshim
+      com.android.cts.ctsshim
+      com.sfcar.launcher
+      com.baidu.input
+      com.mojoxing.light
+      bin.mt.plus.canary
+      web1n.stopapp
+      com.arcvideo.car.iqy.video
+      com.thunder.carplay
+      com.bytedance.byteautoservice3
+      com.c2bmotors.board
+      com.sensetime.logui2_client_android
+      com.kugou.android.auto
+      com.tencent.qqmusiccar
+      moe.shizuku.privileged.api
+      com.youjoy.strugglelandlord
+      com.tencent.wecarnavi
+      com.mcity.cjzs
+      com.carstore.app
+      com.ahui.camprobe
+      com.ahui.vehprobe
+      com.ahui.clustercast
+  queryable via interaction:
+    User 0:
+      [com.desaysv.ivi.vds.tuner,com.android.car,com.desaysv.ivi.vds.bt,com.audio.MicphoneService,com.desaysv.showroommode,com.desaysv.ivi.vds.vr,com.desaysv.ivi.vds.rvc,com.desaysv.userconcerns,com.desaysv.ivi.vds.tsp,com.desaysv.licensemanager,com.desaysv.meterinteraction,com.desaysv.setting,com.desaysv.usermanuals,com.dji.autoivi,com.desaysv.carmodel,com.desaysv.ivi.vds.carstate,com.haibingtech.voice.assistant,com.desaysv.vrservice,com.desaysv.ivi.fota,com.desaysv.bluetooth.phone,com.desaysv.mediadvp,com.desaysv.ivi.vds.log,com.desaysv.easyfix.bigdata,com.desaysv.vrcontrol,com.desaysv.datacollectservice,com.desaysv.mediacenter,com.desaysv.svuploadlogapp,com.desaysv.generatecdkey,com.desaysv.t1n.appstore,com.desaysv.ftpserver,com.desaysv.bigdata,com.desaysv.jetour.t1n.psmap,com.desaysv.svhvac,com.lion.datapoint,com.desaysv.ivi.vds.media,android,com.desaysv.launcher,com.desaysv.ivi.vds.navi,com.desaysv.ivi.adapterservice,com.desaysv.hicar,com.desaysv.account.jetour,com.android.server.telecom,com.desaysv.assistant,com.desaysv.personalizedsetting,com.desaysv.vehicle.carplayapp,com.android.location.fused,com.desaysv.ivi.vds.upgrade,com.desaysv.vpa,com.android.keychain,com.huawei.nearby,com.desaysv.t1j.scenarioengine,com.android.systemui,com.desaysv.ivi.vds.carlan,com.desaysv.ivi.vds.carinfo,com.desaysv.ivi.vds.sms,com.desaysv.engmode,com.desaysv.jetour.weather,com.huawei.dmsdpdevice,com.android.providers.settings]:
+        [com.android.bluetooth,com.android.bluetoothext]
+        [com.android.networkstack.permissionconfig,com.android.networkstack.tethering,com.android.networkstack]
+        [com.android.providers.contacts,com.android.providers.userdictionary]
+        com.android.providers.calendar
+        com.android.traceur
+        com.sfcar.launcher
+        com.baidu.input
+        com.desaysv.service.link
+        bin.mt.plus.canary
+        web1n.stopapp
+        com.arcvideo.car.iqy.video
+        com.android.webview
+        com.thunder.carplay
+        com.android.providers.media.module
+        android.ext.services
+        com.android.permissioncontroller
+        com.c2bmotors.board
+        com.kugou.android.auto
+        com.tencent.qqmusiccar
+        com.tencent.wecarnavi
+        com.mcity.cjzs
+        com.ahui.clustercast
+      [com.android.bluetooth,com.android.bluetoothext]:
+        [com.desaysv.ivi.vds.tuner,com.android.car,com.desaysv.ivi.vds.bt,com.audio.MicphoneService,com.desaysv.showroommode,com.desaysv.ivi.vds.vr,com.desaysv.ivi.vds.rvc,com.desaysv.userconcerns,com.desaysv.ivi.vds.tsp,com.desaysv.licensemanager,com.desaysv.meterinteraction,com.desaysv.setting,com.desaysv.usermanuals,com.dji.autoivi,com.desaysv.carmodel,com.desaysv.ivi.vds.carstate,com.haibingtech.voice.assistant,com.desaysv.vrservice,com.desaysv.ivi.fota,com.desaysv.bluetooth.phone,com.desaysv.mediadvp,com.desaysv.ivi.vds.log,com.desaysv.easyfix.bigdata,com.desaysv.vrcontrol,com.desaysv.datacollectservice,com.desaysv.mediacenter,com.desaysv.svuploadlogapp,com.desaysv.generatecdkey,com.desaysv.t1n.appstore,com.desaysv.ftpserver,com.desaysv.bigdata,com.desaysv.jetour.t1n.psmap,com.desaysv.svhvac,com.lion.datapoint,com.desaysv.ivi.vds.media,android,com.desaysv.launcher,com.desaysv.ivi.vds.navi,com.desaysv.ivi.adapterservice,com.desaysv.hicar,com.desaysv.account.jetour,com.android.server.telecom,com.desaysv.assistant,com.desaysv.personalizedsetting,com.desaysv.vehicle.carplayapp,com.android.location.fused,com.desaysv.ivi.vds.upgrade,com.desaysv.vpa,com.android.keychain,com.huawei.nearby,com.desaysv.t1j.scenarioengine,com.android.systemui,com.desaysv.ivi.vds.carlan,com.desaysv.ivi.vds.carinfo,com.desaysv.ivi.vds.sms,com.desaysv.engmode,com.desaysv.jetour.weather,com.huawei.dmsdpdevice,com.android.providers.settings]
+      [com.android.networkstack.permissionconfig,com.android.networkstack.tethering,com.android.networkstack]:
+        [com.desaysv.ivi.vds.tuner,com.android.car,com.desaysv.ivi.vds.bt,com.audio.MicphoneService,com.desaysv.showroommode,com.desaysv.ivi.vds.vr,com.desaysv.ivi.vds.rvc,com.desaysv.userconcerns,com.desaysv.ivi.vds.tsp,com.desaysv.licensemanager,com.desaysv.meterinteraction,com.desaysv.setting,com.desaysv.usermanuals,com.dji.autoivi,com.desaysv.carmodel,com.desaysv.ivi.vds.carstate,com.haibingtech.voice.assistant,com.desaysv.vrservice,com.desaysv.ivi.fota,com.desaysv.bluetooth.phone,com.desaysv.mediadvp,com.desaysv.ivi.vds.log,com.desaysv.easyfix.bigdata,com.desaysv.vrcontrol,com.desaysv.datacollectservice,com.desaysv.mediacenter,com.desaysv.svuploadlogapp,com.desaysv.generatecdkey,com.desaysv.t1n.appstore,com.desaysv.ftpserver,com.desaysv.bigdata,com.desaysv.jetour.t1n.psmap,com.desaysv.svhvac,com.lion.datapoint,com.desaysv.ivi.vds.media,android,com.desaysv.launcher,com.desaysv.ivi.vds.navi,com.desaysv.ivi.adapterservice,com.desaysv.hicar,com.desaysv.account.jetour,com.android.server.telecom,com.desaysv.assistant,com.desaysv.personalizedsetting,com.desaysv.vehicle.carplayapp,com.android.location.fused,com.desaysv.ivi.vds.upgrade,com.desaysv.vpa,com.android.keychain,com.huawei.nearby,com.desaysv.t1j.scenarioengine,com.android.systemui,com.desaysv.ivi.vds.carlan,com.desaysv.ivi.vds.carinfo,com.desaysv.ivi.vds.sms,com.desaysv.engmode,com.desaysv.jetour.weather,com.huawei.dmsdpdevice,com.android.providers.settings]
+      [com.android.providers.contacts,com.android.providers.userdictionary]:
+        [com.desaysv.ivi.vds.tuner,com.android.car,com.desaysv.ivi.vds.bt,com.audio.MicphoneService,com.desaysv.showroommode,com.desaysv.ivi.vds.vr,com.desaysv.ivi.vds.rvc,com.desaysv.userconcerns,com.desaysv.ivi.vds.tsp,com.desaysv.licensemanager,com.desaysv.meterinteraction,com.desaysv.setting,com.desaysv.usermanuals,com.dji.autoivi,com.desaysv.carmodel,com.desaysv.ivi.vds.carstate,com.haibingtech.voice.assistant,com.desaysv.vrservice,com.desaysv.ivi.fota,com.desaysv.bluetooth.phone,com.desaysv.mediadvp,com.desaysv.ivi.vds.log,com.desaysv.easyfix.bigdata,com.desaysv.vrcontrol,com.desaysv.datacollectservice,com.desaysv.mediacenter,com.desaysv.svuploadlogapp,com.desaysv.generatecdkey,com.desaysv.t1n.appstore,com.desaysv.ftpserver,com.desaysv.bigdata,com.desaysv.jetour.t1n.psmap,com.desaysv.svhvac,com.lion.datapoint,com.desaysv.ivi.vds.media,android,com.desaysv.launcher,com.desaysv.ivi.vds.navi,com.desaysv.ivi.adapterservice,com.desaysv.hicar,com.desaysv.account.jetour,com.android.server.telecom,com.desaysv.assistant,com.desaysv.personalizedsetting,com.desaysv.vehicle.carplayapp,com.android.location.fused,com.desaysv.ivi.vds.upgrade,com.desaysv.vpa,com.android.keychain,com.huawei.nearby,com.desaysv.t1j.scenarioengine,com.android.systemui,com.desaysv.ivi.vds.carlan,com.desaysv.ivi.vds.carinfo,com.desaysv.ivi.vds.sms,com.desaysv.engmode,com.desaysv.jetour.weather,com.huawei.dmsdpdevice,com.android.providers.settings]
+      com.android.providers.calendar:
+        [com.desaysv.ivi.vds.tuner,com.android.car,com.desaysv.ivi.vds.bt,com.audio.MicphoneService,com.desaysv.showroommode,com.desaysv.ivi.vds.vr,com.desaysv.ivi.vds.rvc,com.desaysv.userconcerns,com.desaysv.ivi.vds.tsp,com.desaysv.licensemanager,com.desaysv.meterinteraction,com.desaysv.setting,com.desaysv.usermanuals,com.dji.autoivi,com.desaysv.carmodel,com.desaysv.ivi.vds.carstate,com.haibingtech.voice.assistant,com.desaysv.vrservice,com.desaysv.ivi.fota,com.desaysv.bluetooth.phone,com.desaysv.mediadvp,com.desaysv.ivi.vds.log,com.desaysv.easyfix.bigdata,com.desaysv.vrcontrol,com.desaysv.datacollectservice,com.desaysv.mediacenter,com.desaysv.svuploadlogapp,com.desaysv.generatecdkey,com.desaysv.t1n.appstore,com.desaysv.ftpserver,com.desaysv.bigdata,com.desaysv.jetour.t1n.psmap,com.desaysv.svhvac,com.lion.datapoint,com.desaysv.ivi.vds.media,android,com.desaysv.launcher,com.desaysv.ivi.vds.navi,com.desaysv.ivi.adapterservice,com.desaysv.hicar,com.desaysv.account.jetour,com.android.server.telecom,com.desaysv.assistant,com.desaysv.personalizedsetting,com.desaysv.vehicle.carplayapp,com.android.location.fused,com.desaysv.ivi.vds.upgrade,com.desaysv.vpa,com.android.keychain,com.huawei.nearby,com.desaysv.t1j.scenarioengine,com.android.systemui,com.desaysv.ivi.vds.carlan,com.desaysv.ivi.vds.carinfo,com.desaysv.ivi.vds.sms,com.desaysv.engmode,com.desaysv.jetour.weather,com.huawei.dmsdpdevice,com.android.providers.settings]
+      com.sfcar.launcher:
+        [com.desaysv.ivi.vds.tuner,com.android.car,com.desaysv.ivi.vds.bt,com.audio.MicphoneService,com.desaysv.showroommode,com.desaysv.ivi.vds.vr,com.desaysv.ivi.vds.rvc,com.desaysv.userconcerns,com.desaysv.ivi.vds.tsp,com.desaysv.licensemanager,com.desaysv.meterinteraction,com.desaysv.setting,com.desaysv.usermanuals,com.dji.autoivi,com.desaysv.carmodel,com.desaysv.ivi.vds.carstate,com.haibingtech.voice.assistant,com.desaysv.vrservice,com.desaysv.ivi.fota,com.desaysv.bluetooth.phone,com.desaysv.mediadvp,com.desaysv.ivi.vds.log,com.desaysv.easyfix.bigdata,com.desaysv.vrcontrol,com.desaysv.datacollectservice,com.desaysv.mediacenter,com.desaysv.svuploadlogapp,com.desaysv.generatecdkey,com.desaysv.t1n.appstore,com.desaysv.ftpserver,com.desaysv.bigdata,com.desaysv.jetour.t1n.psmap,com.desaysv.svhvac,com.lion.datapoint,com.desaysv.ivi.vds.media,android,com.desaysv.launcher,com.desaysv.ivi.vds.navi,com.desaysv.ivi.adapterservice,com.desaysv.hicar,com.desaysv.account.jetour,com.android.server.telecom,com.desaysv.assistant,com.desaysv.personalizedsetting,com.desaysv.vehicle.carplayapp,com.android.location.fused,com.desaysv.ivi.vds.upgrade,com.desaysv.vpa,com.android.keychain,com.huawei.nearby,com.desaysv.t1j.scenarioengine,com.android.systemui,com.desaysv.ivi.vds.carlan,com.desaysv.ivi.vds.carinfo,com.desaysv.ivi.vds.sms,com.desaysv.engmode,com.desaysv.jetour.weather,com.huawei.dmsdpdevice,com.android.providers.settings]
+      com.huawei.hisight:
+        [com.desaysv.ivi.vds.tuner,com.android.car,com.desaysv.ivi.vds.bt,com.audio.MicphoneService,com.desaysv.showroommode,com.desaysv.ivi.vds.vr,com.desaysv.ivi.vds.rvc,com.desaysv.userconcerns,com.desaysv.ivi.vds.tsp,com.desaysv.licensemanager,com.desaysv.meterinteraction,com.desaysv.setting,com.desaysv.usermanuals,com.dji.autoivi,com.desaysv.carmodel,com.desaysv.ivi.vds.carstate,com.haibingtech.voice.assistant,com.desaysv.vrservice,com.desaysv.ivi.fota,com.desaysv.bluetooth.phone,com.desaysv.mediadvp,com.desaysv.ivi.vds.log,com.desaysv.easyfix.bigdata,com.desaysv.vrcontrol,com.desaysv.datacollectservice,com.desaysv.mediacenter,com.desaysv.svuploadlogapp,com.desaysv.generatecdkey,com.desaysv.t1n.appstore,com.desaysv.ftpserver,com.desaysv.bigdata,com.desaysv.jetour.t1n.psmap,com.desaysv.svhvac,com.lion.datapoint,com.desaysv.ivi.vds.media,android,com.desaysv.launcher,com.desaysv.ivi.vds.navi,com.desaysv.ivi.adapterservice,com.desaysv.hicar,com.desaysv.account.jetour,com.android.server.telecom,com.desaysv.assistant,com.desaysv.personalizedsetting,com.desaysv.vehicle.carplayapp,com.android.location.fused,com.desaysv.ivi.vds.upgrade,com.desaysv.vpa,com.android.keychain,com.huawei.nearby,com.desaysv.t1j.scenarioengine,com.android.systemui,com.desaysv.ivi.vds.carlan,com.desaysv.ivi.vds.carinfo,com.desaysv.ivi.vds.sms,com.desaysv.engmode,com.desaysv.jetour.weather,com.huawei.dmsdpdevice,com.android.providers.settings]
+      com.baidu.input:
+        [com.desaysv.ivi.vds.tuner,com.android.car,com.desaysv.ivi.vds.bt,com.audio.MicphoneService,com.desaysv.showroommode,com.desaysv.ivi.vds.vr,com.desaysv.ivi.vds.rvc,com.desaysv.userconcerns,com.desaysv.ivi.vds.tsp,com.desaysv.licensemanager,com.desaysv.meterinteraction,com.desaysv.setting,com.desaysv.usermanuals,com.dji.autoivi,com.desaysv.carmodel,com.desaysv.ivi.vds.carstate,com.haibingtech.voice.assistant,com.desaysv.vrservice,com.desaysv.ivi.fota,com.desaysv.bluetooth.phone,com.desaysv.mediadvp,com.desaysv.ivi.vds.log,com.desaysv.easyfix.bigdata,com.desaysv.vrcontrol,com.desaysv.datacollectservice,com.desaysv.mediacenter,com.desaysv.svuploadlogapp,com.desaysv.generatecdkey,com.desaysv.t1n.appstore,com.desaysv.ftpserver,com.desaysv.bigdata,com.desaysv.jetour.t1n.psmap,com.desaysv.svhvac,com.lion.datapoint,com.desaysv.ivi.vds.media,android,com.desaysv.launcher,com.desaysv.ivi.vds.navi,com.desaysv.ivi.adapterservice,com.desaysv.hicar,com.desaysv.account.jetour,com.android.server.telecom,com.desaysv.assistant,com.desaysv.personalizedsetting,com.desaysv.vehicle.carplayapp,com.android.location.fused,com.desaysv.ivi.vds.upgrade,com.desaysv.vpa,com.android.keychain,com.huawei.nearby,com.desaysv.t1j.scenarioengine,com.android.systemui,com.desaysv.ivi.vds.carlan,com.desaysv.ivi.vds.carinfo,com.desaysv.ivi.vds.sms,com.desaysv.engmode,com.desaysv.jetour.weather,com.huawei.dmsdpdevice,com.android.providers.settings]
+      com.desaysv.service.link:
+        [com.desaysv.ivi.vds.tuner,com.android.car,com.desaysv.ivi.vds.bt,com.audio.MicphoneService,com.desaysv.showroommode,com.desaysv.ivi.vds.vr,com.desaysv.ivi.vds.rvc,com.desaysv.userconcerns,com.desaysv.ivi.vds.tsp,com.desaysv.licensemanager,com.desaysv.meterinteraction,com.desaysv.setting,com.desaysv.usermanuals,com.dji.autoivi,com.desaysv.carmodel,com.desaysv.ivi.vds.carstate,com.haibingtech.voice.assistant,com.desaysv.vrservice,com.desaysv.ivi.fota,com.desaysv.bluetooth.phone,com.desaysv.mediadvp,com.desaysv.ivi.vds.log,com.desaysv.easyfix.bigdata,com.desaysv.vrcontrol,com.desaysv.datacollectservice,com.desaysv.mediacenter,com.desaysv.svuploadlogapp,com.desaysv.generatecdkey,com.desaysv.t1n.appstore,com.desaysv.ftpserver,com.desaysv.bigdata,com.desaysv.jetour.t1n.psmap,com.desaysv.svhvac,com.lion.datapoint,com.desaysv.ivi.vds.media,android,com.desaysv.launcher,com.desaysv.ivi.vds.navi,com.desaysv.ivi.adapterservice,com.desaysv.hicar,com.desaysv.account.jetour,com.android.server.telecom,com.desaysv.assistant,com.desaysv.personalizedsetting,com.desaysv.vehicle.carplayapp,com.android.location.fused,com.desaysv.ivi.vds.upgrade,com.desaysv.vpa,com.android.keychain,com.huawei.nearby,com.desaysv.t1j.scenarioengine,com.android.systemui,com.desaysv.ivi.vds.carlan,com.desaysv.ivi.vds.carinfo,com.desaysv.ivi.vds.sms,com.desaysv.engmode,com.desaysv.jetour.weather,com.huawei.dmsdpdevice,com.android.providers.settings]
+      com.arcvideo.car.iqy.video:
+        [com.desaysv.ivi.vds.tuner,com.android.car,com.desaysv.ivi.vds.bt,com.audio.MicphoneService,com.desaysv.showroommode,com.desaysv.ivi.vds.vr,com.desaysv.ivi.vds.rvc,com.desaysv.userconcerns,com.desaysv.ivi.vds.tsp,com.desaysv.licensemanager,com.desaysv.meterinteraction,com.desaysv.setting,com.desaysv.usermanuals,com.dji.autoivi,com.desaysv.carmodel,com.desaysv.ivi.vds.carstate,com.haibingtech.voice.assistant,com.desaysv.vrservice,com.desaysv.ivi.fota,com.desaysv.bluetooth.phone,com.desaysv.mediadvp,com.desaysv.ivi.vds.log,com.desaysv.easyfix.bigdata,com.desaysv.vrcontrol,com.desaysv.datacollectservice,com.desaysv.mediacenter,com.desaysv.svuploadlogapp,com.desaysv.generatecdkey,com.desaysv.t1n.appstore,com.desaysv.ftpserver,com.desaysv.bigdata,com.desaysv.jetour.t1n.psmap,com.desaysv.svhvac,com.lion.datapoint,com.desaysv.ivi.vds.media,android,com.desaysv.launcher,com.desaysv.ivi.vds.navi,com.desaysv.ivi.adapterservice,com.desaysv.hicar,com.desaysv.account.jetour,com.android.server.telecom,com.desaysv.assistant,com.desaysv.personalizedsetting,com.desaysv.vehicle.carplayapp,com.android.location.fused,com.desaysv.ivi.vds.upgrade,com.desaysv.vpa,com.android.keychain,com.huawei.nearby,com.desaysv.t1j.scenarioengine,com.android.systemui,com.desaysv.ivi.vds.carlan,com.desaysv.ivi.vds.carinfo,com.desaysv.ivi.vds.sms,com.desaysv.engmode,com.desaysv.jetour.weather,com.huawei.dmsdpdevice,com.android.providers.settings]
+      com.android.providers.media.module:
+        [com.desaysv.ivi.vds.tuner,com.android.car,com.desaysv.ivi.vds.bt,com.audio.MicphoneService,com.desaysv.showroommode,com.desaysv.ivi.vds.vr,com.desaysv.ivi.vds.rvc,com.desaysv.userconcerns,com.desaysv.ivi.vds.tsp,com.desaysv.licensemanager,com.desaysv.meterinteraction,com.desaysv.setting,com.desaysv.usermanuals,com.dji.autoivi,com.desaysv.carmodel,com.desaysv.ivi.vds.carstate,com.haibingtech.voice.assistant,com.desaysv.vrservice,com.desaysv.ivi.fota,com.desaysv.bluetooth.phone,com.desaysv.mediadvp,com.desaysv.ivi.vds.log,com.desaysv.easyfix.bigdata,com.desaysv.vrcontrol,com.desaysv.datacollectservice,com.desaysv.mediacenter,com.desaysv.svuploadlogapp,com.desaysv.generatecdkey,com.desaysv.t1n.appstore,com.desaysv.ftpserver,com.desaysv.bigdata,com.desaysv.jetour.t1n.psmap,com.desaysv.svhvac,com.lion.datapoint,com.desaysv.ivi.vds.media,android,com.desaysv.launcher,com.desaysv.ivi.vds.navi,com.desaysv.ivi.adapterservice,com.desaysv.hicar,com.desaysv.account.jetour,com.android.server.telecom,com.desaysv.assistant,com.desaysv.personalizedsetting,com.desaysv.vehicle.carplayapp,com.android.location.fused,com.desaysv.ivi.vds.upgrade,com.desaysv.vpa,com.android.keychain,com.huawei.nearby,com.desaysv.t1j.scenarioengine,com.android.systemui,com.desaysv.ivi.vds.carlan,com.desaysv.ivi.vds.carinfo,com.desaysv.ivi.vds.sms,com.desaysv.engmode,com.desaysv.jetour.weather,com.huawei.dmsdpdevice,com.android.providers.settings]
+      android.ext.services:
+        [com.desaysv.ivi.vds.tuner,com.android.car,com.desaysv.ivi.vds.bt,com.audio.MicphoneService,com.desaysv.showroommode,com.desaysv.ivi.vds.vr,com.desaysv.ivi.vds.rvc,com.desaysv.userconcerns,com.desaysv.ivi.vds.tsp,com.desaysv.licensemanager,com.desaysv.meterinteraction,com.desaysv.setting,com.desaysv.usermanuals,com.dji.autoivi,com.desaysv.carmodel,com.desaysv.ivi.vds.carstate,com.haibingtech.voice.assistant,com.desaysv.vrservice,com.desaysv.ivi.fota,com.desaysv.bluetooth.phone,com.desaysv.mediadvp,com.desaysv.ivi.vds.log,com.desaysv.easyfix.bigdata,com.desaysv.vrcontrol,com.desaysv.datacollectservice,com.desaysv.mediacenter,com.desaysv.svuploadlogapp,com.desaysv.generatecdkey,com.desaysv.t1n.appstore,com.desaysv.ftpserver,com.desaysv.bigdata,com.desaysv.jetour.t1n.psmap,com.desaysv.svhvac,com.lion.datapoint,com.desaysv.ivi.vds.media,android,com.desaysv.launcher,com.desaysv.ivi.vds.navi,com.desaysv.ivi.adapterservice,com.desaysv.hicar,com.desaysv.account.jetour,com.android.server.telecom,com.desaysv.assistant,com.desaysv.personalizedsetting,com.desaysv.vehicle.carplayapp,com.android.location.fused,com.desaysv.ivi.vds.upgrade,com.desaysv.vpa,com.android.keychain,com.huawei.nearby,com.desaysv.t1j.scenarioengine,com.android.systemui,com.desaysv.ivi.vds.carlan,com.desaysv.ivi.vds.carinfo,com.desaysv.ivi.vds.sms,com.desaysv.engmode,com.desaysv.jetour.weather,com.huawei.dmsdpdevice,com.android.providers.settings]
+      com.android.permissioncontroller:
+        [com.desaysv.ivi.vds.tuner,com.android.car,com.desaysv.ivi.vds.bt,com.audio.MicphoneService,com.desaysv.showroommode,com.desaysv.ivi.vds.vr,com.desaysv.ivi.vds.rvc,com.desaysv.userconcerns,com.desaysv.ivi.vds.tsp,com.desaysv.licensemanager,com.desaysv.meterinteraction,com.desaysv.setting,com.desaysv.usermanuals,com.dji.autoivi,com.desaysv.carmodel,com.desaysv.ivi.vds.carstate,com.haibingtech.voice.assistant,com.desaysv.vrservice,com.desaysv.ivi.fota,com.desaysv.bluetooth.phone,com.desaysv.mediadvp,com.desaysv.ivi.vds.log,com.desaysv.easyfix.bigdata,com.desaysv.vrcontrol,com.desaysv.datacollectservice,com.desaysv.mediacenter,com.desaysv.svuploadlogapp,com.desaysv.generatecdkey,com.desaysv.t1n.appstore,com.desaysv.ftpserver,com.desaysv.bigdata,com.desaysv.jetour.t1n.psmap,com.desaysv.svhvac,com.lion.datapoint,com.desaysv.ivi.vds.media,android,com.desaysv.launcher,com.desaysv.ivi.vds.navi,com.desaysv.ivi.adapterservice,com.desaysv.hicar,com.desaysv.account.jetour,com.android.server.telecom,com.desaysv.assistant,com.desaysv.personalizedsetting,com.desaysv.vehicle.carplayapp,com.android.location.fused,com.desaysv.ivi.vds.upgrade,com.desaysv.vpa,com.android.keychain,com.huawei.nearby,com.desaysv.t1j.scenarioengine,com.android.systemui,com.desaysv.ivi.vds.carlan,com.desaysv.ivi.vds.carinfo,com.desaysv.ivi.vds.sms,com.desaysv.engmode,com.desaysv.jetour.weather,com.huawei.dmsdpdevice,com.android.providers.settings]
+      com.tencent.wecarnavi:
+        [com.desaysv.ivi.vds.tuner,com.android.car,com.desaysv.ivi.vds.bt,com.audio.MicphoneService,com.desaysv.showroommode,com.desaysv.ivi.vds.vr,com.desaysv.ivi.vds.rvc,com.desaysv.userconcerns,com.desaysv.ivi.vds.tsp,com.desaysv.licensemanager,com.desaysv.meterinteraction,com.desaysv.setting,com.desaysv.usermanuals,com.dji.autoivi,com.desaysv.carmodel,com.desaysv.ivi.vds.carstate,com.haibingtech.voice.assistant,com.desaysv.vrservice,com.desaysv.ivi.fota,com.desaysv.bluetooth.phone,com.desaysv.mediadvp,com.desaysv.ivi.vds.log,com.desaysv.easyfix.bigdata,com.desaysv.vrcontrol,com.desaysv.datacollectservice,com.desaysv.mediacenter,com.desaysv.svuploadlogapp,com.desaysv.generatecdkey,com.desaysv.t1n.appstore,com.desaysv.ftpserver,com.desaysv.bigdata,com.desaysv.jetour.t1n.psmap,com.desaysv.svhvac,com.lion.datapoint,com.desaysv.ivi.vds.media,android,com.desaysv.launcher,com.desaysv.ivi.vds.navi,com.desaysv.ivi.adapterservice,com.desaysv.hicar,com.desaysv.account.jetour,com.android.server.telecom,com.desaysv.assistant,com.desaysv.personalizedsetting,com.desaysv.vehicle.carplayapp,com.android.location.fused,com.desaysv.ivi.vds.upgrade,com.desaysv.vpa,com.android.keychain,com.huawei.nearby,com.desaysv.t1j.scenarioengine,com.android.systemui,com.desaysv.ivi.vds.carlan,com.desaysv.ivi.vds.carinfo,com.desaysv.ivi.vds.sms,com.desaysv.engmode,com.desaysv.jetour.weather,com.huawei.dmsdpdevice,com.android.providers.settings]
+      com.mcity.cjzs:
+        [com.desaysv.ivi.vds.tuner,com.android.car,com.desaysv.ivi.vds.bt,com.audio.MicphoneService,com.desaysv.showroommode,com.desaysv.ivi.vds.vr,com.desaysv.ivi.vds.rvc,com.desaysv.userconcerns,com.desaysv.ivi.vds.tsp,com.desaysv.licensemanager,com.desaysv.meterinteraction,com.desaysv.setting,com.desaysv.usermanuals,com.dji.autoivi,com.desaysv.carmodel,com.desaysv.ivi.vds.carstate,com.haibingtech.voice.assistant,com.desaysv.vrservice,com.desaysv.ivi.fota,com.desaysv.bluetooth.phone,com.desaysv.mediadvp,com.desaysv.ivi.vds.log,com.desaysv.easyfix.bigdata,com.desaysv.vrcontrol,com.desaysv.datacollectservice,com.desaysv.mediacenter,com.desaysv.svuploadlogapp,com.desaysv.generatecdkey,com.desaysv.t1n.appstore,com.desaysv.ftpserver,com.desaysv.bigdata,com.desaysv.jetour.t1n.psmap,com.desaysv.svhvac,com.lion.datapoint,com.desaysv.ivi.vds.media,android,com.desaysv.launcher,com.desaysv.ivi.vds.navi,com.desaysv.ivi.adapterservice,com.desaysv.hicar,com.desaysv.account.jetour,com.android.server.telecom,com.desaysv.assistant,com.desaysv.personalizedsetting,com.desaysv.vehicle.carplayapp,com.android.location.fused,com.desaysv.ivi.vds.upgrade,com.desaysv.vpa,com.android.keychain,com.huawei.nearby,com.desaysv.t1j.scenarioengine,com.android.systemui,com.desaysv.ivi.vds.carlan,com.desaysv.ivi.vds.carinfo,com.desaysv.ivi.vds.sms,com.desaysv.engmode,com.desaysv.jetour.weather,com.huawei.dmsdpdevice,com.android.providers.settings]
+      com.ahui.clustercast:
+        [com.desaysv.ivi.vds.tuner,com.android.car,com.desaysv.ivi.vds.bt,com.audio.MicphoneService,com.desaysv.showroommode,com.desaysv.ivi.vds.vr,com.desaysv.ivi.vds.rvc,com.desaysv.userconcerns,com.desaysv.ivi.vds.tsp,com.desaysv.licensemanager,com.desaysv.meterinteraction,com.desaysv.setting,com.desaysv.usermanuals,com.dji.autoivi,com.desaysv.carmodel,com.desaysv.ivi.vds.carstate,com.haibingtech.voice.assistant,com.desaysv.vrservice,com.desaysv.ivi.fota,com.desaysv.bluetooth.phone,com.desaysv.mediadvp,com.desaysv.ivi.vds.log,com.desaysv.easyfix.bigdata,com.desaysv.vrcontrol,com.desaysv.datacollectservice,com.desaysv.mediacenter,com.desaysv.svuploadlogapp,com.desaysv.generatecdkey,com.desaysv.t1n.appstore,com.desaysv.ftpserver,com.desaysv.bigdata,com.desaysv.jetour.t1n.psmap,com.desaysv.svhvac,com.lion.datapoint,com.desaysv.ivi.vds.media,android,com.desaysv.launcher,com.desaysv.ivi.vds.navi,com.desaysv.ivi.adapterservice,com.desaysv.hicar,com.desaysv.account.jetour,com.android.server.telecom,com.desaysv.assistant,com.desaysv.personalizedsetting,com.desaysv.vehicle.carplayapp,com.android.location.fused,com.desaysv.ivi.vds.upgrade,com.desaysv.vpa,com.android.keychain,com.huawei.nearby,com.desaysv.t1j.scenarioengine,com.android.systemui,com.desaysv.ivi.vds.carlan,com.desaysv.ivi.vds.carinfo,com.desaysv.ivi.vds.sms,com.desaysv.engmode,com.desaysv.jetour.weather,com.huawei.dmsdpdevice,com.android.providers.settings]
+
+Shared users:
+  SharedUser [android.uid.system] (4d17c7):
+    userId=1000
+    Packages
+      PackageSetting{1fa165 com.desaysv.ivi.vds.tuner/1000}
+      PackageSetting{218a39 com.android.car/1000}
+      PackageSetting{3e2b0b com.desaysv.ivi.vds.bt/1000}
+      PackageSetting{d5c28d com.audio.MicphoneService/1000}
+      PackageSetting{116ec63 com.desaysv.showroommode/1000}
+      PackageSetting{117dde8 com.desaysv.ivi.vds.vr/1000}
+      PackageSetting{17e6b30 com.desaysv.ivi.vds.rvc/1000}
+      PackageSetting{18848f4 com.desaysv.userconcerns/1000}
+      PackageSetting{190ed2e com.desaysv.ivi.vds.tsp/1000}
+      PackageSetting{20ba6c4 com.desaysv.licensemanager/1000}
+      PackageSetting{21d7406 com.desaysv.meterinteraction/1000}
+      PackageSetting{258fc42 com.desaysv.setting/1000}
+      PackageSetting{27044d0 com.desaysv.usermanuals/1000}
+      PackageSetting{2886ac7 com.dji.autoivi/1000}
+      PackageSetting{28d30cf com.desaysv.carmodel/1000}
+      PackageSetting{30d4771 com.desaysv.ivi.vds.carstate/1000}
+      PackageSetting{380f094 com.haibingtech.voice.assistant/1000}
+      PackageSetting{44319ea com.desaysv.vrservice/1000}
+      PackageSetting{4c68200 com.desaysv.ivi.fota/1000}
+      PackageSetting{5422c91 com.desaysv.bluetooth.phone/1000}
+      PackageSetting{5618e8a com.desaysv.mediadvp/1000}
+      PackageSetting{56d0073 com.desaysv.ivi.vds.log/1000}
+      PackageSetting{6365c01 com.desaysv.easyfix.bigdata/1000}
+      PackageSetting{6387048 com.desaysv.vrcontrol/1000}
+      PackageSetting{77b687e com.desaysv.datacollectservice/1000}
+      PackageSetting{78790f5 com.desaysv.mediacenter/1000}
+      PackageSetting{7a4dcc9 com.desaysv.svuploadlogapp/1000}
+      PackageSetting{7edeee1 com.desaysv.generatecdkey/1000}
+      PackageSetting{849d724 com.desaysv.t1n.appstore/1000}
+      PackageSetting{8bf5251 com.desaysv.ftpserver/1000}
+      PackageSetting{8ca5dd7 com.desaysv.bigdata/1000}
+      PackageSetting{8d611df com.desaysv.jetour.t1n.psmap/1000}
+      PackageSetting{8ed6fce com.desaysv.svhvac/1000}
+      PackageSetting{9d4add5 com.lion.datapoint/1000}
+      PackageSetting{a170a5c com.desaysv.ivi.vds.media/1000}
+      PackageSetting{a1ef083 android/1000}
+      PackageSetting{a1fcb32 com.desaysv.launcher/1000}
+      PackageSetting{a552664 com.desaysv.ivi.vds.navi/1000}
+      PackageSetting{a5b0060 com.desaysv.ivi.adapterservice/1000}
+      PackageSetting{ad20956 com.desaysv.hicar/1000}
+      PackageSetting{b0c7b78 com.desaysv.account.jetour/1000}
+      PackageSetting{b5de9ad com.android.server.telecom/1000}
+      PackageSetting{b74bada com.desaysv.assistant/1000}
+      PackageSetting{c3dbc93 com.desaysv.personalizedsetting/1000}
+      PackageSetting{c7d8eef com.desaysv.vehicle.carplayapp/1000}
+      PackageSetting{c81ebbf com.android.location.fused/1000}
+      PackageSetting{c957c85 com.desaysv.ivi.vds.upgrade/1000}
+      PackageSetting{cb3ecfb com.desaysv.vpa/1000}
+      PackageSetting{cfd64e2 com.android.keychain/1000}
+      PackageSetting{d28fd82 com.huawei.nearby/1000}
+      PackageSetting{dabb73d com.desaysv.t1j.scenarioengine/1000}
+      PackageSetting{ddfc28c com.android.systemui/1000}
+      PackageSetting{df9981d com.desaysv.ivi.vds.carlan/1000}
+      PackageSetting{e11be2c com.desaysv.ivi.vds.carinfo/1000}
+      PackageSetting{e9c73a9 com.desaysv.ivi.vds.sms/1000}
+      PackageSetting{edcddfc com.desaysv.engmode/1000}
+      PackageSetting{ef3aaa6 com.desaysv.jetour.weather/1000}
+      PackageSetting{fe757f6 com.huawei.dmsdpdevice/1000}
+      PackageSetting{ff29118 com.android.providers.settings/1000}
+    install permissions:
+      android.permission.REAL_GET_TASKS: granted=true
+      android.permission.REMOTE_AUDIO_PLAYBACK: granted=true
+      android.permission.REGISTER_WINDOW_MANAGER_LISTENERS: granted=true
+      android.permission.BIND_INCALL_SERVICE: granted=true
+      android.permission.WRITE_SETTINGS: granted=true
+      android.permission.CONTROL_KEYGUARD: granted=true
+      android.permission.CONFIGURE_WIFI_DISPLAY: granted=true
+      com.android.systemui.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.BIND_ATTENTION_SERVICE: granted=true
+      android.permission.TABLET_MODE: granted=true
+      android.permission.BIND_DEVICE_ADMIN: granted=true
+      android.permission.MODIFY_AUDIO_SETTINGS: granted=true
+      android.permission.MANAGE_EXTERNAL_STORAGE: granted=true
+      android.permission.ACCESS_NOTIFICATION_POLICY: granted=true
+      android.permission.MODIFY_AUDIO_ROUTING: granted=true
+      android.permission.GET_APP_OPS_STATS: granted=true
+      android.permission.INSTALL_LOCATION_PROVIDER: granted=true
+      android.permission.USE_RESERVED_DISK: granted=true
+      com.desaysv.svhvac.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.MANAGE_ACCOUNTS: granted=true
+      android.permission.SYSTEM_ALERT_WINDOW: granted=true
+      android.permission.BROADCAST_PHONE_ACCOUNT_REGISTRATION: granted=true
+      android.car.permission.CONTROL_CAR_CLIMATE: granted=true
+      android.permission.START_TASKS_FROM_RECENTS: granted=true
+      android.car.permission.CAR_VENDOR_EXTENSION: granted=true
+      android.permission.GET_TOP_ACTIVITY_INFO: granted=true
+      com.huawei.permission.NEARBY_OPERATOR_FUNCTION: granted=true
+      android.permission.PROVIDE_TRUST_AGENT: granted=true
+      android.permission.MONITOR_INPUT: granted=true
+      android.permission.SET_VOLUME_KEY_LONG_PRESS_LISTENER: granted=true
+      android.permission.BROADCAST_CALLLOG_INFO: granted=true
+      android.permission.INSTALL_PACKAGES: granted=true
+      com.android.permission.WHITELIST_BLUETOOTH_DEVICE: granted=true
+      android.permission.ACCESS_FM_RADIO: granted=true
+      android.permission.CHANGE_COMPONENT_ENABLED_STATE: granted=true
+      android.permission.BIND_QUICK_SETTINGS_TILE: granted=true
+      com.lion.usercenter.broadcasttest.RECV_LOGIN: granted=true
+      android.permission.INTERNAL_SYSTEM_WINDOW: granted=true
+      com.desaysv.jetour.weather.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.NETWORK_SETTINGS: granted=true
+      android.permission.CHANGE_OVERLAY_PACKAGES: granted=true
+      android.permission.START_ANY_ACTIVITY: granted=true
+      com.desaysv.ivi.fota.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.CALL_PRIVILEGED: granted=true
+      android.permission.MANAGE_APP_TOKENS: granted=true
+      android.permission.CHANGE_NETWORK_STATE: granted=true
+      android.permission.MASTER_CLEAR: granted=true
+      android.permission.FOREGROUND_SERVICE: granted=true
+      android.permission.RESET_SHORTCUT_MANAGER_THROTTLING: granted=true
+      android.permission.RESET_FINGERPRINT_LOCKOUT: granted=true
+      android.permission.RECEIVE_BOOT_COMPLETED: granted=true
+      com.desaysv.smartsotre.control: granted=true
+      com.desaysv.launcher.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      com.desaysv.userconcerns.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.MANAGE_ROLE_HOLDERS: granted=true
+      android.permission.PEERS_MAC_ADDRESS: granted=true
+      android.permission.DEVICE_POWER: granted=true
+      android.permission.SET_TIME_ZONE: granted=true
+      android.permission.REMOVE_TASKS: granted=true
+      com.desaysv.mediacenter.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.EXPAND_STATUS_BAR: granted=true
+      android.permission.MANAGE_PROFILE_AND_DEVICE_OWNERS: granted=true
+      android.car.permission.CAR_CONTROL_AUDIO_VOLUME: granted=true
+      android.permission.READ_PROFILE: granted=true
+      android.permission.BLUETOOTH: granted=true
+      android.permission.CHANGE_WIFI_MULTICAST_STATE: granted=true
+      com.desaysv.weather.RESPONSE_WEATHER_DATA: granted=true
+      com.android.alarm.permission.SET_ALARM: granted=true
+      android.permission.WRITE_MEDIA_STORAGE: granted=true
+      android.permission.WRITE_BLOCKED_NUMBERS: granted=true
+      android.permission.WATCH_APPOPS: granted=true
+      android.permission.GET_TASKS: granted=true
+      com.desaysv.smartstore.icon.READ: granted=true
+      android.permission.INTERNET: granted=true
+      android.permission.BIND_RESOLVER_RANKER_SERVICE: granted=true
+      android.permission.REORDER_TASKS: granted=true
+      android.permission.ACCESS_BROADCAST_RADIO: granted=true
+      android.permission.GET_INTENT_SENDER_INTENT: granted=true
+      com.desaysv.MEDIA_CENTER_CUSTOM_PERMISSION: granted=true
+      android.permission.BLUETOOTH_ADMIN: granted=true
+      android.permission.CONTROL_VPN: granted=true
+      android.permission.UPDATE_DEVICE_STATS: granted=true
+      android.permission.BLUETOOTH_STACK: granted=true
+      android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS: granted=true
+      android.permission.NET_ADMIN: granted=true
+      android.car.permission.CAR_POWER: granted=true
+      android.permission.BIND_CONNECTION_SERVICE: granted=true
+      com.desaysv.showroommode.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.ACCESS_INSTANT_APPS: granted=true
+      android.permission.CONTROL_REMOTE_APP_TRANSITION_ANIMATIONS: granted=true
+      android.permission.MODIFY_THEME_OVERLAY: granted=true
+      android.permission.TRUST_LISTENER: granted=true
+      android.permission.ACCESS_CONTEXT_HUB: granted=true
+      android.permission.MANAGE_USB: granted=true
+      android.permission.INTERACT_ACROSS_USERS_FULL: granted=true
+      android.permission.CHANGE_ACCESSIBILITY_VOLUME: granted=true
+      android.permission.BIND_APPWIDGET: granted=true
+      android.permission.STOP_APP_SWITCHES: granted=true
+      android.permission.RECEIVE_MEDIA_RESOURCE_USAGE: granted=true
+      android.permission.BATTERY_STATS: granted=true
+      android.permission.PACKAGE_USAGE_STATS: granted=true
+      android.permission.MOUNT_UNMOUNT_FILESYSTEMS: granted=true
+      com.haibingtech.voice.assistant.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.TETHER_PRIVILEGED: granted=true
+      android.permission.WRITE_SECURE_SETTINGS: granted=true
+      com.desaysv.jetour.t1n.psmap.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.SET_ACTIVITY_WATCHER: granted=true
+      android.permission.READ_BLOCKED_NUMBERS: granted=true
+      android.permission.STATUS_BAR_SERVICE: granted=true
+      com.desaysv.smartstore.iconFile: granted=true
+      android.permission.NFC_HANDOVER_STATUS: granted=true
+      android.permission.USE_FULL_SCREEN_INTENT: granted=true
+      android.permission.ACCESS_LOCATION_EXTRA_COMMANDS: granted=true
+      android.permission.READ_PRIVILEGED_PHONE_STATE: granted=true
+      android.permission.TRIGGER_TIME_ZONE_RULES_CHECK: granted=true
+      android.permission.BROADCAST_STICKY: granted=true
+      android.permission.BLUETOOTH_PRIVILEGED: granted=true
+      com.desaysv.weather.REQUEST_WEATHER_DATA: granted=true
+      android.permission.WRITE_SMS: granted=true
+      android.permission.CONTROL_DISPLAY_BRIGHTNESS: granted=true
+      android.permission.SUBSTITUTE_NOTIFICATION_APP_NAME: granted=true
+      com.desaysv.t1j.scenarioengine.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.intent.category.MASTER_CLEAR.permission.C2D_MESSAGE: granted=true
+      android.permission.ACCESS_KEYGUARD_SECURE_STORAGE: granted=true
+      android.permission.BIND_JOB_SERVICE: granted=true
+      android.permission.CONFIRM_FULL_BACKUP: granted=true
+      android.permission.CHANGE_WIFI_STATE: granted=true
+      android.permission.MODIFY_DAY_NIGHT_MODE: granted=true
+      android.permission.SET_ORIENTATION: granted=true
+      android.permission.MANAGE_USERS: granted=true
+      ivi.vds.permission.SERVICE: granted=true
+      android.permission.DELETE_CACHE_FILES: granted=true
+      android.permission.ACCESS_NETWORK_STATE: granted=true
+      android.permission.DISABLE_KEYGUARD: granted=true
+      android.permission.INTERNAL_DELETE_CACHE_FILES: granted=true
+      android.permission.CHANGE_CONFIGURATION: granted=true
+      android.permission.LOCAL_MAC_ADDRESS: granted=true
+      android.permission.READ_LOGS: granted=true
+      android.permission.INTERACT_ACROSS_USERS: granted=true
+      android.permission.SET_WALLPAPER: granted=true
+      com.desaysv.account.jetour.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.READ_DREAM_STATE: granted=true
+      android.permission.READ_NETWORK_USAGE_HISTORY: granted=true
+      android.permission.KILL_BACKGROUND_PROCESSES: granted=true
+      android.permission.USE_FINGERPRINT: granted=true
+      android.permission.REQUEST_NETWORK_SCORES: granted=true
+      android.permission.ACCESS_VOICE_INTERACTION_SERVICE: granted=true
+      android.permission.CONNECTIVITY_USE_RESTRICTED_NETWORKS: granted=true
+      com.desaysv.bigdata.service.permission: granted=true
+      com.desaysv.account.host.provider.READ_WRITE: granted=true
+      android.permission.WRITE_DREAM_STATE: granted=true
+      android.permission.REBOOT: granted=true
+      android.permission.MOUNT_FORMAT_FILESYSTEMS: granted=true
+      com.desaysv.usermanuals.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.MANAGE_NETWORK_POLICY: granted=true
+      android.permission.GRANT_RUNTIME_PERMISSIONS: granted=true
+      android.permission.MANAGE_NOTIFICATIONS: granted=true
+      com.android.systemui.permission.SELF: granted=true
+      com.desaysv.t1n.appstore.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.NET_TUNNELING: granted=true
+      android.permission.SEND_SHOW_SUSPENDED_APP_DETAILS: granted=true
+      android.permission.CONNECTIVITY_INTERNAL: granted=true
+      android.permission.MANAGE_MEDIA_PROJECTION: granted=true
+      android.permission.START_ACTIVITIES_FROM_BACKGROUND: granted=true
+      android.permission.LOADER_USAGE_STATS: granted=true
+      android.permission.OVERRIDE_WIFI_CONFIG: granted=true
+      android.permission.FORCE_STOP_PACKAGES: granted=true
+      com.desaysv.personalizedsetting.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.HIDE_NON_SYSTEM_OVERLAY_WINDOWS: granted=true
+      android.permission.HANDLE_CALL_INTENT: granted=true
+      android.permission.MEDIA_RESOURCE_OVERRIDE_PID: granted=true
+      android.permission.VIBRATE: granted=true
+      com.android.certinstaller.INSTALL_AS_USER: granted=true
+      android.permission.MODIFY_ACCESSIBILITY_DATA: granted=true
+      android.permission.MANAGE_ACTIVITY_STACKS: granted=true
+      android.permission.HANDLE_CAR_MODE_CHANGES: granted=true
+      com.huawei.permission.HISIGHT_ACCESS: granted=true
+      android.permission.CHANGE_DEVICE_IDLE_TEMP_WHITELIST: granted=true
+      android.permission.MANAGE_SLICE_PERMISSIONS: granted=true
+      android.permission.GET_DETAILED_TASKS: granted=true
+      android.permission.ACCESS_WIFI_STATE: granted=true
+      android.permission.MANAGE_APP_OPS_MODES: granted=true
+      com.desaysv.vpa.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.REQUEST_INSTALL_PACKAGES: granted=true
+      android.permission.MODIFY_PHONE_STATE: granted=true
+      android.permission.ACCESS_VR_MANAGER: granted=true
+      android.permission.STATUS_BAR: granted=true
+      android.permission.READ_FRAME_BUFFER: granted=true
+      android.permission.QUERY_ALL_PACKAGES: granted=true
+      android.permission.RECORD_AUDIO: granted=true, flags=[ USER_SENSITIVE_WHEN_GRANTED]
+      android.permission.DUMP: granted=true
+      android.permission.READ_DEVICE_CONFIG: granted=true
+      android.permission.LOCATION_HARDWARE: granted=true
+      android.permission.WAKE_LOCK: granted=true
+      android.permission.INJECT_EVENTS: granted=true
+      android.permission.BIND_NETWORK_RECOMMENDATION_SERVICE: granted=true
+      android.permission.UPDATE_APP_OPS_STATS: granted=true
+      android.permission.OBSERVE_GRANT_REVOKE_PERMISSIONS: granted=true
+      android.permission.SET_SCREEN_COMPATIBILITY: granted=true
+      android.permission.MEDIA_CONTENT_CONTROL: granted=true
+      android.permission.DELETE_PACKAGES: granted=true
+    User 0: 
+      gids=[1077, 1065, 3002, 1023, 1015, 3003, 1013, 3001, 3007, 1002, 3010, 3011, 3005, 1007, 3006, 1016]
+      runtime permissions:
+        android.permission.READ_SMS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.READ_CALL_LOG: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.ACCESS_FINE_LOCATION: granted=true, flags=[ USER_SENSITIVE_WHEN_GRANTED]
+        android.permission.RECEIVE_SMS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.READ_EXTERNAL_STORAGE: granted=true, flags=[ USER_SENSITIVE_WHEN_GRANTED|APPLY_RESTRICTION]
+        android.permission.ACCESS_COARSE_LOCATION: granted=true, flags=[ USER_SENSITIVE_WHEN_GRANTED]
+        android.permission.READ_PHONE_STATE: granted=true, flags=[ USER_SENSITIVE_WHEN_GRANTED]
+        android.permission.SEND_SMS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.CALL_PHONE: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.WRITE_CONTACTS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.CAMERA: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.WRITE_CALL_LOG: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.GET_ACCOUNTS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.WRITE_EXTERNAL_STORAGE: granted=true, flags=[ USER_SENSITIVE_WHEN_GRANTED|APPLY_RESTRICTION]
+        android.permission.READ_CONTACTS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.ACCESS_BACKGROUND_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|APPLY_RESTRICTION]
+        android.permission.ACCESS_MEDIA_LOCATION: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+
+Package Changes:
+  Sequence number=17
+  User 0:
+    seq=10, package=com.desaysv.jetour.t1n.psmap
+    seq=16, package=com.tencent.wecarnavi
+
+
+Dexopt state:
+  [com.desaysv.ivi.vds.carlan]
+    path: /product/app/SVVDSCarLan/SVVDSCarLan.apk
+      arm64: [status=quicken] [reason=prebuilt]
+
+
+Compiler stats:
+  [com.desaysv.ivi.vds.carlan]
+    (No recorded stats)
+
+DUMP OF SERVICE activity:
+ACTIVITY MANAGER SETTINGS (dumpsys activity settings) activity_manager_constants:
+  max_cached_processes=32
+  background_settle_time=60000
+  fgservice_min_shown_time=2000
+  fgservice_min_report_time=3000
+  fgservice_screen_on_before_time=1000
+  fgservice_screen_on_after_time=5000
+  content_provider_retain_time=20000
+  gc_timeout=5000
+  gc_min_interval=60000
+  force_bg_check_on_restricted=true
+  full_pss_min_interval=1200000
+  full_pss_lowered_interval=300000
+  power_check_interval=300000
+  power_check_max_cpu_1=25
+  power_check_max_cpu_2=25
+  power_check_max_cpu_3=10
+  power_check_max_cpu_4=2
+  service_usage_interaction_time=1800000
+  usage_stats_interaction_interval=7200000
+  service_restart_duration=1000
+  service_reset_run_duration=60000
+  service_restart_duration_factor=4
+  service_min_restart_time_between=10000
+  service_max_inactivity=1800000
+  service_bg_start_timeout=15000
+  service_bg_activity_start_timeout=10000
+  service_crash_restart_duration=1800000
+  service_crash_max_retry=16
+  process_start_async=true
+  memory_info_throttle_time=300000
+  top_to_fgs_grace_duration=15000
+  imperceptible_kill_exempt_proc_states=[0, 1, 2, 4, 12]
+  imperceptible_kill_exempt_packages=[]
+  min_assoc_log_duration=300000
+  fgs_start_foreground_timeout=10000
+
+  CUR_MAX_CACHED_PROCESSES=32
+  CUR_MAX_EMPTY_PROCESSES=16
+  CUR_TRIM_EMPTY_PROCESSES=8
+  CUR_TRIM_CACHED_PROCESSES=5
+  OOMADJ_UPDATE_QUICK=true
+  fastbootenabled=true
+CachedAppOptimizer settings
+  use_compaction=false
+  compact_action_1=file
+  compact_action_2=all
+  compact_throttle_1=5000
+  compact_throttle_2=10000
+  compact_throttle_3=500
+  compact_throttle_4=10000
+  compact_throttle_5=600000
+  compact_throttle_6=600000
+  compact_statsd_sample_rate=0.1
+  compact_full_rss_throttle_kb=12000
+  compact_full_delta_rss_throttle_kb=8000
+  compact_proc_state_throttle=[11]
+  0 some, 0 full, 0 persistent, 0 BFGS compactions.
+  Tracking last compaction stats for 0 processes.
+ use_freezer=false
+  freeze_statsd_sample_rate=0.1
+
+-------------------------------------------------------------------------------
+ACTIVITY MANAGER ALLOWED ASSOCIATION STATE (dumpsys activity allowed-associations)
+  (No association restrictions)
+
+-------------------------------------------------------------------------------
+ACTIVITY MANAGER PENDING INTENTS (dumpsys activity intents)
+  * UID: 1000 total: 48
+  * UID: 1002 total: 1
+  * UID: 10004 total: 1
+  * UID: 10037 total: 1
+  * UID: 10038 total: 7
+  * UID: 10150 total: 1
+  * UID: 10164 total: 1
+  (nothing)
+
+-------------------------------------------------------------------------------
+ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
+  Registered Receivers:
+  * ReceiverList{a0fc60 1493 com.desaysv.ivi.vds.carlan/1000/u0 remote:5075863}
+    app=1493:com.desaysv.ivi.vds.carlan/1000 pid=1493 uid=1000 user=0
+    Filter #0: BroadcastFilter{3b0e519}
+      Action: "action.desaysv.ivi.vds.carlan.SERVICE"
+      Action: "action.desaysv.ivi.vds.carlan.SERVICEUSER"
+  * ReceiverList{cafe556 1493 com.desaysv.ivi.vds.carlan/1000/u0 remote:4891371}
+    app=1493:com.desaysv.ivi.vds.carlan/1000 pid=1493 uid=1000 user=0
+    Filter #0: BroadcastFilter{54909d7}
+      Action: "action.desaysv.ivi.vds.carinfo.REBOOT"
+
+  Receiver Resolver Table:
+    Non-Data Actions:
+        action.desaysv.ivi.vds.carinfo.REBOOT:
+          BroadcastFilter{54909d7 1000/u0 ReceiverList{cafe556 1493 com.desaysv.ivi.vds.carlan/1000/u0 remote:4891371}}
+        action.desaysv.ivi.vds.carlan.SERVICE:
+          BroadcastFilter{3b0e519 1000/u0 ReceiverList{a0fc60 1493 com.desaysv.ivi.vds.carlan/1000/u0 remote:5075863}}
+        action.desaysv.ivi.vds.carlan.SERVICEUSER:
+          BroadcastFilter{3b0e519 1000/u0 ReceiverList{a0fc60 1493 com.desaysv.ivi.vds.carlan/1000/u0 remote:5075863}}
+
+  Broadcast parameters (key=bcast_fg_constants, observing=true):
+    bcast_timeout = +10s0ms
+    bcast_slow_time = +5s0ms
+    bcast_deferral = +5s0ms
+    bcast_deferral_decay_factor = 0.75
+    bcast_deferral_floor = 0    bcast_allow_bg_activity_start_timeout = +10s0ms
+
+  Broadcast parameters (key=bcast_bg_constants, observing=true):
+    bcast_timeout = +1m0s0ms
+    bcast_slow_time = +5s0ms
+    bcast_deferral = +5s0ms
+    bcast_deferral_decay_factor = 0.75
+    bcast_deferral_floor = 0    bcast_allow_bg_activity_start_timeout = +10s0ms
+
+  Broadcast parameters (key=bcast_offload_constants, observing=true):
+    bcast_timeout = +1m0s0ms
+    bcast_slow_time = +24d20h31m23s647ms
+    bcast_deferral = +5s0ms
+    bcast_deferral_decay_factor = 0.75
+    bcast_deferral_floor = 0    bcast_allow_bg_activity_start_timeout = +10s0ms
+
+  mBroadcastsScheduled [foreground]=false
+  mBroadcastsScheduled [background]=false
+  mBroadcastsScheduled [offload]=false
+  mHandler:
+    Handler (com.android.server.am.ActivityManagerService$MainHandler) {a915a46} @ 2770264
+      Looper (ActivityManager, tid 27) {188f407}
+        Message 0: { when=+20s68ms what=58 target=com.android.server.am.ActivityManagerService$MainHandler }
+        Message 1: { when=+4m2s480ms what=27 target=com.android.server.am.ActivityManagerService$MainHandler }
+        Message 2: { when=+14m10s186ms callback=com.android.server.appop.AppOpsService$1 target=com.android.server.am.ActivityManagerService$MainHandler }
+        (Total messages: 3, polling=true, quitting=false)
+
+-------------------------------------------------------------------------------
+ACTIVITY MANAGER BROADCAST STATS STATE (dumpsys activity broadcast-stats)
+  Current stats (from -45m59s907ms to now, +45m59s907ms uptime):
+    android.net.conn.CONNECTIVITY_CHANGE:
+      Number received: 0, skipped: 0
+      Total dispatch time: 0, max: 0
+      Package com.desaysv.ivi.vds.carlan: 1 times
+      Package android: 7 times
+    action.desaysv.ivi.vds.carlan.REBOOT:
+      Number received: 0, skipped: 0
+      Total dispatch time: 0, max: 0
+      Package com.desaysv.ivi.vds.carlan: 1 times
+
+-------------------------------------------------------------------------------
+ACTIVITY MANAGER CONTENT PROVIDERS (dumpsys activity providers)
+  (nothing)
+
+-------------------------------------------------------------------------------
+ACTIVITY MANAGER URI PERMISSIONS (dumpsys activity permissions)
+  (nothing)
+
+-------------------------------------------------------------------------------
+ACTIVITY MANAGER SERVICES (dumpsys activity services)
+  User 0 active services:
+  * ServiceRecord{f0378eb u0 com.desaysv.ivi.vds.carlan/.service.CarLanService}
+    intent={act=action.desaysv.ivi.vds.carlan.SERVICE pkg=com.desaysv.ivi.vds.carlan}
+    packageName=com.desaysv.ivi.vds.carlan
+    processName=com.desaysv.ivi.vds.carlan
+    baseDir=/product/app/SVVDSCarLan/SVVDSCarLan.apk
+    dataDir=/data/user/0/com.desaysv.ivi.vds.carlan
+    app=ProcessRecord{880eb0f 1493:com.desaysv.ivi.vds.carlan/1000}
+    allowWhileInUsePermissionInFgs=true
+    startForegroundCount=1
+    recentCallingPackage=com.desaysv.ivi.vds.carstate
+    isForeground=true foregroundId=1493 foregroundNoti=Notification(channel=CarLanService shortcut=null contentView=null vibrate=null sound=null defaults=0x0 flags=0x62 color=0xff607d8b vis=PRIVATE)
+    createTime=-45m59s47ms startingBgTimeout=--
+    lastActivity=-39m24s718ms restartTime=-45m58s983ms createdFromFg=true
+    startRequested=true delayedStop=false stopIfKilled=false callStart=true lastStartId=1
+    Bindings:
+    * IntentBindRecord{6143934 CREATE}:
+      intent={act=action.desaysv.ivi.vds.carlan.SERVICE pkg=com.desaysv.ivi.vds.carlan}
+      binder=android.os.BinderProxy@242635d
+      requested=true received=true hasBound=true doRebind=false
+      * Client AppBindRecord{778d4d2 ProcessRecord{123d133 2791:com.desaysv.vrservice/1000}}
+        Per-process Connections:
+          ConnectionRecord{50ee42 u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@ce3c8d}
+      * Client AppBindRecord{bb6c9a3 ProcessRecord{129ea27 2630:com.desaysv.bluetooth.phone/1000}}
+        Per-process Connections:
+          ConnectionRecord{9aca915 u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@2f9a2cc}
+      * Client AppBindRecord{555b4a0 ProcessRecord{15a0920 2309:com.desaysv.ivi.vds.bt/1000}}
+        Per-process Connections:
+          ConnectionRecord{43ee81d u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@b50d8f4}
+      * Client AppBindRecord{646d859 ProcessRecord{381731d 4585:com.desaysv.ivi.fota/1000}}
+        Per-process Connections:
+          ConnectionRecord{9a70887 u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@bc0f0c6}
+      * Client AppBindRecord{feb6c1e ProcessRecord{43dceb1 3384:com.desaysv.generatecdkey/1000}}
+        Per-process Connections:
+          ConnectionRecord{a543571 u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@9687718}
+      * Client AppBindRecord{f625cff ProcessRecord{647a5bd 8721:com.arcvideo.car.iqy.video/u0a21}}
+        Per-process Connections:
+          ConnectionRecord{47741ee u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@2082369}
+      * Client AppBindRecord{1717acc ProcessRecord{74a8899 4481:com.desaysv.setting/1000}}
+        Per-process Connections:
+          ConnectionRecord{223b2df u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@ee6ed7e}
+      * Client AppBindRecord{683a115 ProcessRecord{abe5f93 3591:com.desaysv.ivi.vds.upgrade/1000}}
+        Per-process Connections:
+          ConnectionRecord{fc5a37b u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@660f0a}
+      * Client AppBindRecord{c5e2c2a ProcessRecord{aeabee5 3996:com.desaysv.engmode/1000}}
+        Per-process Connections:
+          ConnectionRecord{bf4a27b u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@a05aa0a}
+      * Client AppBindRecord{809ca1b ProcessRecord{af7d2dd 1338:com.desaysv.ivi.vds.carstate/1000}}
+        Per-process Connections:
+          ConnectionRecord{ef2286e u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@89c93e9}
+          ConnectionRecord{f2ea35b u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@89c93e9}
+      * Client AppBindRecord{3a177b8 ProcessRecord{bc50427 2886:com.desaysv.vehicle.carplayapp/1000}}
+        Per-process Connections:
+          ConnectionRecord{850518 u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@af7b0fb}
+      * Client AppBindRecord{e8a3991 ProcessRecord{d51327f 1159:com.android.systemui/1000}}
+        Per-process Connections:
+          ConnectionRecord{bc2ed9a u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@c5c245}
+      * Client AppBindRecord{58ae0f6 ProcessRecord{e5ddc09 4278:com.desaysv.vrcontrol/1000}}
+        Per-process Connections:
+          ConnectionRecord{e9c0db8 u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@a98f81b}
+      * Client AppBindRecord{f0ecf7 ProcessRecord{eb349a0 2222:com.desaysv.ivi.vds.navi/1000}}
+        Per-process Connections:
+          ConnectionRecord{1980048 u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@9b9daeb}
+      * Client AppBindRecord{cd25764 ProcessRecord{f082c40 1895:com.desaysv.hicar/1000}}
+        Per-process Connections:
+          ConnectionRecord{f229d49 u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@342b750}
+      * Client AppBindRecord{787ddcd ProcessRecord{f747b15 2073:com.ahui.clustercast/u0a164}}
+        Per-process Connections:
+          ConnectionRecord{d4deae u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@89b3b29}
+      * Client AppBindRecord{3fc1682 ProcessRecord{fa84689 1645:com.desaysv.ivi.vds.sms/1000}}
+        Per-process Connections:
+          ConnectionRecord{c711804 u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@905cc17}
+    All Connections:
+      ConnectionRecord{fc5a37b u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@660f0a}
+      ConnectionRecord{bc2ed9a u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@c5c245}
+      ConnectionRecord{50ee42 u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@ce3c8d}
+      ConnectionRecord{47741ee u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@2082369}
+      ConnectionRecord{9aca915 u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@2f9a2cc}
+      ConnectionRecord{f229d49 u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@342b750}
+      ConnectionRecord{d4deae u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@89b3b29}
+      ConnectionRecord{ef2286e u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@89c93e9}
+      ConnectionRecord{f2ea35b u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@89c93e9}
+      ConnectionRecord{c711804 u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@905cc17}
+      ConnectionRecord{a543571 u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@9687718}
+      ConnectionRecord{1980048 u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@9b9daeb}
+      ConnectionRecord{bf4a27b u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@a05aa0a}
+      ConnectionRecord{e9c0db8 u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@a98f81b}
+      ConnectionRecord{850518 u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@af7b0fb}
+      ConnectionRecord{43ee81d u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@b50d8f4}
+      ConnectionRecord{9a70887 u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@bc0f0c6}
+      ConnectionRecord{223b2df u0 CR com.desaysv.ivi.vds.carlan/.service.CarLanService:@ee6ed7e}
+
+  Connection bindings to services:
+  * ConnectionRecord{f1c59e8 u0 CR com.desaysv.ivi.vds.carinfo/.service.CarInfoService:@1d7170b}
+    binding=AppBindRecord{bbd6193 com.desaysv.ivi.vds.carinfo/.service.CarInfoService:com.desaysv.ivi.vds.carlan}
+    conn=android.os.BinderProxy@1d7170b flags=0x1
+
+Active foreground apps - user 0:
+  #34: com.desaysv.ivi.vds.carlan
+    mNumActive=1 mAppOnTop=true mShownWhileTop=true mShownWhileScreenOn=true
+    mStartTime=-45m58s565ms mStartVisibleTime=-45m58s565ms
+
+-------------------------------------------------------------------------------
+ACTIVITY MANAGER RECENT TASKS (dumpsys activity recents)
+mRecentsUid=-1
+mRecentsComponent=null
+mFreezeTaskListReordering=false
+mFreezeTaskListReorderingPendingTimeout=false
+mHiddenTasks=[Task{3966bb4 #3448 visible=true type=standard mode=fullscreen translucent=false A=1000:com.desaysv.launcher U=0 StackId=3448 sz=1}]
+  (nothing)
+
+-------------------------------------------------------------------------------
+ACTIVITY MANAGER LAST ANR (dumpsys activity lastanr)
+  <no ANR has occurred since boot>
+
+-------------------------------------------------------------------------------
+ACTIVITY MANAGER STARTER (dumpsys activity starter)
+(nothing)
+
+-------------------------------------------------------------------------------
+ACTIVITY MANAGER ACTIVITIES (dumpsys activity activities)
+Display #0 (activities from top to bottom):
+Display #2 (activities from top to bottom):
+Display #5 (activities from top to bottom):
+  (nothing)
+
+-------------------------------------------------------------------------------
+ACTIVITY MANAGER PROCESS EXIT INFO (dumpsys activity exit-info)
+Last Timestamp of Persistence Into Persistent Storage: 2026-09-21 02:55:19.622
+  package: com.desaysv.ivi.vds.carlan
+    Historical Process Exit for userId=1000
+        ApplicationExitInfo #0:
+          timestamp=2026-08-20 17:53:56.859
+          pid=1523
+          realUid=1000
+          packageUid=1000
+          definingUid=1000
+          user=0
+          process=com.desaysv.ivi.vds.carlan
+          reason=4 (APP CRASH(EXCEPTION))
+          status=0
+          importance=100
+          pss=14MB
+          rss=101MB
+          description=crash
+          state=empty
+          trace=null
+
+-------------------------------------------------------------------------------
+ACTIVITY MANAGER RUNNING PROCESSES (dumpsys activity processes)
+  All known processes:
+  *APP* UID 1000 ProcessRecord{880eb0f 1493:com.desaysv.ivi.vds.carlan/1000}
+    user #0 uid=1000 gids={1077, 1065, 3002, 1023, 1015, 3003, 1013, 3001, 3007, 1002, 3010, 3011, 3005, 1007, 3006, 1016, 1000, 9997}
+    mRequiredAbi=arm64-v8a instructionSet=arm64
+    class=com.desaysv.ivi.vds.carlan.application.CarLanApplication
+    dir=/product/app/SVVDSCarLan/SVVDSCarLan.apk publicDir=/product/app/SVVDSCarLan/SVVDSCarLan.apk data=/data/user/0/com.desaysv.ivi.vds.carlan
+    packageList={com.desaysv.ivi.vds.carlan}
+    compat={160dpi always-compat}
+    thread=android.app.IApplicationThread$Stub$Proxy@f51d583
+    pid=1493 starting=false
+    lastActivityTime=-4m50s573ms lastPssTime=-19m8s248ms pssStatType=0 nextPssTime=+28m54s472ms
+    lastPss=15MB lastSwapPss=0.00 lastCachedPss=0.00 lastCachedSwapPss=0.00 lastRss=108MB
+    procStateMemTracker: best=1 (1=1 1.5x, 2=1 3.375x) / pending state=2 highest=1 5.0625x
+    adjSeq=2406 lruSeq=691
+    oom adj: max=1001 curRaw=100 setRaw=100 cur=100 set=100
+    lastCompactTime=0 lastCompactAction=0
+    mCurSchedGroup=2 setSchedGroup=2 systemNoUi=false trimMemoryLevel=0
+    curProcState=3 mRepProcState=3 pssProcState=3 setProcState=3 lastStateTime=-4m50s528ms
+    curCapability=LCM setCapability=LCM
+    cached=false empty=false
+    mHasForegroundServices=true forcingToImportant=null
+    reportedInteraction=true time=-4m50s528ms
+    hasClientActivities=true foregroundActivities=false (rep=false)
+    hasStartedServices=true
+    startSeq=9
+    mountMode=FULL
+    lastRequestedGc=-45m58s994ms lastLowMemory=-45m58s994ms reportLowMemory=false
+     Configuration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.470}
+     OverrideConfiguration={0.0 ?mcc?mnc ?localeList ?layoutDir ?swdp ?wdp ?hdp ?density ?lsize ?long ?ldr ?wideColorGamut ?orien ?uimode ?night ?touch ?keyb/?/? ?nav/? winConfig={ mBounds=Rect(0, 0 - 0, 0) mAppBounds=null mWindowingMode=undefined mDisplayWindowingMode=undefined mActivityType=undefined mAlwaysOnTop=undefined mRotation=undefined}}
+     mLastReportedConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.470}
+    Services:
+      - ServiceRecord{f0378eb u0 com.desaysv.ivi.vds.carlan/.service.CarLanService}
+    Connections:
+      - ConnectionRecord{f1c59e8 u0 CR com.desaysv.ivi.vds.carinfo/.service.CarInfoService:@1d7170b}
+    Connected Providers:
+      - b380300/com.android.providers.settings/.SettingsProvider->1493:com.desaysv.ivi.vds.carlan/1000 s1/1 u0/0 +45m14s131ms
+    Receivers:
+      - ReceiverList{a0fc60 1493 com.desaysv.ivi.vds.carlan/1000/u0 remote:5075863}
+      - ReceiverList{cafe556 1493 com.desaysv.ivi.vds.carlan/1000/u0 remote:4891371}
+
+  OOM levels:
+    -900: SYSTEM_ADJ (  196,608K)
+    -800: PERSISTENT_PROC_ADJ (  196,608K)
+    -700: PERSISTENT_SERVICE_ADJ (  196,608K)
+      0: FOREGROUND_APP_ADJ (  196,608K)
+     100: VISIBLE_APP_ADJ (  262,144K)
+     200: PERCEPTIBLE_APP_ADJ (  393,216K)
+     250: PERCEPTIBLE_LOW_APP_ADJ (  458,752K)
+     300: BACKUP_APP_ADJ (  786,432K)
+     400: HEAVY_WEIGHT_APP_ADJ (  786,432K)
+     500: SERVICE_ADJ (  786,432K)
+     600: HOME_APP_ADJ (  786,432K)
+     700: PREVIOUS_APP_ADJ (  786,432K)
+     800: SERVICE_B_ADJ (  786,432K)
+     900: CACHED_APP_MIN_ADJ (  786,432K)
+     999: CACHED_APP_MAX_ADJ (1,146,880K)
+
+  Process OOM control (76 total, non-act at 26, non-svc at 26):
+    Proc # 9: vis    F/S/BTOP LCM  t: 0 1493:com.desaysv.ivi.vds.carlan/1000 (fg-service)
+        oom: max=1001 curRaw=100 setRaw=100 cur=100 set=100
+        state: cur=BTOP set=BTOP lastPss=15MB lastSwapPss=0.00 lastCachedPss=0.00
+        cached=false empty=false hasAboveClient=false
+
+  mHomeProcess: ProcessRecord{b56d196 1395:com.desaysv.launcher/1000}
+  mPreviousProcess: ProcessRecord{647a5bd 8721:com.arcvideo.car.iqy.video/u0a21}
+
+  Raw LRU list (dumpsys activity lru):
+    Activities:
+    #66: vis    BTOP LCM 1493:com.desaysv.ivi.vds.carlan/1000 act:client
+
+  Process LRU list (sorted by oom_adj, 76 total, non-act at 26, non-svc at 26):
+    Proc # 9: vis    F/S/BTOP LCM  t: 0 1493:com.desaysv.ivi.vds.carlan/1000 (fg-service)
+
+  PID mappings:
+    PID #1493: ProcessRecord{880eb0f 1493:com.desaysv.ivi.vds.carlan/1000}
+  mDeviceIdleWhitelist=[2000, 10013, 10018, 10038, 10087, 10150, 10154, 10158, 10159, 10164]
+  mDeviceIdleExceptIdleWhitelist=[2000, 10000, 10004, 10013, 10018, 10038, 10087, 10150, 10154, 10158, 10159, 10164]
+  mDeviceIdleTempWhitelist=[]
+  mForceBackgroundCheck=false
+
+-------------------------------------------------------------------------------
+ACTIVITY MANAGER USERS (dumpsys activity users)
+  mStartedUsers:
+    User #0: state=RUNNING_UNLOCKED
+  mStartedUserArray: [0]
+  mUserLru: [0]
+  mCurrentUserId:0
+  mTargetUserId:-10000
+  mLastActiveUsers:[]
+  mDelayUserDataLocking:true
+  mMaxRunningUsers:3
+  mUserSwitchUiEnabled:false
+  mInitialized:true
+
+DUMP OF SERVICE meminfo:
+Applications Memory Usage (in Kilobytes):
+Uptime: 2770297 Realtime: 2770297
+
+** MEMINFO in pid 1493 [com.desaysv.ivi.vds.carlan] **
+                   Pss  Private  Private     Swap      Rss     Heap     Heap     Heap
+                 Total    Dirty    Clean    Dirty    Total     Size    Alloc     Free
+                ------   ------   ------   ------   ------   ------   ------   ------
+  Native Heap     3434     3392        0        0     7216        0        0        0
+  Dalvik Heap      951      888        0        0     5424        0        0        0
+ Dalvik Other      948      736        0        0     2624                           
+        Stack     4356     4356        0        0     4372                           
+    Other dev        9        0        8        0      220                           
+     .so mmap      304      100        0        0    27752                           
+    .jar mmap      358        0       64        0    19388                           
+    .apk mmap      111        0        0        0     1600                           
+    .dex mmap     1645        4     1628        0     2776                           
+    .oat mmap      182        0        0        0    11660                           
+    .art mmap      920      648        0        0    20216                           
+   Other mmap       23        8        0        0     1876                           
+      Unknown      471      468        0        0     1176                           
+        TOTAL    13712    10600     1700        0    13712        0        0        0
+ 
+ App Summary
+                       Pss(KB)                        Rss(KB)
+                        ------                         ------
+           Java Heap:     1536                          25640
+         Native Heap:     3392                           7216
+                Code:     1796                          63668
+               Stack:     4356                           4372
+            Graphics:        0                              0
+       Private Other:     1220
+              System:     1412
+             Unknown:                                    5404
+ 
+           TOTAL PSS:    13712            TOTAL RSS:   106300      TOTAL SWAP (KB):        0
+
+DUMP OF SERVICE procstats:
+CURRENT STATS:
+          Start time: 1970-01-01 08:00:06
+        Total uptime: +46m4s326ms
+  Total elapsed time: +46m4s326ms (partial) libart.so
+     Aggregated over: 1
+
+System memory usage:
+   SOn/Norm: 1 samples:
+    Cached: 283MB min, 283MB avg, 283MB max
+    Free: 4.9GB min, 4.9GB avg, 4.9GB max
+    ZRam: 12KB min, 12KB avg, 12KB max
+    Kernel: 439MB min, 439MB avg, 439MB max
+    Native: 451MB min, 451MB avg, 451MB max
+
+Per-Package Stats:
+  * com.desaysv.ivi.vds.carinfo / 1000 / v1:
+      * Asc com.desaysv.ivi.vds.carinfo.service.CarInfoService:
+        Process: com.desaysv.ivi.vds.carinfo
+        Active count 3: time 100%
+        Total count 1: time 100%
+        <- com.android.systemui/1000 (com.android.systemui)
+        <- com.desaysv.ivi.vds.carstate/1000 (com.desaysv.ivi.vds.carstate)
+        <- com.desaysv.ivi.vds.carlan/1000 (com.desaysv.ivi.vds.carlan):
+             Active count 3: time 100% (running)
+             Total count 1: time 100% (running / ImpFg #2406)
+        <- com.desaysv.launcher/1000 (com.desaysv.launcher)
+        <- com.desaysv.ivi.vds.sms/1000 (com.desaysv.ivi.vds.sms)
+        <- com.desaysv.hicar/1000 (com.desaysv.hicar)
+        <- com.desaysv.ivi.vds.navi/1000 (com.desaysv.ivi.vds.navi)
+        <- com.desaysv.showroommode/1000 (com.desaysv.showroommode)
+        <- com.desaysv.bluetooth.phone/1000 (com.desaysv.bluetooth.phone)
+        <- com.lion.datapoint/1000 (com.lion.datapoint)
+        <- com.desaysv.vrservice/1000 (com.desaysv.vrservice)
+        <- com.desaysv.vehicle.carplayapp/1000 (com.desaysv.vehicle.carplayapp)
+        <- com.desaysv.account.jetour/1000 (com.desaysv.account.jetour)
+        <- com.desaysv.ivi.vds.upgrade/1000 (com.desaysv.ivi.vds.upgrade)
+        <- com.desaysv.mediacenter/1000 (com.desaysv.mediacenter)
+        <- com.desaysv.vrcontrol/1000 (com.desaysv.vrcontrol)
+        <- com.desaysv.t1j.scenarioengine/1000 (com.desaysv.t1j.scenarioengine)
+        <- com.desaysv.setting/1000 (com.desaysv.setting)
+        <- com.desaysv.svhvac/1000 (com.desaysv.svhvac)
+        <- com.desaysv.ivi.adapterservice:hvacdvc/1000 (com.desaysv.ivi.adapterservice)
+        <- com.ahui.clustercast/u0a164 (com.ahui.clustercast)
+        <- com.arcvideo.car.iqy.video/u0a21 (com.arcvideo.car.iqy.video)
+        <- com.desaysv.jetour.t1n.psmap/1000 (com.desaysv.jetour.t1n.psmap)
+        <- com.desaysv.engmode/1000 (com.desaysv.engmode)
+  * com.android.providers.settings / 1000 / v30:
+      * Asc com.android.providers.settings.SettingsProvider:
+        Process: system
+        Total count 1: time 100%
+        <- com.android.bluetooth/1002 (com.android.bluetooth)
+        <- com.android.car/1000 (com.android.car)
+        <- com.android.systemui/1000 (com.android.systemui)
+        <- com.android.providers.media.module/u0a27 (com.android.providers.media.module)
+        <- com.desaysv.launcher/1000 (com.desaysv.launcher)
+        <- com.desaysv.ivi.vds.sms/1000 (com.desaysv.ivi.vds.sms)
+        <- com.android.networkstack.process/1073 (com.android.networkstack)
+        <- android.ext.services/u0a28 (android.ext.services)
+        <- com.android.providers.calendar/u0a4 (com.android.providers.calendar)
+        <- com.desaysv.ivi.vds.carinfo/1000 (com.desaysv.ivi.vds.carinfo)
+        <- com.desaysv.ivi.vds.carstate/1000 (com.desaysv.ivi.vds.carstate)
+        <- com.desaysv.showroommode/1000 (com.desaysv.showroommode)
+        <- com.desaysv.ivi.vds.bt/1000 (com.desaysv.ivi.vds.bt)
+        <- com.desaysv.carmodel/1000 (com.desaysv.carmodel)
+        <- com.haibingtech.voice.assistant/1000 (com.haibingtech.voice.assistant)
+        <- com.sfcar.launcher/u0a13 (com.sfcar.launcher)
+        <- com.desaysv.ivi.vds.log/1000 (com.desaysv.ivi.vds.log)
+        <- com.desaysv.vpa/1000 (com.desaysv.vpa)
+        <- com.desaysv.licensemanager/1000 (com.desaysv.licensemanager)
+        <- com.baidu.input/u0a15 (com.baidu.input)
+        <- com.desaysv.mediacenter/1000 (com.desaysv.mediacenter)
+        <- com.desaysv.jetour.weather/1000 (com.desaysv.jetour.weather)
+        <- com.desaysv.vehicle.carplayapp/1000 (com.desaysv.vehicle.carplayapp)
+        <- com.desaysv.account.jetour/1000 (com.desaysv.account.jetour)
+        <- android.process.acore/u0a0 (com.android.providers.contacts)
+        <- com.desaysv.ivi.vds.upgrade/1000 (com.desaysv.ivi.vds.upgrade)
+        <- com.desaysv.meterinteraction/1000 (com.desaysv.meterinteraction)
+        <- com.mcity.cjzs:acc/u0a154 (com.mcity.cjzs)
+        <- web1n.stopapp/u0a20 (web1n.stopapp)
+        <- com.desaysv.vrcontrol/1000 (com.desaysv.vrcontrol)
+        <- bin.mt.plus.canary/u0a18 (bin.mt.plus.canary)
+        <- com.desaysv.setting/1000 (com.desaysv.setting)
+        <- com.desaysv.ivi.fota/1000 (com.desaysv.ivi.fota)
+        <- com.desaysv.t1j.scenarioengine/1000 (com.desaysv.t1j.scenarioengine)
+        <- com.desaysv.svhvac/1000 (com.desaysv.svhvac)
+        <- com.tencent.qqmusiccar/u0a38 (com.tencent.qqmusiccar)
+        <- com.desaysv.engmode/1000 (com.desaysv.engmode)
+        <- com.tencent.wecarnavi/u0a150 (com.tencent.wecarnavi)
+        <- com.tencent.wecarnavi:coreService/u0a150 (com.tencent.wecarnavi)
+        <- com.mcity.cjzs:acc1/u0a154 (com.mcity.cjzs)
+        <- com.desaysv.ivi.adapterservice:hvacdvc/1000 (com.desaysv.ivi.adapterservice)
+        <- com.desaysv.ivi.adapterservice:sdvc/1000 (com.desaysv.ivi.adapterservice)
+        <- com.kugou.android.auto/u0a37 (com.kugou.android.auto)
+        <- com.desaysv.t1n.appstore/1000 (com.desaysv.t1n.appstore)
+        <- com.android.permissioncontroller/u0a29 (com.android.permissioncontroller)
+        <- com.android.traceur/u0a11 (com.android.traceur)
+        <- com.desaysv.personalizedsetting/1000 (com.desaysv.personalizedsetting)
+        <- com.tencent.wecarnavi:longlinkservice/u0a150 (com.tencent.wecarnavi)
+        <- com.desaysv.ivi.vds.carlan/1000 (com.desaysv.ivi.vds.carlan):
+             Total count 1: time 98% (running)
+        <- com.ahui.clustercast/u0a164 (com.ahui.clustercast)
+        <- com.desaysv.svuploadlogapp/1000 (com.desaysv.svuploadlogapp)
+        <- com.desaysv.bigdata/1000 (com.desaysv.bigdata)
+        <- com.arcvideo.car.iqy.video/u0a21 (com.arcvideo.car.iqy.video)
+        <- com.lion.datapoint/1000 (com.lion.datapoint)
+        <- com.thunder.carplay/u0a25 (com.thunder.carplay)
+        <- com.desaysv.jetour.t1n.psmap/1000 (com.desaysv.jetour.t1n.psmap)
+  * com.desaysv.ivi.vds.carlan / 1000 / v1:
+      * Prc com.desaysv.ivi.vds.carlan / 1000 / v1:
+             TOTAL: 100% (9.4MB-13MB-17MB/7.6MB-12MB-15MB/97MB-104MB-109MB over 7)
+            Imp Fg: 100% (9.4MB-13MB-17MB/7.6MB-12MB-15MB/97MB-104MB-109MB over 7)
+      * Svc com.desaysv.ivi.vds.carlan.service.CarLanService:
+        Process: com.desaysv.ivi.vds.carlan
+            Running count 1 / time 100%
+            Started count 1 / time 100%
+            Foreground count 1 / time 0.01%
+            Bound count 1 / time 100%
+            Executing count 1 / time 0.02%
+      * Asc com.desaysv.ivi.vds.carlan.service.CarLanService:
+        Process: com.desaysv.ivi.vds.carlan
+        Active count 3: time 100%
+        Total count 1: time 100%
+        <- com.desaysv.ivi.vds.carstate/1000 (com.desaysv.ivi.vds.carstate):
+             Active count 3: time 100% (running)
+             Total count 1: time 100% (running / ImpFg #2406)
+        <- com.android.systemui/1000 (com.android.systemui):
+             Active count 3: time 100% (running)
+             Total count 1: time 100% (running / ImpFg #2406)
+        <- com.desaysv.ivi.vds.sms/1000 (com.desaysv.ivi.vds.sms):
+             Active count 3: time 100% (running)
+             Total count 1: time 100% (running / ImpFg #2406)
+        <- com.desaysv.hicar/1000 (com.desaysv.hicar):
+             Active count 3: time 100% (running)
+             Total count 1: time 100% (running / ImpFg #2406)
+        <- com.desaysv.ivi.vds.navi/1000 (com.desaysv.ivi.vds.navi):
+             Active count 3: time 100% (running)
+             Total count 1: time 100% (running / ImpFg #2406)
+        <- com.desaysv.ivi.vds.bt/1000 (com.desaysv.ivi.vds.bt):
+             Active count 3: time 100% (running)
+             Total count 1: time 100% (running / ImpFg #2406)
+        <- com.desaysv.bluetooth.phone/1000 (com.desaysv.bluetooth.phone):
+             Active count 3: time 100% (running)
+             Total count 1: time 100% (running / ImpFg #2406)
+        <- com.desaysv.vrservice/1000 (com.desaysv.vrservice):
+             Active count 3: time 100% (running)
+             Total count 1: time 100% (running / ImpFg #2406)
+        <- com.desaysv.vehicle.carplayapp/1000 (com.desaysv.vehicle.carplayapp):
+             Active count 3: time 100% (running)
+             Total count 1: time 100% (running / ImpFg #2406)
+        <- com.desaysv.generatecdkey/1000 (com.desaysv.generatecdkey):
+             Active count 3: time 100% (running)
+             Total count 1: time 100% (running / ImpFg #2406)
+        <- com.desaysv.ivi.vds.upgrade/1000 (com.desaysv.ivi.vds.upgrade):
+             Active count 3: time 100% (running)
+             Total count 1: time 100% (running / ImpFg #2406)
+        <- com.desaysv.vrcontrol/1000 (com.desaysv.vrcontrol):
+             Active count 3: time 99% (running)
+             Total count 1: time 99% (running / ImpFg #2406)
+        <- com.desaysv.ivi.fota/1000 (com.desaysv.ivi.fota):
+             Active count 3: time 99% (running)
+             Total count 1: time 99% (running / ImpFg #2406)
+        <- com.desaysv.setting/1000 (com.desaysv.setting):
+             Active count 3: time 99% (running)
+             Total count 1: time 99% (running / ImpFg #2406)
+        <- com.ahui.clustercast/u0a164 (com.ahui.clustercast):
+             Active count 1: time 99% (running)
+             Total count 1: time 99% (running / ImpFg #2406)
+        <- com.arcvideo.car.iqy.video/u0a21 (com.arcvideo.car.iqy.video):
+             Active count 1: time 86% (running)
+             Total count 1: time 86% (running / ImpFg #2406)
+        <- com.desaysv.engmode/1000 (com.desaysv.engmode):
+             Total count 1: time 99% (running / Service #2406)
+  Total procs: 0 shown of 91 total
+
+Process summary:
+  * com.desaysv.ivi.vds.carlan / 1000 / v1:
+         TOTAL: 100% (9.4MB-13MB-17MB/7.6MB-12MB-15MB/97MB-104MB-109MB over 7)
+        Imp Fg: 100% (9.4MB-13MB-17MB/7.6MB-12MB-15MB/97MB-104MB-109MB over 7)
+
+Run time Stats:
+  SOff/Norm: +190ms
+   SOn/Norm: +46m4s43ms (running)
+      TOTAL: +46m4s233ms
+
+Memory usage:
+  Kernel : 439MB (8 samples)
+  Native : 451MB (8 samples)
+  Persist: 611MB (152 samples)
+  Top: 224MB (57 samples)
+  ImpFg: 2.2GB (718 samples)
+  ImpBg: 80MB (20 samples)
+  Service: 25MB (66 samples)
+  Receivr: 314KB (132 samples)
+  LastAct: 731KB (10 samples)
+  CchEmty: 238MB (134 samples)
+  Cached : 283MB (8 samples)
+  Free   : 4.9GB (8 samples)
+  Z-Ram  : 12KB (8 samples)
+  TOTAL  : 9.4GB
+  ServRst: 91KB (99 samples)
+
+PSS collection stats:
+  Internal Single: 467x over +1s466ms
+  Internal All Procs (Memory Change): 0x over 0
+  Internal All Procs (Polling): 44x over +132ms
+  External: 0x over 0
+  External Slow: 13x over +630ms
+
+AGGREGATED OVER LAST 24 HOURS:
+          Start time: 1970-01-01 08:00:06
+        Total uptime: +3h16m11s582ms
+  Total elapsed time: +22h30m10s126ms (partial) libart.so
+     Aggregated over: 4
+
+System memory usage:
+   SOn/Norm: 5 samples:
+    Cached: 283MB min, 0.93GB avg, 1.9GB max
+    Free: 386MB min, 1.4GB avg, 4.9GB max
+    ZRam: 12KB min, 3.7MB avg, 8.9MB max
+    Kernel: 439MB min, 603MB avg, 685MB max
+    Native: 442MB min, 474MB avg, 527MB max
+        Mod: 1 samples:
+    Cached: 1.2GB min, 1.2GB avg, 1.2GB max
+    Free: 494MB min, 494MB avg, 494MB max
+    ZRam: 0.91MB min, 0.91MB avg, 0.91MB max
+    Kernel: 653MB min, 653MB avg, 653MB max
+    Native: 499MB min, 499MB avg, 499MB max
+
+Per-Package Stats:
+  * com.desaysv.ivi.vds.carinfo / 1000 / v1:
+      * Asc com.desaysv.ivi.vds.carinfo.service.CarInfoService:
+        Process: com.desaysv.ivi.vds.carinfo
+        Active count 25: time 100%
+        Total count 4: time 100%
+        <- com.android.systemui/1000 (com.android.systemui)
+        <- com.desaysv.ivi.vds.carstate/1000 (com.desaysv.ivi.vds.carstate)
+        <- com.desaysv.ivi.vds.carlan/1000 (com.desaysv.ivi.vds.carlan):
+             Active count 25: time 100%
+             Total count 4: time 100%
+        <- com.desaysv.ivi.vds.sms/1000 (com.desaysv.ivi.vds.sms)
+        <- com.desaysv.hicar/1000 (com.desaysv.hicar)
+        <- com.desaysv.ivi.vds.navi/1000 (com.desaysv.ivi.vds.navi)
+        <- com.desaysv.showroommode/1000 (com.desaysv.showroommode)
+        <- com.desaysv.bluetooth.phone/1000 (com.desaysv.bluetooth.phone)
+        <- com.lion.datapoint/1000 (com.lion.datapoint)
+        <- com.desaysv.vrservice/1000 (com.desaysv.vrservice)
+        <- com.desaysv.vehicle.carplayapp/1000 (com.desaysv.vehicle.carplayapp)
+        <- com.desaysv.account.jetour/1000 (com.desaysv.account.jetour)
+        <- com.desaysv.ivi.vds.upgrade/1000 (com.desaysv.ivi.vds.upgrade)
+        <- com.desaysv.vrcontrol/1000 (com.desaysv.vrcontrol)
+        <- com.desaysv.t1j.scenarioengine/1000 (com.desaysv.t1j.scenarioengine)
+        <- com.desaysv.mediacenter/1000 (com.desaysv.mediacenter)
+        <- com.desaysv.svhvac/1000 (com.desaysv.svhvac)
+        <- com.desaysv.ivi.adapterservice:hvacdvc/1000 (com.desaysv.ivi.adapterservice)
+        <- com.desaysv.setting/1000 (com.desaysv.setting)
+        <- com.desaysv.launcher/1000 (com.desaysv.launcher)
+        <- com.desaysv.engmode/1000 (com.desaysv.engmode)
+        <- com.desaysv.jetour.t1n.psmap/1000 (com.desaysv.jetour.t1n.psmap)
+        <- com.arcvideo.car.iqy.video/u0a21 (com.arcvideo.car.iqy.video)
+        <- com.ahui.clustercast/u0a164 (com.ahui.clustercast)
+        <- com.ahui.clustercast/u0a159 (com.ahui.clustercast)
+        <- com.ahui.clustercast/u0a18 (com.ahui.clustercast)
+        <- com.bytedance.byteautoservice3/u0a32 (com.bytedance.byteautoservice3)
+        <- com.thunder.carplay/u0a25 (com.thunder.carplay)
+  * com.android.providers.settings / 1000 / v30:
+      * Asc com.android.providers.settings.SettingsProvider:
+        Process: system
+        Total count 4: time 100%
+        <- com.android.bluetooth/1002 (com.android.bluetooth)
+        <- com.android.car/1000 (com.android.car)
+        <- com.android.systemui/1000 (com.android.systemui)
+        <- com.android.providers.media.module/u0a27 (com.android.providers.media.module)
+        <- com.desaysv.ivi.vds.sms/1000 (com.desaysv.ivi.vds.sms)
+        <- com.android.networkstack.process/1073 (com.android.networkstack)
+        <- android.ext.services/u0a28 (android.ext.services)
+        <- com.android.providers.calendar/u0a4 (com.android.providers.calendar)
+        <- com.desaysv.ivi.vds.carinfo/1000 (com.desaysv.ivi.vds.carinfo)
+        <- com.desaysv.ivi.vds.carstate/1000 (com.desaysv.ivi.vds.carstate)
+        <- com.desaysv.showroommode/1000 (com.desaysv.showroommode)
+        <- com.desaysv.ivi.vds.bt/1000 (com.desaysv.ivi.vds.bt)
+        <- com.desaysv.carmodel/1000 (com.desaysv.carmodel)
+        <- com.haibingtech.voice.assistant/1000 (com.haibingtech.voice.assistant)
+        <- com.sfcar.launcher/u0a13 (com.sfcar.launcher)
+        <- com.desaysv.ivi.vds.log/1000 (com.desaysv.ivi.vds.log)
+        <- com.desaysv.vpa/1000 (com.desaysv.vpa)
+        <- com.desaysv.licensemanager/1000 (com.desaysv.licensemanager)
+        <- com.baidu.input/u0a15 (com.baidu.input)
+        <- com.desaysv.mediacenter/1000 (com.desaysv.mediacenter)
+        <- com.desaysv.jetour.weather/1000 (com.desaysv.jetour.weather)
+        <- com.desaysv.vehicle.carplayapp/1000 (com.desaysv.vehicle.carplayapp)
+        <- com.desaysv.account.jetour/1000 (com.desaysv.account.jetour)
+        <- android.process.acore/u0a0 (com.android.providers.contacts)
+        <- com.desaysv.ivi.vds.upgrade/1000 (com.desaysv.ivi.vds.upgrade)
+        <- com.desaysv.meterinteraction/1000 (com.desaysv.meterinteraction)
+        <- web1n.stopapp/u0a20 (web1n.stopapp)
+        <- com.desaysv.vrcontrol/1000 (com.desaysv.vrcontrol)
+        <- com.desaysv.setting/1000 (com.desaysv.setting)
+        <- com.desaysv.ivi.fota/1000 (com.desaysv.ivi.fota)
+        <- com.desaysv.t1j.scenarioengine/1000 (com.desaysv.t1j.scenarioengine)
+        <- com.desaysv.svhvac/1000 (com.desaysv.svhvac)
+        <- com.tencent.qqmusiccar/u0a38 (com.tencent.qqmusiccar)
+        <- com.desaysv.ivi.adapterservice:hvacdvc/1000 (com.desaysv.ivi.adapterservice)
+        <- com.desaysv.ivi.adapterservice:sdvc/1000 (com.desaysv.ivi.adapterservice)
+        <- com.kugou.android.auto/u0a37 (com.kugou.android.auto)
+        <- com.desaysv.t1n.appstore/1000 (com.desaysv.t1n.appstore)
+        <- com.android.permissioncontroller/u0a29 (com.android.permissioncontroller)
+        <- com.android.traceur/u0a11 (com.android.traceur)
+        <- com.desaysv.personalizedsetting/1000 (com.desaysv.personalizedsetting)
+        <- com.desaysv.ivi.vds.carlan/1000 (com.desaysv.ivi.vds.carlan):
+             Total count 4: time 100%
+        <- com.desaysv.svuploadlogapp/1000 (com.desaysv.svuploadlogapp)
+        <- com.desaysv.bigdata/1000 (com.desaysv.bigdata)
+        <- com.lion.datapoint/1000 (com.lion.datapoint)
+        <- com.desaysv.launcher/1000 (com.desaysv.launcher)
+        <- com.mcity.cjzs:acc/u0a154 (com.mcity.cjzs)
+        <- com.desaysv.engmode/1000 (com.desaysv.engmode)
+        <- com.mcity.cjzs:acc1/u0a154 (com.mcity.cjzs)
+        <- com.thunder.carplay/u0a25 (com.thunder.carplay)
+        <- com.desaysv.jetour.t1n.psmap/1000 (com.desaysv.jetour.t1n.psmap)
+        <- com.android.keychain/1000 (com.android.keychain)
+        <- bin.mt.plus/u0a40 (bin.mt.plus)
+        <- com.topjohnwu.magisk/u0a69 (com.topjohnwu.magisk)
+        <- com.android.packageinstaller/u0a3 (com.android.packageinstaller)
+        <- com.mcity.cjzs/u0a154 (com.mcity.cjzs)
+        <- com.mojoxing.light/u0a16 (com.mojoxing.light)
+        <- com.carstore.app/u0a158 (com.carstore.app)
+        <- com.arcvideo.car.iqy.video/u0a21 (com.arcvideo.car.iqy.video)
+        <- com.tencent.wecarnavi/u0a150 (com.tencent.wecarnavi)
+        <- com.tencent.wecarnavi:coreService/u0a150 (com.tencent.wecarnavi)
+        <- com.tencent.wecarnavi:longlinkservice/u0a150 (com.tencent.wecarnavi)
+        <- moe.shizuku.privileged.api/u0a87 (moe.shizuku.privileged.api)
+        <- com.android.documentsui/u0a5 (com.android.documentsui)
+        <- com.ahui.clustercast/u0a18 (com.ahui.clustercast)
+        <- bin.mt.plus.canary/u0a18 (bin.mt.plus.canary)
+        <- com.ahui.clustercast/u0a164 (com.ahui.clustercast)
+        <- com.bytedance.byteautoservice3/u0a32 (com.bytedance.byteautoservice3)
+        <- android:ui/1000 (android)
+        <- com.android.shell/2000 (com.android.shell)
+        <- com.thunder.carplay:media/u0a25 (com.thunder.carplay)
+        <- com.c2bmotors.board/u0a34 (com.c2bmotors.board)
+        <- com.desaysv.ivi.vds.tsp/1000 (com.desaysv.ivi.vds.tsp)
+        <- com.web1n.permissiondog/u0a134 (com.web1n.permissiondog)
+        <- com.carstore.app/u0a149 (com.carstore.app)
+        <- com.autonavi.amapautp/u0a152 (com.autonavi.amapautp)
+        <- com.autonavi.amapautp:locationservice/u0a152 (com.autonavi.amapautp)
+        <- com.autonavi.amapautp:push/u0a152 (com.autonavi.amapautp)
+        <- com.mcity.cjzs/u0a153 (com.mcity.cjzs)
+        <- com.ahui.clustercast/u0a159 (com.ahui.clustercast)
+        <- com.desaysv.userconcerns/1000 (com.desaysv.userconcerns)
+        <- com.youjoy.strugglelandlord/u0a130 (com.youjoy.strugglelandlord)
+        <- com.desaysv.usermanuals/1000 (com.desaysv.usermanuals)
+        <- mark.via/u0a155 (mark.via)
+  * com.desaysv.ivi.vds.carlan / 1000 / v1:
+      * Prc com.desaysv.ivi.vds.carlan / 1000 / v1:
+             TOTAL: 100% (9.4MB-14MB-19MB/7.6MB-12MB-17MB/97MB-104MB-109MB over 14)
+            Imp Fg: 100% (9.4MB-14MB-19MB/7.6MB-12MB-17MB/97MB-104MB-109MB over 14)
+      * Svc com.desaysv.ivi.vds.carlan.service.CarLanService:
+        Process: com.desaysv.ivi.vds.carlan
+            Running count 4 / time 100%
+            Started count 4 / time 100%
+            Foreground count 1 / time 0.00%
+            Bound count 4 / time 100%
+            Executing count 1 / time 0.00%
+      * Asc com.desaysv.ivi.vds.carlan.service.CarLanService:
+        Process: com.desaysv.ivi.vds.carlan
+        Active count 25: time 100%
+        Total count 4: time 100%
+        <- com.desaysv.ivi.vds.carstate/1000 (com.desaysv.ivi.vds.carstate):
+             Active count 25: time 100%
+             Total count 4: time 100%
+        <- com.android.systemui/1000 (com.android.systemui):
+             Active count 25: time 100%
+             Total count 4: time 100%
+        <- com.desaysv.ivi.vds.sms/1000 (com.desaysv.ivi.vds.sms):
+             Active count 25: time 100%
+             Total count 4: time 100%
+        <- com.desaysv.hicar/1000 (com.desaysv.hicar):
+             Active count 25: time 100%
+             Total count 4: time 100%
+        <- com.desaysv.ivi.vds.navi/1000 (com.desaysv.ivi.vds.navi):
+             Active count 25: time 100%
+             Total count 4: time 100%
+        <- com.desaysv.ivi.vds.bt/1000 (com.desaysv.ivi.vds.bt):
+             Active count 25: time 100%
+             Total count 4: time 100%
+        <- com.desaysv.bluetooth.phone/1000 (com.desaysv.bluetooth.phone):
+             Active count 25: time 100%
+             Total count 4: time 100%
+        <- com.desaysv.vrservice/1000 (com.desaysv.vrservice):
+             Active count 25: time 100%
+             Total count 4: time 100%
+        <- com.desaysv.vehicle.carplayapp/1000 (com.desaysv.vehicle.carplayapp):
+             Active count 25: time 100%
+             Total count 4: time 100%
+        <- com.desaysv.generatecdkey/1000 (com.desaysv.generatecdkey):
+             Active count 25: time 100%
+             Total count 4: time 100%
+        <- com.desaysv.ivi.vds.upgrade/1000 (com.desaysv.ivi.vds.upgrade):
+             Active count 25: time 100%
+             Total count 4: time 100%
+        <- com.desaysv.vrcontrol/1000 (com.desaysv.vrcontrol):
+             Active count 25: time 100%
+             Total count 4: time 100%
+        <- com.desaysv.ivi.fota/1000 (com.desaysv.ivi.fota):
+             Active count 25: time 100%
+             Total count 4: time 100%
+        <- com.desaysv.setting/1000 (com.desaysv.setting):
+             Active count 26: time 89%
+             Total count 5: time 94%
+        <- com.desaysv.engmode/1000 (com.desaysv.engmode):
+             Active count 22: time 76%
+             Total count 4: time 100%
+        <- com.desaysv.meterinteraction/1000 (com.desaysv.meterinteraction):
+             Active count 22: time 76%
+             Total count 3: time 77%
+        <- com.arcvideo.car.iqy.video/u0a21 (com.arcvideo.car.iqy.video):
+             Active count 3: time 46%
+             Total count 3: time 46%
+        <- com.ahui.clustercast/u0a164 (com.ahui.clustercast):
+             Active count 1: time 23%
+             Total count 1: time 23%
+        <- com.bytedance.byteautoservice3/u0a32 (com.bytedance.byteautoservice3):
+             Active count 1: time 0.62%
+             Total count 2: time 20%
+        <- com.thunder.carplay/u0a25 (com.thunder.carplay):
+             Active count 2: time 0.19%
+             Total count 1: time 4.6%
+  Total procs: 0 shown of 111 total
+
+Process summary:
+  * com.desaysv.ivi.vds.carlan / 1000 / v1:
+         TOTAL: 100% (9.4MB-14MB-19MB/7.6MB-12MB-17MB/97MB-104MB-109MB over 14)
+        Imp Fg: 100% (9.4MB-14MB-19MB/7.6MB-12MB-17MB/97MB-104MB-109MB over 14)
+
+Run time Stats:
+  SOff/Norm: +2m6s537ms
+   SOn/Norm: +3h13m53s526ms
+        Mod: +11s419ms
+      TOTAL: +3h16m11s482ms
+
+Memory usage:
+  Kernel : 603MB (47 samples)
+  Native : 474MB (47 samples)
+  Persist: 613MB (398 samples)
+  Top: 299MB (304 samples)
+  ImpFg: 2.3GB (2096 samples)
+  ImpBg: 71MB (162 samples)
+  Service: 6.1MB (217 samples)
+  Receivr: 104KB (279 samples)
+  LastAct: 19MB (116 samples)
+  CchAct: 214MB (154 samples)
+  CchCAct: 1.8MB (4 samples)
+  CchEmty: 166MB (386 samples)
+  Cached : 0.93GB (47 samples)
+  Free   : 1.4GB (47 samples)
+  Z-Ram  : 3.7MB (47 samples)
+  TOTAL  : 7.0GB
+  ServRst: 446KB (341 samples)
+
+PSS collection stats:
+  Internal Single: 823x over +3s58ms
+  Internal All Procs (Memory Change): 121x over +473ms
+  Internal All Procs (Polling): 271x over +939ms
+  External: 0x over 0
+  External Slow: 81x over +3s892ms
+
+AGGREGATED OVER LAST 3 HOURS:
+          Start time: 1970-01-01 08:00:06
+        Total uptime: +1h16m8s104ms
+  Total elapsed time: +10h24m44s459ms (partial) libart.so
+     Aggregated over: 2
+
+System memory usage:
+   SOn/Norm: 3 samples:
+    Cached: 283MB min, 399MB avg, 582MB max
+    Free: 395MB min, 2.0GB avg, 4.9GB max
+    ZRam: 12KB min, 5.8MB avg, 8.9MB max
+    Kernel: 439MB min, 602MB avg, 685MB max
+    Native: 442MB min, 447MB avg, 451MB max
+
+Per-Package Stats:
+  * com.desaysv.ivi.vds.carinfo / 1000 / v1:
+      * Asc com.desaysv.ivi.vds.carinfo.service.CarInfoService:
+        Process: com.desaysv.ivi.vds.carinfo
+        Active count 23: time 100%
+        Total count 2: time 100%
+        <- com.android.systemui/1000 (com.android.systemui)
+        <- com.desaysv.ivi.vds.carstate/1000 (com.desaysv.ivi.vds.carstate)
+        <- com.desaysv.ivi.vds.carlan/1000 (com.desaysv.ivi.vds.carlan):
+             Active count 23: time 100%
+             Total count 2: time 100%
+        <- com.desaysv.launcher/1000 (com.desaysv.launcher)
+        <- com.desaysv.ivi.vds.sms/1000 (com.desaysv.ivi.vds.sms)
+        <- com.desaysv.hicar/1000 (com.desaysv.hicar)
+        <- com.desaysv.ivi.vds.navi/1000 (com.desaysv.ivi.vds.navi)
+        <- com.desaysv.showroommode/1000 (com.desaysv.showroommode)
+        <- com.desaysv.bluetooth.phone/1000 (com.desaysv.bluetooth.phone)
+        <- com.lion.datapoint/1000 (com.lion.datapoint)
+        <- com.desaysv.vrservice/1000 (com.desaysv.vrservice)
+        <- com.desaysv.vehicle.carplayapp/1000 (com.desaysv.vehicle.carplayapp)
+        <- com.desaysv.account.jetour/1000 (com.desaysv.account.jetour)
+        <- com.desaysv.ivi.vds.upgrade/1000 (com.desaysv.ivi.vds.upgrade)
+        <- com.desaysv.vrcontrol/1000 (com.desaysv.vrcontrol)
+        <- com.desaysv.t1j.scenarioengine/1000 (com.desaysv.t1j.scenarioengine)
+        <- com.desaysv.setting/1000 (com.desaysv.setting)
+        <- com.desaysv.mediacenter/1000 (com.desaysv.mediacenter)
+        <- com.desaysv.svhvac/1000 (com.desaysv.svhvac)
+        <- com.desaysv.ivi.adapterservice:hvacdvc/1000 (com.desaysv.ivi.adapterservice)
+        <- com.ahui.clustercast/u0a164 (com.ahui.clustercast)
+        <- com.arcvideo.car.iqy.video/u0a21 (com.arcvideo.car.iqy.video)
+        <- com.desaysv.engmode/1000 (com.desaysv.engmode)
+        <- com.ahui.clustercast/u0a159 (com.ahui.clustercast)
+        <- com.ahui.clustercast/u0a18 (com.ahui.clustercast)
+        <- com.desaysv.jetour.t1n.psmap/1000 (com.desaysv.jetour.t1n.psmap)
+        <- com.thunder.carplay/u0a25 (com.thunder.carplay)
+        <- com.bytedance.byteautoservice3/u0a32 (com.bytedance.byteautoservice3)
+  * com.android.providers.settings / 1000 / v30:
+      * Asc com.android.providers.settings.SettingsProvider:
+        Process: system
+        Total count 2: time 100%
+        <- com.android.bluetooth/1002 (com.android.bluetooth)
+        <- com.android.car/1000 (com.android.car)
+        <- com.android.systemui/1000 (com.android.systemui)
+        <- com.android.providers.media.module/u0a27 (com.android.providers.media.module)
+        <- com.desaysv.launcher/1000 (com.desaysv.launcher)
+        <- com.desaysv.ivi.vds.sms/1000 (com.desaysv.ivi.vds.sms)
+        <- com.android.networkstack.process/1073 (com.android.networkstack)
+        <- android.ext.services/u0a28 (android.ext.services)
+        <- com.android.providers.calendar/u0a4 (com.android.providers.calendar)
+        <- com.desaysv.ivi.vds.carinfo/1000 (com.desaysv.ivi.vds.carinfo)
+        <- com.desaysv.ivi.vds.carstate/1000 (com.desaysv.ivi.vds.carstate)
+        <- com.desaysv.showroommode/1000 (com.desaysv.showroommode)
+        <- com.desaysv.ivi.vds.bt/1000 (com.desaysv.ivi.vds.bt)
+        <- com.desaysv.carmodel/1000 (com.desaysv.carmodel)
+        <- com.haibingtech.voice.assistant/1000 (com.haibingtech.voice.assistant)
+        <- com.sfcar.launcher/u0a13 (com.sfcar.launcher)
+        <- com.desaysv.ivi.vds.log/1000 (com.desaysv.ivi.vds.log)
+        <- com.desaysv.vpa/1000 (com.desaysv.vpa)
+        <- com.desaysv.licensemanager/1000 (com.desaysv.licensemanager)
+        <- com.baidu.input/u0a15 (com.baidu.input)
+        <- com.desaysv.mediacenter/1000 (com.desaysv.mediacenter)
+        <- com.desaysv.jetour.weather/1000 (com.desaysv.jetour.weather)
+        <- com.desaysv.vehicle.carplayapp/1000 (com.desaysv.vehicle.carplayapp)
+        <- com.desaysv.account.jetour/1000 (com.desaysv.account.jetour)
+        <- android.process.acore/u0a0 (com.android.providers.contacts)
+        <- com.desaysv.ivi.vds.upgrade/1000 (com.desaysv.ivi.vds.upgrade)
+        <- com.desaysv.meterinteraction/1000 (com.desaysv.meterinteraction)
+        <- com.mcity.cjzs:acc/u0a154 (com.mcity.cjzs)
+        <- web1n.stopapp/u0a20 (web1n.stopapp)
+        <- com.desaysv.vrcontrol/1000 (com.desaysv.vrcontrol)
+        <- com.desaysv.setting/1000 (com.desaysv.setting)
+        <- com.desaysv.ivi.fota/1000 (com.desaysv.ivi.fota)
+        <- com.desaysv.t1j.scenarioengine/1000 (com.desaysv.t1j.scenarioengine)
+        <- com.desaysv.svhvac/1000 (com.desaysv.svhvac)
+        <- com.tencent.qqmusiccar/u0a38 (com.tencent.qqmusiccar)
+        <- com.desaysv.engmode/1000 (com.desaysv.engmode)
+        <- com.tencent.wecarnavi/u0a150 (com.tencent.wecarnavi)
+        <- com.tencent.wecarnavi:coreService/u0a150 (com.tencent.wecarnavi)
+        <- com.mcity.cjzs:acc1/u0a154 (com.mcity.cjzs)
+        <- com.desaysv.ivi.adapterservice:hvacdvc/1000 (com.desaysv.ivi.adapterservice)
+        <- com.desaysv.ivi.adapterservice:sdvc/1000 (com.desaysv.ivi.adapterservice)
+        <- com.kugou.android.auto/u0a37 (com.kugou.android.auto)
+        <- com.desaysv.t1n.appstore/1000 (com.desaysv.t1n.appstore)
+        <- com.android.permissioncontroller/u0a29 (com.android.permissioncontroller)
+        <- com.android.traceur/u0a11 (com.android.traceur)
+        <- com.desaysv.personalizedsetting/1000 (com.desaysv.personalizedsetting)
+        <- com.tencent.wecarnavi:longlinkservice/u0a150 (com.tencent.wecarnavi)
+        <- com.desaysv.ivi.vds.carlan/1000 (com.desaysv.ivi.vds.carlan):
+             Total count 2: time 99%
+        <- com.desaysv.svuploadlogapp/1000 (com.desaysv.svuploadlogapp)
+        <- com.desaysv.bigdata/1000 (com.desaysv.bigdata)
+        <- com.lion.datapoint/1000 (com.lion.datapoint)
+        <- bin.mt.plus.canary/u0a18 (bin.mt.plus.canary)
+        <- com.ahui.clustercast/u0a164 (com.ahui.clustercast)
+        <- com.thunder.carplay/u0a25 (com.thunder.carplay)
+        <- com.desaysv.jetour.t1n.psmap/1000 (com.desaysv.jetour.t1n.psmap)
+        <- com.arcvideo.car.iqy.video/u0a21 (com.arcvideo.car.iqy.video)
+        <- android:ui/1000 (android)
+        <- com.android.keychain/1000 (com.android.keychain)
+        <- com.android.shell/2000 (com.android.shell)
+        <- com.mojoxing.light/u0a16 (com.mojoxing.light)
+        <- com.ahui.clustercast/u0a18 (com.ahui.clustercast)
+        <- com.thunder.carplay:media/u0a25 (com.thunder.carplay)
+        <- com.bytedance.byteautoservice3/u0a32 (com.bytedance.byteautoservice3)
+        <- com.c2bmotors.board/u0a34 (com.c2bmotors.board)
+        <- bin.mt.plus/u0a40 (bin.mt.plus)
+        <- com.topjohnwu.magisk/u0a69 (com.topjohnwu.magisk)
+        <- moe.shizuku.privileged.api/u0a87 (moe.shizuku.privileged.api)
+        <- com.mcity.cjzs/u0a154 (com.mcity.cjzs)
+        <- com.android.documentsui/u0a5 (com.android.documentsui)
+        <- com.android.packageinstaller/u0a3 (com.android.packageinstaller)
+        <- com.ahui.clustercast/u0a159 (com.ahui.clustercast)
+        <- com.desaysv.userconcerns/1000 (com.desaysv.userconcerns)
+  * com.desaysv.ivi.vds.carlan / 1000 / v1:
+      * Prc com.desaysv.ivi.vds.carlan / 1000 / v1:
+             TOTAL: 100% (9.4MB-13MB-17MB/7.6MB-12MB-15MB/97MB-103MB-109MB over 9)
+            Imp Fg: 100% (9.4MB-13MB-17MB/7.6MB-12MB-15MB/97MB-103MB-109MB over 9)
+      * Svc com.desaysv.ivi.vds.carlan.service.CarLanService:
+        Process: com.desaysv.ivi.vds.carlan
+            Running count 2 / time 100%
+            Started count 2 / time 100%
+            Foreground count 1 / time 0.00%
+            Bound count 2 / time 100%
+            Executing count 1 / time 0.01%
+      * Asc com.desaysv.ivi.vds.carlan.service.CarLanService:
+        Process: com.desaysv.ivi.vds.carlan
+        Active count 23: time 100%
+        Total count 2: time 100%
+        <- com.desaysv.ivi.vds.carstate/1000 (com.desaysv.ivi.vds.carstate):
+             Active count 23: time 100%
+             Total count 2: time 100%
+        <- com.android.systemui/1000 (com.android.systemui):
+             Active count 23: time 100%
+             Total count 2: time 100%
+        <- com.desaysv.ivi.vds.sms/1000 (com.desaysv.ivi.vds.sms):
+             Active count 23: time 100%
+             Total count 2: time 100%
+        <- com.desaysv.hicar/1000 (com.desaysv.hicar):
+             Active count 23: time 100%
+             Total count 2: time 100%
+        <- com.desaysv.ivi.vds.navi/1000 (com.desaysv.ivi.vds.navi):
+             Active count 23: time 100%
+             Total count 2: time 100%
+        <- com.desaysv.ivi.vds.bt/1000 (com.desaysv.ivi.vds.bt):
+             Active count 23: time 100%
+             Total count 2: time 100%
+        <- com.desaysv.bluetooth.phone/1000 (com.desaysv.bluetooth.phone):
+             Active count 23: time 100%
+             Total count 2: time 100%
+        <- com.desaysv.vrservice/1000 (com.desaysv.vrservice):
+             Active count 23: time 100%
+             Total count 2: time 100%
+        <- com.desaysv.vehicle.carplayapp/1000 (com.desaysv.vehicle.carplayapp):
+             Active count 23: time 100%
+             Total count 2: time 100%
+        <- com.desaysv.generatecdkey/1000 (com.desaysv.generatecdkey):
+             Active count 23: time 100%
+             Total count 2: time 100%
+        <- com.desaysv.ivi.vds.upgrade/1000 (com.desaysv.ivi.vds.upgrade):
+             Active count 23: time 100%
+             Total count 2: time 100%
+        <- com.desaysv.vrcontrol/1000 (com.desaysv.vrcontrol):
+             Active count 23: time 100%
+             Total count 2: time 100%
+        <- com.desaysv.ivi.fota/1000 (com.desaysv.ivi.fota):
+             Active count 23: time 99%
+             Total count 2: time 100%
+        <- com.desaysv.setting/1000 (com.desaysv.setting):
+             Active count 23: time 99%
+             Total count 2: time 100%
+        <- com.ahui.clustercast/u0a164 (com.ahui.clustercast):
+             Active count 1: time 60%
+             Total count 1: time 60%
+        <- com.arcvideo.car.iqy.video/u0a21 (com.arcvideo.car.iqy.video):
+             Active count 1: time 52%
+             Total count 1: time 52%
+        <- com.desaysv.engmode/1000 (com.desaysv.engmode):
+             Active count 20: time 39%
+             Total count 2: time 100%
+        <- com.desaysv.meterinteraction/1000 (com.desaysv.meterinteraction):
+             Active count 20: time 39%
+             Total count 1: time 39%
+        <- com.thunder.carplay/u0a25 (com.thunder.carplay):
+             Active count 2: time 0.49%
+             Total count 1: time 12%
+        <- com.bytedance.byteautoservice3/u0a32 (com.bytedance.byteautoservice3):
+             Total count 1: time 39%
+  Total procs: 0 shown of 101 total
+
+Process summary:
+  * com.desaysv.ivi.vds.carlan / 1000 / v1:
+         TOTAL: 100% (9.4MB-13MB-17MB/7.6MB-12MB-15MB/97MB-103MB-109MB over 9)
+        Imp Fg: 100% (9.4MB-13MB-17MB/7.6MB-12MB-15MB/97MB-103MB-109MB over 9)
+
+Run time Stats:
+  SOff/Norm: +1m7s49ms
+   SOn/Norm: +1h14m57s687ms
+        Mod: +3s269ms
+      TOTAL: +1h16m8s5ms
+
+Memory usage:
+  Kernel : 602MB (24 samples)
+  Native : 447MB (24 samples)
+  Persist: 609MB (355 samples)
+  Top: 573MB (115 samples)
+  ImpFg: 2.3GB (1458 samples)
+  ImpBg: 67MB (102 samples)
+  Service: 16MB (141 samples)
+  Receivr: 290KB (202 samples)
+  LastAct: 1.5MB (41 samples)
+  CchAct: 120MB (60 samples)
+  CchCAct: 4.1MB (2 samples)
+  CchEmty: 197MB (291 samples)
+  Cached : 399MB (24 samples)
+  Free   : 2.0GB (24 samples)
+  Z-Ram  : 5.8MB (24 samples)
+  TOTAL  : 7.3GB
+  ServRst: 464KB (201 samples)
+
+PSS collection stats:
+  Internal Single: 552x over +1s860ms
+  Internal All Procs (Memory Change): 77x over +314ms
+  Internal All Procs (Polling): 120x over +431ms
+  External: 0x over 0
+  External Slow: 42x over +2s380ms
+
+DUMP OF SERVICE usagestats:
+user=0 
+  Last 24 hour events (timeRange="2026/9/20 03:11 – 2026/9/21 03:11" )
+    time="2026-09-21 02:25:18" type=FOREGROUND_SERVICE_START package=com.desaysv.ivi.vds.carlan class=com.desaysv.ivi.vds.carlan.service.CarLanService flags=0x0 
+    time="2026-09-21 02:25:18" type=NOTIFICATION_INTERRUPTION package=com.desaysv.ivi.vds.carlan channelId=CarLanService flags=0x0 
+    time="2026-09-21 02:25:19" type=STANDBY_BUCKET_CHANGED package=com.desaysv.ivi.vds.carlan standbyBucket=5 reason=d flags=0x0 
+  In-memory daily stats
+  timeRange="2026/9/21 02:25–03:10" 
+    packages
+      package=com.desaysv.ivi.vds.carlan totalTimeUsed="00:00" lastTimeUsed="2026-09-21 02:25:06" totalTimeVisible="00:00" lastTimeVisible="2026-09-21 02:25:06" totalTimeFS="00:00" lastTimeFS="2026-09-21 02:25:18" appLaunchCount=0 
+    
+    ChooserCounts
+      package=com.desaysv.ivi.vds.carlan 
+  In-memory weekly stats
+  timeRange="2026/9/21 02:25–03:10" 
+    packages
+      package=com.desaysv.ivi.vds.carlan totalTimeUsed="00:00" lastTimeUsed="2026-09-21 02:25:06" totalTimeVisible="00:00" lastTimeVisible="2026-09-21 02:25:06" totalTimeFS="00:00" lastTimeFS="2026-09-21 02:25:18" appLaunchCount=0 
+    
+    ChooserCounts
+      package=com.desaysv.ivi.vds.carlan 
+  In-memory monthly stats
+  timeRange="2026/9/21 02:25–03:10" 
+    packages
+      package=com.desaysv.ivi.vds.carlan totalTimeUsed="00:00" lastTimeUsed="2026-09-21 02:25:06" totalTimeVisible="00:00" lastTimeVisible="2026-09-21 02:25:06" totalTimeFS="00:00" lastTimeFS="2026-09-21 02:25:18" appLaunchCount=0 
+    
+    ChooserCounts
+      package=com.desaysv.ivi.vds.carlan 
+  In-memory yearly stats
+  timeRange="2026/9/21 02:25–03:10" 
+    packages
+      package=com.desaysv.ivi.vds.carlan totalTimeUsed="00:00" lastTimeUsed="2026-09-21 02:25:06" totalTimeVisible="00:00" lastTimeVisible="2026-09-21 02:25:06" totalTimeFS="00:00" lastTimeFS="2026-09-21 02:25:18" appLaunchCount=0 
+    
+    ChooserCounts
+      package=com.desaysv.ivi.vds.carlan 
+  
+
+Usage Source=TASK_ROOT_ACTIVITY 
+
+  App Time Limits
+   User  userId=0
+ Currently Active:com.kugou.android.auto, com.ahui.clustercast, 
+ Observed Entities:
+
+
+User 0 App Standby States:
+  package=com.desaysv.ivi.vds.carlan u=0 bucket=5 reason=d used=+47d3h28m53s700ms usedByUser=+47d3h28m46s614ms usedScr=+2d6h19m40s447ms lastPred=+47d3h28m53s700ms activeLeft=-47d1h8m27s50ms wsLeft=-47d3h28m46s614ms lastJob=-24855d3h14m7s194ms idle=n
+  
+  totalElapsedTime=+47d3h28m46s614ms
+  totalScreenOnTime=+2d6h19m26s193ms
+
+DUMP OF SERVICE batterystats:
+Statistics since last charge:
+  System starts: 116, currently on battery: false
+  Estimated battery capacity: 1000 mAh
+  Time on battery: 0ms (0.0%) realtime, 0ms (--%) uptime
+  Time on battery screen off: 0ms (--%) realtime, 0ms (--%) uptime
+  Time on battery screen doze: 0ms (--%)
+  Total run time: 43d 3h 12m 5s 602ms realtime, 2d 20h 3m 13s 848ms uptime
+  Discharge: 0 mAh
+  Screen off discharge: 0 mAh
+  Screen doze discharge: 0 mAh
+  Screen on discharge: 0 mAh
+  Device light doze discharge: 0 mAh
+  Device deep doze discharge: 0 mAh
+  Start clock time: 2026-09-21-02-25-12
+  Screen on: 0ms (--%) 0x, Interactive: 0ms (--%)
+  Screen brightnesses: (no activity)
+  Connectivity changes: 1809
+
+  CONNECTIVITY POWER SUMMARY START
+  Logging duration for connectivity statistics: 0ms 
+  Cellular Statistics:
+     Cellular kernel active time: 0ms (--%)
+     Cellular Sleep time:  0ms (--%)
+     Cellular Idle time:   0ms (--%)
+     Cellular Rx time:     0ms (--%)
+     Cellular Tx time:     
+       less than 0dBm:  0ms (--%)
+       0dBm to 8dBm:  0ms (--%)
+       8dBm to 15dBm:  0ms (--%)
+       15dBm to 20dBm:  0ms (--%)
+       above 20dBm:  0ms (--%)
+     Cellular data received: 0B
+     Cellular data sent: 0B
+     Cellular packets received: 0
+     Cellular packets sent: 0
+     Cellular Radio Access Technology: (no activity)
+     Cellular Rx signal strength (RSRP): (no activity)
+  Wifi Statistics:
+     Wifi kernel active time: 0ms (--%)
+     WiFi Scan time:  0ms (--%)
+     WiFi Sleep time:  0ms (--%)
+     WiFi Idle time:   0ms (--%)
+     WiFi Rx time:     0ms (--%)
+     WiFi Tx time:     0ms (--%)
+     Wifi data received: 0B
+     Wifi data sent: 0B
+     Wifi packets received: 0
+     Wifi packets sent: 0
+     Wifi states: (no activity)
+     Wifi supplicant states: (no activity)
+     Wifi Rx signal strength (RSSI): (no activity)
+  GPS Statistics:
+     GPS signal quality (Top 4 Average CN0):
+      poor (less than 20 dBHz): 0ms (--%) 
+      good (greater than 20 dBHz): 0ms (--%) 
+  CONNECTIVITY POWER SUMMARY END
+
+  Bluetooth total received: 0B, sent: 0B
+  Bluetooth scan time: 0ms 
+     Bluetooth Idle time:   0ms (--%)
+     Bluetooth Rx time:     0ms (--%)
+     Bluetooth Tx time:     0ms (--%)
+
+  Device battery use since last full charge
+    Amount discharged (lower bound): 0
+    Amount discharged (upper bound): 0
+    Amount discharged while screen on: 0
+    Amount discharged while screen off: 0
+    Amount discharged while screen doze: 0
+
+  Estimated power use (mAh):
+    Capacity: 1000, Computed drain: 0, actual drain: 0
+    Uid 0: 0 Excluded from smearing
+
+  1000:
+    Wake lock ActivityManager-Sleep realtime
+    Wake lock *job*/android/com.android.server.net.watchlist.ReportWatchlistJobService realtime
+    Wake lock CAR.POWER realtime
+    Wake lock WifiSuspend realtime
+    Wake lock *job*/com.dji.autoivi/androidx.work.impl.background.systemjob.SystemJobService realtime
+    Wake lock *dexopt* realtime
+    Wake lock WiredAccessoryManager realtime
+    Wake lock *alarm* realtime
+    Wake lock *job*/android/com.android.server.pm.DynamicCodeLoggingService realtime
+    Wake lock AudioMix realtime
+    Wake lock AudioIn realtime
+    Wake lock GeofenceHardwareImpl realtime
+    Wake lock MqttService.client.hu_LVTDB24B1SH217014 realtime
+    Wake lock Sv.Screen realtime
+    Wake lock *launch* realtime
+    Wake lock NetworkStats realtime
+    Wake lock MQTT realtime
+    Wake lock *job*/android/com.android.server.blob.BlobStoreIdleJobService realtime
+    Wake lock *job*/android/com.android.server.usage.UsageStatsIdleService realtime
+    Wake lock *job*/com.android.providers.settings/.WriteFallbackSettingsFilesJobService realtime
+    Wake lock *job*/android/com.android.server.people.data.DataMaintenanceService realtime
+    Wake lock NtpTimeHelper realtime
+    Wake lock *job*/android/com.android.server.PruneInstantAppsJobService realtime
+    Wake lock *location* realtime
+    Wake lock *job*/android/com.android.server.camera.CameraStatsJobService realtime
+    Wake lock WindowManager realtime
+    Wake lock GnssLocationProvider realtime
+    Wake lock *job*/android/com.android.server.MountServiceIdler realtime
+    Wake lock NetworkTimeUpdateService realtime
+    Wake lock ShutdownThread-cpu realtime
+    Wake lock timedetector.TimeDetectorStrategyCallbackImpl realtime
+    Wake lock ConnectivityService realtime
+    Wake lock SyncLoopWakeLock realtime
+    Wake lock SCREEN_FROZEN realtime
+    Wake lock org.eclipse.paho.android.service.MqttConnection hu_LVTDB24B1SH217014 on host ssl://mqtt-ihu-lioncloud.mychery.com:9083 realtime
+    Wake lock *job*/android/com.android.server.storage.DiskStatsLoggingService realtime
+    Job android/com.android.server.MountServiceIdler: (not used)
+    Job android/com.android.server.PruneInstantAppsJobService: (not used)
+    Job android/com.android.server.blob.BlobStoreIdleJobService: (not used)
+    Job android/com.android.server.storage.DiskStatsLoggingService: (not used)
+    Job android/com.android.server.camera.CameraStatsJobService: (not used)
+    Job com.android.providers.settings/.WriteFallbackSettingsFilesJobService: (not used)
+    Job android/com.android.server.net.watchlist.ReportWatchlistJobService: (not used)
+    Job android/com.android.server.usage.UsageStatsIdleService: (not used)
+    Job com.dji.autoivi/androidx.work.impl.background.systemjob.SystemJobService: (not used)
+    Job android/com.android.server.people.data.DataMaintenanceService: (not used)
+    Job android/com.android.server.pm.DynamicCodeLoggingService: (not used)
+    Sensor GPS: (not used)
+    Sensor 1: (not used)
+    Sensor 2: (not used)
+    Apk com.desaysv.setting:
+      Service com.desaysv.setting.SettingService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 49
+    Apk com.audio.MicphoneService:
+      Service com.micphone.service.MicphoneService:
+        Created for: 0ms uptime
+        Starts: 44, launches: 44
+    Apk com.desaysv.t1n.appstore:
+      Service com.desaysv.ivi.appstore.control.server.ControlServer:
+        Created for: 0ms uptime
+        Starts: 0, launches: 32
+    Apk com.desaysv.ftpserver:
+      Service com.desaysv.ftpserver.FtpServiceDeamon:
+        Created for: 0ms uptime
+        Starts: 44, launches: 44
+    Apk com.desaysv.account.jetour:
+      Service org.eclipse.paho.android.service.MqttService:
+        Created for: 0ms uptime
+        Starts: 49, launches: 49
+      Service com.desaysv.module.commonipc.server.CommonIpcService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+      Service com.desaysv.account.jetour.AccountService:
+        Created for: 0ms uptime
+        Starts: 44, launches: 44
+    Apk com.lion.datapoint:
+      Service com.lion.datapoint.service.services.LTDataPointService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+    Apk com.android.systemui:
+      Service com.android.systemui.SystemUIService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+      Service com.android.systemui.screensaver.ScreensaverService:
+        Created for: 0ms uptime
+        Starts: 10, launches: 10
+      Service com.android.systemui.service.LingDongManagerService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+    Apk com.android.location.fused:
+      Service com.android.location.fused.FusedLocationService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+    Apk com.desaysv.ivi.adapterservice:
+      Service com.desaysv.ivi.adapterservice.services.sdvc.SdvcService:
+        Created for: 0ms uptime
+        Starts: 44, launches: 44
+      Service com.desaysv.ivi.adapterservice.services.hvacdvc.HvacdvcService:
+        Created for: 0ms uptime
+        Starts: 44, launches: 44
+    Apk com.desaysv.showroommode:
+      Service com.desaysv.showroommode.service.LaunchService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.desaysv.ivi.vds.carlan:
+      Service com.desaysv.ivi.vds.carlan.service.CarLanService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.desaysv.userconcerns:
+      Service androidx.room.MultiInstanceInvalidationService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 2
+    Apk com.dji.autoivi:
+      Service com.unity3d.renderservice.TuanjieService:
+        Created for: 0ms uptime
+        Starts: 1, launches: 1
+      Service com.dji.autoivi.service.AutoService:
+        Created for: 0ms uptime
+        Starts: 1, launches: 1
+    Apk com.desaysv.meterinteraction:
+      Service com.desaysv.meterinteraction.service.MeterService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.desaysv.generatecdkey:
+      Service com.desaysv.generatecdkey.GenerateCDKEYService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.desaysv.vrcontrol:
+      Service com.desaysv.vrcontrol.service.VrControlService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.desaysv.ivi.vds.tuner:
+      Service com.desaysv.ivi.vds.tuner.service.TunerService:
+        Created for: 0ms uptime
+        Starts: 29, launches: 50
+    Apk com.desaysv.ivi.vds.media:
+      Service com.desaysv.ivi.vds.media.service.MediaService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.desaysv.carmodel:
+      Service com.rightware.kanzi.carmodel.CarModelService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+    Apk com.desaysv.ivi.vds.tsp:
+      Service com.desaysv.ivi.vds.tsp.platform.service.TspPlatformService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+      Service com.desaysv.ivi.vds.tsp.service.TspService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.desaysv.ivi.vds.sms:
+      Service com.desaysv.ivi.vds.sms.service.AccessHarKeyService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 1
+      Service com.desaysv.ivi.vds.sms.service.SmsService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.desaysv.ivi.vds.rvc:
+      Service com.desaysv.ivi.vds.rvc.service.RvcService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.desaysv.ivi.vds.log:
+      Service com.desaysv.ivi.vds.log.service.LogService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.android.keychain:
+      (nothing executed)
+    Apk com.android.server.telecom:
+      Service com.android.server.telecom.components.TelecomService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+      Service com.android.server.telecom.components.BluetoothPhoneService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.desaysv.licensemanager:
+      Service com.aidl.ivi.yaca.services.YACAServices:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+      Service com.desaysv.licensemanager.LicenseManagerService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.desaysv.bigdata:
+      Service com.desaysv.bigdata.service.BigDataService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.desaysv.hicar:
+      Service com.desaysv.hicar.service.HiCarService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+      Service com.desaysv.hicar.service.gps.CarGpsService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+    Apk com.desaysv.ivi.vds.carstate:
+      Service com.desaysv.ivi.vds.carstate.service.CarStateService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.android.providers.settings:
+      (nothing executed)
+    Apk com.desaysv.vpa:
+      Service com.desaysv.vpa.InteractionService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+      Service com.desaysv.vpa.message.MessageService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 44
+    Apk com.desaysv.mediadvp:
+      (nothing executed)
+    Apk com.desaysv.mediacenter:
+      Service com.desaysv.model.mediacenter.biz.service.MediaCenterYTService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+      Service com.desaysv.model.mediacenter.biz.service.MediaCenterBTService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+      Service androidx.room.MultiInstanceInvalidationService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+      Service com.desaysv.model.mediacenter.biz.service.MediaCenterPLService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+      Service com.desaysv.model.mediacenter.biz.service.MediaCenterNTESService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+      Service com.desaysv.model.mediacenter.biz.service.MediaCenterRadioService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+      Service com.desaysv.model.mediacenter.biz.service.MediaCenterUSBService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+    Apk com.desaysv.ivi.vds.carinfo:
+      Service com.desaysv.ivi.vds.carinfo.service.CarInfoService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.desaysv.jetour.t1n.psmap:
+      Service com.desaysv.psmap.model.service.MapStandardJsonProtocolService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 36
+      Service com.desaysv.psmap.model.service.MapService:
+        Created for: 0ms uptime
+        Starts: 48, launches: 42
+      Service com.desaysv.psmap.model.service.MapDataOutputService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 42
+      Service com.desaysv.psmap.model.service.MapScreenshotService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 1
+      Service com.desaysv.psmap.model.presentation.PresentationService:
+        Created for: 0ms uptime
+        Starts: 48, launches: 42
+    Apk com.android.car:
+      Service com.android.car.PerUserCarService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+      Service com.android.car.CarService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+    Apk com.desaysv.ivi.fota:
+      Service com.desaysv.ivi.fota.service.StartService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk android:
+      (nothing executed)
+    Apk com.desaysv.launcher:
+      Service com.desaysv.launcher.service.LauncherService:
+        Created for: 0ms uptime
+        Starts: 33, launches: 33
+    Apk com.desaysv.t1j.scenarioengine:
+      Service com.desaysv.t1j.scenarioengine.scene.ScenarioEngineService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.haibingtech.voice.assistant:
+      Service com.haibingtech.voice.assistant.v2say.V2sayAbilityService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 46
+      Service com.haibingtech.voice.assistant.service.AssistantService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.desaysv.jetour.weather:
+      Service com.desaysv.weather.domain.aidl.WeatherDataService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+    Apk com.desaysv.ivi.vds.vr:
+      Service com.desaysv.ivi.vds.vr.service.VRService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.desaysv.ivi.vds.bt:
+      Service com.desaysv.service.bluetooth.service.VDBTService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+      Service com.desaysv.service.bluetooth.service.AndLinkerService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+    Apk com.desaysv.ivi.vds.upgrade:
+      Service com.desaysv.ivi.vds.upgrade.service.UpgradeService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.desaysv.engmode:
+      Service com.desaysv.engmode.service.TaskListService:
+        Created for: 0ms uptime
+        Starts: 25, launches: 25
+      Service com.desaysv.engmode.stub.PluginStubService3:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.desaysv.vehicle.carplayapp:
+      Service com.desaysv.platform.MediaSessionService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+      Service com.desaysv.carplay.CarplayService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.desaysv.svhvac:
+      Service com.desaysv.svhvac.service.HvacService:
+        Created for: 0ms uptime
+        Starts: 41, launches: 50
+    Apk com.desaysv.svuploadlogapp:
+      Service com.desaysv.svuploadlogapp.service.UploadService:
+        Created for: 0ms uptime
+        Starts: 44, launches: 44
+    Apk com.huawei.nearby:
+      Service com.huawei.nearby.NearbyService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+    Apk com.desaysv.ivi.vds.navi:
+      Service com.desaysv.ivi.vds.navi.service.NaviService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+    Apk com.huawei.dmsdpdevice:
+      Service com.huawei.dmsdpdevice.DMSDPService:
+        Created for: 0ms uptime
+        Starts: 0, launches: 50
+    Apk com.desaysv.bluetooth.phone:
+      Service com.desaysv.bluetooth.phone.service.PhoneCallService:
+        Created for: 0ms uptime
+        Starts: 50, launches: 50
+
+Total cpu time reads: 0
+Batched cpu time reads: 0
+Batching Duration (min): 46
+All UID cpu time reads since the later of device start or stats reset: 24
+UIDs removed since the later of device start or stats reset: 1
