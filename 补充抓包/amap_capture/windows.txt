@@ -1,0 +1,562 @@
+﻿WINDOW MANAGER WINDOWS (dumpsys window windows)
+  Window #0 Window{d732382 u0 com.desaysv.jetour.t1n.psmap/com.desaysv.psmap.ui.MainActivity}:
+    mDisplayId=5 rootTaskId=2465 mSession=Session{f644157 4155:1000} mClient=android.os.BinderProxy@16efecd
+    mOwnerUid=1000 showForAllUsers=false package=com.desaysv.jetour.t1n.psmap appop=NONE
+    mAttrs={(0,0)(fillxfill) sim={adjust=pan forwardNavigation} ty=BASE_APPLICATION fmt=TRANSLUCENT
+      fl=LAYOUT_IN_SCREEN LAYOUT_INSET_DECOR SPLIT_TOUCH HARDWARE_ACCELERATED TRANSLUCENT_STATUS DRAWS_SYSTEM_BAR_BACKGROUNDS
+      pfl=FORCE_DRAW_STATUS_BAR_BACKGROUND FIT_INSETS_CONTROLLED
+      vsysui=LAYOUT_STABLE LAYOUT_FULLSCREEN
+      fitSides=}
+    Requested w=1920 h=1080 mLayoutSeq=167
+    mBaseLayer=21000 mSubLayer=0    mToken=ActivityRecord{a63574f u0 com.desaysv.jetour.t1n.psmap/com.desaysv.psmap.ui.MainActivity t2465}
+    mActivityRecord=ActivityRecord{a63574f u0 com.desaysv.jetour.t1n.psmap/com.desaysv.psmap.ui.MainActivity t2465}
+    mAppDied=false    drawnStateEvaluated=true    mightAffectAllDrawn=true
+    mViewVisibility=0x0 mHaveFrame=true mObscured=false
+    mSeq=0 mSystemUiVisibility=0x500
+    mGivenContentInsets=[0,0][0,0] mGivenVisibleInsets=[0,0][0,0]
+    mFullConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h1080dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 1080) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} s.7}
+    mLastReportedConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h1080dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 1080) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} s.7}
+    mHasSurface=true isReadyForDisplay()=true mWindowRemovalAllowed=false
+    Frames: containing=[0,0][1920,1080] parent=[0,0][1920,1080]
+        display=[0,0][1920,1080]
+        content=[0,0][1920,1080] visible=[0,0][1920,1080]
+        decor=[0,0][1920,1080]
+    mFrame=[0,0][1920,1080] last=[0,0][1920,1080]
+     cutout=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}} last=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}}
+    Cur insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,0][0,0]    Lst insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,0][0,0]
+     surface=[0,0][0,0]
+    WindowStateAnimator{c575ba3 com.desaysv.jetour.t1n.psmap/com.desaysv.psmap.ui.MainActivity}:
+      mSurface=Surface(name=com.desaysv.jetour.t1n.psmap/com.desaysv.psmap.ui.MainActivity)/@0x22fdea0
+      Surface: shown=true layer=0 alpha=1.0 rect=(0.0,0.0) 1920 x 1080 transform=(1.0, 0.0, 1.0, 0.0)
+      mDrawState=HAS_DRAWN       mLastHidden=false
+      mEnterAnimationPending=false      mSystemDecorRect=[0,0][1920,1080] mLastClipRect=[0,0][1920,1080]
+    mForceSeamlesslyRotate=false seamlesslyRotate: pending=null finishedFrameNumber=0
+    isOnScreen=true
+    isVisible=true
+    mRequestedInsetsState: InsetsState: {mDisplayFrame=Rect(0, 0 - 0, 0), mSources= {  }
+  Window #1 Window{aa8b947 u0 RightInterceptView}:
+    mDisplayId=0 rootTaskId=1 mSession=Session{cd4f4c0 1127:1000} mClient=android.os.BinderProxy@700f961
+    mOwnerUid=1000 showForAllUsers=true package=com.android.systemui appop=NONE
+    mAttrs={(0,0)(25xfill) gr=RIGHT CENTER_HORIZONTAL sim={adjust=pan} ty=2115 fmt=TRANSLUCENT
+      fl=NOT_FOCUSABLE LAYOUT_IN_SCREEN LAYOUT_NO_LIMITS FULLSCREEN HARDWARE_ACCELERATED
+      pfl=FIT_INSETS_CONTROLLED
+      bhv=SHOW_TRANSIENT_BARS_BY_SWIPE
+      fitTypes=STATUS_BARS NAVIGATION_BARS CAPTION_BAR
+      fitSides=}
+    Requested w=25 h=1080 mLayoutSeq=1937
+    mBaseLayer=451000 mSubLayer=0    mToken=WindowToken{96bec86 android.os.BinderProxy@700f961}
+    mViewVisibility=0x0 mHaveFrame=true mObscured=false
+    mSeq=0 mSystemUiVisibility=0x0
+    mGivenContentInsets=[0,0][0,0] mGivenVisibleInsets=[0,0][0,0]
+    mFullConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+    mLastReportedConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+    mHasSurface=true isReadyForDisplay()=true mWindowRemovalAllowed=false
+    Frames: containing=[0,0][1920,1080] parent=[0,0][1920,1080]
+        display=[-10000,-10000][10000,10000]
+        content=[1895,0][1920,1080] visible=[1895,0][1920,1080]
+        decor=[0,0][1920,1080]
+    mFrame=[1895,0][1920,1080] last=[1895,0][1920,1080]
+     cutout=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}} last=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}}
+    Cur insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,80][0,104]    Lst insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,80][0,104]
+     surface=[0,0][0,0]
+    WindowStateAnimator{3f6ba59 RightInterceptView}:
+      mSurface=Surface(name=RightInterceptView)/@0x51d3f0c
+      Surface: shown=true layer=0 alpha=1.0 rect=(0.0,0.0) 25 x 1080 transform=(1.0, 0.0, 1.0, 0.0)
+      mDrawState=HAS_DRAWN       mLastHidden=false
+      mEnterAnimationPending=false      mSystemDecorRect=[0,0][25,1080] mLastClipRect=[0,0][25,1080]
+    mLastFreezeDuration=+257ms
+    mForceSeamlesslyRotate=false seamlesslyRotate: pending=null finishedFrameNumber=0
+    isOnScreen=true
+    isVisible=true
+    mRequestedInsetsState: InsetsState: {mDisplayFrame=Rect(0, 0 - 0, 0), mSources= {  }
+  Window #2 Window{e16716b u0 LeftInterceptView}:
+    mDisplayId=0 rootTaskId=1 mSession=Session{cd4f4c0 1127:1000} mClient=android.os.BinderProxy@a5f03e5
+    mOwnerUid=1000 showForAllUsers=true package=com.android.systemui appop=NONE
+    mAttrs={(0,0)(25xfill) gr=LEFT CENTER_HORIZONTAL sim={adjust=pan} ty=2115 fmt=TRANSLUCENT
+      fl=NOT_FOCUSABLE LAYOUT_IN_SCREEN LAYOUT_NO_LIMITS FULLSCREEN HARDWARE_ACCELERATED
+      pfl=FIT_INSETS_CONTROLLED
+      bhv=SHOW_TRANSIENT_BARS_BY_SWIPE
+      fitTypes=STATUS_BARS NAVIGATION_BARS CAPTION_BAR
+      fitSides=}
+    Requested w=25 h=1080 mLayoutSeq=1937
+    mBaseLayer=451000 mSubLayer=0    mToken=WindowToken{5c29eba android.os.BinderProxy@a5f03e5}
+    mViewVisibility=0x0 mHaveFrame=true mObscured=false
+    mSeq=0 mSystemUiVisibility=0x0
+    mGivenContentInsets=[0,0][0,0] mGivenVisibleInsets=[0,0][0,0]
+    mFullConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+    mLastReportedConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+    mHasSurface=true isReadyForDisplay()=true mWindowRemovalAllowed=false
+    Frames: containing=[0,0][1920,1080] parent=[0,0][1920,1080]
+        display=[-10000,-10000][10000,10000]
+        content=[0,0][25,1080] visible=[0,0][25,1080]
+        decor=[0,0][1920,1080]
+    mFrame=[0,0][25,1080] last=[0,0][25,1080]
+     cutout=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}} last=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}}
+    Cur insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,80][0,104]    Lst insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,80][0,104]
+     surface=[0,0][0,0]
+    WindowStateAnimator{6aaa61e LeftInterceptView}:
+      mSurface=Surface(name=LeftInterceptView)/@0x18d8a3f
+      Surface: shown=true layer=0 alpha=1.0 rect=(0.0,0.0) 25 x 1080 transform=(1.0, 0.0, 1.0, 0.0)
+      mDrawState=HAS_DRAWN       mLastHidden=false
+      mEnterAnimationPending=false      mSystemDecorRect=[0,0][25,1080] mLastClipRect=[0,0][25,1080]
+    mLastFreezeDuration=+261ms
+    mForceSeamlesslyRotate=false seamlesslyRotate: pending=null finishedFrameNumber=0
+    isOnScreen=true
+    isVisible=true
+    mRequestedInsetsState: InsetsState: {mDisplayFrame=Rect(0, 0 - 0, 0), mSources= {  }
+  Window #3 Window{49c2f4f u0 right_slideback}:
+    mDisplayId=0 rootTaskId=1 mSession=Session{cd4f4c0 1127:1000} mClient=android.os.BinderProxy@572ae29
+    mOwnerUid=1000 showForAllUsers=true package=com.android.systemui appop=NONE
+    mAttrs={(0,0)(wrapxwrap) gr=RIGHT CENTER_HORIZONTAL sim={adjust=pan} ty=2115 fmt=TRANSLUCENT
+      fl=NOT_FOCUSABLE NOT_TOUCHABLE LAYOUT_IN_SCREEN LAYOUT_NO_LIMITS FULLSCREEN HARDWARE_ACCELERATED
+      pfl=FIT_INSETS_CONTROLLED
+      bhv=SHOW_TRANSIENT_BARS_BY_SWIPE
+      fitTypes=STATUS_BARS NAVIGATION_BARS CAPTION_BAR
+      fitSides=}
+    Requested w=580 h=896 mLayoutSeq=1937
+    mBaseLayer=451000 mSubLayer=0    mToken=WindowToken{f9ad5ae android.os.BinderProxy@572ae29}
+    mViewVisibility=0x0 mHaveFrame=true mObscured=false
+    mSeq=0 mSystemUiVisibility=0x0
+    mGivenContentInsets=[0,0][0,0] mGivenVisibleInsets=[0,0][0,0]
+    mFullConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+    mLastReportedConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+    mHasSurface=true isReadyForDisplay()=true mWindowRemovalAllowed=false
+    Frames: containing=[0,0][1920,1080] parent=[0,0][1920,1080]
+        display=[-10000,-10000][10000,10000]
+        content=[1340,92][1920,988] visible=[1340,92][1920,988]
+        decor=[0,0][1920,1080]
+    mFrame=[1340,92][1920,988] last=[1340,92][1920,988]
+     cutout=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}} last=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}}
+    Cur insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,0][0,12]    Lst insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,0][0,12]
+     surface=[0,0][0,0]
+    WindowStateAnimator{e7a0eff right_slideback}:
+      mSurface=Surface(name=right_slideback)/@0x5367399
+      Surface: shown=true layer=0 alpha=1.0 rect=(0.0,0.0) 580 x 896 transform=(1.0, 0.0, 1.0, 0.0)
+      mDrawState=HAS_DRAWN       mLastHidden=false
+      mEnterAnimationPending=false      mSystemDecorRect=[0,0][580,896] mLastClipRect=[0,0][580,896]
+    mLastFreezeDuration=+261ms
+    mForceSeamlesslyRotate=false seamlesslyRotate: pending=null finishedFrameNumber=0
+    isOnScreen=true
+    isVisible=true
+    mRequestedInsetsState: InsetsState: {mDisplayFrame=Rect(0, 0 - 0, 0), mSources= {  }
+  Window #4 Window{f1116f3 u0 left_slideback}:
+    mDisplayId=0 rootTaskId=1 mSession=Session{cd4f4c0 1127:1000} mClient=android.os.BinderProxy@b30b1f1
+    mOwnerUid=1000 showForAllUsers=true package=com.android.systemui appop=NONE
+    mAttrs={(0,463)(wrapxwrap) gr=LEFT CENTER_HORIZONTAL sim={adjust=pan} ty=2115 fmt=TRANSLUCENT
+      fl=NOT_FOCUSABLE NOT_TOUCHABLE LAYOUT_IN_SCREEN LAYOUT_NO_LIMITS FULLSCREEN HARDWARE_ACCELERATED
+      pfl=FIT_INSETS_CONTROLLED
+      bhv=SHOW_TRANSIENT_BARS_BY_SWIPE
+      fitTypes=STATUS_BARS NAVIGATION_BARS CAPTION_BAR
+      fitSides=}
+    Requested w=580 h=896 mLayoutSeq=1937
+    mBaseLayer=451000 mSubLayer=0    mToken=WindowToken{de1c562 android.os.BinderProxy@b30b1f1}
+    mViewVisibility=0x0 mHaveFrame=true mObscured=false
+    mSeq=0 mSystemUiVisibility=0x0
+    mGivenContentInsets=[0,0][0,0] mGivenVisibleInsets=[0,0][0,0]
+    mFullConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+    mLastReportedConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+    mHasSurface=true isReadyForDisplay()=true mWindowRemovalAllowed=false
+    Frames: containing=[0,0][1920,1080] parent=[0,0][1920,1080]
+        display=[-10000,-10000][10000,10000]
+        content=[0,555][580,1451] visible=[0,555][580,1451]
+        decor=[0,0][1920,1080]
+    mFrame=[0,555][580,1451] last=[0,555][580,1451]
+     cutout=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}} last=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}}
+    Cur insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,0][0,475]    Lst insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,0][0,475]
+     surface=[0,0][0,0]
+    WindowStateAnimator{2c444cc left_slideback}:
+      mSurface=Surface(name=left_slideback)/@0xea1b4e0
+      Surface: shown=true layer=0 alpha=1.0 rect=(0.0,0.0) 580 x 896 transform=(1.0, 0.0, 1.0, 0.0)
+      mDrawState=HAS_DRAWN       mLastHidden=false
+      mEnterAnimationPending=false      mSystemDecorRect=[0,0][580,896] mLastClipRect=[0,0][580,896]
+    mLastFreezeDuration=+128ms
+    mForceSeamlesslyRotate=false seamlesslyRotate: pending=null finishedFrameNumber=0
+    isOnScreen=true
+    isVisible=true
+    mRequestedInsetsState: InsetsState: {mDisplayFrame=Rect(0, 0 - 0, 0), mSources= {  }
+  Window #5 Window{cad163e u0 SystemUI_Container_Copilot}:
+    mDisplayId=0 rootTaskId=1 mSession=Session{cd4f4c0 1127:1000} mClient=android.os.BinderProxy@65e1cf2
+    mOwnerUid=1000 showForAllUsers=true package=com.android.systemui appop=NONE
+    mAttrs={(0,0)(1920x1080) gr=END CENTER_HORIZONTAL sim={adjust=pan} ty=2100 fmt=TRANSLUCENT
+      fl=DIM_BEHIND NOT_FOCUSABLE LAYOUT_IN_SCREEN LAYOUT_NO_LIMITS FULLSCREEN HARDWARE_ACCELERATED
+      pfl=FIT_INSETS_CONTROLLED
+      bhv=SHOW_TRANSIENT_BARS_BY_SWIPE
+      fitTypes=STATUS_BARS NAVIGATION_BARS CAPTION_BAR
+      fitSides=}
+    Requested w=0 h=0 mLayoutSeq=14
+    mBaseLayer=401000 mSubLayer=0    mToken=WindowToken{8103f43 android.os.BinderProxy@65e1cf2}
+    mViewVisibility=0x8 mHaveFrame=true mObscured=false
+    mSeq=0 mSystemUiVisibility=0x0
+    mGivenContentInsets=[0,0][0,0] mGivenVisibleInsets=[0,0][0,0]
+    mFullConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+    mLastReportedConfiguration={0.0 ?mcc?mnc ?localeList ?layoutDir ?swdp ?wdp ?hdp ?density ?lsize ?long ?ldr ?wideColorGamut ?orien ?uimode ?night ?touch ?keyb/?/? ?nav/? winConfig={ mBounds=Rect(0, 0 - 0, 0) mAppBounds=null mWindowingMode=undefined mDisplayWindowingMode=undefined mActivityType=undefined mAlwaysOnTop=undefined mRotation=undefined}}
+    mHasSurface=false isReadyForDisplay()=false mWindowRemovalAllowed=false
+    Frames: containing=[0,0][1920,1080] parent=[0,0][1920,1080]
+        display=[-10000,-10000][10000,10000]
+        content=[1920,540][1920,540] visible=[1920,540][1920,540]
+        decor=[0,80][1920,976]
+    mFrame=[1920,540][1920,540] last=[0,0][0,0]
+     cutout=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}} last=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}}
+    Cur insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,0][0,0]    Lst insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,0][0,0]
+     surface=[0,0][0,0]
+    WindowStateAnimator{c4fa315 SystemUI_Container_Copilot}:
+      mDrawState=NO_SURFACE       mLastHidden=false
+      mEnterAnimationPending=false      mSystemDecorRect=[0,0][0,0] mLastClipRect=[0,0][0,0]
+      mShownAlpha=0.0 mAlpha=1.0 mLastAlpha=0.0
+    mForceSeamlesslyRotate=false seamlesslyRotate: pending=null finishedFrameNumber=0
+    isOnScreen=false
+    isVisible=false
+    mRequestedInsetsState: InsetsState: {mDisplayFrame=Rect(0, 0 - 0, 0), mSources= {  }
+  Window #6 Window{33d50c1 u0 SystemUI_Container}:
+    mDisplayId=0 rootTaskId=1 mSession=Session{cd4f4c0 1127:1000} mClient=android.os.BinderProxy@89761cb
+    mOwnerUid=1000 showForAllUsers=true package=com.android.systemui appop=NONE
+    mAttrs={(0,0)(1920x1080) gr=START CENTER_HORIZONTAL sim={adjust=pan} ty=2100 fmt=TRANSLUCENT
+      fl=DIM_BEHIND NOT_FOCUSABLE LAYOUT_IN_SCREEN LAYOUT_NO_LIMITS FULLSCREEN HARDWARE_ACCELERATED
+      pfl=FIT_INSETS_CONTROLLED
+      bhv=SHOW_TRANSIENT_BARS_BY_SWIPE
+      fitTypes=STATUS_BARS NAVIGATION_BARS CAPTION_BAR
+      fitSides=}
+    Requested w=1920 h=1080 mLayoutSeq=1531
+    mBaseLayer=401000 mSubLayer=0    mToken=WindowToken{642ada8 android.os.BinderProxy@89761cb}
+    mViewVisibility=0x8 mHaveFrame=true mObscured=false
+    mSeq=0 mSystemUiVisibility=0x0
+    mGivenContentInsets=[0,0][0,0] mGivenVisibleInsets=[0,0][0,0]
+    mFullConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+    mLastReportedConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+    mHasSurface=false isReadyForDisplay()=false mWindowRemovalAllowed=false
+    Frames: containing=[0,0][1920,1080] parent=[0,0][1920,1080]
+        display=[-10000,-10000][10000,10000]
+        content=[0,0][1920,1080] visible=[0,0][1920,1080]
+        decor=[0,0][1920,1080]
+    mFrame=[0,0][1920,1080] last=[0,0][1920,1080]
+     cutout=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}} last=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}}
+    Cur insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,80][0,104]    Lst insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,80][0,104]
+     surface=[0,0][0,0]
+    WindowStateAnimator{8d7062a SystemUI_Container}:
+      mDrawState=NO_SURFACE       mLastHidden=false
+      mEnterAnimationPending=false      mSystemDecorRect=[0,0][1920,1080] mLastClipRect=[0,0][1920,1080]
+    mForceSeamlesslyRotate=false seamlesslyRotate: pending=null finishedFrameNumber=0
+    isOnScreen=false
+    isVisible=false
+    mRequestedInsetsState: InsetsState: {mDisplayFrame=Rect(0, 0 - 0, 0), mSources= {  }
+  Window #7 Window{89cbd4e u0 InputMethod}:
+    mDisplayId=0 rootTaskId=1 mSession=Session{b45c413 931:u0a10015} mClient=android.os.BinderProxy@572f049
+    mOwnerUid=10015 showForAllUsers=false package=com.baidu.input appop=NONE
+    mAttrs={(0,0)(fillxwrap) gr=BOTTOM CENTER_VERTICAL sim={adjust=pan forwardNavigation} ty=INPUT_METHOD fmt=TRANSPARENT wanim=0x1030056
+      fl=NOT_FOCUSABLE LAYOUT_IN_SCREEN SPLIT_TOUCH HARDWARE_ACCELERATED DRAWS_SYSTEM_BAR_BACKGROUNDS
+      pfl=FIT_INSETS_CONTROLLED
+      fitTypes=STATUS_BARS NAVIGATION_BARS
+      fitSides=LEFT TOP RIGHT}
+    Requested w=1920 h=1000 mLayoutSeq=1936
+    mIsImWindow=true mIsWallpaper=false mIsFloatingLayer=true mWallpaperVisible=false
+    mBaseLayer=151000 mSubLayer=0    mToken=WindowToken{1021d08 android.os.Binder@dbb72ab}
+    mViewVisibility=0x4 mHaveFrame=true mObscured=false
+    mSeq=0 mSystemUiVisibility=0x0
+    mGivenContentInsets=[0,1000][0,0] mGivenVisibleInsets=[0,0][0,0]
+    mTouchableInsets=3 mGivenInsetsPending=false
+    touchable region=SkRegion()
+    mFullConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+    mLastReportedConfiguration={0.0 ?mcc?mnc ?localeList ?layoutDir ?swdp ?wdp ?hdp ?density ?lsize ?long ?ldr ?wideColorGamut ?orien ?uimode ?night ?touch ?keyb/?/? ?nav/? winConfig={ mBounds=Rect(0, 0 - 0, 0) mAppBounds=null mWindowingMode=undefined mDisplayWindowingMode=undefined mActivityType=undefined mAlwaysOnTop=undefined mRotation=undefined}}
+    mHasSurface=false isReadyForDisplay()=false mWindowRemovalAllowed=false
+    Frames: containing=[0,80][1920,1080] parent=[0,80][1920,1080]
+        display=[0,80][1920,1080]
+        content=[0,80][1920,976] visible=[0,80][1920,976]
+        decor=[0,0][1920,1080]
+    mFrame=[0,80][1920,1080] last=[0,976][1920,1080]
+     cutout=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}} last=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}}
+    Cur insets: content=[0,0][0,104] visible=[0,0][0,104] stable=[0,0][0,104]    Lst insets: content=[0,0][0,104] visible=[0,0][0,104] stable=[0,0][0,104]
+     surface=[0,0][0,0]
+    ContainerAnimator:
+      mLeash=Surface(name=Surface(name=89cbd4e InputMethod)/@0xd62a77c - animation-leash)/@0x5ea9c1b mAnimationType=32
+      Animation: com.android.server.wm.InsetsSourceProvider$ControlAdapter@856e1b8
+        ControlAdapter
+         mCapturedLeash=Surface(name=Surface(name=89cbd4e InputMethod)/@0xd62a77c - animation-leash)/@0x5ea9c1b    WindowStateAnimator{2145b91 InputMethod}:
+      mDrawState=NO_SURFACE       mLastHidden=false
+      mEnterAnimationPending=false      mSystemDecorRect=[0,0][0,0] mLastClipRect=[0,0][0,0]
+      mShownAlpha=0.0 mAlpha=1.0 mLastAlpha=0.0
+    mForceSeamlesslyRotate=false seamlesslyRotate: pending=null finishedFrameNumber=0
+    isOnScreen=false
+    isVisible=false
+    mRequestedInsetsState: InsetsState: {mDisplayFrame=Rect(0, 0 - 0, 0), mSources= {  }
+  Window #8 Window{635c7fe u0 SystemUI_smallPanel}:
+    mDisplayId=0 rootTaskId=1 mSession=Session{cd4f4c0 1127:1000} mClient=android.os.BinderProxy@fa30203
+    mOwnerUid=1000 showForAllUsers=true package=com.android.systemui appop=NONE
+    mAttrs={(0,0)(1920x0) gr=TOP LEFT CENTER sim={adjust=pan} ty=SYSTEM_DIALOG fmt=TRANSLUCENT
+      fl=NOT_FOCUSABLE LAYOUT_IN_SCREEN LAYOUT_NO_LIMITS FULLSCREEN ALT_FOCUSABLE_IM
+      pfl=FIT_INSETS_CONTROLLED
+      bhv=SHOW_TRANSIENT_BARS_BY_SWIPE
+      fitTypes=STATUS_BARS NAVIGATION_BARS CAPTION_BAR
+      fitSides=}
+    Requested w=1920 h=0 mLayoutSeq=1937
+    mBaseLayer=361000 mSubLayer=0    mToken=WindowToken{456f580 android.os.BinderProxy@fa30203}
+    mViewVisibility=0x0 mHaveFrame=true mObscured=false
+    mSeq=0 mSystemUiVisibility=0x0
+    mGivenContentInsets=[0,0][0,0] mGivenVisibleInsets=[0,0][0,0]
+    mFullConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+    mLastReportedConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+    mHasSurface=true isReadyForDisplay()=true mWindowRemovalAllowed=false
+    Frames: containing=[0,0][1920,1080] parent=[0,0][1920,1080]
+        display=[-10000,-10000][10000,10000]
+        content=[0,0][1920,0] visible=[0,0][1920,0]
+        decor=[0,0][1920,1080]
+    mFrame=[0,0][1920,0] last=[0,0][1920,0]
+     cutout=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}} last=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}}
+    Cur insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,0][0,0]    Lst insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,0][0,0]
+     surface=[0,0][0,0]
+    WindowStateAnimator{9b75af6 SystemUI_smallPanel}:
+      mSurface=Surface(name=SystemUI_smallPanel)/@0x3e877dd
+      Surface: shown=false layer=0 alpha=1.0 rect=(0.0,0.0) 1920 x 1 transform=(1.0, 0.0, 1.0, 0.0)
+      mDrawState=HAS_DRAWN       mLastHidden=false
+      mEnterAnimationPending=false      mSystemDecorRect=[0,0][1920,0] mLastClipRect=[0,0][1920,0]
+    mLastFreezeDuration=+237ms
+    mForceSeamlesslyRotate=false seamlesslyRotate: pending=null finishedFrameNumber=0
+    isOnScreen=true
+    isVisible=true
+    mRequestedInsetsState: InsetsState: {mDisplayFrame=Rect(0, 0 - 0, 0), mSources= {  }
+  Window #9 Window{992c110 u0 NavigationBar0}:
+    mDisplayId=0 rootTaskId=1 mSession=Session{cd4f4c0 1127:1000} mClient=android.os.BinderProxy@6b58fc2
+    mOwnerUid=1000 showForAllUsers=true package=com.android.systemui appop=NONE
+    mAttrs={(0,0)(1920x104) gr=BOTTOM CENTER_VERTICAL sim={adjust=resize} ty=NAVIGATION_BAR fmt=TRANSLUCENT
+      fl=NOT_FOCUSABLE NOT_TOUCH_MODAL TOUCHABLE_WHEN_WAKING ALT_FOCUSABLE_IM WATCH_OUTSIDE_TOUCH SPLIT_TOUCH HARDWARE_ACCELERATED FLAG_SLIPPERY
+      pfl=
+      fitTypes=STATUS_BARS NAVIGATION_BARS CAPTION_BAR IME}
+    Requested w=1920 h=104 mLayoutSeq=1937
+    mBaseLayer=241000 mSubLayer=0    mToken=WindowToken{f2781d3 android.os.BinderProxy@c42740d}
+    mViewVisibility=0x0 mHaveFrame=true mObscured=false
+    mSeq=0 mSystemUiVisibility=0x0
+    mGivenContentInsets=[0,0][0,0] mGivenVisibleInsets=[0,0][0,0]
+    mFullConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+    mLastReportedConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+    mHasSurface=true isReadyForDisplay()=true mWindowRemovalAllowed=false
+    Frames: containing=[0,976][1920,1080] parent=[0,976][1920,1080]
+        display=[0,976][1920,1080]
+        content=[0,976][1920,1080] visible=[0,976][1920,1080]
+        decor=[0,0][0,0]
+    mFrame=[0,976][1920,1080] last=[0,976][1920,1080]
+     cutout=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}} last=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}}
+    Cur insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,0][0,0]    Lst insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,0][0,0]
+     surface=[0,0][0,0]
+    ContainerAnimator:
+      mLeash=Surface(name=Surface(name=992c110 NavigationBar0)/@0x7e54473 - animation-leash)/@0x2e1132b mAnimationType=32
+      Animation: com.android.server.wm.InsetsSourceProvider$ControlAdapter@bee7388
+        ControlAdapter
+         mCapturedLeash=Surface(name=Surface(name=992c110 NavigationBar0)/@0x7e54473 - animation-leash)/@0x2e1132b    WindowStateAnimator{c40369c NavigationBar0}:
+       mAnimationIsEntrance=true      mSurface=Surface(name=NavigationBar0)/@0x96e5e9c
+      Surface: shown=true layer=0 alpha=1.0 rect=(0.0,0.0) 1920 x 104 transform=(1.0, 0.0, 1.0, 0.0)
+      mDrawState=HAS_DRAWN       mLastHidden=false
+      mEnterAnimationPending=false      mSystemDecorRect=[0,0][1920,104] mLastClipRect=[0,0][1920,104]
+    mLastFreezeDuration=+255ms
+    mForceSeamlesslyRotate=false seamlesslyRotate: pending=null finishedFrameNumber=0
+    isOnScreen=true
+    isVisible=true
+    mRequestedInsetsState: InsetsState: {mDisplayFrame=Rect(0, 0 - 0, 0), mSources= {  }
+  Window #10 Window{4b1d26f u0 StatusBar0}:
+    mDisplayId=0 rootTaskId=1 mSession=Session{cd4f4c0 1127:1000} mClient=android.os.BinderProxy@13b9449
+    mOwnerUid=1000 showForAllUsers=true package=com.android.systemui appop=NONE
+    mAttrs={(0,0)(1920x80) gr=TOP LEFT CENTER sim={adjust=pan} ty=STATUS_BAR fmt=TRANSLUCENT
+      fl=NOT_FOCUSABLE TOUCHABLE_WHEN_WAKING HARDWARE_ACCELERATED
+      pfl=
+      fitTypes=STATUS_BARS NAVIGATION_BARS CAPTION_BAR}
+    Requested w=1920 h=80 mLayoutSeq=1937
+    mBaseLayer=171000 mSubLayer=0    mToken=WindowToken{702914e android.os.BinderProxy@13b9449}
+    mViewVisibility=0x0 mHaveFrame=true mObscured=false
+    mSeq=0 mSystemUiVisibility=0x0
+    mGivenContentInsets=[0,0][0,0] mGivenVisibleInsets=[0,0][0,0]
+    mFullConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+    mLastReportedConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+    mHasSurface=true isReadyForDisplay()=true mWindowRemovalAllowed=false
+    Frames: containing=[0,0][1920,1080] parent=[0,0][1920,1080]
+        display=[0,0][1920,1080]
+        content=[0,0][1920,80] visible=[0,0][1920,80]
+        decor=[0,0][0,0]
+    mFrame=[0,0][1920,80] last=[0,0][1920,80]
+     cutout=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}} last=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}}
+    Cur insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,0][0,0]    Lst insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,0][0,0]
+     surface=[0,0][0,0]
+    ContainerAnimator:
+      mLeash=Surface(name=Surface(name=4b1d26f StatusBar0)/@0xdc38e2 - animation-leash)/@0xeead121 mAnimationType=32
+      Animation: com.android.server.wm.InsetsSourceProvider$ControlAdapter@6394946
+        ControlAdapter
+         mCapturedLeash=Surface(name=Surface(name=4b1d26f StatusBar0)/@0xdc38e2 - animation-leash)/@0xeead121    WindowStateAnimator{2b1542b StatusBar0}:
+       mAnimationIsEntrance=true      mSurface=Surface(name=StatusBar0)/@0xd7a00a5
+      Surface: shown=true layer=0 alpha=1.0 rect=(0.0,0.0) 1920 x 80 transform=(1.0, 0.0, 1.0, 0.0)
+      mDrawState=HAS_DRAWN       mLastHidden=false
+      mEnterAnimationPending=false      mSystemDecorRect=[0,0][1920,80] mLastClipRect=[0,0][1920,80]
+    mLastFreezeDuration=+253ms
+    mForceSeamlesslyRotate=false seamlesslyRotate: pending=null finishedFrameNumber=0
+    isOnScreen=true
+    isVisible=true
+    mRequestedInsetsState: InsetsState: {mDisplayFrame=Rect(0, 0 - 0, 0), mSources= {  }
+  Window #11 Window{83d77cd u0 com.desaysv.launcher/com.desaysv.launcher.activity.LauncherActivity}:
+    mDisplayId=0 rootTaskId=1 mSession=Session{6a452f6 23393:1000} mClient=android.os.BinderProxy@2d61964
+    mOwnerUid=1000 showForAllUsers=false package=com.desaysv.launcher appop=NONE
+    mAttrs={(0,0)(fillxfill) sim={state=always_hidden adjust=nothing forwardNavigation} ty=BASE_APPLICATION fmt=TRANSLUCENT wanim=0x10302fe
+      fl=LAYOUT_IN_SCREEN LAYOUT_INSET_DECOR SHOW_WALLPAPER SPLIT_TOUCH HARDWARE_ACCELERATED DRAWS_SYSTEM_BAR_BACKGROUNDS
+      pfl=FORCE_DRAW_STATUS_BAR_BACKGROUND FIT_INSETS_CONTROLLED
+      vsysui=LAYOUT_STABLE LAYOUT_HIDE_NAVIGATION LAYOUT_FULLSCREEN
+      fitSides=}
+    Requested w=1920 h=1080 mLayoutSeq=1937
+    mBaseLayer=21000 mSubLayer=0    mToken=ActivityRecord{64e5b59 u0 com.desaysv.launcher/.activity.LauncherActivity t2464}
+    mActivityRecord=ActivityRecord{64e5b59 u0 com.desaysv.launcher/.activity.LauncherActivity t2464}
+    mAppDied=false    drawnStateEvaluated=true    mightAffectAllDrawn=true
+    mViewVisibility=0x0 mHaveFrame=true mObscured=false
+    mSeq=0 mSystemUiVisibility=0x700
+    mGivenContentInsets=[0,0][0,0] mGivenVisibleInsets=[0,0][0,0]
+    mFullConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=home mAlwaysOnTop=undefined mRotation=ROTATION_0} s.12}
+    mLastReportedConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=home mAlwaysOnTop=undefined mRotation=ROTATION_0} s.12}
+    mHasSurface=true isReadyForDisplay()=true mWindowRemovalAllowed=false
+    Frames: containing=[0,0][1920,1080] parent=[0,0][1920,1080]
+        display=[0,0][1920,1080]
+        content=[0,80][1920,976] visible=[0,80][1920,976]
+        decor=[0,0][1920,1080]
+    mFrame=[0,0][1920,1080] last=[0,0][1920,1080]
+     cutout=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}} last=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}}
+    Cur insets: content=[0,80][0,104] visible=[0,80][0,104] stable=[0,80][0,104]    Lst insets: content=[0,80][0,104] visible=[0,80][0,104] stable=[0,80][0,104]
+     surface=[0,0][0,0]
+    WindowStateAnimator{fefaf7a com.desaysv.launcher/com.desaysv.launcher.activity.LauncherActivity}:
+      mSurface=Surface(name=com.desaysv.launcher/com.desaysv.launcher.activity.LauncherActivity)/@0x10cdef7
+      Surface: shown=true layer=0 alpha=1.0 rect=(0.0,0.0) 1920 x 1080 transform=(1.0, 0.0, 1.0, 0.0)
+      mDrawState=HAS_DRAWN       mLastHidden=false
+      mEnterAnimationPending=false      mSystemDecorRect=[0,0][1920,1080] mLastClipRect=[0,0][1920,1080]
+    mLastFreezeDuration=+278ms
+    mForceSeamlesslyRotate=false seamlesslyRotate: pending=null finishedFrameNumber=0
+    isOnScreen=true
+    isVisible=true
+    mEmbeddedDisplayContents={Display 5 info=DisplayInfo{"TAG_APP_DISPLAY_NAME", displayId 5, FLAG_PRIVATE, real 1920 x 1080, largest app 1920 x 1920, smallest app 1080 x 1080, appVsyncOff 0, presDeadline 16666666, mode 3, defaultMode 3, modes [{id=3, width=1920, height=1080, fps=60.0}], hdrCapabilities null, minimalPostProcessingSupported false, rotation 0, state ON, type VIRTUAL, uniqueId "virtual:com.desaysv.launcher,1000,TAG_APP_DISPLAY_NAME,0", app 1920 x 1080, density 160 (160.0 x 160.0) dpi, layerStack 5, colorMode 0, supportedColorModes [0], deviceProductInfo null, owner com.desaysv.launcher (uid 1000), removeMode 1} stacks=[com.android.server.wm.DisplayContent$WindowContainers@af801af, com.android.server.wm.DisplayContent$NonAppWindowContainers@352f58e]}
+    mRequestedInsetsState: InsetsState: {mDisplayFrame=Rect(0, 0 - 0, 0), mSources= { InsetsSource: {mType=ITYPE_STATUS_BAR, mFrame=[0,0][1920,80], mVisible=true}, InsetsSource: {mType=ITYPE_NAVIGATION_BAR, mFrame=[0,976][1920,1080], mVisible=true}, InsetsSource: {mType=ITYPE_IME, mFrame=[0,0][0,0], mVisible=false} }
+  Window #12 Window{119bb70 u0 com.desaysv.launcher/com.desaysv.appmenu.activity.AppListActivity}:
+    mDisplayId=0 rootTaskId=2476 mSession=Session{6a452f6 23393:1000} mClient=android.os.BinderProxy@e9e69b3
+    mOwnerUid=1000 showForAllUsers=false package=com.desaysv.launcher appop=NONE
+    mAttrs={(0,0)(fillxfill) sim={state=hidden adjust=nothing forwardNavigation} ty=BASE_APPLICATION fmt=TRANSLUCENT wanim=0x10302fe
+      fl=LAYOUT_IN_SCREEN LAYOUT_INSET_DECOR SHOW_WALLPAPER SPLIT_TOUCH HARDWARE_ACCELERATED DRAWS_SYSTEM_BAR_BACKGROUNDS
+      pfl=FORCE_DRAW_STATUS_BAR_BACKGROUND FIT_INSETS_CONTROLLED
+      vsysui=LAYOUT_STABLE LAYOUT_HIDE_NAVIGATION LAYOUT_FULLSCREEN
+      fitSides=}
+    Requested w=1920 h=1080 mLayoutSeq=1924
+    mBaseLayer=21000 mSubLayer=0    mToken=ActivityRecord{41bb317 u0 com.desaysv.launcher/com.desaysv.appmenu.activity.AppListActivity t2476}
+    mActivityRecord=ActivityRecord{41bb317 u0 com.desaysv.launcher/com.desaysv.appmenu.activity.AppListActivity t2476}
+    mAppDied=false    drawnStateEvaluated=true    mightAffectAllDrawn=true
+    mViewVisibility=0x8 mHaveFrame=true mObscured=false
+    mSeq=0 mSystemUiVisibility=0x700
+    mGivenContentInsets=[0,0][0,0] mGivenVisibleInsets=[0,0][0,0]
+    mFullConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} s.7}
+    mLastReportedConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} s.7}
+    mHasSurface=false isReadyForDisplay()=false mWindowRemovalAllowed=false
+    Frames: containing=[0,0][1920,1080] parent=[0,0][1920,1080]
+        display=[0,0][1920,1080]
+        content=[0,80][1920,976] visible=[0,80][1920,976]
+        decor=[0,0][1920,1080]
+    mFrame=[0,0][1920,1080] last=[0,0][1920,1080]
+     cutout=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}} last=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}}
+    Cur insets: content=[0,80][0,104] visible=[0,80][0,104] stable=[0,80][0,104]    Lst insets: content=[0,80][0,104] visible=[0,80][0,104] stable=[0,80][0,104]
+     surface=[0,0][0,0]
+    WindowStateAnimator{8746164 com.desaysv.launcher/com.desaysv.appmenu.activity.AppListActivity}:
+      mDrawState=NO_SURFACE       mLastHidden=true
+      mEnterAnimationPending=false      mSystemDecorRect=[0,0][1920,1080] mLastClipRect=[0,0][1920,1080]
+    mForceSeamlesslyRotate=false seamlesslyRotate: pending=null finishedFrameNumber=0
+    isOnScreen=false
+    isVisible=false
+    mRequestedInsetsState: InsetsState: {mDisplayFrame=Rect(0, 0 - 0, 0), mSources= { InsetsSource: {mType=ITYPE_STATUS_BAR, mFrame=[0,0][1920,80], mVisible=true}, InsetsSource: {mType=ITYPE_NAVIGATION_BAR, mFrame=[0,976][1920,1080], mVisible=true}, InsetsSource: {mType=ITYPE_IME, mFrame=[0,0][0,0], mVisible=false} }
+  Window #13 Window{21fb902 u0 com.desaysv.setting/com.desaysv.setting.view.activity.SettingActivity}:
+    mDisplayId=0 rootTaskId=2470 mSession=Session{1a13d5b 19254:1000} mClient=android.os.BinderProxy@427a4d
+    mOwnerUid=1000 showForAllUsers=false package=com.desaysv.setting appop=NONE
+    mAttrs={(0,0)(fillxfill) sim={adjust=pan} ty=BASE_APPLICATION fmt=TRANSLUCENT wanim=0x10302fe
+      fl=LAYOUT_IN_SCREEN LAYOUT_INSET_DECOR SPLIT_TOUCH HARDWARE_ACCELERATED DRAWS_SYSTEM_BAR_BACKGROUNDS
+      pfl=FORCE_DRAW_STATUS_BAR_BACKGROUND FIT_INSETS_CONTROLLED
+      vsysui=LAYOUT_STABLE LAYOUT_HIDE_NAVIGATION LAYOUT_FULLSCREEN
+      fitSides=}
+    Requested w=1920 h=1080 mLayoutSeq=1698
+    mBaseLayer=21000 mSubLayer=0    mToken=ActivityRecord{a501fad u0 com.desaysv.setting/.view.activity.SettingActivity t2470}
+    mActivityRecord=ActivityRecord{a501fad u0 com.desaysv.setting/.view.activity.SettingActivity t2470}
+    mAppDied=false    drawnStateEvaluated=true    mightAffectAllDrawn=true
+    mViewVisibility=0x8 mHaveFrame=true mObscured=false
+    mSeq=0 mSystemUiVisibility=0x700
+    mGivenContentInsets=[0,0][0,0] mGivenVisibleInsets=[0,0][0,0]
+    mFullConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} s.3}
+    mLastReportedConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} s.3}
+    mHasSurface=false isReadyForDisplay()=false mWindowRemovalAllowed=false
+    Frames: containing=[0,0][1920,1080] parent=[0,0][1920,1080]
+        display=[0,0][1920,1080]
+        content=[0,80][1920,976] visible=[0,80][1920,976]
+        decor=[0,0][1920,1080]
+    mFrame=[0,0][1920,1080] last=[0,0][1920,1080]
+     cutout=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}} last=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}}
+    Cur insets: content=[0,80][0,104] visible=[0,80][0,104] stable=[0,80][0,104]    Lst insets: content=[0,80][0,104] visible=[0,80][0,104] stable=[0,80][0,104]
+     surface=[0,0][0,0]
+    WindowStateAnimator{6921fcd com.desaysv.setting/com.desaysv.setting.view.activity.SettingActivity}:
+      mDrawState=NO_SURFACE       mLastHidden=true
+      mEnterAnimationPending=false      mSystemDecorRect=[0,0][1920,1080] mLastClipRect=[0,0][1920,1080]
+    mForceSeamlesslyRotate=false seamlesslyRotate: pending=null finishedFrameNumber=0
+    isOnScreen=false
+    isVisible=false
+    mRequestedInsetsState: InsetsState: {mDisplayFrame=Rect(0, 0 - 0, 0), mSources= { InsetsSource: {mType=ITYPE_STATUS_BAR, mFrame=[0,0][1920,80], mVisible=true}, InsetsSource: {mType=ITYPE_NAVIGATION_BAR, mFrame=[0,976][1920,1080], mVisible=true}, InsetsSource: {mType=ITYPE_IME, mFrame=[0,0][0,0], mVisible=false} }
+  Window #14 Window{2819bf3 u0 com.desaysv.jetour.t1n.psmap}:
+    mDisplayId=2 mSession=Session{f644157 4155:1000} mClient=android.os.BinderProxy@a57392d
+    mOwnerUid=1000 showForAllUsers=false package=com.desaysv.jetour.t1n.psmap appop=SYSTEM_ALERT_WINDOW
+    mAttrs={(0,0)(fillxfill) sim={adjust=pan} ty=APPLICATION_OVERLAY fmt=TRANSPARENT
+      fl=NOT_FOCUSABLE NOT_TOUCHABLE LAYOUT_NO_LIMITS FULLSCREEN HARDWARE_ACCELERATED
+      pfl=
+      bhv=SHOW_TRANSIENT_BARS_BY_SWIPE
+      fitTypes=STATUS_BARS NAVIGATION_BARS CAPTION_BAR}
+    Requested w=1920 h=720 mLayoutSeq=19
+    mBaseLayer=121000 mSubLayer=0    mToken=WindowToken{5d3e62 android.os.BinderProxy@a57392d}
+    mViewVisibility=0x0 mHaveFrame=true mObscured=false
+    mSeq=0 mSystemUiVisibility=0x0
+    mGivenContentInsets=[0,0][0,0] mGivenVisibleInsets=[0,0][0,0]
+    mFullConfiguration={1.0 ?mcc?mnc [zh] ldltr sw720dp w1920dp h720dp 160dpi xlrg long land car night -touch qwerty/v/v -nav/h winConfig={ mBounds=Rect(0, 0 - 1920, 720) mAppBounds=Rect(0, 0 - 1920, 720) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+    mLastReportedConfiguration={1.0 ?mcc?mnc [zh] ldltr sw720dp w1920dp h720dp 160dpi xlrg long land car night -touch qwerty/v/v -nav/h winConfig={ mBounds=Rect(0, 0 - 1920, 720) mAppBounds=Rect(0, 0 - 1920, 720) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1112}
+    mHasSurface=true isReadyForDisplay()=true mWindowRemovalAllowed=false
+    Frames: containing=[0,0][1920,720] parent=[0,0][1920,720]
+        display=[-10000,-10000][10000,10000]
+        content=[0,0][1920,720] visible=[0,0][1920,720]
+        decor=[0,0][1920,720]
+    mFrame=[0,0][1920,720] last=[0,0][1920,720]
+     cutout=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}} last=DisplayCutout{insets=Rect(0, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}}
+    Cur insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,0][0,0]    Lst insets: content=[0,0][0,0] visible=[0,0][0,0] stable=[0,0][0,0]
+     surface=[0,0][0,0]
+    WindowStateAnimator{7763082 }:
+      mSurface=Surface(name=)/@0xd66a9b3
+      Surface: shown=true layer=0 alpha=1.0 rect=(0.0,0.0) 1920 x 720 transform=(1.0, 0.0, 1.0, 0.0)
+      mDrawState=HAS_DRAWN       mLastHidden=false
+      mEnterAnimationPending=false      mSystemDecorRect=[0,0][1920,720] mLastClipRect=[0,0][1920,720]
+    mLastFreezeDuration=+17m9s763ms
+    mForceSeamlesslyRotate=false seamlesslyRotate: pending=null finishedFrameNumber=0
+    isOnScreen=true
+    isVisible=true
+    mRequestedInsetsState: InsetsState: {mDisplayFrame=Rect(0, 0 - 0, 0), mSources= {  }
+
+  mGlobalConfiguration={1.0 ?mcc?mnc [zh] ldltr sw1080dp w1920dp h896dp 160dpi xlrg long land car night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1920, 1080) mAppBounds=Rect(0, 0 - 1920, 976) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1092}
+  mHasPermanentDpad=false
+  mTopFocusedDisplayId=5
+  mInputMethodInputTarget in display# 5 Window{d732382 u0 com.desaysv.jetour.t1n.psmap/com.desaysv.psmap.ui.MainActivity}
+  inputMethodControlTarget in display# 5 Window{d732382 u0 com.desaysv.jetour.t1n.psmap/com.desaysv.psmap.ui.MainActivity}
+  mInputMethodTarget in display# 0 Window{635c7fe u0 SystemUI_smallPanel}
+  mInputMethodInputTarget in display# 0 Window{83d77cd u0 com.desaysv.launcher/com.desaysv.launcher.activity.LauncherActivity}
+  inputMethodControlTarget in display# 0 Window{83d77cd u0 com.desaysv.launcher/com.desaysv.launcher.activity.LauncherActivity}
+  mInTouchMode=true
+  mLastDisplayFreezeDuration=+505ms due to client
+  mLastWakeLockHoldingWindow=null mLastWakeLockObscuringWindow=null
+  mHighResTaskSnapshotScale=1.0
+  SnapshotCache
+    Entry taskId=2476
+      topApp=ActivityRecord{41bb317 u0 com.desaysv.launcher/com.desaysv.appmenu.activity.AppListActivity t2476}
+      snapshot=TaskSnapshot{ mId=1789734986315 mTopActivityComponent=com.desaysv.launcher/com.desaysv.appmenu.activity.AppListActivity mSnapshot=android.graphics.GraphicBuffer@6a67393 (1920x1080) mColorSpace=sRGB IEC61966-2.1 (id=0, model=RGB) mOrientation=2 mRotation=0 mTaskSize=Point(1920, 1080) mContentInsets=[0,80][0,104] mIsLowResolution=false mIsRealSnapshot=true mWindowingMode=1 mSystemUiVisibility=1792 mIsTranslucent=true
+    Entry taskId=2470
+      topApp=ActivityRecord{a501fad u0 com.desaysv.setting/.view.activity.SettingActivity t2470}
+      snapshot=TaskSnapshot{ mId=1789733695535 mTopActivityComponent=com.desaysv.setting/.view.activity.SettingActivity mSnapshot=android.graphics.GraphicBuffer@2c82fd0 (1920x1080) mColorSpace=sRGB IEC61966-2.1 (id=0, model=RGB) mOrientation=2 mRotation=0 mTaskSize=Point(1920, 1080) mContentInsets=[0,80][0,104] mIsLowResolution=false mIsRealSnapshot=true mWindowingMode=1 mSystemUiVisibility=1792 mIsTranslucent=true
+    Entry taskId=2465
+      topApp=ActivityRecord{a63574f u0 com.desaysv.jetour.t1n.psmap/com.desaysv.psmap.ui.MainActivity t2465}
+      snapshot=TaskSnapshot{ mId=1789734886120 mTopActivityComponent=com.desaysv.jetour.t1n.psmap/com.desaysv.psmap.ui.MainActivity mSnapshot=android.graphics.GraphicBuffer@8adebc9 (1920x1080) mColorSpace=sRGB IEC61966-2.1 (id=0, model=RGB) mOrientation=2 mRotation=0 mTaskSize=Point(1920, 1080) mContentInsets=[0,0][0,0] mIsLowResolution=false mIsRealSnapshot=true mWindowingMode=1 mSystemUiVisibility=1280 mIsTranslucent=true
+  mWindowsForAccessibilityObserver={0=WindowsForAccessibilityObserver{mDisplayId=0, mEmbeddedDisplayIdList=[5], mInitialized=true}, 2=WindowsForAccessibilityObserver{mDisplayId=2, mEmbeddedDisplayIdList=[], mInitialized=true}, 5=WindowsForAccessibilityObserver{mDisplayId=0, mEmbeddedDisplayIdList=[5], mInitialized=true}}
+  mInputMethodWindow=Window{89cbd4e u0 InputMethod}
+  mTraversalScheduled=false
+  mHoldScreenWindow=null
+  mObscuringWindow=null
+  mSystemBooted=true mDisplayEnabled=true
+  mTransactionSequence=2764
+  mDisplayFrozen=false windows=0 client=false apps=0  mRotation=0  mLastOrientation=-1
+ waitingForConfig=false
+  Animation settings: disabled=false window=0.1 transition=0.1 animator=0.1
+  PolicyControl.sImmersiveStatusFilter=null
+  PolicyControl.sImmersiveNavigationFilter=null
+  PolicyControl.sImmersivePreconfirmationsFilter=null
