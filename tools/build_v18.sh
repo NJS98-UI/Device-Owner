@@ -1,10 +1,19 @@
 #!/bin/bash
 # v18 build: merged EVCam sources + androidx/material AARs, merged res, multi-dex
+# 双平台：本机 Git Bash 用固定路径；CI/Linux 用 ANDROID_HOME + PATH 里的 JDK17
 set -e
-export JAVA_HOME=C:/Users/Administrator/jdk-17/jdk-17.0.2
-export PATH="/c/Users/Administrator/jdk-17/jdk-17.0.2/bin:$PATH"
-BT=C:/Users/Administrator/AndroidSDK/build-tools/34.0.0
-PLAT=C:/Users/Administrator/AndroidSDK/platforms/android-34/android.jar
+case "$(uname -s)" in
+  Linux*|Darwin*) CPSEP=":"; D8=d8; SIGNER=apksigner ;;
+  *) CPSEP=";"
+     if [ -d /c/Users/Administrator/jdk-17/jdk-17.0.2 ]; then
+       export JAVA_HOME=C:/Users/Administrator/jdk-17/jdk-17.0.2
+       export PATH="/c/Users/Administrator/jdk-17/jdk-17.0.2/bin:$PATH"
+     fi
+     [ -n "$ANDROID_HOME" ] || ANDROID_HOME=/c/Users/Administrator/AndroidSDK ;;
+esac
+BT="$ANDROID_HOME/build-tools/34.0.0"
+BT36="$ANDROID_HOME/build-tools/36.0.0"
+PLAT="$ANDROID_HOME/platforms/android-34/android.jar"
 cd "$(dirname "$0")/.."
 ROOT=$PWD
 B=build2
@@ -65,7 +74,7 @@ echo "LINK OK"
 find $B/gen -name 'R.java' | head -5
 
 # 5. javac
-CP="$PLAT;$(ls $B/aar/*/classes.jar | tr '\n' ';')$(sed 's|^|libs/|; s|$|.jar|' $B/jars.txt | tr '\n' ';')"
+CP="$PLAT$CPSEP$(ls $B/aar/*/classes.jar | tr '\n' "$CPSEP")$(sed 's|^|libs/|; s|$|.jar|' $B/jars.txt | tr '\n' "$CPSEP")"
 find src -name '*.java' > $B/srcs.txt
 find $B/gen -name 'R.java' >> $B/srcs.txt
 javac -encoding UTF-8 -source 11 -target 11 -Xlint:-options -nowarn \
@@ -76,8 +85,7 @@ echo "JAVAC OK"
 # 6. d8 -> multi-dex (d8 rejects a directory arg, so jar our classes first)
 (cd $B/obj && jar cf ../obj.jar .)
 D8IN="$B/obj.jar $(ls $B/aar/*/classes.jar | tr '\n' ' ') $(sed 's|^|libs/|; s|$|.jar|' $B/jars.txt | tr '\n' ' ')"
-BT36=C:/Users/Administrator/AndroidSDK/build-tools/36.0.0
-"$BT36/d8.bat" --release --min-api 27 --lib "$PLAT" --output $B/dex $D8IN > $B/d8.log 2>&1 \
+"$BT36/$D8" --release --min-api 27 --lib "$PLAT" --output $B/dex $D8IN > $B/d8.log 2>&1 \
   || { echo D8 FAILED; tail -40 $B/d8.log; exit 1; }
 ls -la $B/dex
 echo "D8 OK"
@@ -90,8 +98,9 @@ cp jniLibs/arm64-v8a/*.so $B/pack/lib/arm64-v8a/
  "$BT/aapt" add ../base.apk lib/arm64-v8a/libvhal_decoder.so > /dev/null)
 
 # 8. align + sign
+mkdir -p out
 "$BT/zipalign" -f 4 $B/base.apk $B/aligned.apk
-"$BT/apksigner.bat" sign --ks debug.keystore --ks-pass pass:android \
+"$BT/$SIGNER" sign --ks debug.keystore --ks-pass pass:android \
   --out out/ClusterCast.apk $B/aligned.apk
 "$BT/aapt" dump badging out/ClusterCast.apk | head -2
 jar tf out/ClusterCast.apk | grep -E '^classes.*dex|^lib/' 
