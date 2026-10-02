@@ -1,0 +1,242 @@
+>>> [updateCarUI] 34dbee: 6e30 8a8a 7008                         |0035: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+     const-string v1, "moduleID:" // string@cb7d
+     const-string v1, ",cmdID:" // string@0ca3
+     const-string v1, "HvacModel" // string@236b
+     const v0, #float 4.59191e-40 // #0005000a
+     const/4 v0, #int 0 // #0
+     const/16 v1, #int 10 // #a
+     const/4 v2, #int 2 // #2
+     const/4 v3, #int 1 // #1
+>>> [updateCarUI] 34dc0c: 6e30 8a8a 7008                         |0044: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34dc2a: 6e30 8a8a 7008                         |0053: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34dc50: 6e30 8a8a 7008                         |0066: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34dc7e: 6e30 8a8a 7008                         |007d: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+     const/16 v1, #int 32 // #20
+     const/16 v1, #int 60 // #3c
+>>> [updateCarUI] 34dca6: 6e30 8a8a 7008                         |0091: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+     const/4 v1, #int 4 // #4
+>>> [updateCarUI] 34dcf2: 6e30 8a8a 7008                         |00b7: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34dd22: 6e30 8a8a 7008                         |00cf: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34dd44: 6e30 8a8a 7008                         |00e0: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34dd62: 6e30 8a8a 7008                         |00ef: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34dd80: 6e30 8a8a 7008                         |00fe: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34dd9e: 6e30 8a8a 7008                         |010d: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34ddbc: 6e30 8a8a 7008                         |011c: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34ddda: 6e30 8a8a 7008                         |012b: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34de02: 6e30 8a8a 7008                         |013f: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+     const/4 v1, #int 7 // #7
+>>> [updateCarUI] 34de94: 6e30 8a8a 7008                         |0188: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+     const v4, #float 9.18341e-41 // #0000ffff
+     const v4, #float 9.18341e-41 // #0000ffff
+>>> [updateCarUI] 34deca: 6e30 8a8a 7008                         |01a3: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34deec: 6e30 8a8a 7008                         |01b4: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34df0a: 6e30 8a8a 7008                         |01c3: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34df28: 6e30 8a8a 7008                         |01d2: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34df4c: 6e30 8a8a 7008                         |01e4: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34df68: 6e30 8a8a 7008                         |01f2: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34df84: 6e30 8a8a 7008                         |0200: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34dfa0: 6e30 8a8a 7008                         |020e: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34dfbc: 6e30 8a8a 7008                         |021c: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34dfe4: 6e30 8a8a 7008                         |0230: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34e002: 6e30 8a8a 7008                         |023f: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+>>> [updateCarUI] 34e02a: 6e30 8a8a 7008                         |0253: invoke-virtual {v0, v7, v8}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+     const v0, #float 4.59179e-40 // #00050001
+>>> [updateCarUIInTiming] 34e1da: 6e30 8a8a 6007                         |002f: invoke-virtual {v0, v6, v7}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+     const-string v1, "updateCarUIInTiming moduleID:" // string@f986
+     const-string v1, ",cmdID:" // string@0ca3
+     const-string v2, "HvacModel" // string@236b
+     const v0, #float 4.59191e-40 // #0005000a
+>>> [clickViewWidthCall] 34ca5a: 6e40 8d8a 3014                         |0007: invoke-virtual {v0, v3, v4, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v1, #int 2 // #2
+     const/4 v1, #int 1 // #1
+>>> [getCarSteerWheelHeat] 34c400: 7120 bc8a 1000                         |0008: invoke-static {v0, v1}, Lcom/desaysv/model/svhvac/controller/HvacController;.getCarInfoValue:(II)I // method@8abc
+     const v0, #float 4.59179e-40 // #00050001
+     const/16 v1, #int 160 // #a0
+>>> [getCoolantFilStatus] 34c732: 6e30 8a8a 1002                         |0007: invoke-virtual {v0, v1, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+     const v1, #float 4.59191e-40 // #0005000a
+     const/16 v2, #int 97 // #61
+>>> [getParkingAirConditingState] 34c87e: 6e30 8a8a 1002                         |0007: invoke-virtual {v0, v1, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.getItemValue:(II)I // method@8a8a
+     const v1, #float 4.59191e-40 // #0005000a
+     const/16 v2, #int 98 // #62
+>>> [onACClick] 34cd0a: 6e40 8d8a 4132                         |0027: invoke-virtual {v1, v4, v2, v3}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const-string v2, "onACClick ac = " // string@d0ba
+     const-string v2, "HvacModel" // string@236b
+     const/4 v2, #int 1 // #1
+     const/4 v3, #int 2 // #2
+     const v4, #float 4.59191e-40 // #0005000a
+>>> [onACMaxClick] 34cd64: 6e40 8d8a 3124                         |0010: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v2, #int 1 // #1
+     const/4 v2, #int 2 // #2
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 90 // #5a
+>>> [onAutoClick] 34cdbe: 6e40 8d8a 3124                         |000f: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v2, #int 1 // #1
+     const/4 v2, #int 2 // #2
+     const v3, #float 4.59191e-40 // #0005000a
+     const/4 v4, #int 4 // #4
+>>> [onCarSteerWheelHeatClick] 34ce18: 6e40 8d8a 3124                         |0010: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v2, #int 2 // #2
+     const/4 v2, #int 1 // #1
+     const v3, #float 4.59179e-40 // #00050001
+     const/16 v4, #int 160 // #a0
+>>> [onCarSteerWheelHeatClick] 34ce50: 6e40 8d8a 2013                         |0010: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v1, #int 1 // #1
+     const/4 v1, #int 2 // #2
+     const v2, #float 4.59179e-40 // #00050001
+     const/16 v3, #int 160 // #a0
+>>> [onCirculationClick] 34ce98: 6e40 8d8a 3124                         |0010: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v2, #int 2 // #2
+     const/4 v2, #int 1 // #1
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 8 // #8
+>>> [onCirculationClick] 34cebe: 6e40 8d8a 1052                         |0007: invoke-virtual {v0, v1, v2, v5}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const v1, #float 4.59191e-40 // #0005000a
+     const/16 v2, #int 8 // #8
+>>> [onCoolantFilClick] 34cf3a: 6e40 8d8a 3214                         |002b: invoke-virtual {v2, v3, v4, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v1, #int 1 // #1
+     const/4 v0, #int 0 // #0
+     const-string v3, "onCoolantFilClick state = " // string@d199
+     const-string v3, "HvacModel" // string@236b
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 97 // #61
+>>> [onDefrostingClick] 34cf78: 6e40 8d8a 2013                         |000c: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v1, #int 4 // #4
+     const v2, #float 4.59191e-40 // #0005000a
+     const/4 v3, #int 6 // #6
+>>> [onHvacBackClick] 34d018: 6e40 8d8a 3021                         |0008: invoke-virtual {v0, v3, v1, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v1, #int 9 // #9
+     const/4 v2, #int 2 // #2
+     const v3, #float 4.59191e-40 // #0005000a
+>>> [onHvacEnterClick] 34d040: 6e40 8d8a 3021                         |0008: invoke-virtual {v0, v3, v1, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v1, #int 9 // #9
+     const/4 v2, #int 1 // #1
+     const v3, #float 4.59191e-40 // #0005000a
+>>> [onMainTempClick] 34d124: 6e40 8d8a 3214                         |002a: invoke-virtual {v2, v3, v4, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/high16 v1, #int 1056964608 // #3f00
+     const-string v3, "onMainTempClick TEMP_OFFSET " // string@d321
+     const-string v3, "HvacModel" // string@236b
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 10 // #a
+>>> [onMainTempMinusClick] 34d1c6: 6e40 8d8a 3124                         |0029: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const-string v2, "onMainTempMinusClick getDriverTempState " // string@d324
+     const-string v2, "HvacModel" // string@236b
+     const/16 v1, #int 32 // #20
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 10 // #a
+>>> [onMainTempPlusClick] 34d23a: 6e40 8d8a 3124                         |0029: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const-string v2, "onMainTempPlusClick getDriverTempState " // string@d326
+     const-string v2, "HvacModel" // string@236b
+     const/16 v1, #int 60 // #3c
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 10 // #a
+>>> [onMaxDefrostingClick] 34d27c: 6e40 8d8a 3124                         |0010: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v2, #int 2 // #2
+     const/4 v2, #int 1 // #1
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 24 // #18
+>>> [onPassengerTempClick] 34d2e8: 6e40 8d8a 3214                         |002a: invoke-virtual {v2, v3, v4, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/high16 v1, #int 1056964608 // #3f00
+     const-string v3, "onPassengerTempClick TEMP_OFFSET " // string@d384
+     const-string v3, "HvacModel" // string@236b
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 13 // #d
+>>> [onPassengerTempMinusClick] 34d392: 6e40 8d8a 3124                         |0029: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const-string v2, "onPassengerTempMinusClick getPassengerTempState " // string@d387
+     const-string v2, "HvacModel" // string@236b
+     const/16 v1, #int 32 // #20
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 13 // #d
+>>> [onPassengerTempPlusClick] 34d40a: 6e40 8d8a 3124                         |0029: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const-string v2, "onPassengerTempPlusClick getPassengerTempState " // string@d389
+     const-string v2, "HvacModel" // string@236b
+     const/16 v1, #int 60 // #3c
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 13 // #d
+>>> [onPowerClick] 34d480: 6e40 8d8a 3124                         |0028: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const-string v2, "onPowerClick power = " // string@d3a8
+     const-string v2, "HvacModel" // string@236b
+     const/4 v2, #int 2 // #2
+     const/4 v2, #int 1 // #1
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 18 // #12
+>>> [onPowerClick] 34d4b0: 6e40 8d8a 2013                         |000c: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v1, #int 1 // #1
+     const/4 v1, #int 2 // #2
+     const v2, #float 4.59191e-40 // #0005000a
+     const/16 v3, #int 18 // #12
+>>> [onRearDeforestClick] 34d4f8: 6e40 8d8a 3124                         |0010: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v2, #int 1 // #1
+     const/4 v2, #int 2 // #2
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 80 // #50
+>>> [onRearHvacAcMaxClick] 34d54c: 6e40 8d8a 2013                         |000c: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v1, #int 2 // #2
+     const/4 v1, #int 1 // #1
+     const v2, #float 4.59191e-40 // #0005000a
+     const/16 v3, #int 113 // #71
+>>> [onRearHvacPowerClick] 34d5c4: 6e40 8d8a 3124                         |0028: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const-string v2, "onRearHvacPowerClick power = " // string@d3d8
+     const-string v2, "HvacModel" // string@236b
+     const/4 v2, #int 2 // #2
+     const/4 v2, #int 1 // #1
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 111 // #6f
+>>> [onRearHvacPowerClick] 34d5f4: 6e40 8d8a 2013                         |000c: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v1, #int 1 // #1
+     const/4 v1, #int 2 // #2
+     const v2, #float 4.59191e-40 // #0005000a
+     const/16 v3, #int 111 // #6f
+>>> [onRearWindSpeedClick] 34d638: 6e40 8d8a 2163                         |000e: invoke-virtual {v1, v2, v3, v6}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const v2, #float 4.59191e-40 // #0005000a
+     const/16 v3, #int 68 // #44
+>>> [onSyncClick] 34d7cc: 6e40 8d8a 3124                         |0010: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v2, #int 1 // #1
+     const/4 v2, #int 2 // #2
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 91 // #5b
+>>> [onThirdRowPowerClick] 34d818: 6e40 8d8a 3021                         |0008: invoke-virtual {v0, v3, v1, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v1, #int 89 // #59
+     const/4 v2, #int 1 // #1
+     const v3, #float 4.59191e-40 // #0005000a
+>>> [onWindModeDefrostingClick] 34d852: 6e40 8d8a 2013                         |0007: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v1, #int 4 // #4
+     const v2, #float 4.59191e-40 // #0005000a
+     const/4 v3, #int 6 // #6
+>>> [onWindModeDefrostingFootClick] 34d886: 6e40 8d8a 2013                         |0007: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v1, #int 3 // #3
+     const v2, #float 4.59191e-40 // #0005000a
+     const/4 v3, #int 6 // #6
+>>> [onWindModeFaceClick] 34d8ba: 6e40 8d8a 2013                         |0007: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v1, #int 0 // #0
+     const v2, #float 4.59191e-40 // #0005000a
+     const/4 v3, #int 6 // #6
+>>> [onWindModeFaceDefrostingClick] 34d8ee: 6e40 8d8a 2013                         |0007: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v1, #int 5 // #5
+     const v2, #float 4.59191e-40 // #0005000a
+     const/4 v3, #int 6 // #6
+>>> [onWindModeFaceFootClick] 34d922: 6e40 8d8a 2013                         |0007: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v1, #int 1 // #1
+     const v2, #float 4.59191e-40 // #0005000a
+     const/4 v3, #int 6 // #6
+>>> [onWindModeFaceFootDefrostingClick] 34d954: 6e40 8d8a 1022                         |0006: invoke-virtual {v0, v1, v2, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const v1, #float 4.59191e-40 // #0005000a
+     const/4 v2, #int 6 // #6
+>>> [onWindModeFootClick] 34d98a: 6e40 8d8a 2013                         |0007: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v1, #int 2 // #2
+     const v2, #float 4.59191e-40 // #0005000a
+     const/4 v3, #int 6 // #6
+>>> [onWindSpeedClick] 34d9cc: 6e40 8d8a 2163                         |000e: invoke-virtual {v1, v2, v3, v6}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const v2, #float 4.59191e-40 // #0005000a
+     const/16 v3, #int 12 // #c
+>>> [onWindSpeedMinusClick] 34da42: 6e40 8d8a 3124                         |000f: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 12 // #c
+>>> [onWindSpeedPlusClick] 34da8a: 6e40 8d8a 4235                         |0011: invoke-virtual {v2, v4, v5, v3}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v1, #int 10 // #a
+     const v4, #float 4.59191e-40 // #0005000a
+     const/16 v5, #int 12 // #c
+>>> [setParkingAirConditingState] 34db46: 6e40 8d8a 1052                         |001f: invoke-virtual {v0, v1, v2, v5}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const-string v1, "setParkingAirConditingState state = " // string@ea82
+     const-string v1, "HvacModel" // string@236b
+     const v1, #float 4.59191e-40 // #0005000a
+     const/16 v2, #int 98 // #62

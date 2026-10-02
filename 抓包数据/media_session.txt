@@ -1,0 +1,185 @@
+MEDIA SESSION SERVICE (dumpsys media_session)
+
+2 sessions listeners.
+Global priority session is com.android.server.telecom/HeadsetMediaButton (userId=0)
+  HeadsetMediaButton com.android.server.telecom/HeadsetMediaButton (userId=0)
+    ownerPid=432, ownerUid=1000, userId=0
+    package=com.android.server.telecom
+    launchIntent=null
+    mediaButtonReceiver=null
+    active=false
+    flags=65537
+    rating type=0
+    controllers: 0
+    state=null
+    audioAttrs=AudioAttributes: usage=USAGE_VOICE_COMMUNICATION content=CONTENT_TYPE_SPEECH flags=0x800 tags= bundle=null
+    volumeType=1, controlType=2, max=0, current=0
+    metadata: null
+    queueTitle=null, size=0
+User Records:
+Record for full_user=0
+  Volume key long-press listener: null
+  Volume key long-press listener package: 
+  Media key listener: null
+  Media key listener package: 
+  OnMediaKeyEventDispatchedListener: added 0 listener(s)
+  OnMediaKeyEventSessionChangedListener: added 0 listener(s)
+  Last MediaButtonReceiver: MBR {pi=PendingIntent{96a6ea4: PendingIntentRecord{6df440d com.kugou.android.auto broadcastIntent}}, type=1}
+  Media button session is com.kugou.android.auto/Kugou_Media (userId=0)
+  Sessions Stack - have 11 sessions:
+    Kugou_Media com.kugou.android.auto/Kugou_Media (userId=0)
+      ownerPid=18421, ownerUid=10037, userId=0
+      package=com.kugou.android.auto
+      launchIntent=null
+      mediaButtonReceiver=MBR {pi=PendingIntent{96a6ea4: PendingIntentRecord{6df440d com.kugou.android.auto broadcastIntent}}, type=1}
+      active=true
+      flags=3
+      rating type=1
+      controllers: 2
+      state=PlaybackState {state=3, position=197820, buffered position=0, speed=1.0, updated=5695532, actions=2360246, custom actions=[], active item id=-1, error=null}
+      audioAttrs=AudioAttributes: usage=USAGE_MEDIA content=CONTENT_TYPE_UNKNOWN flags=0x800 tags= bundle=null
+      volumeType=1, controlType=2, max=0, current=0
+      metadata: size=9, description=曹操, null, null
+      queueTitle=null, size=0
+    ByteMedia com.bytedance.byteautoservice3/ByteMedia (userId=0)
+      ownerPid=10677, ownerUid=10032, userId=0
+      package=com.bytedance.byteautoservice3
+      launchIntent=null
+      mediaButtonReceiver=null
+      active=true
+      flags=2
+      rating type=0
+      controllers: 6
+      state=PlaybackState {state=1, position=0, buffered position=0, speed=1.0, updated=1010810, actions=1975, custom actions=[], active item id=-1, error=null}
+      audioAttrs=AudioAttributes: usage=USAGE_MEDIA content=CONTENT_TYPE_UNKNOWN flags=0x800 tags= bundle=null
+      volumeType=1, controlType=2, max=0, current=0
+      metadata: null
+      queueTitle=null, size=0
+    NTES com.desaysv.mediacenter/NTES (userId=0)
+      ownerPid=3240, ownerUid=1000, userId=0
+      package=com.desaysv.mediacenter
+      launchIntent=PendingIntent{2da1fc2: PendingIntentRecord{e98d1d3 com.desaysv.mediacenter startActivity}}
+      mediaButtonReceiver=null
+      active=true
+      flags=3
+      rating type=0
+      controllers: 16
+      state=null
+      audioAttrs=AudioAttributes: usage=USAGE_MEDIA content=CONTENT_TYPE_UNKNOWN flags=0x800 tags= bundle=null
+      volumeType=1, controlType=2, max=0, current=0
+      metadata: null
+      queueTitle=null, size=0
+    YT com.desaysv.mediacenter/YT (userId=0)
+      ownerPid=3240, ownerUid=1000, userId=0
+      package=com.desaysv.mediacenter
+      launchIntent=PendingIntent{331d110: PendingIntentRecord{e98d1d3 com.desaysv.mediacenter startActivity}}
+      mediaButtonReceiver=null
+      active=true
+      flags=3
+      rating type=0
+      controllers: 16
+      state=null
+      audioAttrs=AudioAttributes: usage=USAGE_MEDIA content=CONTENT_TYPE_UNKNOWN flags=0x800 tags= bundle=null
+      volumeType=1, controlType=2, max=0, current=0
+      metadata: null
+      queueTitle=null, size=0
+    MediaCenterBTService com.desaysv.mediacenter/MediaCenterBTService (userId=0)
+      ownerPid=3240, ownerUid=1000, userId=0
+      package=com.desaysv.mediacenter
+      launchIntent=PendingIntent{c491409: PendingIntentRecord{e98d1d3 com.desaysv.mediacenter startActivity}}
+      mediaButtonReceiver=null
+      active=true
+      flags=3
+      rating type=0
+      controllers: 16
+      state=null
+      audioAttrs=AudioAttributes: usage=USAGE_MEDIA content=CONTENT_TYPE_UNKNOWN flags=0x800 tags= bundle=null
+      volumeType=1, controlType=2, max=0, current=0
+      metadata: size=3, description=null, null, null
+      queueTitle=null, size=0
+    USB0 com.desaysv.mediacenter/USB0 (userId=0)
+      ownerPid=3240, ownerUid=1000, userId=0
+      package=com.desaysv.mediacenter
+      launchIntent=PendingIntent{72e760e: PendingIntentRecord{e98d1d3 com.desaysv.mediacenter startActivity}}
+      mediaButtonReceiver=null
+      active=true
+      flags=3
+      rating type=0
+      controllers: 16
+      state=null
+      audioAttrs=AudioAttributes: usage=USAGE_MEDIA content=CONTENT_TYPE_UNKNOWN flags=0x800 tags= bundle=null
+      volumeType=1, controlType=2, max=0, current=0
+      metadata: null
+      queueTitle=null, size=0
+    MediaSessionService com.desaysv.vehicle.carplayapp/MediaSessionService (userId=0)
+      ownerPid=3095, ownerUid=1000, userId=0
+      package=com.desaysv.vehicle.carplayapp
+      launchIntent=null
+      mediaButtonReceiver=null
+      active=false
+      flags=7
+      rating type=0
+      controllers: 0
+      state=PlaybackState {state=0, position=0, buffered position=0, speed=1.0, updated=19634, actions=566, custom actions=[], active item id=-1, error=null}
+      audioAttrs=AudioAttributes: usage=USAGE_MEDIA content=CONTENT_TYPE_UNKNOWN flags=0x800 tags= bundle=null
+      volumeType=1, controlType=2, max=0, current=0
+      metadata: null
+      queueTitle=null, size=0
+    MediaCenterRadioService com.desaysv.mediacenter/MediaCenterRadioService (userId=0)
+      ownerPid=3240, ownerUid=1000, userId=0
+      package=com.desaysv.mediacenter
+      launchIntent=PendingIntent{394b82f: PendingIntentRecord{e98d1d3 com.desaysv.mediacenter startActivity}}
+      mediaButtonReceiver=null
+      active=true
+      flags=3
+      rating type=0
+      controllers: 16
+      state=null
+      audioAttrs=AudioAttributes: usage=USAGE_MEDIA content=CONTENT_TYPE_UNKNOWN flags=0x800 tags= bundle=null
+      volumeType=1, controlType=2, max=0, current=0
+      metadata: null
+      queueTitle=null, size=0
+    MediaCenterPLService com.desaysv.mediacenter/MediaCenterPLService (userId=0)
+      ownerPid=3240, ownerUid=1000, userId=0
+      package=com.desaysv.mediacenter
+      launchIntent=PendingIntent{9caee3c: PendingIntentRecord{e98d1d3 com.desaysv.mediacenter startActivity}}
+      mediaButtonReceiver=null
+      active=true
+      flags=3
+      rating type=0
+      controllers: 14
+      state=PlaybackState {state=0, position=0, buffered position=0, speed=1.0, updated=21398, actions=0, custom actions=[], active item id=-1, error=null}
+      audioAttrs=AudioAttributes: usage=USAGE_MEDIA content=CONTENT_TYPE_UNKNOWN flags=0x800 tags= bundle=null
+      volumeType=1, controlType=2, max=0, current=0
+      metadata: size=2, description=null, null, null
+      queueTitle=null, size=0
+    A2dpMediaBrowserService com.android.bluetooth/A2dpMediaBrowserService (userId=0)
+      ownerPid=985, ownerUid=1002, userId=0
+      package=com.android.bluetooth
+      launchIntent=null
+      mediaButtonReceiver=null
+      active=true
+      flags=3
+      rating type=0
+      controllers: 14
+      state=null
+      audioAttrs=AudioAttributes: usage=USAGE_MEDIA content=CONTENT_TYPE_UNKNOWN flags=0x800 tags= bundle=null
+      volumeType=1, controlType=2, max=0, current=0
+      metadata: null
+      queueTitle=null, size=0
+    QQMusicCar com.tencent.qqmusiccar/QQMusicCar (userId=0)
+      ownerPid=4585, ownerUid=10038, userId=0
+      package=com.tencent.qqmusiccar
+      launchIntent=null
+      mediaButtonReceiver=MBR {pi=PendingIntent{e65e7c5: PendingIntentRecord{55fe51a com.tencent.qqmusiccar broadcastIntent}}, type=1}
+      active=true
+      flags=3
+      rating type=0
+      controllers: 2
+      state=PlaybackState {state=0, position=0, buffered position=0, speed=0.0, updated=0, actions=2360311, custom actions=[], active item id=-1, error=null}
+      audioAttrs=AudioAttributes: usage=USAGE_MEDIA content=CONTENT_TYPE_UNKNOWN flags=0x800 tags= bundle=null
+      volumeType=1, controlType=2, max=0, current=0
+      metadata: null
+      queueTitle=null, size=0
+Audio playback (lastly played comes first)
+  uid=10037 packages=com.kugou.android.auto 

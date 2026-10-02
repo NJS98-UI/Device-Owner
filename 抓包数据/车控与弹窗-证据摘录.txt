@@ -1,0 +1,42 @@
+# 第二批（2026-09-19 19:00~23:00）证据摘录
+# 每节标了原始文件（同目录 .gz 里就是未剪辑全文）。只列实测命中的行，没实测到的一律不写。
+
+## 1. 「您的管理员不允许进行这项更改」= framework 弹窗，每 20 秒一次   [系统弹窗与显示/acct60.log.gz]
+09-19 22:21:48.496 I/ActivityTaskManager(  433): START u0 {flg=0x10000000 cmp=android/.accounts.CantAddAccountActivity (has extras)} from uid 1000
+09-19 22:21:48.533 I/ActivityManager(  433): Start proc 27138:android:ui/1000 for pre-top-activity {android/android.accounts.CantAddAccountActivity}
+09-19 22:22:08.540 I/ActivityTaskManager(  433): START u0 {flg=0x10000000 cmp=android/.accounts.CantAddAccountActivity (has extras)} from uid 1000
+09-19 22:22:28.570 I/ActivityTaskManager(  433): START u0 {flg=0x10000000 cmp=android/.accounts.CantAddAccountActivity (has extras)} from uid 1000
+09-19 22:22:48.599 I/ActivityTaskManager(  433): START u0 {flg=0x10000000 cmp=android/.accounts.CantAddAccountActivity (has extras)} from uid 1000
+
+## 2. 弹窗期间前台包是 android（AdminGuard 就是靠这条判据顶回去）   [系统弹窗与显示/acct60.log.gz]
+09-19 22:30:44.322 D/WindowManager(  433): getValidTopWindowsIsActivity w=Window{b5d5219 u0 android/android.accounts.CantAddAccountActivity}
+
+## 3. 车窗四条原厂写入形态：162~165，值 2=开 / 1=关   [车控总线.../win_round.log.gz]
+09-19 19:56:29.416 I/CarInfoModel( 4221): 下发指令，moduleId=327681,requestCmdId=162,value=2
+09-19 19:56:29.418 I/CarInfoModel( 4221): 下发指令，moduleId=327681,requestCmdId=163,value=2
+09-19 19:56:29.419 I/CarInfoModel( 4221): 下发指令，moduleId=327681,requestCmdId=164,value=2
+09-19 19:56:29.421 I/CarInfoModel( 4221): 下发指令，moduleId=327681,requestCmdId=165,value=2
+09-19 19:56:45.482 I/CarInfoModel( 4221): 下发指令，moduleId=327681,requestCmdId=162,value=1
+
+## 4. 同一批写入在服务端逐条落到 CarInfoService.onSet（回读值 0=空闲 4=运行中）   [同上]
+09-19 19:55:31.571 D/VDS-CarInfo-CarInfoService( 1441): [47:onGet] onGet: eventId = 327681 eventId = 327681 cmdId = 162 values = [0]
+09-19 19:55:31.572 D/VDS-CarInfo-CarInfoService( 1441): [47:onGet] onGet: eventId = 327681 eventId = 327681 cmdId = 162 values = [0]
+09-19 19:55:31.572 D/VDS-CarInfo-CarInfoService( 1441): [47:onGet] onGet: eventId = 327681 eventId = 327681 cmdId = 162 values = [0]
+
+## 5. 档位总线：eventId 327684 / cmdId 26，受控挂 P→R→N→D→P 的实测序列   [车控总线.../gear_all.txt]
+20:31:18|327684|26|[2]
+20:31:24|327684|26|[3]
+20:31:27|327684|26|[4]
+20:31:33|327684|26|[1]
+
+## 6. 原车倒车通路不注册 CameraService：挂 R 期间每 2s 采样，active clients 恒为 0   [环视摄像头/r_hold.txt]
+21:29:32  clients=0 | 
+21:29:34  clients=0 | 
+21:29:36  clients=0 | 
+...（r_hold.txt 全文 16 次采样 21:29:32~21:30:12，全部 clients=0）
+21:30:10  clients=0 | 
+21:30:12  clients=0 | 
+
+## 7. 尾门状态 cmdId 92 回读（写 1=关 / 2=开；此处为状态回报）   [环视摄像头/live_1920.log.gz 全文]
+09-19 19:31:59.682 D/VDS-CarInfo-CarInfoService( 1441): [47:onGet] onGet: eventId = 327681 eventId = 327681 cmdId = 92 values = [2]
+09-19 20:52:52.786 D/VDS-CarInfo-CarInfoService( 1441): [47:onGet] onGet: eventId = 327681 eventId = 327681 cmdId = 92 values = [2]

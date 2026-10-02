@@ -1,0 +1,111 @@
+Root#0
+mWindowContainers#0
+DisplayArea.Root#0
+Leaf:0:1#0
+Leaf:2:2#0
+DefaultTaskDisplayArea#0
+Task=1#0
+Task=2#0
+ActivityRecord{9d8a0e u0 com.desaysv.launcher/.activity.LauncherActivity#0
+a09bc20 com.desaysv.launcher/com.desaysv.launcher.activity.LauncherActivity#0
+homeAnimationLayer#0
+splitScreenDividerAnchor#0
+animationLayer#0
+Task=3087#0
+ActivityRecord{4385045 u0 com.sfcar.launcher/.main.MainActivity#0
+2998c47 com.sfcar.launcher/com.sfcar.launcher.main.MainActivity#0
+ActivityRecord{961e143 u0 com.sfcar.launcher/.navigation.FragmentHostActivity#0
+d7b1bec com.sfcar.launcher/com.sfcar.launcher.navigation.FragmentHostActivity#0
+Task=3092#0
+ActivityRecord{fcf7afd u0 com.desaysv.setting/.view.activity.SettingActivity#0
+8d95212 com.desaysv.setting/com.desaysv.setting.view.activity.SettingActivity#0
+Task=3098#0
+ActivityRecord{4bb0189 u0 com.tencent.qqmusiccar/.app.activity.AppStarterActivity#0
+cc94ba1 com.tencent.qqmusiccar/com.tencent.qqmusiccar.app.activity.AppStarterActivity#0
+Task=3101#0
+ActivityRecord{4e0219e u0 com.bytedance.byteautoservice3/com.bytedance.auto.lite.apps.framework.ui.MainActivity#0
+50ea738 com.bytedance.byteautoservice3/com.bytedance.auto.lite.apps.framework.ui.MainActivity#0
+Task=3102#0
+ActivityRecord{f266d9d u0 com.tencent.wecarnavi/com.tencent.navibiz.main.MainUIActivity#0
+c705a0e com.tencent.wecarnavi/com.tencent.navibiz.main.MainUIActivity#0
+Task=3097#0
+ActivityRecord{3b53d6b u0 com.desaysv.launcher/com.desaysv.appmenu.activity.AppListActivity#0
+9684547 com.desaysv.launcher/com.desaysv.appmenu.activity.AppListActivity#0
+Task=3105#0
+ActivityRecord{faba3b2 u0 com.ahui.clustercast/.MainActivity#0
+b7aedae com.ahui.clustercast/com.ahui.clustercast.MainActivity#0
+com.ahui.clustercast/com.ahui.clustercast.MainActivity#0
+boostedAnimationLayer#0
+Leaf:3:14#0
+Leaf:17:48#0
+WindowToken{4bcf422 android.os.BinderProxy@d187817}#0
+Surface(name=96ec634 StatusBar0)/@0x537787e - animation-leash#0
+96ec634 StatusBar0#0
+StatusBar0#0
+WindowToken{8ed2d53 android.os.BinderProxy@d1a0c24}#0
+Surface(name=91bd7a8 NavigationBar0)/@0xec8e1df - animation-leash#1
+91bd7a8 NavigationBar0#0
+NavigationBar0#0
+WindowToken{c2368ac android.os.Binder@3d1d65f}#0
+WindowToken{c1875dd android.os.BinderProxy@90505b4}#0
+41b552 SystemUI_smallPanel#0
+SystemUI_smallPanel#0
+WindowToken{b7c7771 android.os.BinderProxy@4e08118}#0
+2c97956 SystemUI_Container#0
+WindowToken{fc1a3a9 android.os.BinderProxy@83a5b30}#0
+3065d2e SystemUI_Container_Copilot#0
+WindowToken{66db859 android.os.BinderProxy@44c14a0}#0
+8b8cc1e com.android.systemui#0
+#1
+ImeContainer#0
+WindowToken{8a3b007 android.os.Binder@eb18646}#0
+Surface(name=e47eed7 InputMethod)/@0x71862ad - animation-leash#1
+e47eed7 InputMethod#0
+WindowToken{9edc919 android.os.BinderProxy@ff2f060}#0
+fda6dde left_slideback#0
+left_slideback#0
+WindowToken{8868251 android.os.BinderProxy@db26b78}#0
+8a05ab6 right_slideback#0
+right_slideback#0
+WindowToken{ddff28d android.os.BinderProxy@75ec724}#0
+a4f6c42 LeftInterceptView#0
+LeftInterceptView#0
+WindowToken{5e1d6bc android.os.BinderProxy@48bf2af}#0
+1fde645 RightInterceptView#0
+RightInterceptView#0
+mOverlayContainers#0
+Sprite#0
+Root#1
+mWindowContainers#1
+DisplayArea.Root#1
+Leaf:0:1#1
+Leaf:2:2#1
+DefaultTaskDisplayArea#1
+homeAnimationLayer#1
+splitScreenDividerAnchor#1
+animationLayer#1
+Task=3094#0
+ActivityRecord{3269379 u0 com.tencent.wecarnavi/com.tencent.navibiz.main.MainUIActivity#0
+b4b7f58 com.tencent.wecarnavi/com.tencent.navibiz.main.MainUIActivity#0
+Task=3103#0
+ActivityRecord{c10f3 u0 com.tencent.wecarnavi/com.tencent.navibiz.main.MainUIActivity#0
+7929347 com.tencent.wecarnavi/com.tencent.navibiz.main.MainUIActivity#0
+Task=3104#0
+ActivityRecord{d58c771 u0 com.tencent.wecarnavi/com.tencent.navibiz.main.MainUIActivity#0
+3e66d2e com.tencent.wecarnavi/com.tencent.navibiz.main.MainUIActivity#0
+Task=3086#0
+ActivityRecord{9b643e6 u0 com.kugou.android.auto/.ui.activity.main.MediaActivity#0
+41e9e81 com.kugou.android.auto/com.kugou.android.auto.ui.activity.main.MediaActivity#0
+com.kugou.android.auto/com.kugou.android.auto.ui.activity.main.MediaActivity#0
+boostedAnimationLayer#1
+Leaf:3:14#1
+WindowToken{5de9073 android.os.BinderProxy@8fb34e2}#0
+bb8bb30 com.desaysv.jetour.t1n.psmap#0
+Background for -SurfaceView - #0
+SurfaceView - #0
+#0
+Bounds for - #0
+ImeContainer#1
+Leaf:17:48#1
+WindowToken{317d0a android.os.Binder@6002975}#0
+mOverlayContainers#1

@@ -1,0 +1,50 @@
+09-19 02:01:34.608 D/ClusterSettingPresenter( 1140): updateUIStatus: moduleId = [327684] cmdId = [14]
+09-19 02:01:34.615 D/ClusterSettingPresenter( 4207): updateUIStatus: moduleId = [327684] cmdId = [14]
+09-19 02:01:35.286 D/ClusterSettingPresenter( 1140): updateUIStatus: moduleId = [327684] cmdId = [14]
+09-19 02:01:35.287 D/ClusterSettingPresenter( 4207): updateUIStatus: moduleId = [327684] cmdId = [14]
+09-19 02:01:47.583 D/ClusterSettingPresenter( 1140): updateUIStatus: moduleId = [327684] cmdId = [14]
+09-19 02:01:47.587 D/ClusterSettingPresenter( 4207): updateUIStatus: moduleId = [327684] cmdId = [14]
+09-19 02:01:48.246 D/ClusterSettingPresenter( 1140): updateUIStatus: moduleId = [327684] cmdId = [14]
+09-19 02:01:48.255 D/ClusterSettingPresenter( 4207): updateUIStatus: moduleId = [327684] cmdId = [14]
+09-19 02:01:51.082 D/ClusterSettingPresenter( 4207): updateUIStatus: moduleId = [327684] cmdId = [14]
+09-19 02:01:51.135 I/ClusterThemeDialog( 1140): onCreate currentBrightness:2
+09-19 02:01:51.137 D/VDS-CarInfo-CarInfoService( 1493): [47:onGet] onGet: eventId = 327681 eventId = 327681 cmdId = 232 values = [3]
+09-19 02:01:51.137 I/ClusterThemeDialog( 1140): initData themeId:3
+09-19 02:01:51.151 D/ClusterSettingPresenter( 1140): updateUIStatus: moduleId = [327684] cmdId = [14]
+09-19 02:01:51.273 V/V2SayManagerImpl( 2172): [V1.16.8_4fd1ca57d_2512051648] [V2Say] forwardOnAccessibilityEvent: service=com.haibingtech.voice.assistant.v2say.V2sayAbilityService@58ceffb, event=EventType: TYPE_WINDOW_STATE_CHANGED; EventTime: 2403223; PackageName: com.android.systemui; MovementGranularity: 0; Action: 0; ContentChangeTypes: []; WindowChangeTypes: [] [ ClassName: com.android.systemui.dialog.ClusterThemeDialog; Text: [仪表模式, 数字模式, 经典模式, 导航模式, 极简模式, 亮度]; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: true; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: 0; ScrollY: 0; MaxScrollX: 0; MaxScrollY: 0; ScrollDeltaX: -1; ScrollDeltaY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+09-19 02:01:51.826 D/VDB-EXTRA-CarInfoProxy( 1140): [sendItemValues] moduleID:327681, cmdID:232, value:[4]
+09-19 02:01:51.827 D/VDS-CarInfo-CarInfoService( 1493): [65:onSet] onSet: eventId = 327681 eventId = 327681 cmdId = 232 values = [4]
+09-19 02:01:51.915 D/ClusterSettingPresenter( 4207): updateUIStatus: moduleId = [327681] cmdId = [232]
+09-19 02:01:51.916 D/VDS-CarInfo-CarInfoService( 1493): [47:onGet] onGet: eventId = 327681 eventId = 327681 cmdId = 232 values = [4]
+09-19 02:01:53.691 D/ClusterSettingPresenter( 1140): updateUIStatus: moduleId = [327681] cmdId = [232]
+09-19 02:01:53.691 D/VDS-CarInfo-CarInfoService( 1493): [47:onGet] onGet: eventId = 327681 eventId = 327681 cmdId = 232 values = [4]
+09-19 02:01:53.971 D/ClusterSettingPresenter( 1140): updateUIStatus: moduleId = [327684] cmdId = [14]
+09-19 02:01:53.980 D/ClusterSettingPresenter( 4207): updateUIStatus: moduleId = [327684] cmdId = [14]
+09-19 02:02:05.779 I/ClusterThemeDialog( 1140): onCreate currentBrightness:2
+09-19 02:02:05.781 D/VDS-CarInfo-CarInfoService( 1493): [47:onGet] onGet: eventId = 327681 eventId = 327681 cmdId = 232 values = [4]
+09-19 02:02:05.781 I/ClusterThemeDialog( 1140): initData themeId:4
+09-19 02:02:05.905 V/V2SayManagerImpl( 2172): [V1.16.8_4fd1ca57d_2512051648] [V2Say] forwardOnAccessibilityEvent: service=com.haibingtech.voice.assistant.v2say.V2sayAbilityService@58ceffb, event=EventType: TYPE_WINDOW_STATE_CHANGED; EventTime: 2417855; PackageName: com.android.systemui; MovementGranularity: 0; Action: 0; ContentChangeTypes: []; WindowChangeTypes: [] [ ClassName: com.android.systemui.dialog.ClusterThemeDialog; Text: [仪表模式, 数字模式, 经典模式, 导航模式, 极简模式, 亮度]; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: true; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: 0; ScrollY: 0; MaxScrollX: 0; MaxScrollY: 0; ScrollDeltaX: -1; ScrollDeltaY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+09-19 02:02:06.560 D/VDB-EXTRA-CarInfoProxy( 1140): [sendItemValues] moduleID:327681, cmdID:232, value:[3]
+09-19 02:02:06.561 D/VDS-CarInfo-CarInfoService( 1493): [65:onSet] onSet: eventId = 327681 eventId = 327681 cmdId = 232 values = [3]
+09-19 02:02:06.674 D/ClusterSettingPresenter( 4207): updateUIStatus: moduleId = [327681] cmdId = [232]
+09-19 02:02:06.674 D/VDS-CarInfo-CarInfoService( 1493): [47:onGet] onGet: eventId = 327681 eventId = 327681 cmdId = 232 values = [3]
+09-19 02:02:08.551 D/ClusterSettingPresenter( 1140): updateUIStatus: moduleId = [327681] cmdId = [232]
+09-19 02:02:08.552 D/VDS-CarInfo-CarInfoService( 1493): [47:onGet] onGet: eventId = 327681 eventId = 327681 cmdId = 232 values = [3]
+09-19 02:05:17.019 I/ClusterThemeDialog( 1140): onCreate currentBrightness:2
+09-19 02:05:17.020 D/VDS-CarInfo-CarInfoService( 1493): [47:onGet] onGet: eventId = 327681 eventId = 327681 cmdId = 232 values = [3]
+09-19 02:05:17.021 I/ClusterThemeDialog( 1140): initData themeId:3
+09-19 02:05:17.143 V/V2SayManagerImpl( 2172): [V1.16.8_4fd1ca57d_2512051648] [V2Say] forwardOnAccessibilityEvent: service=com.haibingtech.voice.assistant.v2say.V2sayAbilityService@6d0cbf8, event=EventType: TYPE_WINDOW_STATE_CHANGED; EventTime: 2609092; PackageName: com.android.systemui; MovementGranularity: 0; Action: 0; ContentChangeTypes: []; WindowChangeTypes: [] [ ClassName: com.android.systemui.dialog.ClusterThemeDialog; Text: [仪表模式, 数字模式, 经典模式, 导航模式, 极简模式, 亮度]; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: true; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: 0; ScrollY: 0; MaxScrollX: 0; MaxScrollY: 0; ScrollDeltaX: -1; ScrollDeltaY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+09-19 02:05:17.673 D/VDB-EXTRA-CarInfoProxy( 1140): [sendItemValues] moduleID:327681, cmdID:232, value:[4]
+09-19 02:05:17.674 D/VDS-CarInfo-CarInfoService( 1493): [65:onSet] onSet: eventId = 327681 eventId = 327681 cmdId = 232 values = [4]
+09-19 02:05:17.766 D/ClusterSettingPresenter( 4207): updateUIStatus: moduleId = [327681] cmdId = [232]
+09-19 02:05:17.767 D/VDS-CarInfo-CarInfoService( 1493): [47:onGet] onGet: eventId = 327681 eventId = 327681 cmdId = 232 values = [4]
+09-19 02:05:19.506 D/ClusterSettingPresenter( 1140): updateUIStatus: moduleId = [327681] cmdId = [232]
+09-19 02:05:19.506 D/VDS-CarInfo-CarInfoService( 1493): [47:onGet] onGet: eventId = 327681 eventId = 327681 cmdId = 232 values = [4]
+09-19 02:16:28.546 D/ClusterSettingPresenter( 1140): updateUIStatus: moduleId = [327684] cmdId = [14]
+09-19 02:16:28.550 D/ClusterSettingPresenter( 4207): updateUIStatus: moduleId = [327684] cmdId = [14]
+09-19 02:16:30.191 D/ClusterSettingPresenter( 4207): updateUIStatus: moduleId = [327684] cmdId = [14]
+09-19 02:16:30.204 D/ClusterSettingPresenter( 1140): updateUIStatus: moduleId = [327684] cmdId = [14]
+09-19 02:16:33.040 D/ClusterSettingPresenter( 4207): updateUIStatus: moduleId = [327684] cmdId = [14]
+09-19 02:16:33.043 D/ClusterSettingPresenter( 1140): updateUIStatus: moduleId = [327684] cmdId = [14]
+09-19 02:16:35.884 D/ClusterSettingPresenter( 1140): updateUIStatus: moduleId = [327684] cmdId = [14]
+09-19 02:16:35.898 D/ClusterSettingPresenter( 4207): updateUIStatus: moduleId = [327684] cmdId = [14]

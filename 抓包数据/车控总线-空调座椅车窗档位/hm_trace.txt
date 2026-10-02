@@ -1,0 +1,350 @@
+     const/4 v0, #int 0 // #0
+     const/4 v0, #int 0 // #0
+     const/16 v1, #int 39 // #27
+     const/16 v1, #int 160 // #a0
+     const v1, #float 4.59191e-40 // #0005000a
+     const v1, #float 4.59179e-40 // #00050001
+     const v0, #float 4.59191e-40 // #0005000a
+     const/4 v0, #int 0 // #0
+     const/16 v1, #int 10 // #a
+     const/4 v2, #int 2 // #2
+     const/4 v3, #int 1 // #1
+     const/16 v1, #int 32 // #20
+     const/16 v1, #int 60 // #3c
+     const/4 v1, #int 4 // #4
+     const/4 v1, #int 7 // #7
+     const v4, #float 9.18341e-41 // #0000ffff
+     const v4, #float 9.18341e-41 // #0000ffff
+     const v0, #float 4.59179e-40 // #00050001
+     const/16 v1, #int 160 // #a0
+     const v0, #float 4.59191e-40 // #0005000a
+     const/4 v1, #int 2 // #2
+     const/4 v1, #int 1 // #1
+>>> [clickViewWidthCall] 34ca5a: 6e40 8d8a 3014                         |0007: invoke-virtual {v0, v3, v4, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v1, #int 10 // #a
+     const/16 v0, #int 90 // #5a
+     const/4 v1, #int 2 // #2
+     const/4 v0, #int 1 // #1
+     const/4 v0, #int 0 // #0
+     const/4 v0, #int 1 // #1
+     const/4 v0, #int 0 // #0
+     const/4 v0, #int 4 // #4
+     const/4 v1, #int 1 // #1
+     const/4 v1, #int 0 // #0
+     const/4 v0, #int 4 // #4
+     const/4 v1, #int 1 // #1
+     const/4 v1, #int 0 // #0
+     const v0, #float 4.59179e-40 // #00050001
+     const/16 v1, #int 160 // #a0
+     const/4 v1, #int 1 // #1
+     const/4 v1, #int 0 // #0
+     const/16 v0, #int 8 // #8
+     const/4 v1, #int 1 // #1
+     const/4 v1, #int 0 // #0
+     const v1, #float 4.59191e-40 // #0005000a
+     const/16 v2, #int 97 // #61
+     const/4 v0, #int 6 // #6
+     const/4 v1, #int 4 // #4
+     const/4 v0, #int 1 // #1
+     const/4 v0, #int 0 // #0
+     const/16 v0, #int 10 // #a
+     const/16 v0, #int 43 // #2b
+     const/16 v0, #int 19 // #13
+     const/16 v0, #int 65 // #41
+     const/4 v1, #int 1 // #1
+     const/4 v1, #int 0 // #0
+     const/4 v1, #int 0 // #0
+     const/4 v2, #int 2 // #2
+     const/4 v2, #int 3 // #3
+     const/4 v1, #int 1 // #1
+     const/4 v0, #int 7 // #7
+     const/4 v1, #int 1 // #1
+     const/4 v1, #int 0 // #0
+     const/16 v0, #int 24 // #18
+     const/4 v1, #int 1 // #1
+     const/4 v1, #int 0 // #0
+     const/16 v0, #int 54 // #36
+     const v1, #float 9.18341e-41 // #0000ffff
+     const/4 v3, #int 2 // #2
+     const/4 v2, #int 0 // #0
+     const/4 v3, #int 1 // #1
+     const v1, #float 4.59191e-40 // #0005000a
+     const/16 v2, #int 54 // #36
+     const/4 v1, #int 0 // #0
+     const/4 v3, #int 2 // #2
+     const/4 v2, #int 0 // #0
+     const/4 v3, #int 1 // #1
+     const/16 v0, #int 57 // #39
+     const v1, #float 9.18341e-41 // #0000ffff
+     const/4 v3, #int 2 // #2
+     const/4 v2, #int 0 // #0
+     const/4 v3, #int 1 // #1
+     const/4 v0, #int 0 // #0
+     const v1, #float 4.59191e-40 // #0005000a
+     const/16 v2, #int 98 // #62
+     const/16 v0, #int 13 // #d
+     const/16 v0, #int 18 // #12
+     const/4 v0, #int 1 // #1
+     const/4 v0, #int 0 // #0
+     const/16 v0, #int 80 // #50
+     const/4 v1, #int 1 // #1
+     const/4 v1, #int 0 // #0
+     const/16 v0, #int 113 // #71
+     const/4 v1, #int 1 // #1
+     const/4 v1, #int 0 // #0
+     const/16 v0, #int 113 // #71
+     const/4 v1, #int 1 // #1
+     const/4 v1, #int 0 // #0
+     const/16 v0, #int 111 // #6f
+     const/4 v0, #int 1 // #1
+     const/4 v0, #int 0 // #0
+     const/16 v0, #int 68 // #44
+     const/4 v0, #int 0 // #0
+     const/16 v0, #int 91 // #5b
+     const/4 v1, #int 1 // #1
+     const/4 v1, #int 0 // #0
+     const/4 v0, #int 6 // #6
+     const/16 v0, #int 12 // #c
+     const/4 v0, #int 1 // #1
+     const/4 v0, #int 1 // #1
+     const/4 v0, #int 1 // #1
+     const v1, #float 4.59191e-40 // #0005000a
+     const/4 v0, #int 3 // #3
+     const/4 v0, #int 4 // #4
+     const/4 v0, #int 6 // #6
+     const/16 v0, #int 8 // #8
+     const/16 v0, #int 9 // #9
+     const/16 v0, #int 10 // #a
+     const/16 v0, #int 12 // #c
+     const/16 v0, #int 13 // #d
+     const/16 v0, #int 18 // #12
+     const/16 v0, #int 19 // #13
+     const/16 v0, #int 24 // #18
+     const/16 v0, #int 27 // #1b
+     const/16 v0, #int 54 // #36
+     const/16 v0, #int 57 // #39
+     const/16 v0, #int 33 // #21
+     const/16 v0, #int 35 // #23
+     const/16 v0, #int 36 // #24
+     const/16 v0, #int 43 // #2b
+     const/16 v0, #int 90 // #5a
+     const/16 v0, #int 91 // #5b
+     const/16 v0, #int 65 // #41
+     const/4 v0, #int 7 // #7
+     const/16 v0, #int 80 // #50
+     const/16 v0, #int 97 // #61
+     const/16 v0, #int 98 // #62
+     const/16 v0, #int 111 // #6f
+     const/16 v0, #int 68 // #44
+     const/16 v0, #int 113 // #71
+     const v0, #float 4.59179e-40 // #00050001
+     const/16 v1, #int 160 // #a0
+     const/4 v2, #int 1 // #1
+     const/4 v3, #int 2 // #2
+     const v4, #float 4.59191e-40 // #0005000a
+>>> [onACClick] 34cd0a: 6e40 8d8a 4132                         |0027: invoke-virtual {v1, v4, v2, v3}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const v0, #float 4.59191e-40 // #0005000a
+     const/4 v1, #int 1 // #1
+     const/4 v2, #int 1 // #1
+     const/4 v2, #int 2 // #2
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 90 // #5a
+>>> [onACMaxClick] 34cd64: 6e40 8d8a 3124                         |0010: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const v0, #float 4.59191e-40 // #0005000a
+     const/16 v1, #int 90 // #5a
+     const/4 v2, #int 1 // #1
+     const/4 v2, #int 2 // #2
+     const v3, #float 4.59191e-40 // #0005000a
+     const/4 v4, #int 4 // #4
+>>> [onAutoClick] 34cdbe: 6e40 8d8a 3124                         |000f: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const v0, #float 4.59191e-40 // #0005000a
+     const/4 v1, #int 4 // #4
+     const/4 v2, #int 2 // #2
+     const/4 v2, #int 1 // #1
+     const v3, #float 4.59179e-40 // #00050001
+     const/16 v4, #int 160 // #a0
+>>> [onCarSteerWheelHeatClick] 34ce18: 6e40 8d8a 3124                         |0010: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v1, #int 1 // #1
+     const/4 v1, #int 2 // #2
+     const v2, #float 4.59179e-40 // #00050001
+     const/16 v3, #int 160 // #a0
+>>> [onCarSteerWheelHeatClick] 34ce50: 6e40 8d8a 2013                         |0010: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v1, #int 10 // #a
+     const/4 v2, #int 2 // #2
+     const/4 v2, #int 1 // #1
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 8 // #8
+>>> [onCirculationClick] 34ce98: 6e40 8d8a 3124                         |0010: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const v1, #float 4.59191e-40 // #0005000a
+     const/16 v2, #int 8 // #8
+>>> [onCirculationClick] 34cebe: 6e40 8d8a 1052                         |0007: invoke-virtual {v0, v1, v2, v5}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v3, #int 10 // #a
+     const/4 v1, #int 1 // #1
+     const/4 v0, #int 0 // #0
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 97 // #61
+>>> [onCoolantFilClick] 34cf3a: 6e40 8d8a 3214                         |002b: invoke-virtual {v2, v3, v4, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v2, #int 10 // #a
+     const/4 v1, #int 4 // #4
+     const v2, #float 4.59191e-40 // #0005000a
+     const/4 v3, #int 6 // #6
+>>> [onDefrostingClick] 34cf78: 6e40 8d8a 2013                         |000c: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v1, #int 10 // #a
+     const/16 v1, #int 43 // #2b
+     const/16 v2, #int 10 // #a
+     const v3, #float 4.59191e-40 // #0005000a
+     const v0, #float 4.59191e-40 // #0005000a
+     const/16 v1, #int 65 // #41
+     const/16 v1, #int 9 // #9
+     const/4 v2, #int 2 // #2
+     const v3, #float 4.59191e-40 // #0005000a
+>>> [onHvacBackClick] 34d018: 6e40 8d8a 3021                         |0008: invoke-virtual {v0, v3, v1, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v1, #int 9 // #9
+     const/4 v2, #int 1 // #1
+     const v3, #float 4.59191e-40 // #0005000a
+>>> [onHvacEnterClick] 34d040: 6e40 8d8a 3021                         |0008: invoke-virtual {v0, v3, v1, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v0, #int 7 // #7
+     const v2, #float 4.59191e-40 // #0005000a
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 10 // #a
+>>> [onMainTempClick] 34d124: 6e40 8d8a 3214                         |002a: invoke-virtual {v2, v3, v4, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const v1, #float 4.59191e-40 // #0005000a
+     const/16 v2, #int 10 // #a
+     const/16 v1, #int 32 // #20
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 10 // #a
+>>> [onMainTempMinusClick] 34d1c6: 6e40 8d8a 3124                         |0029: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v1, #int 60 // #3c
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 10 // #a
+>>> [onMainTempPlusClick] 34d23a: 6e40 8d8a 3124                         |0029: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v2, #int 2 // #2
+     const/4 v2, #int 1 // #1
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 24 // #18
+>>> [onMaxDefrostingClick] 34d27c: 6e40 8d8a 3124                         |0010: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 13 // #d
+>>> [onPassengerTempClick] 34d2e8: 6e40 8d8a 3214                         |002a: invoke-virtual {v2, v3, v4, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v5, #int 10 // #a
+     const/16 v1, #int 13 // #d
+     const/16 v2, #int 10 // #a
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v1, #int 32 // #20
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 13 // #d
+>>> [onPassengerTempMinusClick] 34d392: 6e40 8d8a 3124                         |0029: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v2, #int 10 // #a
+     const/16 v1, #int 60 // #3c
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 13 // #d
+>>> [onPassengerTempPlusClick] 34d40a: 6e40 8d8a 3124                         |0029: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v2, #int 10 // #a
+     const/4 v2, #int 2 // #2
+     const/4 v2, #int 1 // #1
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 18 // #12
+>>> [onPowerClick] 34d480: 6e40 8d8a 3124                         |0028: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v1, #int 1 // #1
+     const/4 v1, #int 2 // #2
+     const v2, #float 4.59191e-40 // #0005000a
+     const/16 v3, #int 18 // #12
+>>> [onPowerClick] 34d4b0: 6e40 8d8a 2013                         |000c: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v1, #int 10 // #a
+     const/4 v2, #int 1 // #1
+     const/4 v2, #int 2 // #2
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 80 // #50
+>>> [onRearDeforestClick] 34d4f8: 6e40 8d8a 3124                         |0010: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const v0, #float 4.59191e-40 // #0005000a
+     const/16 v1, #int 80 // #50
+     const/4 v1, #int 2 // #2
+     const/4 v1, #int 1 // #1
+     const v2, #float 4.59191e-40 // #0005000a
+     const/16 v3, #int 113 // #71
+>>> [onRearHvacAcMaxClick] 34d54c: 6e40 8d8a 2013                         |000c: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v1, #int 10 // #a
+     const/4 v2, #int 2 // #2
+     const/4 v2, #int 1 // #1
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 111 // #6f
+>>> [onRearHvacPowerClick] 34d5c4: 6e40 8d8a 3124                         |0028: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v1, #int 1 // #1
+     const/4 v1, #int 2 // #2
+     const v2, #float 4.59191e-40 // #0005000a
+     const/16 v3, #int 111 // #6f
+>>> [onRearHvacPowerClick] 34d5f4: 6e40 8d8a 2013                         |000c: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v1, #int 10 // #a
+     const v2, #float 4.59191e-40 // #0005000a
+     const/16 v3, #int 68 // #44
+>>> [onRearWindSpeedClick] 34d638: 6e40 8d8a 2163                         |000e: invoke-virtual {v1, v2, v3, v6}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v4, #int 10 // #a
+     const/4 v0, #int 1 // #1
+     const/4 v0, #int 0 // #0
+     const/4 v2, #int 1 // #1
+     const/4 v2, #int 2 // #2
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 91 // #5b
+>>> [onSyncClick] 34d7cc: 6e40 8d8a 3124                         |0010: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const v0, #float 4.59191e-40 // #0005000a
+     const/16 v1, #int 91 // #5b
+     const/16 v1, #int 89 // #59
+     const/4 v2, #int 1 // #1
+     const v3, #float 4.59191e-40 // #0005000a
+>>> [onThirdRowPowerClick] 34d818: 6e40 8d8a 3021                         |0008: invoke-virtual {v0, v3, v1, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v1, #int 4 // #4
+     const v2, #float 4.59191e-40 // #0005000a
+     const/4 v3, #int 6 // #6
+>>> [onWindModeDefrostingClick] 34d852: 6e40 8d8a 2013                         |0007: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v1, #int 10 // #a
+     const/4 v1, #int 3 // #3
+     const v2, #float 4.59191e-40 // #0005000a
+     const/4 v3, #int 6 // #6
+>>> [onWindModeDefrostingFootClick] 34d886: 6e40 8d8a 2013                         |0007: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v1, #int 10 // #a
+     const/4 v1, #int 0 // #0
+     const v2, #float 4.59191e-40 // #0005000a
+     const/4 v3, #int 6 // #6
+>>> [onWindModeFaceClick] 34d8ba: 6e40 8d8a 2013                         |0007: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v1, #int 10 // #a
+     const/4 v1, #int 5 // #5
+     const v2, #float 4.59191e-40 // #0005000a
+     const/4 v3, #int 6 // #6
+>>> [onWindModeFaceDefrostingClick] 34d8ee: 6e40 8d8a 2013                         |0007: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v1, #int 10 // #a
+     const/4 v1, #int 1 // #1
+     const v2, #float 4.59191e-40 // #0005000a
+     const/4 v3, #int 6 // #6
+>>> [onWindModeFaceFootClick] 34d922: 6e40 8d8a 2013                         |0007: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v1, #int 10 // #a
+     const v1, #float 4.59191e-40 // #0005000a
+     const/4 v2, #int 6 // #6
+>>> [onWindModeFaceFootDefrostingClick] 34d954: 6e40 8d8a 1022                         |0006: invoke-virtual {v0, v1, v2, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v3, #int 10 // #a
+     const/4 v1, #int 2 // #2
+     const v2, #float 4.59191e-40 // #0005000a
+     const/4 v3, #int 6 // #6
+>>> [onWindModeFootClick] 34d98a: 6e40 8d8a 2013                         |0007: invoke-virtual {v0, v2, v3, v1}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v1, #int 10 // #a
+     const v2, #float 4.59191e-40 // #0005000a
+     const/16 v3, #int 12 // #c
+>>> [onWindSpeedClick] 34d9cc: 6e40 8d8a 2163                         |000e: invoke-virtual {v1, v2, v3, v6}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v4, #int 10 // #a
+     const/16 v1, #int 12 // #c
+     const/16 v2, #int 10 // #a
+     const v3, #float 4.59191e-40 // #0005000a
+     const v3, #float 4.59191e-40 // #0005000a
+     const/16 v4, #int 12 // #c
+>>> [onWindSpeedMinusClick] 34da42: 6e40 8d8a 3124                         |000f: invoke-virtual {v1, v3, v4, v2}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v2, #int 10 // #a
+     const/16 v1, #int 10 // #a
+     const v4, #float 4.59191e-40 // #0005000a
+     const/16 v5, #int 12 // #c
+>>> [onWindSpeedPlusClick] 34da8a: 6e40 8d8a 4235                         |0011: invoke-virtual {v2, v4, v5, v3}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/4 v0, #int 0 // #0
+     const/4 v0, #int 1 // #1
+     const v1, #float 4.59191e-40 // #0005000a
+     const/16 v2, #int 98 // #62
+>>> [setParkingAirConditingState] 34db46: 6e40 8d8a 1052                         |001f: invoke-virtual {v0, v1, v2, v5}, Lcom/desaysv/ivi/extra/project/carinfo/proxy/CarInfoProxy;.sendItemValue:(III)V // method@8a8d
+     const/16 v3, #int 10 // #a
+     const/4 v0, #int 0 // #0
