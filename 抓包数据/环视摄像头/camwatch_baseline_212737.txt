@@ -1,0 +1,10 @@
+=== 2026-09-19 21:27:37 tag=baseline ===
+Number of camera devices: 4
+  Conflicting devices: None
+  Conflicting devices: None
+  Conflicting devices: None
+  Conflicting devices: None
+--- foreground ---
+  mCurrentFocus=Window{e2fab8f u0 com.android.systemui}
+--- gear (cmdId 26) via recent log ---
+09-19 21:27:39.969  1628  1628 V TBoxCommonManager:  keyGear = 2
