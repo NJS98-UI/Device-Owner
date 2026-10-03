@@ -126,6 +126,9 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         setContentView(buildUi());
         refresh();
         startBusCheck();
+        // Device Owner 防杀加固（幂等）：防强行停止/防卸载/省电豁免/静默权限，
+        // 顺带把 CAMERA/存储等运行时权限静默置为永久 GRANTED（弹窗链路作兜底）
+        com.jietu.clustercast.KeepAliveGuard.apply(this);
         // 盲区/记录仪的 Camera2 通道：普通应用运行时弹窗授权一次即可（实测 USER_SET 永久记住）
         // 存储权限一并请求：U 盘录制走公共目录（U盘/DCIM/EVCam_Video），
         // 缺 WRITE_EXTERNAL_STORAGE 时 U 盘目录创建/写入全部被拒，会被误判为"检测不到U盘"
@@ -2324,6 +2327,9 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
                 if (com.jietu.clustercast.SentinelController.isWindowActive()) sb.append("，录像窗口中");
                 sb.append("）\n");
             }
+
+            // 防杀加固状态
+            sb.append("• 防杀加固: ").append(com.jietu.clustercast.KeepAliveGuard.status(this)).append("\n");
 
             // 心跳推图
             if (heartbeatManager != null) {

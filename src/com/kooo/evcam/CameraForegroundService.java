@@ -203,6 +203,7 @@ public class CameraForegroundService extends Service {
         // 确保远程服务和悬浮窗已启动（处理 START_STICKY 自动重启的情况）
         // onCreate 可能不会被调用（服务自动恢复时），所以这里也要检查
         ensureRemoteServicesStarted();
+        ensureClusterServicesStarted();
         startCameraRepairLoop();
 
         // 从Intent获取通知内容，如果没有则使用默认内容
@@ -234,6 +235,24 @@ public class CameraForegroundService extends Service {
         scheduleAutoRecordStart();
 
         return START_STICKY;
+    }
+
+    /**
+     * 确保集群投屏服务（迎宾/哨兵宿主）在跑。
+     * CastService 自身也是 START_STICKY，进程被杀后系统通常会一并恢复；
+     * 这里兜底极端情况（只恢复了 CFS）：迎宾或哨兵任一开着就拉回。
+     * 从前台服务进程 startService 无后台启动限制；CastService 已运行时
+     * startService 只触发 onStartCommand，不会重复 onCreate。
+     */
+    private void ensureClusterServicesStarted() {
+        try {
+            boolean greeting = new com.jietu.clustercast.Cfg(this).greeting();
+            boolean sentinel = new AppConfig(this).isSentinelModeEnabled();
+            if (!greeting && !sentinel) return;
+            startService(new Intent(this, com.jietu.clustercast.CastService.class));
+        } catch (Throwable t) {
+            AppLog.w(TAG, "恢复 CastService 失败: " + t);
+        }
     }
 
     /**

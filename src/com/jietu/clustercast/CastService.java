@@ -126,6 +126,8 @@ public class CastService extends Service {
         mCfg = new Cfg(this);
         mOverlay = new ClusterOverlay(this);
         startForegroundNotice();
+        // Device Owner 防杀加固（幂等）：防强行停止/防卸载/省电豁免/静默权限
+        KeepAliveGuard.apply(this);
         // 仪表盘悬浮音乐开关：开着就常驻（非投屏也显示）
         if (mCfg.clusterMusic()) ClusterMusicOverlay.show(this);
         // 开门迎宾语：总开关开着就随服务常驻监听
