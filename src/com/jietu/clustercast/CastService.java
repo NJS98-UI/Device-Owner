@@ -130,6 +130,8 @@ public class CastService extends Service {
         if (mCfg.clusterMusic()) ClusterMusicOverlay.show(this);
         // 开门迎宾语：总开关开着就随服务常驻监听
         if (mCfg.greeting()) DoorGreeting.start(this);
+        // 哨兵模式（停车守卫）：幂等自适应，开关开着就随服务常驻监听车门信号
+        SentinelController.refresh(this);
         // 主桌面音乐卡片代发：云听不上报 VDMediaItem，卡片空白时代发 MediaSession 元数据
         if (mCfg.musicCard()) {
             mMusicPublisher = new MusicCardPublisher();
@@ -150,6 +152,7 @@ public class CastService extends Service {
                         log("检测到熄火，自动退出投屏");
                         exitNow();
                     }
+                    SentinelController.setScreenDark(true);
                     QuadAutoRecord.suspendForSleep(ctx);
                     // 「息屏录制」开着时 QuadAutoRecord 未挂起，其 Surround 流不得被闸门关掉
                     if (!new com.kooo.evcam.AppConfig(ctx).isScreenOffRecordingEnabled()) {
@@ -158,6 +161,7 @@ public class CastService extends Service {
                     MainActivity m = MainActivity.getInstance();
                     if (m != null) m.onSystemSleep();
                 } else if (Intent.ACTION_SCREEN_ON.equals(a)) {
+                    SentinelController.setScreenDark(false);
                     Surround.resumeAll();
                     QuadAutoRecord.resumeFromSleep(ctx);
                     MainActivity m = MainActivity.getInstance();

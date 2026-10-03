@@ -398,7 +398,8 @@ public class DoorGreeting {
     }
 
     /** Doze 深休眠会忽略非白名单应用的 wakelock（长睡不播的根因），没豁免就弹系统确认框。 */
-    private static void ensureDozeWhitelist(Context ctx) {
+    /** 申请电池优化豁免（Doze 会废掉非白名单 wakelock）。迎宾与哨兵共用。 */
+    public static void ensureDozeWhitelist(Context ctx) {
         try {
             android.os.PowerManager pm = (android.os.PowerManager)
                     ctx.getSystemService(Context.POWER_SERVICE);

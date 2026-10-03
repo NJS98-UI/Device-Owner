@@ -464,6 +464,24 @@ public class SettingsFragment extends Fragment {
             }
         });
 
+        // 初始化哨兵模式开关（停车守卫：开门触发录像窗口）
+        SwitchMaterial sentinelModeSwitch = view.findViewById(R.id.switch_sentinel_mode);
+        if (getContext() != null && appConfig != null) {
+            sentinelModeSwitch.setChecked(appConfig.isSentinelModeEnabled());
+        }
+        sentinelModeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (getContext() != null && appConfig != null) {
+                appConfig.setSentinelModeEnabled(isChecked);
+                // 幂等自适应：开→起值守线程，关→停线程并收尾停录
+                com.jietu.clustercast.SentinelController.refresh(getContext());
+                String message = isChecked
+                        ? "哨兵模式已启用：锁车熄屏后自动值守，开门自动录像"
+                        : "哨兵模式已禁用";
+                Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+                AppLog.d("SettingsFragment", message);
+            }
+        });
+
         // 定时保活已改为始终开启（车机必需），无需设置开关
         // 隐藏定时保活开关
         View keepAliveSwitch = view.findViewById(R.id.switch_keep_alive);

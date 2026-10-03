@@ -1732,6 +1732,7 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
             runOnUiThread(new Runnable() { @Override public void run() {
                 stopTailgatePoll();
                 DoorGreeting.stop();
+                com.jietu.clustercast.SentinelController.shutdown();
             }});
         } catch (Throwable t) {
             AppLog.e(TAG, "清理时出错", t);
@@ -2315,7 +2316,15 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
 
             // 开机自动录像
             sb.append("• 开机自动录像: ").append(appConfig.isBootAutoRecord() ? "开" : "关").append("\n");
-            
+
+            // 哨兵模式（停车守卫）
+            if (appConfig.isSentinelModeEnabled()) {
+                sb.append("• 哨兵模式: 开");
+                sb.append(com.jietu.clustercast.SentinelController.isRunning() ? "（值守中" : "（未运行");
+                if (com.jietu.clustercast.SentinelController.isWindowActive()) sb.append("，录像窗口中");
+                sb.append("）\n");
+            }
+
             // 心跳推图
             if (heartbeatManager != null) {
                 com.kooo.evcam.heartbeat.HeartbeatConfig hbConfig = heartbeatManager.getConfig();

@@ -21,6 +21,7 @@ public class AppConfig {
     private static final String KEY_AUTO_START_RECORDING = "auto_start_recording";  // 启动自动录制
     private static final String KEY_BOOT_AUTO_RECORD = "boot_auto_record";  // 开机自动录像（无人值守：开机/服务重启后自动开录）
     private static final String KEY_SCREEN_OFF_RECORDING = "screen_off_recording";  // 息屏录制（锁车录制）
+    private static final String KEY_SENTINEL_MODE = "sentinel_mode";  // 哨兵模式（停车守卫：开门触发录像窗口）
     private static final String KEY_KEEP_ALIVE_ENABLED = "keep_alive_enabled";  // 保活服务
     private static final String KEY_PREVENT_SLEEP_ENABLED = "prevent_sleep_enabled";  // 防止休眠（持续WakeLock）
     private static final String KEY_RECORDING_MODE = "recording_mode";  // 录制模式
@@ -510,7 +511,25 @@ public class AppConfig {
         // 默认禁用息屏录制
         return prefs.getBoolean(KEY_SCREEN_OFF_RECORDING, false);
     }
-    
+
+    /**
+     * 设置哨兵模式（停车守卫）
+     * 锁车熄屏后自动值守，任一车门被打开时自动录像 60 秒（期间再开门自动延长）。
+     * @param enabled true 表示启用哨兵模式
+     */
+    public void setSentinelModeEnabled(boolean enabled) {
+        prefs.edit().putBoolean(KEY_SENTINEL_MODE, enabled).apply();
+        AppLog.d(TAG, "哨兵模式设置: " + (enabled ? "启用" : "禁用"));
+    }
+
+    /**
+     * 获取哨兵模式设置（默认关闭：开启后锁车期间 CPU 不深睡，待机功耗略增）
+     * @return true 表示启用哨兵模式
+     */
+    public boolean isSentinelModeEnabled() {
+        return prefs.getBoolean(KEY_SENTINEL_MODE, false);
+    }
+
     /**
      * 设置保活服务
      * @param enabled true 表示启用保活服务
