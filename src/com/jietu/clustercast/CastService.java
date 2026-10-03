@@ -128,6 +128,8 @@ public class CastService extends Service {
         startForegroundNotice();
         // Device Owner 防杀加固（幂等）：防强行停止/防卸载/省电豁免/静默权限
         KeepAliveGuard.apply(this);
+        // 一机一码授权轮询（服务侧兜底）：无界面时断网/到期也能自动停录
+        com.kooo.evcam.license.LicenseManager.get().start(this, null);
         // 仪表盘悬浮音乐开关：开着就常驻（非投屏也显示）
         if (mCfg.clusterMusic()) ClusterMusicOverlay.show(this);
         // 开门迎宾语：总开关开着就随服务常驻监听

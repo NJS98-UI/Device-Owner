@@ -87,6 +87,10 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
     private View settingsView = null;
     private boolean inSettings = false;
     private TextView gearView;
+    /** 授权状态徽标（右上角，挡位旁）。 */
+    private TextView licenseView;
+    /** 授权被拒中（用于 denied→allowed 转变时恢复自动录像）。 */
+    private boolean licenseDenied;
     private String lastGearText = "";
     private TextView busView;
     private List<ResolveInfo> allApps = new ArrayList<>();
@@ -145,6 +149,9 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         if (!perms.isEmpty()) {
             requestPermissions(perms.toArray(new String[0]), 1);
         }
+        // 一机一码激活/试用：3 秒轮询云端，状态驱动徽标/激活框/录像拦截
+        com.kooo.evcam.license.LicenseManager.get().start(this,
+                (state, remain, message) -> applyLicenseState(state, remain, message));
         maybeAutoStartRecording(getIntent());
         // 手动打开（非开机链路）："启动自动录制"开关管这里；开机链路归"开机自动录像"开关（maybeAutoStartRecording）
         Intent launch = getIntent();
@@ -292,6 +299,85 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         if (i == null || !i.getBooleanExtra("auto_start_from_boot", false)) return;
         if (appConfig == null || !appConfig.isBootAutoRecord()) return;
         scheduleQuadStart("启动四合一录像（开机自动录像）");
+    }
+
+    // ---------- 一机一码授权（激活/试用） ----------
+
+    /** 授权状态回调（主线程）：刷新右上角徽标、开关激活框、联动录像启停。 */
+    private void applyLicenseState(
+            com.kooo.evcam.license.LicenseManager.State state,
+            long remain, String message) {
+        if (isFinishing() || isDestroyed()) return;
+        // 徽标：试用=淡黄+倒计时，已激活=绿色，其余=红
+        if (licenseView != null) {
+            if (state == com.kooo.evcam.license.LicenseManager.State.ACTIVATED) {
+                licenseView.setText("已激活");
+                licenseView.setTextColor(0xFF1B2A4A);
+                licenseView.setBackground(Ui.darkBg(this, 0xFF4ADE80, 14));
+            } else if (state == com.kooo.evcam.license.LicenseManager.State.TRIAL) {
+                long h = remain / 3600_000L;
+                long m = (remain % 3600_000L) / 60_000L;
+                licenseView.setText(String.format("试用 %02d:%02d", h, m));
+                licenseView.setTextColor(0xFF5C4A00);
+                licenseView.setBackground(Ui.darkBg(this, 0xFFFDE68A, 14));
+            } else if (state == com.kooo.evcam.license.LicenseManager.State.PENDING) {
+                licenseView.setText("授权 …");
+                licenseView.setTextColor(Ui.D_TEXT_SUB);
+                licenseView.setBackground(Ui.darkBg(this, Ui.D_BTN, 14));
+            } else {
+                licenseView.setText("未激活");
+                licenseView.setTextColor(0xFFFFFFFF);
+                licenseView.setBackground(Ui.darkBg(this, 0xFFDC2626, 14));
+            }
+        }
+        boolean denied = state == com.kooo.evcam.license.LicenseManager.State.NOT_ACTIVATED
+                || state == com.kooo.evcam.license.LicenseManager.State.BLOCKED;
+        if (denied) {
+            boolean wasDenied = licenseDenied;
+            licenseDenied = true;
+            // 停掉正在进行的录像（试用到期/断网即时生效）
+            if (quadRecording) {
+                stopQuad();
+                Toast.makeText(this, "授权失效，已停止录像", Toast.LENGTH_LONG).show();
+            }
+            LicenseDialog.show(this, message, new LicenseDialog.Host() {
+                @Override public void onActivateClicked(String code) {
+                    com.kooo.evcam.license.LicenseManager.get().activate(code,
+                            (ok, m) -> Toast.makeText(MainActivity.this, m,
+                                    Toast.LENGTH_LONG).show());
+                }
+                @Override public void onTrialClicked() {
+                    com.kooo.evcam.license.LicenseManager.get().requestTrial(
+                            (ok, m) -> Toast.makeText(MainActivity.this, m,
+                                    Toast.LENGTH_LONG).show());
+                }
+            });
+            if (wasDenied) return; // 恢复录像只在 denied→allowed 边沿做一次
+        } else {
+            licenseDenied = false;
+            LicenseDialog.dismiss();
+            // 之前被拦下的自动录像：授权恢复后补开（开机自动录像/启动自动录制开关照旧生效）
+            if (appConfig != null
+                    && (appConfig.isBootAutoRecord() || appConfig.isAutoStartRecording())
+                    && !autoStartRecordingDone && !quadRecording) {
+                scheduleQuadStart("授权恢复自动开录");
+            }
+        }
+    }
+
+    /** 点徽标时手动查看：未激活/失效弹激活框，其余给一条状态提示。 */
+    private void showLicenseDialogIfNeeded(boolean fromUser) {
+        com.kooo.evcam.license.LicenseManager lm = com.kooo.evcam.license.LicenseManager.get();
+        com.kooo.evcam.license.LicenseManager.State s = lm.getState();
+        if (s == com.kooo.evcam.license.LicenseManager.State.NOT_ACTIVATED
+                || s == com.kooo.evcam.license.LicenseManager.State.BLOCKED) {
+            applyLicenseState(s, lm.getTrialRemainingMs(), lm.getLastMessage());
+        } else if (fromUser) {
+            Toast.makeText(this,
+                    s == com.kooo.evcam.license.LicenseManager.State.ACTIVATED
+                            ? "已激活" : "试用中，剩余 " + lm.getLastMessage(),
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override public void onWindowFocusChanged(boolean hasFocus) {
@@ -539,8 +625,14 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         topBar.addView(menu, new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 
-        // 右：挡位 + 总线状态（每屏可见）
+        // 右：授权状态 + 挡位 + 总线状态（每屏可见）
         int chPadX = Ui.dp(this, 10), chPadY = Ui.dp(this, 4);
+        licenseView = Ui.text(this, 11, Ui.D_TEXT_SUB, Typeface.NORMAL, 1);
+        licenseView.setText("授权 …");
+        licenseView.setBackground(Ui.darkBg(this, Ui.D_BTN, 14));
+        licenseView.setPadding(chPadX, chPadY, chPadX, chPadY);
+        licenseView.setOnClickListener(v -> showLicenseDialogIfNeeded(true));
+        topBar.addView(licenseView, Ui.ww());
         gearView = Ui.text(this, 11, Ui.D_TEXT_SUB, Typeface.NORMAL, 1);
         gearView.setText("挡位 --");
         gearView.setBackground(Ui.darkBg(this, Ui.D_BTN, 14));
@@ -2711,6 +2803,12 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
     }
 
     private void startQuad() {
+        // 一机一码授权拦截：未激活/试用到期/断网停用一律不开录
+        if (!com.kooo.evcam.license.LicenseManager.get().isAllowed()) {
+            note(dvrStatus, "授权未通过，无法开始录像");
+            showLicenseDialogIfNeeded(true);
+            return;
+        }
         if (quadRecording) {
             return;
         }

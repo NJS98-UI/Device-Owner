@@ -45,6 +45,12 @@ public final class QuadAutoRecord {
 
     /** 开录。幂等；单路相机打不开由 Surround 自己重连，合成器起不来才整体回退。 */
     public static synchronized void start(Context ctx) {
+        // 一机一码授权拦截：未激活/试用到期/断网停用一律不开录
+        com.kooo.evcam.license.LicenseManager lm = com.kooo.evcam.license.LicenseManager.get();
+        if (!lm.isAllowed()) {
+            AppLog.w(TAG, "授权拦截：状态 " + lm.getState() + "，不开录");
+            return;
+        }
         if (sComposer != null) return;
         final Context app = ctx.getApplicationContext();
         try {
