@@ -34,8 +34,11 @@ public final class SentinelController {
     private static final long POLL_MS = 150L;
     /** Smart 值守检测流相机：7=后路环视（撬尾门/车后靠近最常见）。 */
     private static final int MOTION_CAM_ID = 7;
-    /** 深度休眠兜底：RTC 闹钟唤醒间隔（厂商整机休眠无视 wakelock，实车验证）。 */
-    private static final long WAKE_ALARM_MS = 45_000;
+    /** 深睡兜底：RTC 闹钟唤醒间隔（setAlarmClock 最高优先级，无限频）。 */
+    private static final long WAKE_ALARM_MS = 5_000;
+    /** 唤醒后持锁时长（> 间隔）：锁链无缝重叠 → 浅睡级休眠被完全挡住，
+     *  CPU 实时活着轮询 150ms 即可秒级检测；厂商强制冻结时由 5 秒闹钟兜底。 */
+    static final long WAKE_HOLD_MS = 6_500;
 
     private static volatile boolean sRun;
     private static Thread sThread;

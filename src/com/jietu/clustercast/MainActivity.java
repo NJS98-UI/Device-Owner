@@ -2326,7 +2326,7 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
                 sb.append(com.jietu.clustercast.SentinelController.isRunning() ? "（值守中" : "（未运行");
                 if (appConfig.isSentinelMotionEnabled()) sb.append("/Smart运动检测");
                 if (com.jietu.clustercast.SentinelController.isWindowActive()) sb.append("，录像窗口中");
-                sb.append("，深睡兜底闹钟45秒）\n");
+                sb.append("，5秒实时值守）\n");
             }
 
             // 防杀加固状态
