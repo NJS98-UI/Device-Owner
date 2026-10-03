@@ -481,7 +481,7 @@ public class SettingsFragment extends Fragment {
                 com.jietu.clustercast.SentinelController.refresh(getContext());
                 sentinelMotionLayout.setVisibility(isChecked ? View.VISIBLE : View.GONE);
                 String message = isChecked
-                        ? "哨兵模式已启用：锁车熄屏后自动值守，开门自动录像"
+                        ? "哨兵模式已启用：锁车后开门/运动触发时自动录像（全程录像请用息屏录制）"
                         : "哨兵模式已禁用";
                 Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
                 AppLog.d("SettingsFragment", message);
@@ -493,7 +493,7 @@ public class SettingsFragment extends Fragment {
                 // 按运动检测开关切换检测流
                 com.jietu.clustercast.SentinelController.refresh(getContext());
                 String message = isChecked
-                        ? "哨兵运动检测已启用：人靠近/撬动车辆也会触发录像"
+                        ? "哨兵运动检测已启用：人靠近、砸窗、撬车也会触发录像"
                         : "哨兵运动检测已禁用";
                 Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
                 AppLog.d("SettingsFragment", message);

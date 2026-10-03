@@ -1106,7 +1106,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="锁车熄屏后自动值守，任一车门被打开时自动录像60秒（期间再开门自动延长）。开启后锁车期间不深睡，待机功耗略增"
+                        android:text="停车守卫（有事才录）：锁车熄屏后自动值守，开门或检测到运动时才录60秒，省电省存储。要锁车全程录像请改用「息屏录制」。开启后锁车期间不深睡，待机功耗略增"
                         android:textColor="@color/text_secondary"
                         android:textSize="16sp"
                         android:layout_marginTop="4dp" />
@@ -1148,7 +1148,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="值守期间保持后路相机低功耗检测，人靠近/撬动车辆（无门信号）也能触发录像。功耗略增"
+                        android:text="值守期间保持后路相机低功耗监控，人靠近、砸窗、撬车（门没开）也会触发录像。功耗略增，全程录像需求请用「息屏录制」"
                         android:textColor="@color/text_secondary"
                         android:textSize="16sp"
                         android:layout_marginTop="4dp" />
