@@ -466,17 +466,35 @@ public class SettingsFragment extends Fragment {
 
         // 初始化哨兵模式开关（停车守卫：开门触发录像窗口）
         SwitchMaterial sentinelModeSwitch = view.findViewById(R.id.switch_sentinel_mode);
+        LinearLayout sentinelMotionLayout = view.findViewById(R.id.layout_sentinel_motion);
+        SwitchMaterial sentinelMotionSwitch = view.findViewById(R.id.switch_sentinel_motion);
         if (getContext() != null && appConfig != null) {
-            sentinelModeSwitch.setChecked(appConfig.isSentinelModeEnabled());
+            boolean sentinelOn = appConfig.isSentinelModeEnabled();
+            sentinelModeSwitch.setChecked(sentinelOn);
+            sentinelMotionSwitch.setChecked(appConfig.isSentinelMotionEnabled());
+            sentinelMotionLayout.setVisibility(sentinelOn ? View.VISIBLE : View.GONE);
         }
         sentinelModeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (getContext() != null && appConfig != null) {
                 appConfig.setSentinelModeEnabled(isChecked);
                 // 幂等自适应：开→起值守线程，关→停线程并收尾停录
                 com.jietu.clustercast.SentinelController.refresh(getContext());
+                sentinelMotionLayout.setVisibility(isChecked ? View.VISIBLE : View.GONE);
                 String message = isChecked
                         ? "哨兵模式已启用：锁车熄屏后自动值守，开门自动录像"
                         : "哨兵模式已禁用";
+                Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+                AppLog.d("SettingsFragment", message);
+            }
+        });
+        sentinelMotionSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (getContext() != null && appConfig != null) {
+                appConfig.setSentinelMotionEnabled(isChecked);
+                // 按运动检测开关切换检测流
+                com.jietu.clustercast.SentinelController.refresh(getContext());
+                String message = isChecked
+                        ? "哨兵运动检测已启用：人靠近/撬动车辆也会触发录像"
+                        : "哨兵运动检测已禁用";
                 Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
                 AppLog.d("SettingsFragment", message);
             }

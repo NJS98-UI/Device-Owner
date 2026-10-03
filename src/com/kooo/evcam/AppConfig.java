@@ -22,6 +22,7 @@ public class AppConfig {
     private static final String KEY_BOOT_AUTO_RECORD = "boot_auto_record";  // 开机自动录像（无人值守：开机/服务重启后自动开录）
     private static final String KEY_SCREEN_OFF_RECORDING = "screen_off_recording";  // 息屏录制（锁车录制）
     private static final String KEY_SENTINEL_MODE = "sentinel_mode";  // 哨兵模式（停车守卫：开门触发录像窗口）
+    private static final String KEY_SENTINEL_MOTION = "sentinel_motion";  // 哨兵运动检测（Smart 值守：画面帧差触发）
     private static final String KEY_KEEP_ALIVE_ENABLED = "keep_alive_enabled";  // 保活服务
     private static final String KEY_PREVENT_SLEEP_ENABLED = "prevent_sleep_enabled";  // 防止休眠（持续WakeLock）
     private static final String KEY_RECORDING_MODE = "recording_mode";  // 录制模式
@@ -528,6 +529,25 @@ public class AppConfig {
      */
     public boolean isSentinelModeEnabled() {
         return prefs.getBoolean(KEY_SENTINEL_MODE, false);
+    }
+
+    /**
+     * 设置哨兵运动检测（Smart 值守）
+     * 开启后哨兵值守期间额外保持 1 路低分辨率检测流做画面帧差，
+     * 人靠近/撬动车辆等门信号覆盖不到的动作也能触发录像窗口。需哨兵模式开启。
+     * @param enabled true 表示启用运动检测
+     */
+    public void setSentinelMotionEnabled(boolean enabled) {
+        prefs.edit().putBoolean(KEY_SENTINEL_MOTION, enabled).apply();
+        AppLog.d(TAG, "哨兵运动检测设置: " + (enabled ? "启用" : "禁用"));
+    }
+
+    /**
+     * 获取哨兵运动检测设置（默认关：值守功耗略增，实车验证后再默认开）
+     * @return true 表示启用运动检测
+     */
+    public boolean isSentinelMotionEnabled() {
+        return prefs.getBoolean(KEY_SENTINEL_MOTION, false);
     }
 
     /**

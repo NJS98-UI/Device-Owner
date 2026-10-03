@@ -26,6 +26,9 @@ public final class Surround {
     /** 状态回报（权限缺失 / open 失败 / 流错误），调用方写进页面状态行。 */
     public interface Report { void onStatus(String s); }
 
+    /** 运动检测回调（Smart 哨兵值守用）：帧差超阈值且连续两拍确认后触发。 */
+    public interface MotionListener { void onMotion(); }
+
     private final Context ctx;
     private final int camId;
     private Report report;
@@ -87,6 +90,11 @@ public final class Surround {
             new java.util.ArrayList<Surround>();
     private static boolean sGateClosed = false;
     private boolean gateHeld = false;
+    /** 闸门豁免（Smart 哨兵检测流）：熄屏照常出流、不登记闸门，
+     *  生命周期完全由 SentinelController 管理（持锁值守系统不 suspend）。 */
+    private volatile boolean gateExempt = false;
+
+    public void setGateExempt(boolean exempt) { gateExempt = exempt; }
 
     private static void register(Surround s) {
         synchronized (sAll) { if (!sAll.contains(s)) sAll.add(s); }
@@ -112,6 +120,7 @@ public final class Surround {
     }
 
     private void suspendForGate() {
+        if (gateExempt) return;   // 哨兵检测流：熄屏照常出流
         if (stopped || gateHeld) return;
         gateHeld = true;
         stopped = true;
@@ -144,14 +153,14 @@ public final class Surround {
 
     /** TextureView 的 surface 就绪后调；重复调安全。已在开着时换预览面 → 只重建会话。 */
     public void start(SurfaceTexture st) {
-        register(this);
+        if (!gateExempt) register(this);
         boolean changed = st != tex;
         tex = st;
         if (!stopped) {
             if (cam != null && changed) rebuildSession();
             return;
         }
-        if (sGateClosed) { gateHeld = true; return; }   // 熄屏期不碰相机，唤醒后 resumeAll 开
+        if (sGateClosed && !gateExempt) { gateHeld = true; return; }   // 熄屏期不碰相机，唤醒后 resumeAll 开
         stopped = false;
         if (ctx.checkSelfPermission(android.Manifest.permission.CAMERA)
                 != android.content.pm.PackageManager.PERMISSION_GRANTED) {
@@ -176,6 +185,102 @@ public final class Surround {
         if (!stopped && cam != null) rebuildSession();
     }
 
+    // ---------- 运动检测输出（Smart 哨兵值守）----------
+    // session 额外挂一个低分辨率 YUV ImageReader，帧差超阈值且连续两拍确认
+    // 才回调 onMotion。检测流单独跑（tex/recTex 都为 null 时 session 只出
+    // YUV，ISP 开销远低于全尺寸预览/录像）。
+
+    private static final int MOTION_W = 320;
+    private static final int MOTION_H = 240;
+    /** 采样网格 64x48（步长 5），像素差阈值，变化比例阈值。 */
+    private static final int SAMPLE_COLS = 64, SAMPLE_ROWS = 48, SAMPLE_STEP = 5;
+    private static final int LUMA_DELTA = 24;
+    private static final double MOTION_RATIO = 0.06;
+    /** 两拍间隔节流与触发冷却。 */
+    private static final long CHECK_INTERVAL_MS = 300;
+    private static final long MOTION_COOLDOWN_MS = 30_000;
+
+    private android.media.ImageReader motionReader;
+    private MotionListener motionListener;
+    private byte[] prevLuma = new byte[SAMPLE_COLS * SAMPLE_ROWS];
+    private long lastCheckAt;
+    private long lastMotionAt;
+    private int motionStreak;
+
+    /** 挂运动检测回调（在 start 前调；已开流时重建会话补挂 YUV target）。 */
+    public void setMotionListener(MotionListener l) {
+        motionListener = l;
+        if (l != null && motionReader == null) {
+            try {
+                motionReader = android.media.ImageReader.newInstance(
+                        MOTION_W, MOTION_H, android.graphics.ImageFormat.YUV_420_888, 2);
+                motionReader.setOnImageAvailableListener(r -> {
+                    android.media.Image img = null;
+                    try { img = r.acquireLatestImage(); } catch (Throwable ignored) { }
+                    if (img == null) return;
+                    long now = System.currentTimeMillis();
+                    boolean motion = now - lastCheckAt >= CHECK_INTERVAL_MS
+                            && checkMotion(img);
+                    lastCheckAt = now;
+                    img.close();
+                    if (motion && now - lastMotionAt >= MOTION_COOLDOWN_MS) {
+                        lastMotionAt = now;
+                        say("运动检测触发");
+                        MotionListener ml = motionListener;
+                        if (ml != null) ml.onMotion();
+                    }
+                }, null);
+            } catch (Throwable t) {
+                say("运动检测初始化失败：" + t);
+                motionReader = null;
+                motionListener = null;
+            }
+        }
+        if (!stopped && cam != null) rebuildSession();
+    }
+
+    public void clearMotionListener() {
+        MotionListener ml = motionListener;
+        motionListener = null;
+        if (motionReader != null) {
+            try { motionReader.close(); } catch (Throwable ignored) { }
+            motionReader = null;
+            if (ml != null) say("运动检测流已摘除");
+            if (!stopped && cam != null) rebuildSession();
+        }
+        motionStreak = 0;
+    }
+
+    /** Y 平面采样帧差。连续两拍超阈值才返回 true（防单帧噪声）。 */
+    private boolean checkMotion(android.media.Image img) {
+        try {
+            android.media.Image.Plane p = img.getPlanes()[0];
+            java.nio.ByteBuffer buf = p.getBuffer();
+            int rowStride = p.getRowStride();
+            int changed = 0;
+            for (int j = 0; j < SAMPLE_ROWS; j++) {
+                int rowOff = j * SAMPLE_STEP * rowStride;
+                for (int i = 0; i < SAMPLE_COLS; i++) {
+                    int off = rowOff + i * SAMPLE_STEP;
+                    if (off >= buf.capacity()) continue;
+                    byte cur = buf.get(off);
+                    byte prev = prevLuma[j * SAMPLE_COLS + i];
+                    prevLuma[j * SAMPLE_COLS + i] = cur;
+                    if (Math.abs(cur - prev) > LUMA_DELTA) changed++;
+                }
+            }
+            if (changed > (SAMPLE_COLS * SAMPLE_ROWS * MOTION_RATIO)) {
+                motionStreak++;
+                if (motionStreak >= 2) { motionStreak = 0; return true; }
+            } else {
+                motionStreak = 0;
+            }
+        } catch (Throwable t) {
+            // 读帧失败不影响检测流本身
+        }
+        return false;
+    }
+
     /** 真正开流；被系统断开/出错后由重连循环反复调，不跟随原车的速度回收。 */
     private void open() {
         lastFrameAt = 0;
@@ -184,8 +289,11 @@ public final class Surround {
             CameraCharacteristics ch = cm.getCameraCharacteristics(String.valueOf(camId));
             StreamConfigurationMap map =
                     ch.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
-            Size best = pick(map.getOutputSizes(SurfaceTexture.class), 1280, 800);
-            tex.setDefaultBufferSize(best.getWidth(), best.getHeight());
+            // 纯检测流（gateExempt，无预览纹理）没有 tex，跳过预览尺寸设置
+            if (tex != null) {
+                Size best = pick(map.getOutputSizes(SurfaceTexture.class), 1280, 800);
+                tex.setDefaultBufferSize(best.getWidth(), best.getHeight());
+            }
             ht = new HandlerThread("surround-" + camId);
             ht.start();
             Handler h = new Handler(ht.getLooper());
@@ -238,12 +346,13 @@ public final class Surround {
 
     private void runSession() {
         try {
-            if (cam == null || (tex == null && recTex == null)) return;
+            if (cam == null || (tex == null && recTex == null && motionReader == null)) return;
             sessionStartedAt = System.currentTimeMillis();
             java.util.List<Surface> targets = new java.util.ArrayList<>();
             if (tex != null) targets.add(new Surface(tex));
             // 录像面和预览面是同一个纹理时只挂一次（后台直接开录的场景）
             if (recTex != null && recTex != tex) targets.add(new Surface(recTex));
+            if (motionReader != null) targets.add(motionReader.getSurface());
             cam.createCaptureSession(targets,
                     new CameraCaptureSession.StateCallback() {
                         @Override public void onConfigured(CameraCaptureSession s) {
@@ -292,6 +401,10 @@ public final class Surround {
         sess = null;
         try { if (cam != null) cam.close(); } catch (Throwable ignored) { }
         cam = null;
+        if (motionReader != null) {
+            try { motionReader.close(); } catch (Throwable ignored) { }
+            motionReader = null;
+        }
         if (ht != null) {
             ht.quitSafely();
             ht = null;

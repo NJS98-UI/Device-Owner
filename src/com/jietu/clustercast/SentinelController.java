@@ -32,11 +32,15 @@ public final class SentinelController {
     private static final long WINDOW_MS = 60_000L;
     /** 门信号轮询周期，与 DoorGreeting 一致。 */
     private static final long POLL_MS = 150L;
+    /** Smart 值守检测流相机：7=后路环视（撬尾门/车后靠近最常见）。 */
+    private static final int MOTION_CAM_ID = 7;
 
     private static volatile boolean sRun;
     private static Thread sThread;
     private static Context sApp;
     private static PowerManager.WakeLock sWl;
+    /** Smart 值守检测流（低分辨率 YUV 帧差，单路）。 */
+    private static Surround sMotionCam;
 
     /** 熄屏中（CastService SCREEN_OFF/ON 通知）。 */
     private static volatile boolean sScreenDark;
@@ -58,6 +62,15 @@ public final class SentinelController {
             startInternal(app);
         } else if (!want && sThread != null) {
             stopInternal();
+            return;
+        }
+        if (sThread != null) {
+            // 值守已在跑：按运动检测开关切换检测流（Smart = 检测流 + 门信号）
+            if (new AppConfig(app).isSentinelMotionEnabled()) {
+                startMotionStream();
+            } else {
+                stopMotionStream();
+            }
         }
     }
 
@@ -71,6 +84,13 @@ public final class SentinelController {
         }
         if (dark) {
             DoorGreeting.ensureDozeWhitelist(sApp);
+            // 熄屏进入值守：Smart 开就开检测流（先把闸门开掉，否则流被挂起）
+            synchronized (SentinelController.class) {
+                if (new AppConfig(sApp).isSentinelMotionEnabled()) startMotionStream();
+            }
+        } else {
+            // 亮屏不需要值守检测
+            synchronized (SentinelController.class) { stopMotionStream(); }
         }
     }
 
@@ -87,6 +107,8 @@ public final class SentinelController {
         }
         holdCpu(app);
         DoorGreeting.ensureDozeWhitelist(app);
+        // Smart 值守：熄屏态被拉起时直接开检测流（startInternal 里 sScreenDark 已初始化）
+        if (new AppConfig(app).isSentinelMotionEnabled()) startMotionStream();
         sThread = new Thread(new Runnable() {
             @Override public void run() { loop(sApp); }
         }, "sentinel");
@@ -104,6 +126,7 @@ public final class SentinelController {
         Thread t = sThread;
         sThread = null;
         if (t != null) t.interrupt();
+        stopMotionStream();
         endWindow(true);
         dropCpu();
         AppLog.d(TAG, "哨兵模式已停止");
@@ -156,7 +179,54 @@ public final class SentinelController {
             }
             return;
         }
+        // 检测流占着 cam7，QuadAutoRecord 四路包含 7，先停防 Camera2 冲突
+        stopMotionStream();
         startWindow();
+    }
+
+    /** Smart 检测流回调（帧差连续两拍确认）：处理与门信号同一条触发链。 */
+    private static synchronized void onMotion() {
+        if (!sScreenDark) return;
+        if (QuadAutoRecord.isActive()) {
+            if (sWindowActive) {
+                sWindowDeadline = System.currentTimeMillis() + WINDOW_MS;
+            }
+            return;
+        }
+        AppLog.d(TAG, "哨兵触发源：运动检测");
+        stopMotionStream();
+        startWindow();
+    }
+
+    /** 开 Smart 检测流（幂等）：熄屏值守 + 未在录像窗口才开。 */
+    private static void startMotionStream() {
+        if (sMotionCam != null) return;
+        if (!new AppConfig(sApp).isSentinelMotionEnabled()) return;
+        if (!sScreenDark || sWindowActive || QuadAutoRecord.isActive()) return;
+        try {
+            Surround s = new Surround(sApp, MOTION_CAM_ID);
+            s.setGateExempt(true);   // 熄屏照常出流（持锁系统不睡），闸门不碰它
+            s.setMotionListener(new Surround.MotionListener() {
+                @Override public void onMotion() { onMotion(); }
+            });
+            s.start(null);   // 纯 YUV 检测流，无预览面
+            sMotionCam = s;
+            AppLog.d(TAG, "Smart 检测流已开（cam" + MOTION_CAM_ID + " 低分辨率帧差值守）");
+        } catch (Throwable t) {
+            AppLog.w(TAG, "检测流启动失败: " + t);
+            sMotionCam = null;
+        }
+    }
+
+    /** 停 Smart 检测流（幂等）。实例整个丢弃，reader 由 Surround.release 关闭。 */
+    private static void stopMotionStream() {
+        Surround s = sMotionCam;
+        sMotionCam = null;
+        if (s == null) return;
+        try {
+            s.stop();
+        } catch (Throwable ignored) { }
+        AppLog.d(TAG, "Smart 检测流已停");
     }
 
     /** 开一个录像窗口：开闸 → 开录 → 计时。 */
@@ -179,7 +249,7 @@ public final class SentinelController {
      * （如亮屏手动录像、息屏全程录制）。
      * @param force true=用户关哨兵/退出 app；false=窗口到期（仅熄屏态停录）
      */
-    private static void endWindow(boolean force) {
+    private static synchronized void endWindow(boolean force) {
         if (!sWindowActive) return;
         sWindowActive = false;
         if (!QuadAutoRecord.isActive()) return;
@@ -188,6 +258,8 @@ public final class SentinelController {
             if (sScreenDark) {
                 // 若仍熄屏：重新关闸，恢复锁车值守的闸门关闭状态
                 Surround.suspendAll();
+                // 窗口结束继续值守：Smart 开就重开检测流（在闸门定局后）
+                startMotionStream();
             }
         }
     }

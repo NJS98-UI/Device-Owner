@@ -2324,6 +2324,7 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
             if (appConfig.isSentinelModeEnabled()) {
                 sb.append("• 哨兵模式: 开");
                 sb.append(com.jietu.clustercast.SentinelController.isRunning() ? "（值守中" : "（未运行");
+                if (appConfig.isSentinelMotionEnabled()) sb.append("/Smart运动检测");
                 if (com.jietu.clustercast.SentinelController.isWindowActive()) sb.append("，录像窗口中");
                 sb.append("）\n");
             }
