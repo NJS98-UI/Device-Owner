@@ -22,6 +22,18 @@
 
     <style name="Theme.Cam" parent="Base.Theme.Cam" />
 
+    <!-- 应用主主题：继承 MaterialComponents.NoActionBar，覆盖为深色 windowBackground。
+         原车机 ROM 用的是浅色 MaterialComponents 主题，windowBackground 是白色，
+         而 MainActivity 内容是深色——冷启动时窗口先画白底再画深色内容，就是"第一闪"。
+         这里把 windowBackground 设成与内容一致的深色，首帧即深色，消除白→黑跳变。 -->
+    <style name="Theme.App.Dark" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowBackground">@color/dark_gray_background</item>
+        <item name="android:colorBackground">@color/dark_gray_background</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:statusBarColor">@color/dark_gray_background</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
     <!-- 全屏播放器主题 -->
     <style name="Theme.Cam.Fullscreen" parent="Theme.Cam">
         <item name="android:windowFullscreen">true</item>

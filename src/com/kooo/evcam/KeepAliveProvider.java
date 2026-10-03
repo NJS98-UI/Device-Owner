@@ -53,6 +53,17 @@ public class KeepAliveProvider extends ContentProvider {
     
     /**
      * 启动前台服务
+     *
+     * 【闪屏修复】原实现无条件在进程启动 1 秒后拉起 CameraForegroundService。
+     * 但用户点图标冷启动时，MainActivity 正在创建——CFS 一旦先跑起来，
+     * 其 startMainActivityForAutoRecording() 可能在 MainActivity.getInstance()
+     * 尚未赋值的竞态窗口里二次 startActivity，造成"第二闪"。
+     *
+     * 修复：延迟任务执行时先判断 MainActivity 是否已被用户拉起。
+     *   - 若 MainActivity 已存在 → 用户正在前台使用，CFS 交由 MainActivity
+     *     自己按需启动（onStart 里已拉 CastService，CFS 在自动录像/远程服务
+     *     需要时再启），不在 Provider 里抢跑。
+     *   - 若 MainActivity 不存在 → 后台唤醒/保活场景，正常拉起 CFS。
      */
     private void startForegroundService(Context context) {
         try {
@@ -62,10 +73,15 @@ public class KeepAliveProvider extends ContentProvider {
                 AppLog.d(TAG, "Android 13+ 跳过从 Provider 启动摄像头前台服务（等待 MainActivity 启动）");
                 return;
             }
-            
+
             // 延迟一小段时间启动，避免在系统初始化完成前启动
             new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(() -> {
                 try {
+                    // 闪屏修复：用户前台启动时 MainActivity 已在跑，不在 Provider 抢跑 CFS
+                    if (com.jietu.clustercast.MainActivity.getInstance() != null) {
+                        AppLog.d(TAG, "MainActivity 已在前台运行，跳过 Provider 拉起 CFS（避免二次启动闪屏）");
+                        return;
+                    }
                     CameraForegroundService.start(context, "冥城记录仪", "服务运行中");
                     AppLog.d(TAG, "前台服务已从 Provider 启动");
                 } catch (Exception e) {

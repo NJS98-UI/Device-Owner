@@ -263,11 +263,22 @@ public class FloatingWindowService extends Service {
         });
         
         // 添加到窗口
+        // 【闪屏修复】延迟 addView，让 MainActivity 首帧先渲染完再叠加悬浮窗，
+        // 避免启动瞬间悬浮窗与内容视图同时出现造成视觉跳变。300ms 足够首帧落地。
         try {
-            windowManager.addView(floatingView, layoutParams);
-            AppLog.d(TAG, "悬浮窗创建成功，大小: " + sizePx + "px, 透明度: " + alpha + "%");
+            new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(() -> {
+                try {
+                    if (floatingView != null && windowManager != null) {
+                        windowManager.addView(floatingView, layoutParams);
+                        AppLog.d(TAG, "悬浮窗创建成功，大小: " + sizePx + "px, 透明度: " + alpha + "%");
+                    }
+                } catch (Exception e) {
+                    AppLog.e(TAG, "添加悬浮窗失败", e);
+                    stopSelf();
+                }
+            }, 300L);
         } catch (Exception e) {
-            AppLog.e(TAG, "添加悬浮窗失败", e);
+            AppLog.e(TAG, "调度悬浮窗失败", e);
             stopSelf();
         }
     }

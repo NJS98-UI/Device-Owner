@@ -17,7 +17,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
-// import android.os.SystemClock;  // 已移除 AlarmManager
+import android.os.SystemClock;
 import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
@@ -51,6 +51,11 @@ public class CameraForegroundService extends Service {
     private static final java.util.List<Runnable> pendingReadyCallbacks = new java.util.ArrayList<>();
     /** 用户/远程主动退出时置 true，抑制 onDestroy/onTaskRemoved 的自动重启（进程随退出被杀，标志自然失效） */
     public static volatile boolean sSuppressRestart = false;
+    /** 闪屏修复：防止 startMainActivityForAutoRecording 并发重入导致二次 startActivity */
+    private static final java.util.concurrent.atomic.AtomicBoolean sMainActivityLaunching =
+            new java.util.concurrent.atomic.AtomicBoolean(false);
+    /** 上一次尝试拉起 MainActivity 的时间戳，用于节流 */
+    private static volatile long sLastMainLaunchAttemptMs = 0L;
 
     /**
      * 前台服务就绪后执行回调。
@@ -128,34 +133,66 @@ public class CameraForegroundService extends Service {
      * 用于：
      * 1. 杀后台后服务重启时恢复自动录制
      * 2. 与开机启动（TransparentBootActivity）行为保持一致
+     *
+     * 【闪屏修复】加固防重入：
+     *  - AtomicBoolean 占位，杜绝 onCreate/onStartCommand 两条路径并发拉起
+     *  - 进程已在前台时跳过（用户正在看界面，再 startActivity 会闪）
+     *  - 500ms 节流，避免短时间内重复尝试
+     *  - Intent 改用 CLEAR_TOP|SINGLE_TOP，已有实例则 onNewIntent，不新建
      */
     private void startMainActivityForAutoRecording() {
         try {
-            // 检查 MainActivity 是否已经在运行
-            // 通过检查静态引用判断（避免重复启动）
+            // 1. 检查 MainActivity 是否已经在运行
             if (MainActivity.getInstance() != null) {
                 AppLog.d(TAG, "MainActivity 已在运行，跳过启动");
                 return;
             }
-            // 未激活/试用到期时拉起 MainActivity 也开不了录（整机授权拦截），
-            // 反而会在后台弹激活框、用户点图标时二次切换造成闪屏——直接不拉。
-            // start 幂等：顺带恢复落盘的授权状态（进程复活后先信缓存）
-            com.kooo.evcam.license.LicenseManager.get().start(this, null);
-            if (!com.kooo.evcam.license.LicenseManager.get().isAllowed()) {
-                AppLog.d(TAG, "授权未放行，跳过后台自动续录启动");
+            // 2. 进程已在前台 → 用户正在使用，不再二次拉起（这是闪屏主因之一）
+            if (isAppInForeground(this)) {
+                AppLog.d(TAG, "应用已在前台，跳过后台自动续录启动");
                 return;
             }
-            
-            AppLog.d(TAG, "自动录制已启用，启动 MainActivity（后台模式）...");
-            
-            Intent mainIntent = new Intent(this, MainActivity.class);
-            mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION);
-            mainIntent.putExtra("auto_start_from_boot", true);  // 复用开机自启动的逻辑
-            mainIntent.putExtra("silent_mode", true);
-            mainIntent.putExtra("from_service_restart", true);  // 标记来自服务重启
-            startActivity(mainIntent);
-            
-            AppLog.d(TAG, "MainActivity 已启动（用于自动录制）");
+            // 3. 防并发重入
+            if (!sMainActivityLaunching.compareAndSet(false, true)) {
+                AppLog.d(TAG, "MainActivity 正在被其它路径拉起，跳过");
+                return;
+            }
+            // 4. 节流：500ms 内不重复尝试
+            long now = SystemClock.elapsedRealtime();
+            if (now - sLastMainLaunchAttemptMs < 500L) {
+                sMainActivityLaunching.set(false);
+                AppLog.d(TAG, "拉起 MainActivity 节流中，跳过");
+                return;
+            }
+            sLastMainLaunchAttemptMs = now;
+            try {
+                // 未激活/试用到期时拉起 MainActivity 也开不了录（整机授权拦截），
+                // 反而会在后台弹激活框、用户点图标时二次切换造成闪屏——直接不拉。
+                com.kooo.evcam.license.LicenseManager.get().start(this, null);
+                if (!com.kooo.evcam.license.LicenseManager.get().isAllowed()) {
+                    AppLog.d(TAG, "授权未放行，跳过后台自动续录启动");
+                    return;
+                }
+
+                AppLog.d(TAG, "自动录制已启用，启动 MainActivity（后台模式）...");
+
+                Intent mainIntent = new Intent(this, MainActivity.class);
+                // CLEAR_TOP|SINGLE_TOP：若任务栈里已有 MainActivity，走 onNewIntent
+                // 而非新建实例——避免与用户点击图标的启动路径撞车产生"第二闪"
+                mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                        | Intent.FLAG_ACTIVITY_CLEAR_TOP
+                        | Intent.FLAG_ACTIVITY_SINGLE_TOP
+                        | Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                mainIntent.putExtra("auto_start_from_boot", true);
+                mainIntent.putExtra("silent_mode", true);
+                mainIntent.putExtra("from_service_restart", true);
+                startActivity(mainIntent);
+
+                AppLog.d(TAG, "MainActivity 已启动（用于自动录制）");
+            } finally {
+                // 占位释放：startActivity 是异步的，给 Activity 一点时间把 instance 填上
+                mainHandler.postDelayed(() -> sMainActivityLaunching.set(false), 1500L);
+            }
         } catch (Exception e) {
             AppLog.e(TAG, "启动 MainActivity 失败: " + e.getMessage(), e);
         }

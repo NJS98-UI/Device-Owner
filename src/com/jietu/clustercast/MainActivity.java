@@ -422,6 +422,22 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
             com.kooo.evcam.RemoteServiceManager.getInstance()
                     .startRemoteServicesFromService(MainActivity.this);
         }});
+        // 闪屏修复配套：KeepAliveProvider 前台启动时不再抢跑 CFS，
+        // 这里由 MainActivity 按需拉起——自动录像/远程服务/悬浮窗/息屏录制
+        // 任一开着就需要 CFS 提供前台相机服务与 WakeLock。从 Activity 拉起是安全的，
+        // CFS.startMainActivityForAutoRecording() 会发现 MainActivity.getInstance()
+        // 非空而跳过二次 startActivity，不会闪屏。
+        try {
+            com.kooo.evcam.AppConfig ac = new com.kooo.evcam.AppConfig(this);
+            if (ac.isAutoStartOnBoot() || ac.isAutoStartRecording()
+                    || ac.isBootAutoRecord() || ac.isFloatingWindowEnabled()
+                    || ac.isScreenOffRecordingEnabled()) {
+                com.kooo.evcam.CameraForegroundService.start(this,
+                        "冥城记录仪", "前台运行中");
+            }
+        } catch (Throwable t) {
+            com.kooo.evcam.AppLog.w("MainActivity", "按需拉起 CFS 失败: " + t);
+        }
     }
 
     @Override protected void onResume() {
