@@ -127,9 +127,20 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         refresh();
         startBusCheck();
         // 盲区/记录仪的 Camera2 通道：普通应用运行时弹窗授权一次即可（实测 USER_SET 永久记住）
+        // 存储权限一并请求：U 盘录制走公共目录（U盘/DCIM/EVCam_Video），
+        // 缺 WRITE_EXTERNAL_STORAGE 时 U 盘目录创建/写入全部被拒，会被误判为"检测不到U盘"
+        java.util.ArrayList<String> perms = new java.util.ArrayList<>();
         if (checkSelfPermission(android.Manifest.permission.CAMERA)
                 != android.content.pm.PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{android.Manifest.permission.CAMERA}, 1);
+            perms.add(android.Manifest.permission.CAMERA);
+        }
+        if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+            perms.add(android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            perms.add(android.Manifest.permission.READ_EXTERNAL_STORAGE);
+        }
+        if (!perms.isEmpty()) {
+            requestPermissions(perms.toArray(new String[0]), 1);
         }
         maybeAutoStartRecording(getIntent());
         // 手动打开（非开机链路）："启动自动录制"开关管这里；开机链路归"开机自动录像"开关（maybeAutoStartRecording）

@@ -421,9 +421,31 @@ public class StorageHelper {
     }
     
     /**
+     * 判定 /storage/ 下的挂载点是否为外置存储（U 盘）候选。
+     * 车机挂载点命名各异（XXXX-XXXX / usb0 / sdcard1 / udisk0 ...），
+     * 不能只认 UUID 格式；排除内部模拟存储即可。
+     */
+    private static boolean isExternalMountPoint(String mountPoint) {
+        if (mountPoint == null || !mountPoint.startsWith("/storage/")) {
+            return false;
+        }
+        String name = mountPoint.substring("/storage/".length());
+        if (name.isEmpty()) {
+            return false;
+        }
+        // 排除内部模拟存储与符号链接目录
+        String lower = name.toLowerCase(java.util.Locale.US);
+        if (lower.startsWith("emulated") || lower.startsWith("self") || lower.equals("sdcard0")
+                || lower.startsWith("enc_emulated")) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * 方法1：读取 /proc/mounts 查找 SD 卡
      * 这是最可靠的方法，能看到系统实际挂载的所有存储设备
-     * 只接受 /storage/XXXX-XXXX 格式
+     * 兼容各种车机挂载点命名（XXXX-XXXX / usbX / sdcardX ...）
      */
     private static File getSdCardFromMounts() {
         try {
@@ -433,10 +455,9 @@ public class StorageHelper {
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split("\\s+");
                 if (parts.length < 2) continue;
-                
+
                 String mountPoint = parts[1];
-                // 只接受 /storage/XXXX-XXXX 格式
-                if (mountPoint.matches("/storage/[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}")) {
+                if (isExternalMountPoint(mountPoint)) {
                     File sdCard = new File(mountPoint);
                     if (sdCard.exists() && sdCard.isDirectory() && sdCard.canRead()) {
                         AppLog.d(TAG, "通过 /proc/mounts 找到U盘: " + mountPoint);
@@ -472,8 +493,8 @@ public class StorageHelper {
                     int index = path.indexOf("/Android/data/");
                     if (index > 0) {
                         String sdRootPath = path.substring(0, index);
-                        // 只接受 /storage/XXXX-XXXX 格式
-                        if (sdRootPath.matches("/storage/[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}")) {
+                        // 兼容各种车机挂载点命名，排除内部模拟存储即可
+                        if (isExternalMountPoint(sdRootPath)) {
                             File sdRoot = new File(sdRootPath);
                             if (sdRoot.exists() && sdRoot.canRead()) {
                                 AppLog.d(TAG, "通过 getExternalFilesDirs 找到U盘: " + sdRoot.getAbsolutePath());
@@ -512,20 +533,22 @@ public class StorageHelper {
                     new java.io.FileReader("/proc/mounts"));
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split("\\s+");
-                if (parts.length >= 2) {
-                    String mountPoint = parts[1];
-                    // 只显示 /storage/ 相关的挂载点
-                    if (mountPoint.startsWith("/storage/")) {
-                        String marker = "";
-                        if (mountPoint.contains("emulated")) {
-                            marker = " [内部]";
-                        } else if (mountPoint.matches("/storage/[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}")) {
-                            marker = " [U盘]";
+                    String[] parts = line.split("\\s+");
+                    if (parts.length >= 2) {
+                        String mountPoint = parts[1];
+                        // 只显示 /storage/ 相关的挂载点
+                        if (mountPoint.startsWith("/storage/")) {
+                            String marker = "";
+                            if (mountPoint.contains("emulated")) {
+                                marker = " [内部]";
+                            } else if (isExternalMountPoint(mountPoint)) {
+                                marker = " [U盘]";
+                            } else {
+                                marker = " [其他]";
+                            }
+                            info.add(mountPoint + marker);
                         }
-                        info.add(mountPoint + marker);
                     }
-                }
             }
             reader.close();
         } catch (Exception e) {
