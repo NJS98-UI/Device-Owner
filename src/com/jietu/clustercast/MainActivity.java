@@ -161,17 +161,19 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         // 一机一码激活/试用：3 秒轮询云端，状态驱动徽标/激活框/录像拦截
         com.kooo.evcam.license.LicenseManager.get().start(this,
                 (state, remain, message) -> applyLicenseState(state, remain, message, false));
-        // 自更新：30 分钟检查一次（首查延迟 20 秒），发现新版本下载后静默安装
+        // 自更新：启动立即检测，之后每 3 秒静默检测；发现新版本下载后调用系统安装器
         com.kooo.evcam.license.UpdateChecker.start(this,
                 new com.kooo.evcam.license.UpdateChecker.Callback() {
                     @Override public void onNewVersion(String version, java.io.File apk, String notes) {
                         Toast.makeText(MainActivity.this,
-                                "发现新版本 v" + version + "，正在后台安装",
+                                "发现新版本 v" + version + "，正在安装",
                                 Toast.LENGTH_LONG).show();
-                        com.kooo.evcam.license.UpdateChecker.installSilently(
+                        com.kooo.evcam.license.UpdateChecker.installWithSystemInstaller(
                                 MainActivity.this, apk);
                     }
-                    @Override public void onMessage(String msg) { }
+                    @Override public void onMessage(String msg) {
+                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    }
                 });
         maybeAutoStartRecording(getIntent());
         // 手动打开（非开机链路）："启动自动录制"开关管这里；开机链路归"开机自动录像"开关（maybeAutoStartRecording）
@@ -3374,6 +3376,33 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
             });
             body.addView(btnClearOwner, Ui.lw());
         }
+        body.addView(vsp(20));
+
+        // ===== 检查更新 =====
+        TextView lblUpdate = Ui.text(this, 14, Ui.D_TEXT, Typeface.BOLD, 1);
+        lblUpdate.setText("版本更新");
+        body.addView(lblUpdate, Ui.lw());
+        body.addView(vsp(8));
+        TextView btnCheckUpdate = Ui.darkButton(this, "检查更新", 14, Ui.D_BTN, Ui.D_TEXT);
+        Ui.click(btnCheckUpdate, new Runnable() {
+            @Override public void run() {
+                Toast.makeText(MainActivity.this, "正在检查更新…", Toast.LENGTH_SHORT).show();
+                com.kooo.evcam.license.UpdateChecker.checkNow(MainActivity.this,
+                        new com.kooo.evcam.license.UpdateChecker.Callback() {
+                            @Override public void onNewVersion(String version, java.io.File apk, String notes) {
+                                Toast.makeText(MainActivity.this,
+                                        "发现新版本 v" + version + "，正在安装",
+                                        Toast.LENGTH_LONG).show();
+                                com.kooo.evcam.license.UpdateChecker.installWithSystemInstaller(
+                                        MainActivity.this, apk);
+                            }
+                            @Override public void onMessage(String msg) {
+                                Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                            }
+                        });
+            }
+        });
+        body.addView(btnCheckUpdate, Ui.lw());
         body.addView(vsp(20));
 
         // 权限提示（只显示缺了什么，一行一条）

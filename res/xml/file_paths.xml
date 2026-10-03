@@ -28,4 +28,9 @@
     <files-path
         name="files"
         path="." />
+
+    <!-- 应用外部文件目录（自更新 APK 下载路径 getExternalFilesDir） -->
+    <external-files-path
+        name="external_files"
+        path="." />
 </paths>

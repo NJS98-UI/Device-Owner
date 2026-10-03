@@ -1,11 +1,11 @@
 package com.kooo.evcam.license;
 
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInstaller;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
+import android.widget.Toast;
 
 import com.kooo.evcam.AppLog;
 
@@ -23,14 +23,14 @@ import java.util.concurrent.Executors;
 /**
  * 自更新：全部信息取自激活服务器 ux.json 第二排的 update 字段
  * （{"v":"1.1","u":"http://.../xxx.apk","notes":"更新说明..."}，地址与
- * 说明由用户单独上传维护）。发现新版本 → 下载 APK → Device Owner 静默安装。
- * 每 30 分钟检查一次（license 轮询 3 秒那次只顺带缓存 update 字段，
- * 下载安装动作低频独立执行，避免每次轮询都拉 APK）。
+ * 说明由用户单独上传维护）。发现新版本 → 下载 APK → 调用系统安装器安装。
+ * 启动时立即检测一次，之后每 3 秒静默检测（读取 license 轮询缓存的
+ * update 字段，无额外网络请求）；只在版本号大于本地且未安装过时才下载。
  */
 public final class UpdateChecker {
 
     private static final String TAG = "UpdateChecker";
-    private static final long CHECK_MS = 30L * 60_000L;
+    private static final long CHECK_MS = 3_000L;
 
     public interface Callback {
         /** 主线程回调：有新版本。version=新版本名，apk=已下载好的本地文件，notes=更新说明。 */
@@ -44,7 +44,7 @@ public final class UpdateChecker {
 
     private UpdateChecker() { }
 
-    /** 启动周期检查（幂等）。首查延迟 20 秒，避开启动/静默安装重启窗口。 */
+    /** 启动周期检查（幂等）。启动时立即检测一次，之后每 3 秒静默检测。 */
     public static synchronized void start(Context ctx, Callback cb) {
         if (running) return;
         running = true;
@@ -55,7 +55,9 @@ public final class UpdateChecker {
             io.execute(() -> checkOnce(app, cb, false));
             main.postDelayed(task[0], CHECK_MS);
         };
-        main.postDelayed(task[0], 20_000L);
+        // 立即检测一次
+        io.execute(() -> checkOnce(app, cb, false));
+        main.postDelayed(task[0], CHECK_MS);
     }
 
     /** 手动立即检查（设置页"检查更新"）。 */
@@ -96,16 +98,6 @@ public final class UpdateChecker {
                 if (manual) post(() -> cb.onMessage("下载失败，请检查网络"));
                 return;
             }
-            // 非 Device Owner（卸载重装后 admin 已清除）无法静默安装：
-            // PackageInstaller 会弹系统安装确认界面反复打断，跳过安装只提示
-            android.app.admin.DevicePolicyManager dpm = (android.app.admin.DevicePolicyManager)
-                    app.getSystemService(Context.DEVICE_POLICY_SERVICE);
-            boolean owner = dpm != null && dpm.isDeviceOwnerApp(app.getPackageName());
-            if (!owner) {
-                AppLog.w(TAG, "非 Device Owner，跳过静默安装 v" + serverV);
-                if (manual) post(() -> cb.onMessage("检测到新版本 v" + serverV + "，请手动安装"));
-                return;
-            }
             sp.edit().putString("lastInstalled", key).apply();
             post(() -> cb.onNewVersion(serverV, apk, notes));
         } catch (Throwable t) {
@@ -114,32 +106,28 @@ public final class UpdateChecker {
         }
     }
 
-    /** Device Owner 静默安装（无需用户确认）。 */
-    public static void installSilently(Context app, File apk) {
-        io.execute(() -> {
+    /** 调用系统安装器安装 APK（无需 Device Owner，弹系统安装确认界面）。 */
+    public static void installWithSystemInstaller(Context app, File apk) {
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            Uri uri = androidx.core.content.FileProvider.getUriForFile(
+                    app, "com.jietu.clustercast.fileprovider", apk);
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            intent.setDataAndType(uri, "application/vnd.android.package-archive");
             try {
-                PackageInstaller pi = app.getPackageManager().getPackageInstaller();
-                PackageInstaller.SessionParams params = new PackageInstaller.SessionParams(
-                        PackageInstaller.SessionParams.MODE_FULL_INSTALL);
-                int sessionId = pi.createSession(params);
-                PackageInstaller.Session session = pi.openSession(sessionId);
-                try (InputStream in = new java.io.FileInputStream(apk);
-                     java.io.OutputStream out = session.openWrite("app.apk", 0, apk.length())) {
-                    byte[] buf = new byte[8192];
-                    int n;
-                    while ((n = in.read(buf)) > 0) out.write(buf, 0, n);
-                    session.fsync(out);
-                }
-                Intent statusIntent = new Intent("com.kooo.evcam.INSTALL_RESULT");
-                PendingIntent status = PendingIntent.getBroadcast(app, 2002, statusIntent,
-                        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-                session.commit(status.getIntentSender());
-                session.close();
-                AppLog.d(TAG, "静默安装已提交");
-            } catch (Throwable t) {
-                AppLog.w(TAG, "静默安装失败: " + t);
+                intent.setComponent(new android.content.ComponentName(
+                        "com.android.packageinstaller", "com.android.packageinstaller.InstallStart"));
+                app.startActivity(intent);
+            } catch (Exception ex) {
+                intent.setComponent(null);
+                app.startActivity(intent);
             }
-        });
+            AppLog.d(TAG, "系统安装器已启动");
+        } catch (Throwable t) {
+            AppLog.w(TAG, "安装失败: " + t);
+            Toast.makeText(app, "安装失败: " + t.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 
     private static String localVersion(Context app) {
