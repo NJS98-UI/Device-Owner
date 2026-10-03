@@ -44,7 +44,7 @@ public final class UpdateChecker {
 
     private UpdateChecker() { }
 
-    /** 启动周期检查（幂等）。 */
+    /** 启动周期检查（幂等）。首查延迟 20 秒，避开启动/静默安装重启窗口。 */
     public static synchronized void start(Context ctx, Callback cb) {
         if (running) return;
         running = true;
@@ -55,7 +55,7 @@ public final class UpdateChecker {
             io.execute(() -> checkOnce(app, cb, false));
             main.postDelayed(task[0], CHECK_MS);
         };
-        main.post(task[0]);
+        main.postDelayed(task[0], 20_000L);
     }
 
     /** 手动立即检查（设置页"检查更新"）。 */
@@ -82,12 +82,21 @@ public final class UpdateChecker {
                 if (manual) post(() -> cb.onMessage("已是最新版本 " + localV));
                 return;
             }
+            // 防重复安装：同一版本+地址只装一次（否则静默安装重启 app 后
+            // 又发现"新版本"，无限重启循环）
+            String key = serverV + "|" + url;
+            android.content.SharedPreferences sp = app.getSharedPreferences("update", Context.MODE_PRIVATE);
+            if (key.equals(sp.getString("lastInstalled", ""))) {
+                AppLog.d(TAG, "版本 " + serverV + " 已安装过，跳过");
+                return;
+            }
             String notes = upd.optString("notes", "");
             File apk = download(app, url);
             if (apk == null) {
                 if (manual) post(() -> cb.onMessage("下载失败，请检查网络"));
                 return;
             }
+            sp.edit().putString("lastInstalled", key).apply();
             post(() -> cb.onNewVersion(serverV, apk, notes));
         } catch (Throwable t) {
             AppLog.w(TAG, "检查更新失败: " + t);

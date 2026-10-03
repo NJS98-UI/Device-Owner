@@ -54,6 +54,8 @@ public final class LicenseManager {
     private static final String TAG = "LicenseManager";
     /** 服务器 ux.json（第二排 jietu 键）。 */
     private static final String LICENSE_URL = "http://103.149.200.173/update/ux.json";
+    /** 写入通道：Flask API（静态路径 PUT 会 405，实测）。 */
+    private static final String UPLOAD_URL = "http://103.149.200.173:5000/api/ux";
     private static final String OUR_KEY = "jietu";
     /** AES-256 密钥（传输+存储共用）。 */
     private static final byte[] AES_KEY = hexBytes(
@@ -306,6 +308,10 @@ public final class LicenseManager {
         HttpURLConnection c = (HttpURLConnection) new URL(LICENSE_URL).openConnection();
         c.setConnectTimeout(5000);
         c.setReadTimeout(5000);
+        // 禁用 HTTP 缓存：静态文件 GET 会被系统缓存命中，导致云端已激活/试用
+        // 本机却一直读到旧数据（表现为"明明激活了还弹未激活"）
+        c.setUseCaches(false);
+        c.setRequestProperty("Cache-Control", "no-cache");
         try {
             int code = c.getResponseCode();
             if (code != 200) throw new Exception("HTTP " + code);
@@ -333,7 +339,7 @@ public final class LicenseManager {
 
     /** PUT 整个 ux.json（root 内其他键原样保留，只含本次对 jietu 键的修改）。 */
     private static void upload(JSONObject root) throws Exception {
-        HttpURLConnection c = (HttpURLConnection) new URL(LICENSE_URL).openConnection();
+        HttpURLConnection c = (HttpURLConnection) new URL(UPLOAD_URL).openConnection();
         c.setRequestMethod("PUT");
         c.setConnectTimeout(5000);
         c.setReadTimeout(5000);

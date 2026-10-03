@@ -152,6 +152,18 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         // 一机一码激活/试用：3 秒轮询云端，状态驱动徽标/激活框/录像拦截
         com.kooo.evcam.license.LicenseManager.get().start(this,
                 (state, remain, message) -> applyLicenseState(state, remain, message));
+        // 自更新：30 分钟检查一次（首查延迟 20 秒），发现新版本下载后静默安装
+        com.kooo.evcam.license.UpdateChecker.start(this,
+                new com.kooo.evcam.license.UpdateChecker.Callback() {
+                    @Override public void onNewVersion(String version, java.io.File apk, String notes) {
+                        Toast.makeText(MainActivity.this,
+                                "发现新版本 v" + version + "，正在后台安装",
+                                Toast.LENGTH_LONG).show();
+                        com.kooo.evcam.license.UpdateChecker.installSilently(
+                                MainActivity.this, apk);
+                    }
+                    @Override public void onMessage(String msg) { }
+                });
         maybeAutoStartRecording(getIntent());
         // 手动打开（非开机链路）："启动自动录制"开关管这里；开机链路归"开机自动录像"开关（maybeAutoStartRecording）
         Intent launch = getIntent();

@@ -67,7 +67,7 @@ final class LicenseDialog {
         FrameLayout mask = new FrameLayout(ctx);
         mask.setBackgroundColor(0xDD0A1224);
 
-        // 深蓝圆角主卡片
+        // 深蓝圆角主卡片（内容超高时可滚动，保证免责声明/二维码完整可见）
         LinearLayout card = new LinearLayout(ctx);
         card.setOrientation(LinearLayout.VERTICAL);
         card.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -75,38 +75,44 @@ final class LicenseDialog {
         cardBg.setColor(0xFF1B2A4A);
         cardBg.setCornerRadius(Ui.dp(ctx, 18));
         card.setBackground(cardBg);
-        int pad = Ui.dp(ctx, 24);
+        int pad = Ui.dp(ctx, 18);
         card.setPadding(pad, pad, pad, pad);
 
-        LinearLayout.LayoutParams cardLp = new LinearLayout.LayoutParams(
-                Ui.dp(ctx, 420), ViewGroup.LayoutParams.WRAP_CONTENT);
-        FrameLayout.LayoutParams cardFlp = new FrameLayout.LayoutParams(cardLp);
-        cardFlp.gravity = Gravity.CENTER;
-        mask.addView(card, cardFlp);
+        FrameLayout scroll = new FrameLayout(ctx);
+        android.widget.ScrollView sv = new android.widget.ScrollView(ctx);
+        sv.setVerticalScrollBarEnabled(false);
+        sv.addView(card, new FrameLayout.LayoutParams(
+                Ui.dp(ctx, 380), ViewGroup.LayoutParams.WRAP_CONTENT));
+        scroll.addView(sv, new FrameLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        FrameLayout.LayoutParams scrollLp = new FrameLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        scrollLp.gravity = Gravity.CENTER;
+        mask.addView(scroll, scrollLp);
         FrameLayout.LayoutParams maskLp = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
         // 标题（金黄）
         TextView title = new TextView(ctx);
         title.setText("捷途行车记录仪");
-        title.setTextSize(22);
+        title.setTextSize(20);
         title.setTypeface(Typeface.DEFAULT_BOLD);
         title.setTextColor(0xFFFFC94D);
         title.setGravity(Gravity.CENTER);
         card.addView(title, Ui.lw());
 
-        card.addView(space(ctx, 10));
+        card.addView(space(ctx, 8));
 
         // 状态提示（白）
         TextView msg = new TextView(ctx);
         msg.setText(message == null ? "" : message);
-        msg.setTextSize(14);
+        msg.setTextSize(13);
         msg.setTextColor(0xFFE8EEFF);
         msg.setGravity(Gravity.CENTER);
         card.addView(msg, Ui.lw());
         msgView = msg;
 
-        card.addView(space(ctx, 12));
+        card.addView(space(ctx, 8));
 
         // 机器码（长按复制）
         final String mc = com.kooo.evcam.license.LicenseManager.machineCode(ctx);
@@ -125,7 +131,7 @@ final class LicenseDialog {
         });
         card.addView(mcView, Ui.lw());
 
-        card.addView(space(ctx, 12));
+        card.addView(space(ctx, 10));
 
         // 激活码输入框（白底圆角）
         final EditText codeBox = new EditText(ctx);
@@ -141,12 +147,12 @@ final class LicenseDialog {
         boxBg.setCornerRadius(Ui.dp(ctx, 10));
         codeBox.setBackground(boxBg);
         LinearLayout.LayoutParams boxLp = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, Ui.dp(ctx, 48));
+                ViewGroup.LayoutParams.MATCH_PARENT, Ui.dp(ctx, 44));
         boxLp.leftMargin = Ui.dp(ctx, 6);
         boxLp.rightMargin = Ui.dp(ctx, 6);
         card.addView(codeBox, boxLp);
 
-        card.addView(space(ctx, 14));
+        card.addView(space(ctx, 10));
 
         // 激活按钮（蓝）
         TextView actBtn = button(ctx, "激  活", 0xFF2F6FED);
@@ -160,40 +166,40 @@ final class LicenseDialog {
         });
         card.addView(actBtn, Ui.lw());
 
-        card.addView(space(ctx, 10));
+        card.addView(space(ctx, 8));
 
         // 试用按钮（蓝，浅一点区分）
         TextView trialBtn = button(ctx, "试  用", 0xFF4A8CF0);
         trialBtn.setOnClickListener(v -> host.onTrialClicked());
         card.addView(trialBtn, Ui.lw());
 
-        card.addView(space(ctx, 14));
+        card.addView(space(ctx, 10));
 
         // 免责声明（黄）
         TextView dis = new TextView(ctx);
         dis.setText(DISCLAIMER);
-        dis.setTextSize(12);
-        dis.setLineSpacing(0, 1.2f);
+        dis.setTextSize(11);
+        dis.setLineSpacing(0, 1.15f);
         dis.setTextColor(0xFFFFD54A);
         dis.setGravity(Gravity.CENTER);
         card.addView(dis, Ui.lw());
 
-        card.addView(space(ctx, 14));
+        card.addView(space(ctx, 10));
 
         // 微信联系二维码
         ImageView qr = new ImageView(ctx);
         qr.setImageResource(R.drawable.qr_wechat);
         qr.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        int qs = Ui.dp(ctx, 120);
+        int qs = Ui.dp(ctx, 96);
         LinearLayout.LayoutParams qrLp = new LinearLayout.LayoutParams(qs, qs);
         qrLp.gravity = Gravity.CENTER_HORIZONTAL;
         card.addView(qr, qrLp);
 
-        card.addView(space(ctx, 6));
+        card.addView(space(ctx, 4));
 
         TextView qrTip = new TextView(ctx);
         qrTip.setText("微信扫码联系购买激活码");
-        qrTip.setTextSize(12);
+        qrTip.setTextSize(11);
         qrTip.setTextColor(0xFFE8EEFF);
         qrTip.setGravity(Gravity.CENTER);
         card.addView(qrTip, Ui.lw());
@@ -220,7 +226,7 @@ final class LicenseDialog {
         bg.setCornerRadius(Ui.dp(ctx, 10));
         b.setBackground(bg);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, Ui.dp(ctx, 46));
+                ViewGroup.LayoutParams.MATCH_PARENT, Ui.dp(ctx, 42));
         lp.leftMargin = Ui.dp(ctx, 6);
         lp.rightMargin = Ui.dp(ctx, 6);
         b.setLayoutParams(lp);
