@@ -282,33 +282,6 @@ public final class Surround {
     }
 
     /** 真正开流；被系统断开/出错后由重连循环反复调，不跟随原车的速度回收。 */
-    // ---------- 同进程单写者仲裁 ----------
-    // 一路相机同时只允许一个活跃实例。两套客户端（服务侧录像 + 界面侧预览）
-    // 抢同一路会互相 evict 死循环（2026-10-03 实车：4/5/6/7 全在"断开→重连"
-    // 无限乒乓）。规则：后来的 open 成功接管，先来的静默退位（停自动重连）。
-
-    private static final java.util.HashMap<Integer, Surround> sLive =
-            new java.util.HashMap<Integer, Surround>();
-
-    /** 查同一路相机当前活着的实例（没有在出流的返回 null）。 */
-    static Surround findLive(int camId) {
-        synchronized (sLive) {
-            Surround s = sLive.get(camId);
-            return (s != null && s.cam != null) ? s : null;
-        }
-    }
-
-    /** 被新实例接管：静默退位，不再自动重连抢回。 */
-    void supersede() {
-        stopped = true;
-        gateHeld = false;
-        main.removeCallbacks(reconnectRun);
-        reconnectPending = false;
-        release();
-        unregister(this);
-        say("已被新实例接管，本流退位（后台录像继续）");
-    }
-
     private void open() {
         lastFrameAt = 0;
         try {
@@ -327,13 +300,6 @@ public final class Surround {
             cm.openCamera(String.valueOf(camId), new CameraDevice.StateCallback() {
                 @Override public void onOpened(CameraDevice c) {
                     if (stopped) { c.close(); return; }
-                    Surround prev;
-                    synchronized (sLive) {
-                        prev = sLive.get(camId);
-                        if (prev == Surround.this) prev = null;
-                        else sLive.put(camId, Surround.this);
-                    }
-                    if (prev != null) prev.supersede();
                     cam = c;
                     runSession();
                 }
@@ -368,8 +334,7 @@ public final class Surround {
     private void scheduleReconnect() {
         if (stopped || reconnectPending) return;
         reconnectPending = true;
-        // 唤醒瞬间多路同时 open 会互相撞 HAL（in-use），按 camId 错峰
-        main.postDelayed(reconnectRun, RECONNECT_DELAY_MS + (camId % 4) * 400L);
+        main.postDelayed(reconnectRun, RECONNECT_DELAY_MS);
     }
 
     /** 关掉旧会话（不动 CameraDevice）再按当前 tex/recTex 重建。 */
@@ -380,8 +345,6 @@ public final class Surround {
     }
 
     private void runSession() {
-        // 回调期间 release() 可能把 ht 置 null（休眠闸门/stop 竞态），先固定住
-        final Handler h = ht != null ? new Handler(ht.getLooper()) : main;
         try {
             if (cam == null || (tex == null && recTex == null && motionReader == null)) return;
             sessionStartedAt = System.currentTimeMillis();
@@ -401,24 +364,22 @@ public final class Surround {
                                 for (Surface sf : targets) rb.addTarget(sf);
                                 rb.set(CaptureRequest.CONTROL_MODE,
                                         CaptureRequest.CONTROL_MODE_AUTO);
-                                sess.setRepeatingRequest(rb.build(), frameCb, h);
+                                sess.setRepeatingRequest(rb.build(), frameCb,
+                                        new Handler(ht.getLooper()));
                                 scheduleWatchdog();
                             } catch (Throwable t) {
                                 say("下发预览失败：" + t);
                                 release();
-                                scheduleReconnect();
                             }
                         }
                         @Override public void onConfigureFailed(CameraCaptureSession s) {
-                            say("会话配置失败，重试");
+                            say("会话配置失败");
                             release();
-                            scheduleReconnect();
                         }
-                    }, h);
+                    }, new Handler(ht.getLooper()));
         } catch (Throwable t) {
             say("建会话失败：" + t);
             release();
-            scheduleReconnect();
         }
     }
 
@@ -436,7 +397,6 @@ public final class Surround {
     private synchronized void release() {
         main.removeCallbacks(watchdogRun);
         watchdogRunning = false;
-        synchronized (sLive) { if (sLive.get(camId) == this) sLive.remove(camId); }
         try { if (sess != null) sess.close(); } catch (Throwable ignored) { }
         sess = null;
         try { if (cam != null) cam.close(); } catch (Throwable ignored) { }
