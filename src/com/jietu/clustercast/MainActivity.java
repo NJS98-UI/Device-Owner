@@ -161,15 +161,11 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         // 一机一码激活/试用：3 秒轮询云端，状态驱动徽标/激活框/录像拦截
         com.kooo.evcam.license.LicenseManager.get().start(this,
                 (state, remain, message) -> applyLicenseState(state, remain, message, false));
-        // 自更新：启动立即检测，之后每 3 秒静默检测；发现新版本下载后调用系统安装器
+        // 自更新：启动立即检测，之后每 3 秒静默检测；发现新版本弹窗确认后下载安装
         com.kooo.evcam.license.UpdateChecker.start(this,
                 new com.kooo.evcam.license.UpdateChecker.Callback() {
-                    @Override public void onNewVersion(String version, java.io.File apk, String notes) {
-                        Toast.makeText(MainActivity.this,
-                                "发现新版本 v" + version + "，正在安装",
-                                Toast.LENGTH_LONG).show();
-                        com.kooo.evcam.license.UpdateChecker.installWithSystemInstaller(
-                                MainActivity.this, apk);
+                    @Override public void onNewVersion(String version, String url, String notes) {
+                        showUpdateDialog(version, url, notes);
                     }
                     @Override public void onMessage(String msg) {
                         Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
@@ -3389,12 +3385,8 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
                 Toast.makeText(MainActivity.this, "正在检查更新…", Toast.LENGTH_SHORT).show();
                 com.kooo.evcam.license.UpdateChecker.checkNow(MainActivity.this,
                         new com.kooo.evcam.license.UpdateChecker.Callback() {
-                            @Override public void onNewVersion(String version, java.io.File apk, String notes) {
-                                Toast.makeText(MainActivity.this,
-                                        "发现新版本 v" + version + "，正在安装",
-                                        Toast.LENGTH_LONG).show();
-                                com.kooo.evcam.license.UpdateChecker.installWithSystemInstaller(
-                                        MainActivity.this, apk);
+                            @Override public void onNewVersion(String version, String url, String notes) {
+                                showUpdateDialog(version, url, notes);
                             }
                             @Override public void onMessage(String msg) {
                                 Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
@@ -3483,6 +3475,42 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         settingsSv = null;
         settingsBody = null;
         inSettings = false;
+    }
+
+    // ---------- 版本更新弹窗 ----------
+
+    /** 防止重复弹窗（3 秒周期检测 + 手动检查可能同时触发）。 */
+    private boolean updateDialogShowing = false;
+
+    private void showUpdateDialog(final String version, final String url, final String notes) {
+        if (updateDialogShowing) return;
+        updateDialogShowing = true;
+        StringBuilder msg = new StringBuilder();
+        msg.append("发现新版本 v").append(version);
+        if (notes != null && notes.length() > 0) {
+            msg.append("\n\n").append(notes);
+        }
+        msg.append("\n\n是否下载并安装？");
+        new AlertDialog.Builder(this)
+                .setTitle("版本更新")
+                .setMessage(msg.toString())
+                .setPositiveButton("下载安装", (d, w) -> {
+                    updateDialogShowing = false;
+                    Toast.makeText(MainActivity.this, "正在下载…", Toast.LENGTH_SHORT).show();
+                    com.kooo.evcam.license.UpdateChecker.downloadAndInstall(
+                            MainActivity.this, url, version,
+                            new com.kooo.evcam.license.UpdateChecker.Callback() {
+                                @Override public void onNewVersion(String v, String u, String n) { }
+                                @Override public void onMessage(String m) {
+                                    Toast.makeText(MainActivity.this, m, Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                })
+                .setNegativeButton("取消", (d, w) -> {
+                    updateDialogShowing = false;
+                })
+                .setOnCancelListener(d -> updateDialogShowing = false)
+                .show();
     }
 
     // ---------- 开门迎宾语（车门开/关事件 → 内置 TTS 或自定义 MP3，监听在 DoorGreeting） ----------

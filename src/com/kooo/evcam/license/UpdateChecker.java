@@ -33,8 +33,8 @@ public final class UpdateChecker {
     private static final long CHECK_MS = 3_000L;
 
     public interface Callback {
-        /** 主线程回调：有新版本。version=新版本名，apk=已下载好的本地文件，notes=更新说明。 */
-        void onNewVersion(String version, File apk, String notes);
+        /** 主线程回调：有新版本。version=新版本名，url=下载地址，notes=更新说明。 */
+        void onNewVersion(String version, String url, String notes);
         void onMessage(String msg);
     }
 
@@ -84,7 +84,7 @@ public final class UpdateChecker {
                 if (manual) post(() -> cb.onMessage("已是最新版本 " + localV));
                 return;
             }
-            // 防重复安装：同一版本+地址只装一次（否则静默安装重启 app 后
+            // 防重复安装：同一版本+地址只装一次（否则安装重启 app 后
             // 又发现"新版本"，无限重启循环）
             String key = serverV + "|" + url;
             android.content.SharedPreferences sp = app.getSharedPreferences("update", Context.MODE_PRIVATE);
@@ -92,14 +92,13 @@ public final class UpdateChecker {
                 AppLog.d(TAG, "版本 " + serverV + " 已安装过，跳过");
                 return;
             }
-            String notes = upd.optString("notes", "");
-            File apk = download(app, url);
-            if (apk == null) {
-                if (manual) post(() -> cb.onMessage("下载失败，请检查网络"));
+            // 防止 3 秒周期检测反复弹窗：同一版本只通知一次（手动检查除外）
+            if (!manual && key.equals(sp.getString("lastNotified", ""))) {
                 return;
             }
-            sp.edit().putString("lastInstalled", key).apply();
-            post(() -> cb.onNewVersion(serverV, apk, notes));
+            sp.edit().putString("lastNotified", key).apply();
+            String notes = upd.optString("notes", "");
+            post(() -> cb.onNewVersion(serverV, url, notes));
         } catch (Throwable t) {
             AppLog.w(TAG, "检查更新失败: " + t);
             if (manual) post(() -> cb.onMessage("检查更新失败: " + t.getMessage()));
@@ -128,6 +127,24 @@ public final class UpdateChecker {
             AppLog.w(TAG, "安装失败: " + t);
             Toast.makeText(app, "安装失败: " + t.getMessage(), Toast.LENGTH_LONG).show();
         }
+    }
+
+    /** 下载 APK 并调用系统安装器安装（后台下载，主线程回调进度）。 */
+    public static void downloadAndInstall(Context app, String url, String version, Callback cb) {
+        io.execute(() -> {
+            File apk = download(app, url);
+            if (apk == null) {
+                post(() -> cb.onMessage("下载失败，请检查网络"));
+                return;
+            }
+            // 标记已安装，防止重启后同版本再次触发弹窗
+            String key = version + "|" + url;
+            app.getSharedPreferences("update", Context.MODE_PRIVATE)
+                    .edit().putString("lastInstalled", key).apply();
+            post(() -> {
+                installWithSystemInstaller(app, apk);
+            });
+        });
     }
 
     private static String localVersion(Context app) {
