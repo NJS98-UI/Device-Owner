@@ -96,6 +96,14 @@ public final class UpdateChecker {
                 if (manual) post(() -> cb.onMessage("下载失败，请检查网络"));
                 return;
             }
+            // 非 Device Owner（卸载重装后 admin 已清除）无法静默安装：
+            // PackageInstaller 会弹系统安装确认界面反复打断，跳过安装只提示
+            boolean owner = app.isDeviceOwnerApp(app.getPackageName());
+            if (!owner) {
+                AppLog.w(TAG, "非 Device Owner，跳过静默安装 v" + serverV);
+                if (manual) post(() -> cb.onMessage("检测到新版本 v" + serverV + "，请手动安装"));
+                return;
+            }
             sp.edit().putString("lastInstalled", key).apply();
             post(() -> cb.onNewVersion(serverV, apk, notes));
         } catch (Throwable t) {

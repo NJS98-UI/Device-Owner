@@ -342,8 +342,11 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
                 licenseView.setBackground(Ui.darkBg(this, 0xFFDC2626, 14));
             }
         }
-        boolean denied = state == com.kooo.evcam.license.LicenseManager.State.NOT_ACTIVATED
-                || state == com.kooo.evcam.license.LicenseManager.State.BLOCKED;
+        // 整机授权拦截：非试用/激活状态（含检查中）一律全屏遮罩挡住整个软件，
+        // 试用/激活成功才放行。录像另有服务侧拦截兜底。
+        boolean denied = state != com.kooo.evcam.license.LicenseManager.State.TRIAL
+                && state != com.kooo.evcam.license.LicenseManager.State.ACTIVATED;
+        boolean checking = state == com.kooo.evcam.license.LicenseManager.State.PENDING;
         if (denied) {
             boolean wasDenied = licenseDenied;
             licenseDenied = true;
@@ -352,7 +355,9 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
                 stopQuad();
                 Toast.makeText(this, "授权失效，已停止录像", Toast.LENGTH_LONG).show();
             }
-            LicenseDialog.show(this, message, new LicenseDialog.Host() {
+            String tip = checking ? "正在检查授权，请稍候…"
+                    : (message == null || message.isEmpty() ? "未激活，请试用或输入激活码" : message);
+            LicenseDialog.show(this, tip, checking, new LicenseDialog.Host() {
                 @Override public void onActivateClicked(String code) {
                     com.kooo.evcam.license.LicenseManager.get().activate(code,
                             (ok, m) -> Toast.makeText(MainActivity.this, m,
@@ -377,12 +382,12 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         }
     }
 
-    /** 点徽标时手动查看：未激活/失效弹激活框，其余给一条状态提示。 */
+    /** 点徽标时手动查看：非试用/激活状态（含检查中）弹遮罩框，其余给一条状态提示。 */
     private void showLicenseDialogIfNeeded(boolean fromUser) {
         com.kooo.evcam.license.LicenseManager lm = com.kooo.evcam.license.LicenseManager.get();
         com.kooo.evcam.license.LicenseManager.State s = lm.getState();
-        if (s == com.kooo.evcam.license.LicenseManager.State.NOT_ACTIVATED
-                || s == com.kooo.evcam.license.LicenseManager.State.BLOCKED) {
+        if (s != com.kooo.evcam.license.LicenseManager.State.TRIAL
+                && s != com.kooo.evcam.license.LicenseManager.State.ACTIVATED) {
             applyLicenseState(s, lm.getTrialRemainingMs(), lm.getLastMessage());
         } else if (fromUser) {
             Toast.makeText(this,
