@@ -83,11 +83,11 @@ final class LicenseDialog {
         cardBg.setColor(0xFF1E3A6E);
         cardBg.setCornerRadius(Ui.dp(ctx, 16));
         card.setBackground(cardBg);
-        int pad = Ui.dp(ctx, 20);
+        int pad = Ui.dp(ctx, 14);
         card.setPadding(pad, pad, pad, pad);
 
         FrameLayout.LayoutParams cardLp = new FrameLayout.LayoutParams(
-                Ui.dp(ctx, 760), ViewGroup.LayoutParams.MATCH_PARENT);
+                Ui.dp(ctx, 580), ViewGroup.LayoutParams.MATCH_PARENT);
         cardLp.gravity = Gravity.CENTER;
         int marginV = Ui.dp(ctx, 26);
         cardLp.topMargin = marginV;
@@ -161,7 +161,7 @@ final class LicenseDialog {
 
         TextView msg = new TextView(ctx);
         msg.setText(message == null ? "" : message);
-        msg.setTextSize(14);
+        msg.setTextSize(13);
         msg.setTextColor(0xFFE8EEFF);
         msg.setGravity(Gravity.CENTER);
         left.addView(msg, Ui.lw());
@@ -169,7 +169,7 @@ final class LicenseDialog {
 
         TextView buyTip = new TextView(ctx);
         buyTip.setText("请扫下方二维码购买");
-        buyTip.setTextSize(13);
+        buyTip.setTextSize(12);
         buyTip.setTextColor(0xFFE8EEFF);
         buyTip.setGravity(Gravity.CENTER);
         buyTip.setPadding(0, Ui.dp(ctx, 6), 0, Ui.dp(ctx, 6));
@@ -180,7 +180,7 @@ final class LicenseDialog {
         qr.setScaleType(ImageView.ScaleType.FIT_CENTER);
         // 高度弹性（weight 填满左栏剩余），宽度上限固定，FIT_CENTER 保比例不变形
         LinearLayout.LayoutParams qrLp = new LinearLayout.LayoutParams(
-                Ui.dp(ctx, 190), 0, 1f);
+                Ui.dp(ctx, 150), 0, 1f);
         qrLp.gravity = Gravity.CENTER_HORIZONTAL;
         qrLp.topMargin = Ui.dp(ctx, 6);
         left.addView(qr, qrLp);
@@ -196,11 +196,11 @@ final class LicenseDialog {
         LinearLayout right = new LinearLayout(ctx);
         right.setOrientation(LinearLayout.VERTICAL);
         right.setGravity(Gravity.CENTER_VERTICAL);
-        right.setPadding(Ui.dp(ctx, 16), 0, 0, 0);
+        right.setPadding(Ui.dp(ctx, 12), 0, 0, 0);
 
         TextView brand = new TextView(ctx);
         brand.setText("【捷途行车记录仪】");
-        brand.setTextSize(16);
+        brand.setTextSize(14);
         brand.setTypeface(Typeface.DEFAULT_BOLD);
         brand.setTextColor(0xFFFFFFFF);
         brand.setGravity(Gravity.CENTER);
@@ -210,7 +210,7 @@ final class LicenseDialog {
         final String mc = com.kooo.evcam.license.LicenseManager.machineCode(ctx);
         TextView mcView = new TextView(ctx);
         mcView.setText("机器码：" + mc);
-        mcView.setTextSize(16);
+        mcView.setTextSize(14);
         mcView.setTypeface(Typeface.MONOSPACE, Typeface.BOLD);
         mcView.setTextColor(0xFFFFFFFF);
         mcView.setGravity(Gravity.CENTER);
@@ -226,7 +226,7 @@ final class LicenseDialog {
 
         TextView dis = new TextView(ctx);
         dis.setText(DISCLAIMER);
-        dis.setTextSize(13);
+        dis.setTextSize(12);
         dis.setLineSpacing(0, 1.25f);
         dis.setTextColor(0xFF4ADE80);
         dis.setGravity(Gravity.CENTER);
@@ -234,7 +234,7 @@ final class LicenseDialog {
 
         TextView price = new TextView(ctx);
         price.setText("激活码请联系客服微信购买，一台设备一个激活码，一次激活永久使用");
-        price.setTextSize(13);
+        price.setTextSize(12);
         price.setLineSpacing(0, 1.25f);
         price.setTextColor(0xFFFFD54A);
         price.setGravity(Gravity.CENTER);
