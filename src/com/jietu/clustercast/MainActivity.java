@@ -3512,10 +3512,10 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         pb.setMax(100);
         pb.setProgress(0);
         pb.setVisibility(View.GONE);
-        dialogBody.addView(pb, new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, Ui.dp(this, 20)));
-        LinearLayout.setMargins((ViewGroup.MarginLayoutParams) pb.getLayoutParams(),
-                0, Ui.dp(this, 12), 0, 0);
+        LinearLayout.LayoutParams pbLp = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, Ui.dp(this, 20));
+        pbLp.topMargin = Ui.dp(this, 12);
+        dialogBody.addView(pb, pbLp);
 
         final TextView tvPct = new TextView(this);
         tvPct.setText("下载中 0%");
