@@ -70,7 +70,7 @@ public final class SentinelController {
             AppLog.d(TAG, "亮屏，取消哨兵窗口计时（录制会话交还正常逻辑）");
         }
         if (dark) {
-            ensureDozeWhitelist(sApp);
+            DoorGreeting.ensureDozeWhitelist(sApp);
         }
     }
 
@@ -86,7 +86,7 @@ public final class SentinelController {
             sScreenDark = false;
         }
         holdCpu(app);
-        ensureDozeWhitelist(app);
+        DoorGreeting.ensureDozeWhitelist(app);
         sThread = new Thread(new Runnable() {
             @Override public void run() { loop(sApp); }
         }, "sentinel");
