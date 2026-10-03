@@ -91,6 +91,10 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
     private TextView licenseView;
     /** 授权被拒中（用于 denied→allowed 转变时恢复自动录像）。 */
     private boolean licenseDenied;
+    /** 授权弹窗启动宽限期：冷启动后 8 秒内不弹全屏遮罩，避免首轮轮询（~5s 网络）
+     *  返回时状态跳变造成 LicenseDialog 闪现/消失的"第二闪"。宽限期过后若仍未授权再弹。 */
+    private static final long LICENSE_GRACE_PERIOD_MS = 8_000L;
+    private long startupMs = 0L;
     private String lastGearText = "";
     private TextView busView;
     private List<ResolveInfo> allApps = new ArrayList<>();
@@ -125,6 +129,7 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         cfg = new Cfg(this);
         Ui.uiScale = cfg.uiScale();
         instance = this;
+        startupMs = android.os.SystemClock.elapsedRealtime();
         appConfig = new com.kooo.evcam.AppConfig(this);
         dingTalkConfig = new com.kooo.evcam.dingtalk.DingTalkConfig(this);
         telegramConfig = new com.kooo.evcam.telegram.TelegramConfig(this);
@@ -155,7 +160,7 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         }
         // 一机一码激活/试用：3 秒轮询云端，状态驱动徽标/激活框/录像拦截
         com.kooo.evcam.license.LicenseManager.get().start(this,
-                (state, remain, message) -> applyLicenseState(state, remain, message));
+                (state, remain, message) -> applyLicenseState(state, remain, message, false));
         // 自更新：30 分钟检查一次（首查延迟 20 秒），发现新版本下载后静默安装
         com.kooo.evcam.license.UpdateChecker.start(this,
                 new com.kooo.evcam.license.UpdateChecker.Callback() {
@@ -319,10 +324,11 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
 
     // ---------- 一机一码授权（激活/试用） ----------
 
-    /** 授权状态回调（主线程）：刷新右上角徽标、开关激活框、联动录像启停。 */
+    /** 授权状态回调（主线程）：刷新右上角徽标、开关激活框、联动录像启停。
+     *  @param fromUser true=用户主动点徽标查看，绕过启动宽限期强制弹框 */
     private void applyLicenseState(
             com.kooo.evcam.license.LicenseManager.State state,
-            long remain, String message) {
+            long remain, String message, boolean fromUser) {
         if (isFinishing() || isDestroyed()) return;
         // 徽标：试用=淡黄+倒计时，已激活=绿色，其余=红
         if (licenseView != null) {
@@ -351,6 +357,15 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         boolean denied = state != com.kooo.evcam.license.LicenseManager.State.TRIAL
                 && state != com.kooo.evcam.license.LicenseManager.State.ACTIVATED;
         boolean checking = state == com.kooo.evcam.license.LicenseManager.State.PENDING;
+        // 启动宽限期：冷启动后 8 秒内，PENDING（检查中）/ NOT_ACTIVATED（未激活）
+        // 不弹全屏遮罩——首轮轮询网络往返约 5s，状态在 PENDING↔结果之间跳变会让
+        // LicenseDialog 闪现又消失，是"第二闪"的来源。BLOCKED（试用到期/断网停用）
+        // 是确定性拦截，不受宽限期限制。宽限期过后若仍被拒再补弹。
+        boolean inGrace = startupMs > 0L
+                && android.os.SystemClock.elapsedRealtime() - startupMs < LICENSE_GRACE_PERIOD_MS;
+        boolean suppressDialog = !fromUser && inGrace
+                && (state == com.kooo.evcam.license.LicenseManager.State.PENDING
+                        || state == com.kooo.evcam.license.LicenseManager.State.NOT_ACTIVATED);
         if (denied) {
             boolean wasDenied = licenseDenied;
             licenseDenied = true;
@@ -358,6 +373,14 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
             if (quadRecording) {
                 stopQuad();
                 Toast.makeText(this, "授权失效，已停止录像", Toast.LENGTH_LONG).show();
+            }
+            if (suppressDialog) {
+                // 宽限期内不弹框：保证已激活设备首轮轮询期间界面不闪；
+                // 排一个宽限期结束后的补检，若仍未授权再弹框拦截。
+                ui.removeCallbacks(licenseGraceRecheck);
+                ui.postDelayed(licenseGraceRecheck, LICENSE_GRACE_PERIOD_MS);
+                if (wasDenied) return;
+                return;
             }
             String tip = checking ? "正在检查授权，请稍候…"
                     : (message == null || message.isEmpty() ? "未激活，请试用或输入激活码" : message);
@@ -376,6 +399,7 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
             if (wasDenied) return; // 恢复录像只在 denied→allowed 边沿做一次
         } else {
             licenseDenied = false;
+            ui.removeCallbacks(licenseGraceRecheck);
             LicenseDialog.dismiss();
             // 之前被拦下的自动录像：授权恢复后补开（开机自动录像/启动自动录制开关照旧生效）
             if (appConfig != null
@@ -386,13 +410,21 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         }
     }
 
+    /** 启动宽限期结束后的授权补检：若仍未授权则弹出全屏遮罩拦截。 */
+    private final Runnable licenseGraceRecheck = new Runnable() {
+        @Override public void run() {
+            if (isFinishing() || isDestroyed()) return;
+            showLicenseDialogIfNeeded(false);
+        }
+    };
+
     /** 点徽标时手动查看：非试用/激活状态（含检查中）弹遮罩框，其余给一条状态提示。 */
     private void showLicenseDialogIfNeeded(boolean fromUser) {
         com.kooo.evcam.license.LicenseManager lm = com.kooo.evcam.license.LicenseManager.get();
         com.kooo.evcam.license.LicenseManager.State s = lm.getState();
         if (s != com.kooo.evcam.license.LicenseManager.State.TRIAL
                 && s != com.kooo.evcam.license.LicenseManager.State.ACTIVATED) {
-            applyLicenseState(s, lm.getTrialRemainingMs(), lm.getLastMessage());
+            applyLicenseState(s, lm.getTrialRemainingMs(), lm.getLastMessage(), fromUser);
         } else if (fromUser) {
             Toast.makeText(this,
                     s == com.kooo.evcam.license.LicenseManager.State.ACTIVATED
