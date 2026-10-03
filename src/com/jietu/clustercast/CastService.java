@@ -151,7 +151,10 @@ public class CastService extends Service {
                         exitNow();
                     }
                     QuadAutoRecord.suspendForSleep(ctx);
-                    Surround.suspendAll();
+                    // 「息屏录制」开着时 QuadAutoRecord 未挂起，其 Surround 流不得被闸门关掉
+                    if (!new com.kooo.evcam.AppConfig(ctx).isScreenOffRecordingEnabled()) {
+                        Surround.suspendAll();
+                    }
                     MainActivity m = MainActivity.getInstance();
                     if (m != null) m.onSystemSleep();
                 } else if (Intent.ACTION_SCREEN_ON.equals(a)) {

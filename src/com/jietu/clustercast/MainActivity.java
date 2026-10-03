@@ -1424,7 +1424,9 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
             recBtn.setBackground(Ui.darkBg(this, Ui.D_BTN, 10));
         }
         if (quadTime != null) {
-            quadTime.setVisibility(quadRecording ? View.VISIBLE : View.GONE);
+            // 「录制状态显示」开关控制计时角标（此前该开关无任何功能层消费）
+            quadTime.setVisibility(quadRecording && appConfig.isRecordingStatsEnabled()
+                    ? View.VISIBLE : View.GONE);
         }
     }
 
@@ -1608,7 +1610,13 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         }
     }
 
-    public void refreshRecordingStatsSettings() { }
+    /** 「录制状态显示」开关切换：同步计时角标可见性（此前是空方法，开关切了没反应）。 */
+    public void refreshRecordingStatsSettings() {
+        if (quadTime != null) {
+            quadTime.setVisibility(quadRecording && appConfig != null && appConfig.isRecordingStatsEnabled()
+                    ? View.VISIBLE : View.GONE);
+        }
+    }
 
     public void refreshPreviewCorrection() { }
 
@@ -2698,6 +2706,7 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
                 }
                 startQuadTicker();
                 updateRecordUi();
+                syncRecordingFloating();
                 note(dvrStatus, "已接管自动录像画面");
                 return;
             }
@@ -2745,6 +2754,7 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
             }
             startQuadTicker();
             updateRecordUi();
+            syncRecordingFloating();
         } catch (Throwable t) {
             note(dvrStatus, "启动失败：" + t.getClass().getSimpleName()
                     + (t.getMessage() != null ? " " + t.getMessage() : ""));
@@ -2757,6 +2767,12 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
                 if (!quadRecording || quadTime == null) {
                     return;
                 }
+                if (appConfig == null || !appConfig.isRecordingStatsEnabled()) {
+                    quadTime.setVisibility(View.GONE);
+                    ui.postDelayed(this, 500);
+                    return;
+                }
+                quadTime.setVisibility(View.VISIBLE);
                 long s = (android.os.SystemClock.elapsedRealtime() - quadStartMs) / 1000;
                 quadTime.setText(String.format(Locale.US, "%02d:%02d", s / 60, s % 60));
                 ui.postDelayed(this, 500);
@@ -2805,15 +2821,16 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
     }
 
     /**
-     * 系统熄屏（休眠）：全部相机必须释放——跨休眠持有 Camera2 会话会把 HAL 卡死
+     * 系统熄屏：默认全部相机必须释放——跨休眠持有 Camera2 会话会把 HAL 卡死
      * （2026-10-02 实车：唤醒后我们四路黑、原车倒车也黑，只能重启）。
-     * 预览流由 onPause 释放；这里补录像路径：自录直接停（当前分段收尾成文件），
-     * 服务侧自动录像由 QuadAutoRecord.suspendForSleep 停。
+     * 「息屏录制」开着时例外：前台服务持 PARTIAL_WAKE_LOCK 系统不进休眠（无跨休眠风险），
+     * 录像会话继续（服务侧自动录像由 QuadAutoRecord.suspendForSleep 自行判断）。
      */
     public void onSystemSleep() {
         try {
-            if (quadRecording) stopQuad();
-            if (mcm != null) {
+            boolean keepRecording = appConfig != null && appConfig.isScreenOffRecordingEnabled();
+            if (quadRecording && !keepRecording) stopQuad();
+            if (mcm != null && !keepRecording) {
                 if (!QuadAutoRecord.isActive()) {
                     mcm.stopRecording();
                     mcm.pauseAllCamerasByLifecycle();
@@ -2824,8 +2841,9 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
                 mcm.setRepairSuppressed(true);
                 sleepRepairSuppressed = true;
             }
-            // 已在后台却因 stopQuad 重建了预览流：显式停掉，别让它们跨休眠被闸门重开
-            if (isInBackground) {
+            // 已在后台却因 stopQuad 重建了预览流：显式停掉，别让它们跨休眠被闸门重开。
+            // 息屏续录时跳过：接管场景 quadStreams 挂着录像合成纹理，停流会让录像黑一路
+            if (isInBackground && !keepRecording) {
                 for (CamStream h : streams) {
                     try { if (h != null && h.s != null) h.s.stop(); } catch (Throwable ignored) { }
                 }
@@ -2896,6 +2914,22 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
             quadTime.setText("--:--");
         }
         updateRecordUi();
+        syncRecordingFloating();
+    }
+
+    /**
+     * 录制悬浮按钮同步：按「录制悬浮按钮」开关与录制状态驱动 RecordingFloatingService
+     * （此前该开关只写配置，服务无人启动，悬浮按钮永不出现）。
+     */
+    public void syncRecordingFloating() {
+        try {
+            Intent i = new Intent(this, com.kooo.evcam.service.RecordingFloatingService.class);
+            boolean show = quadRecording && appConfig != null && appConfig.isRecordingFloatingEnabled();
+            i.setAction(show ? com.kooo.evcam.service.RecordingFloatingService.ACTION_SHOW
+                    : com.kooo.evcam.service.RecordingFloatingService.ACTION_HIDE);
+            startService(i);
+        } catch (Throwable ignored) {
+        }
     }
 
     /** 按应用名关键词检索已装的启动器应用并在主屏打开，找不到照实说明。 */

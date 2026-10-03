@@ -1044,11 +1044,12 @@ public class SettingsFragment extends Fragment {
             // 在后台线程启动或停止服务，避免ANR
             new Thread(() -> {
                 try {
-                    Intent intent = new Intent(getContext(), com.kooo.evcam.service.RecordingFloatingService.class);
-                    if (isChecked) {
-                        intent.setAction(com.kooo.evcam.service.RecordingFloatingService.ACTION_SHOW);
-                        getContext().startService(intent);
+                    // 开：交 MainActivity 按真实录制状态同步（在录才显示，否则只挂起服务）
+                    // 关：直接隐藏
+                    if (isChecked && getActivity() instanceof com.jietu.clustercast.MainActivity) {
+                        ((com.jietu.clustercast.MainActivity) getActivity()).syncRecordingFloating();
                     } else {
+                        Intent intent = new Intent(getContext(), com.kooo.evcam.service.RecordingFloatingService.class);
                         intent.setAction(com.kooo.evcam.service.RecordingFloatingService.ACTION_HIDE);
                         getContext().startService(intent);
                     }

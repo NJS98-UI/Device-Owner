@@ -104,6 +104,13 @@ public final class QuadAutoRecord {
      */
     public static synchronized void suspendForSleep(Context ctx) {
         if (sComposer == null) return;
+        // 「息屏录制」开着：前台服务持 PARTIAL_WAKE_LOCK 系统不进休眠（HAL 无跨休眠风险），
+        // 不挂起，熄屏继续录新分段。关闭时走原路：停录收尾成文件，唤醒续录。
+        if (ctx != null && new com.kooo.evcam.AppConfig(ctx).isScreenOffRecordingEnabled()) {
+            AppLog.d(TAG, "息屏录制开着，熄屏继续录像（不挂起）");
+            sSleepPaused = false;
+            return;
+        }
         sSleepPaused = true;
         stopInternal();
         AppLog.d(TAG, "熄屏暂停录像，相机已全部释放");
