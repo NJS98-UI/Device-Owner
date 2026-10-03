@@ -170,6 +170,7 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
                     @Override public void onMessage(String msg) {
                         Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
                     }
+                    @Override public void onProgress(int percent) { }
                 });
         maybeAutoStartRecording(getIntent());
         // 手动打开（非开机链路）："启动自动录制"开关管这里；开机链路归"开机自动录像"开关（maybeAutoStartRecording）
@@ -3391,6 +3392,7 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
                             @Override public void onMessage(String msg) {
                                 Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
                             }
+                            @Override public void onProgress(int percent) { }
                         });
             }
         });
@@ -3479,30 +3481,83 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
 
     // ---------- 版本更新弹窗 ----------
 
-    /** 防止重复弹窗（3 秒周期检测 + 手动检查可能同时触发）。 */
+    /** 防止重复弹窗（3 秒周期检测每次都提示，但同一时刻只弹一个）。 */
     private boolean updateDialogShowing = false;
 
     private void showUpdateDialog(final String version, final String url, final String notes) {
         if (updateDialogShowing) return;
         updateDialogShowing = true;
+
+        // 构建弹窗内容：消息 + 进度条（下载前隐藏，点击下载后显示）
+        LinearLayout dialogBody = new LinearLayout(this);
+        dialogBody.setOrientation(LinearLayout.VERTICAL);
+        dialogBody.setPadding(Ui.dp(this, 24), Ui.dp(this, 8), Ui.dp(this, 24), 8);
+
+        TextView tvMsg = new TextView(this);
         StringBuilder msg = new StringBuilder();
         msg.append("发现新版本 v").append(version);
         if (notes != null && notes.length() > 0) {
             msg.append("\n\n").append(notes);
         }
         msg.append("\n\n是否下载并安装？");
-        new AlertDialog.Builder(this)
+        tvMsg.setText(msg.toString());
+        tvMsg.setTextColor(0xFFE0E0E0);
+        tvMsg.setTextSize(14);
+        dialogBody.addView(tvMsg, new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        // 进度条 + 百分比文字
+        final android.widget.ProgressBar pb = new android.widget.ProgressBar(this, null,
+                android.R.attr.progressBarStyleHorizontal);
+        pb.setMax(100);
+        pb.setProgress(0);
+        pb.setVisibility(View.GONE);
+        dialogBody.addView(pb, new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, Ui.dp(this, 20)));
+        LinearLayout.setMargins((ViewGroup.MarginLayoutParams) pb.getLayoutParams(),
+                0, Ui.dp(this, 12), 0, 0);
+
+        final TextView tvPct = new TextView(this);
+        tvPct.setText("下载中 0%");
+        tvPct.setTextColor(0xFF80FFA0);
+        tvPct.setTextSize(12);
+        tvPct.setVisibility(View.GONE);
+        dialogBody.addView(tvPct, new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        final AlertDialog[] dlg = new AlertDialog[1];
+        dlg[0] = new AlertDialog.Builder(this)
                 .setTitle("版本更新")
-                .setMessage(msg.toString())
+                .setView(dialogBody)
                 .setPositiveButton("下载安装", (d, w) -> {
-                    updateDialogShowing = false;
-                    Toast.makeText(MainActivity.this, "正在下载…", Toast.LENGTH_SHORT).show();
+                    // 切换到下载中状态
+                    tvMsg.setVisibility(View.GONE);
+                    pb.setVisibility(View.VISIBLE);
+                    tvPct.setVisibility(View.VISIBLE);
+                    // 禁用按钮防止重复点击
+                    dlg[0].getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+                    dlg[0].getButton(AlertDialog.BUTTON_POSITIVE).setText("下载中…");
+                    dlg[0].getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(false);
                     com.kooo.evcam.license.UpdateChecker.downloadAndInstall(
                             MainActivity.this, url, version,
                             new com.kooo.evcam.license.UpdateChecker.Callback() {
                                 @Override public void onNewVersion(String v, String u, String n) { }
                                 @Override public void onMessage(String m) {
+                                    // 下载失败：恢复弹窗允许重试
+                                    dlg[0].getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+                                    dlg[0].getButton(AlertDialog.BUTTON_POSITIVE).setText("重试下载");
+                                    dlg[0].getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(true);
+                                    tvPct.setText(m);
                                     Toast.makeText(MainActivity.this, m, Toast.LENGTH_SHORT).show();
+                                }
+                                @Override public void onProgress(int percent) {
+                                    pb.setProgress(percent);
+                                    tvPct.setText("下载中 " + percent + "%");
+                                    if (percent >= 100) {
+                                        // 下载完成，即将弹出系统安装器，关闭本弹窗
+                                        dlg[0].dismiss();
+                                        updateDialogShowing = false;
+                                    }
                                 }
                             });
                 })
@@ -3510,7 +3565,8 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
                     updateDialogShowing = false;
                 })
                 .setOnCancelListener(d -> updateDialogShowing = false)
-                .show();
+                .create();
+        dlg[0].show();
     }
 
     // ---------- 开门迎宾语（车门开/关事件 → 内置 TTS 或自定义 MP3，监听在 DoorGreeting） ----------

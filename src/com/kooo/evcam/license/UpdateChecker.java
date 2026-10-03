@@ -36,6 +36,8 @@ public final class UpdateChecker {
         /** 主线程回调：有新版本。version=新版本名，url=下载地址，notes=更新说明。 */
         void onNewVersion(String version, String url, String notes);
         void onMessage(String msg);
+        /** 下载进度回调（主线程，percent 0-100）。 */
+        void onProgress(int percent);
     }
 
     private static final ExecutorService io = Executors.newSingleThreadExecutor();
@@ -92,11 +94,6 @@ public final class UpdateChecker {
                 AppLog.d(TAG, "版本 " + serverV + " 已安装过，跳过");
                 return;
             }
-            // 防止 3 秒周期检测反复弹窗：同一版本只通知一次（手动检查除外）
-            if (!manual && key.equals(sp.getString("lastNotified", ""))) {
-                return;
-            }
-            sp.edit().putString("lastNotified", key).apply();
             String notes = upd.optString("notes", "");
             post(() -> cb.onNewVersion(serverV, url, notes));
         } catch (Throwable t) {
@@ -132,7 +129,7 @@ public final class UpdateChecker {
     /** 下载 APK 并调用系统安装器安装（后台下载，主线程回调进度）。 */
     public static void downloadAndInstall(Context app, String url, String version, Callback cb) {
         io.execute(() -> {
-            File apk = download(app, url);
+            File apk = download(app, url, (pct) -> post(() -> cb.onProgress(pct)));
             if (apk == null) {
                 post(() -> cb.onMessage("下载失败，请检查网络"));
                 return;
@@ -141,6 +138,7 @@ public final class UpdateChecker {
             String key = version + "|" + url;
             app.getSharedPreferences("update", Context.MODE_PRIVATE)
                     .edit().putString("lastInstalled", key).apply();
+            post(() -> cb.onProgress(100));
             post(() -> {
                 installWithSystemInstaller(app, apk);
             });
@@ -173,7 +171,9 @@ public final class UpdateChecker {
         try { return Integer.parseInt(s.trim()); } catch (Throwable t) { return 0; }
     }
 
-    private static File download(Context app, String url) {
+    private interface ProgressCb { void onProgress(int percent); }
+
+    private static File download(Context app, String url, ProgressCb cb) {
         File dst = new File(app.getExternalFilesDir(null), "update.apk");
         File tmp = new File(dst.getAbsolutePath() + ".tmp");
         try {
@@ -182,11 +182,24 @@ public final class UpdateChecker {
             c.setReadTimeout(30000);
             try {
                 if (c.getResponseCode() != 200) return null;
+                long total = c.getContentLengthLong();
+                long done = 0;
                 try (InputStream in = c.getInputStream();
                      FileOutputStream out = new FileOutputStream(tmp)) {
                     byte[] buf = new byte[8192];
                     int n;
-                    while ((n = in.read(buf)) > 0) out.write(buf, 0, n);
+                    int lastPct = -1;
+                    while ((n = in.read(buf)) > 0) {
+                        out.write(buf, 0, n);
+                        done += n;
+                        if (total > 0) {
+                            int pct = (int) (done * 100 / total);
+                            if (pct != lastPct) {
+                                lastPct = pct;
+                                cb.onProgress(pct);
+                            }
+                        }
+                    }
                 }
                 if (!tmp.renameTo(dst)) {
                     java.nio.file.Files.move(tmp.toPath(), dst.toPath(),
