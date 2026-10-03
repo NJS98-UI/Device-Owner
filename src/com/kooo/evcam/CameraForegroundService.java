@@ -42,6 +42,8 @@ public class CameraForegroundService extends Service {
     private static final long RESTART_DELAY_MS = 1000;
 
     private static final long CAMERA_REPAIR_INTERVAL_MS = 10000;
+    /** 开机宽限期：这段时间内修复循环空转，避免与原车 360 的相机初始化抢相机。 */
+    private static final long CAMERA_REPAIR_BOOT_GRACE_MS = 90_000L;
     private final Handler mainHandler = new Handler(Looper.getMainLooper());
     private Runnable cameraRepairRunnable;
 
@@ -108,9 +110,9 @@ public class CameraForegroundService extends Service {
                     BlindSpotService.update(this);
                 }
                 
-                // 如果启用了自动录制，启动 MainActivity
-                // 这确保杀后台重启后也能自动录制（与开机启动行为一致）
-                if (appConfig.isAutoStartRecording()) {
+                // 如果启用了开机自动录像，启动 MainActivity
+                // 这确保杀后台重启后也能自动录像（与开机启动行为一致）
+                if (appConfig.isBootAutoRecord()) {
                     startMainActivityForAutoRecording();
                 }
             } else {
@@ -242,7 +244,8 @@ public class CameraForegroundService extends Service {
      */
     private void scheduleAutoRecordStart() {
         try {
-            if (!new AppConfig(this).isAutoStartRecording()) return;
+            // 服务侧兜底属于开机自动录像链路：按"开机自动录像"开关判定
+            if (!new AppConfig(this).isBootAutoRecord()) return;
         } catch (Exception e) {
             return;
         }
@@ -280,8 +283,8 @@ public class CameraForegroundService extends Service {
                 serviceManager.startRemoteServicesFromService(this);
             }
             
-            // 检查并启动 MainActivity（如果启用了自动录制且 Activity 未运行）
-            if (appConfig.isAutoStartRecording() && MainActivity.getInstance() == null) {
+            // 检查并启动 MainActivity（如果启用了开机自动录像且 Activity 未运行）
+            if (appConfig.isBootAutoRecord() && MainActivity.getInstance() == null) {
                 startMainActivityForAutoRecording();
             }
 
@@ -316,6 +319,11 @@ public class CameraForegroundService extends Service {
             @Override
             public void run() {
                 try {
+                    // 开机宽限期：原车 360 正在初始化相机，此时修复循环重开相机会跟它抢
+                    if (android.os.SystemClock.elapsedRealtime() < CAMERA_REPAIR_BOOT_GRACE_MS) {
+                        mainHandler.postDelayed(this, CAMERA_REPAIR_INTERVAL_MS);
+                        return;
+                    }
                     com.kooo.evcam.camera.MultiCameraManager cameraManager = com.kooo.evcam.camera.CameraManagerHolder.getInstance().getCameraManager();
                     if (cameraManager != null) {
                         int repaired = cameraManager.checkAndRepairCameras();

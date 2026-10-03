@@ -97,8 +97,10 @@ public class BootReceiver extends BroadcastReceiver {
             KeepAliveManager.startKeepAliveWork(context);
             AppLog.d(TAG, "WorkManager 保活任务已启动");
             
-            // 开机自启或自动录制任一开着都拉起完整应用（自动录制靠 MainActivity 消费 auto_start_from_boot）
-            if (appConfig.isAutoStartOnBoot() || appConfig.isAutoStartRecording()) {
+            // 开机自启/自动录制/开机自动录像任一开着都拉起完整应用
+            // （开机自动录像由 TransparentBootActivity 按 boot_auto_record 精判）
+            if (appConfig.isAutoStartOnBoot() || appConfig.isAutoStartRecording()
+                    || appConfig.isBootAutoRecord()) {
                 AppLog.d(TAG, "尝试启动完整应用...");
                 tryStartMainActivity(context);
             }

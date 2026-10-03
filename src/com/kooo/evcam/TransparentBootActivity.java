@@ -66,7 +66,9 @@ public class TransparentBootActivity extends Activity {
         // - 悬浮窗已在 CameraForegroundService 中启动
         AppConfig appConfig = new AppConfig(this);
         
-        boolean shouldAutoRecord = appConfig.isAutoStartRecording();
+        // 开机场景只听「开机自动录像」开关（boot_auto_record）：
+        // 关闭时开机不拉 MainActivity 开录，仅保持后台服务（远程指令仍可用）
+        boolean shouldAutoRecord = appConfig.isBootAutoRecord();
         boolean shouldShowFloatingWindow = appConfig.isFloatingWindowEnabled();
         
         // 仅用于日志记录

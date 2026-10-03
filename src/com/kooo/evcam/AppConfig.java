@@ -19,6 +19,7 @@ public class AppConfig {
     private static final String KEY_DEVICE_NICKNAME = "device_nickname";  // 设备识别名称（用于日志上传）
     private static final String KEY_AUTO_START_ON_BOOT = "auto_start_on_boot";  // 开机自启动
     private static final String KEY_AUTO_START_RECORDING = "auto_start_recording";  // 启动自动录制
+    private static final String KEY_BOOT_AUTO_RECORD = "boot_auto_record";  // 开机自动录像（无人值守：开机/服务重启后自动开录）
     private static final String KEY_SCREEN_OFF_RECORDING = "screen_off_recording";  // 息屏录制（锁车录制）
     private static final String KEY_KEEP_ALIVE_ENABLED = "keep_alive_enabled";  // 保活服务
     private static final String KEY_PREVENT_SLEEP_ENABLED = "prevent_sleep_enabled";  // 防止休眠（持续WakeLock）
@@ -469,6 +470,27 @@ public class AppConfig {
     public boolean isAutoStartRecording() {
         // 车机专用记录仪：开机自动录像/停车监控是核心功能，默认开启（用户可关）
         return prefs.getBoolean(KEY_AUTO_START_RECORDING, true);
+    }
+
+    /**
+     * 设置开机自动录像（整车软件级开关）
+     * 控制：开机拉起录像（BootReceiver/TransparentBootActivity）、服务被杀重启后的自动续录
+     * （CameraForegroundService 15 秒兜底 QuadAutoRecord）、auto_start_from_boot 拉起 MainActivity 的开录。
+     * @param enabled true 表示开机后自动开始录像
+     */
+    public void setBootAutoRecord(boolean enabled) {
+        prefs.edit().putBoolean(KEY_BOOT_AUTO_RECORD, enabled).apply();
+        AppLog.d(TAG, "开机自动录像设置: " + (enabled ? "启用" : "禁用"));
+    }
+
+    /**
+     * 获取开机自动录像设置（整车软件级开关，默认开启）
+     * 与「启动自动录制」分工：本开关管开机/服务重启的无人值守录像；
+     * 「启动自动录制」管应用被打开（手动点开等）时的自动录像。
+     * @return true 表示开机后自动开始录像
+     */
+    public boolean isBootAutoRecord() {
+        return prefs.getBoolean(KEY_BOOT_AUTO_RECORD, true);
     }
     
     /**

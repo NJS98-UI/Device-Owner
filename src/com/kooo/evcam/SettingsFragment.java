@@ -48,6 +48,7 @@ public class SettingsFragment extends Fragment {
     private LinearLayout logButtonsLayout;
     private SwitchMaterial autoStartSwitch;
     private SwitchMaterial autoStartRecordingSwitch;
+    private SwitchMaterial bootAutoRecordSwitch;
     private SwitchMaterial screenOffRecordingSwitch;
     private LinearLayout screenOffRecordingLayout;
     // 定时保活和防止休眠已改为始终开启，无需用户设置（车机必需）
@@ -414,6 +415,12 @@ public class SettingsFragment extends Fragment {
             autoStartRecordingSwitch.setChecked(appConfig.isAutoStartRecording());
         }
 
+        // 初始化开机自动录像开关
+        bootAutoRecordSwitch = view.findViewById(R.id.switch_boot_auto_record);
+        if (getContext() != null && appConfig != null) {
+            bootAutoRecordSwitch.setChecked(appConfig.isBootAutoRecord());
+        }
+
         // 初始化息屏录制开关
         screenOffRecordingSwitch = view.findViewById(R.id.switch_screen_off_recording);
         screenOffRecordingLayout = view.findViewById(R.id.layout_screen_off_recording);
@@ -433,6 +440,17 @@ public class SettingsFragment extends Fragment {
                 
                 // 更新息屏录制开关的可见性
                 updateScreenOffRecordingVisibility(isChecked);
+            }
+        });
+
+        // 设置开机自动录像开关监听器
+        bootAutoRecordSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (getContext() != null && appConfig != null) {
+                appConfig.setBootAutoRecord(isChecked);
+                String message = isChecked ? "开机自动录像已启用：开机后自动开始录像"
+                        : "开机自动录像已禁用：开机后不再自动录像";
+                Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+                AppLog.d("SettingsFragment", message);
             }
         });
 

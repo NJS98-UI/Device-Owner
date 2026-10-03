@@ -132,6 +132,12 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
             requestPermissions(new String[]{android.Manifest.permission.CAMERA}, 1);
         }
         maybeAutoStartRecording(getIntent());
+        // 手动打开（非开机链路）："启动自动录制"开关管这里；开机链路归"开机自动录像"开关（maybeAutoStartRecording）
+        Intent launch = getIntent();
+        boolean fromBoot = launch != null && launch.getBooleanExtra("auto_start_from_boot", false);
+        if (!fromBoot && appConfig.isAutoStartRecording()) {
+            scheduleQuadStart("启动四合一录像");
+        }
         // 远程指令执行层：移植时 initRemoteCommandDispatcher 从未被调用，
         // remote_action extras 也没人读——所有远程录制/拍照指令都会无声失败
         initRemoteCommandDispatcher();
@@ -244,22 +250,34 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         ui.postDelayed(poll[0], 800);
     }
 
-    /** 开机自启/服务重启路径：CameraForegroundService、TransparentBootActivity 带
-     *  auto_start_from_boot 拉起本页（silent_mode 不可见），按"启动自动录制"开关
-     *  延迟开四合一录像——此前这些 extras 发了没人读，开机自动录像一直是断的。 */
-    private void maybeAutoStartRecording(Intent i) {
-        if (i == null || !i.getBooleanExtra("auto_start_from_boot", false)) return;
-        if (appConfig == null || !appConfig.isAutoStartRecording()) return;
-        if (quadRecording) return;
+    /** 本进程只自动开录一次（开机链路/手动打开共用），用户手动停止后不再自动重开。 */
+    private boolean autoStartRecordingDone;
+
+    /**
+     * 延迟开四合一录像：等界面与相机初始化稳定。
+     * @param why 状态栏提示语
+     */
+    private void scheduleQuadStart(final String why) {
+        if (autoStartRecordingDone || quadRecording) return;
+        autoStartRecordingDone = true;
         ui.postDelayed(new Runnable() {
             @Override public void run() {
                 if (quadRecording || isFinishing()) return;
                 if (dvrStatus != null) {
-                    note(dvrStatus, "自动录制：启动四合一录像");
+                    note(dvrStatus, "自动录制：" + why);
                 }
                 startQuad();
             }
         }, 2500);
+    }
+
+    /** 开机自启/服务重启路径：CameraForegroundService、TransparentBootActivity 带
+     *  auto_start_from_boot 拉起本页（silent_mode 不可见），按"开机自动录像"开关
+     *  延迟开四合一录像。手动打开的自动录制在 onCreate 里按"启动自动录制"开关走。 */
+    private void maybeAutoStartRecording(Intent i) {
+        if (i == null || !i.getBooleanExtra("auto_start_from_boot", false)) return;
+        if (appConfig == null || !appConfig.isBootAutoRecord()) return;
+        scheduleQuadStart("启动四合一录像（开机自动录像）");
     }
 
     @Override public void onWindowFocusChanged(boolean hasFocus) {
@@ -1566,6 +1584,8 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
     private boolean isInBackground;
     private boolean isPreparingRecording;
     private boolean isRemoteWakeUp;
+    /** 熄屏时由本类设置过修复抑制，唤醒时只清除自己设置的（避免覆盖后台 closeAllCameras 的抑制）。 */
+    private boolean sleepRepairSuppressed;
     private long recordingStartTime;
     private int currentSegmentCount;
     private long pendingTelegramChatId;
@@ -2273,6 +2293,9 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
                 sb.append("+息屏");
             }
             sb.append("\n");
+
+            // 开机自动录像
+            sb.append("• 开机自动录像: ").append(appConfig.isBootAutoRecord() ? "开" : "关").append("\n");
             
             // 心跳推图
             if (heartbeatManager != null) {
@@ -2790,9 +2813,16 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
     public void onSystemSleep() {
         try {
             if (quadRecording) stopQuad();
-            if (mcm != null && !QuadAutoRecord.isActive()) {
-                mcm.stopRecording();
-                mcm.pauseAllCamerasByLifecycle();
+            if (mcm != null) {
+                if (!QuadAutoRecord.isActive()) {
+                    mcm.stopRecording();
+                    mcm.pauseAllCamerasByLifecycle();
+                }
+                // 休眠窗口内一律抑制修复循环：熄屏期间所有"断开"都是主动释放，
+                // 此时被修复循环重开会卡死 HAL（2026-10-02 实车根因）。
+                // QuadAutoRecord 活跃时它自己走 Surround.stop 释放（无 paused 标志），同样需要抑制。
+                mcm.setRepairSuppressed(true);
+                sleepRepairSuppressed = true;
             }
             // 已在后台却因 stopQuad 重建了预览流：显式停掉，别让它们跨休眠被闸门重开
             if (isInBackground) {
@@ -2806,10 +2836,16 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         } catch (Throwable ignored) { }
     }
 
-    /** 系统亮屏（唤醒）：DVR 引擎相机解除生命周期暂停（预览由 onResume 重建）。 */
+    /** 系统亮屏（唤醒）：先解除熄屏期的修复抑制，再让 DVR 引擎相机解除生命周期暂停（预览由 onResume 重建）。 */
     public void onSystemWake() {
         try {
-            if (mcm != null) mcm.resumeAllCamerasByLifecycle();
+            if (mcm != null) {
+                if (sleepRepairSuppressed) {
+                    sleepRepairSuppressed = false;
+                    mcm.setRepairSuppressed(false);
+                }
+                mcm.resumeAllCamerasByLifecycle();
+            }
         } catch (Throwable ignored) { }
     }
 
