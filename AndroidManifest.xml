@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.jietu.clustercast"
-    android:versionCode="75"
-    android:versionName="18.47">
+    android:versionCode="76"
+    android:versionName="18.48">
 
     <uses-sdk android:minSdkVersion="27" android:targetSdkVersion="28"/>
     <!-- 前台服务保活：常驻监听车机系统发的三指手势广播 -->
@@ -35,6 +35,9 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <!-- 自更新：调用系统安装器安装下载的 APK（非 Device Owner 也能用） -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <!-- Device Owner 静默自更新（PackageInstaller 直接提交，无确认界面） -->
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.UPDATE_PACKAGES_WITHOUT_USER_ACTION"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA"/>

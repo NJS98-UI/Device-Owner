@@ -135,13 +135,34 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         telegramConfig = new com.kooo.evcam.telegram.TelegramConfig(this);
         feishuConfig = new com.kooo.evcam.feishu.FeishuConfig(this);
 
-        allApps = loadApps();
+        // 应用列表后台加载：全量 PackageManager 查询在车机上要数秒，
+        // 放首帧前就是"冷启动白屏"的主因；列表建好后回主线程刷网格
+        final java.util.concurrent.ExecutorService appLoader =
+                java.util.concurrent.Executors.newSingleThreadExecutor();
+        appLoader.execute(() -> {
+            final List<ResolveInfo> loaded = loadApps();
+            ui.post(new Runnable() {
+                @Override public void run() {
+                    allApps.addAll(loaded);
+                    if (tvAppCount != null) {
+                        tvAppCount.setText("应用列表  共 " + allApps.size() + " 个应用");
+                    }
+                    if (adapter != null) adapter.notifyDataSetChanged();
+                }
+            });
+        });
         setContentView(buildUi());
         refresh();
         startBusCheck();
-        // Device Owner 防杀加固（幂等）：防强行停止/防卸载/省电豁免/静默权限，
-        // 顺带把 CAMERA/存储等运行时权限静默置为永久 GRANTED（弹窗链路作兜底）
-        com.jietu.clustercast.KeepAliveGuard.apply(this);
+        // 重量级启动工作挪到首帧之后：全量 PackageManager 查询 + DPM 加固的
+        // binder 链在车机上要数秒，全挤在首帧前就是"冷启动白屏 4 秒"的主因
+        ui.post(new Runnable() {
+            @Override public void run() {
+                // Device Owner 防杀加固（幂等）：防强行停止/省电豁免/静默权限，
+                // 顺带把 CAMERA/存储等运行时权限静默置为永久 GRANTED（弹窗链路作兜底）
+                com.jietu.clustercast.KeepAliveGuard.apply(MainActivity.this);
+            }
+        });
         // 盲区/记录仪的 Camera2 通道：普通应用运行时弹窗授权一次即可（实测 USER_SET 永久记住）
         // 存储权限一并请求：U 盘录制走公共目录（U盘/DCIM/EVCam_Video），
         // 缺 WRITE_EXTERNAL_STORAGE 时 U 盘目录创建/写入全部被拒，会被误判为"检测不到U盘"
@@ -164,11 +185,12 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         // 自更新：启动立即检测，之后每 3 秒静默检测；发现新版本弹窗确认后下载安装
         com.kooo.evcam.license.UpdateChecker.start(this,
                 new com.kooo.evcam.license.UpdateChecker.Callback() {
-                    @Override public void onNewVersion(String version, String url, String notes) {
-                        showUpdateDialog(version, url, notes);
+                    @Override public void onNewVersion(String version, String url, String notes, boolean manual) {
+                        showUpdateDialog(version, url, notes, manual);
                     }
-                    @Override public void onMessage(String msg) {
-                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    @Override public void onMessage(String msg, boolean manual) {
+                        if (manual) showUpdateResultDialog(msg);
+                        else Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
                     }
                     @Override public void onProgress(int percent) { }
                 });
@@ -3386,11 +3408,11 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
                 Toast.makeText(MainActivity.this, "正在检查更新…", Toast.LENGTH_SHORT).show();
                 com.kooo.evcam.license.UpdateChecker.checkNow(MainActivity.this,
                         new com.kooo.evcam.license.UpdateChecker.Callback() {
-                            @Override public void onNewVersion(String version, String url, String notes) {
-                                showUpdateDialog(version, url, notes);
+                            @Override public void onNewVersion(String version, String url, String notes, boolean manual) {
+                                showUpdateDialog(version, url, notes, manual);
                             }
-                            @Override public void onMessage(String msg) {
-                                Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                            @Override public void onMessage(String msg, boolean manual) {
+                                showUpdateResultDialog(msg);
                             }
                             @Override public void onProgress(int percent) { }
                         });
@@ -3484,7 +3506,8 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
     /** 防止重复弹窗（3 秒周期检测每次都提示，但同一时刻只弹一个）。 */
     private boolean updateDialogShowing = false;
 
-    private void showUpdateDialog(final String version, final String url, final String notes) {
+    private void showUpdateDialog(final String version, final String url, final String notes,
+                                  final boolean manual) {
         if (updateDialogShowing) return;
         updateDialogShowing = true;
 
@@ -3541,8 +3564,8 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
                     com.kooo.evcam.license.UpdateChecker.downloadAndInstall(
                             MainActivity.this, url, version,
                             new com.kooo.evcam.license.UpdateChecker.Callback() {
-                                @Override public void onNewVersion(String v, String u, String n) { }
-                                @Override public void onMessage(String m) {
+                                @Override public void onNewVersion(String v, String u, String n, boolean m) { }
+                                @Override public void onMessage(String m, boolean mm) {
                                     tvPct.setText(m);
                                     // 全部重试失败才恢复按钮允许手动重试
                                     if (m.contains("请检查网络")) {
@@ -3564,11 +3587,24 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
                             });
                 })
                 .setNegativeButton("取消", (d, w) -> {
+                    if (!manual) {
+                        // 自动检测被叉掉：本次运行内不再自动弹（手动检查仍会弹）
+                        com.kooo.evcam.license.UpdateChecker.markDismissed(version, url);
+                    }
                     updateDialogShowing = false;
                 })
                 .setOnCancelListener(d -> updateDialogShowing = false)
                 .create();
         dlg[0].show();
+    }
+
+    /** 手动检查结果弹窗（每次检查都有反馈，不用 Toast）。 */
+    private void showUpdateResultDialog(String msg) {
+        new AlertDialog.Builder(this)
+                .setTitle("检查更新")
+                .setMessage(msg)
+                .setPositiveButton("知道了", null)
+                .show();
     }
 
     // ---------- 开门迎宾语（车门开/关事件 → 内置 TTS 或自定义 MP3，监听在 DoorGreeting） ----------

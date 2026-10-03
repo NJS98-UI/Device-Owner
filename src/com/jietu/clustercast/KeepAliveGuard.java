@@ -20,8 +20,11 @@ import java.util.Collections;
  *    + targetSdk 28 的宽松待机策略
  * 3. 低内存杀进程 → START_STICKY 自动重启（CameraForegroundService/CastService
  *    均已配置）+ KeepAliveManager 15 分钟 WorkManager tick 兜底
- * 4. 卸载 / 权限被收回 → setUninstallBlocked + setPermissionGrantState 静默
- *    永久授权（CAMERA/录音/存储），防运行时权限被"仅本次"或撤销
+ * 4. 卸载 / 权限被收回 → setPermissionGrantState 静默
+ *    永久授权（CAMERA/录音/存储），防运行时权限被"仅本次"或撤销。
+ *    注意：故意不设 setUninstallBlocked —— 本机 ROM 拒绝覆盖升级，
+ *    自更新/换装全靠"卸载→全新安装"，防卸载会把自己堵死（表现为
+ *    dpm set-device-owner 失败：旧 owner 还占着位）。
  *
  * 全部幂等，每次启动都应用一遍；每项独立 try/catch——车机系统版本不一
  * （minSdk 27），API 30/33 的方法在低版本系统会 NoSuchMethodError，
@@ -52,12 +55,7 @@ public final class KeepAliveGuard {
             AppLog.w(TAG, "防强行停止设置失败: " + t);
         }
 
-        // 2. 防卸载
-        try {
-            dpm.setUninstallBlocked(admin, pkg, true);
-        } catch (Throwable t) {
-            AppLog.w(TAG, "防卸载设置失败: " + t);
-        }
+        // 2.（防卸载已移除——ROM 拒覆盖升级，卸载重装是唯一升级通道）
 
         // 3. 省电豁免：setApplicationExemptions 是 API 33 的受限 API（公开 SDK 无符号，
         //    且车机系统普遍低于 13），App Standby/Doze 豁免由电池优化白名单

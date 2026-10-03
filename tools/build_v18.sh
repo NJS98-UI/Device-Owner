@@ -4,7 +4,7 @@
 set -e
 case "$(uname -s)" in
   Linux*|Darwin*) CPSEP=":"; D8=d8; SIGNER=apksigner ;;
-  *) CPSEP=";"
+  *) CPSEP=";"; D8=d8.bat; SIGNER=apksigner.bat
      if [ -d /c/Users/Administrator/jdk-17/jdk-17.0.2 ]; then
        export JAVA_HOME=C:/Users/Administrator/jdk-17/jdk-17.0.2
        export PATH="/c/Users/Administrator/jdk-17/jdk-17.0.2/bin:$PATH"
@@ -68,7 +68,7 @@ EXTRA=(com.kooo.evcam androidx.appcompat androidx.appcompat.resources androidx.c
   com.google.android.material com.bumptech.glide)
 EXTRA_ARGS=(); for p in "${EXTRA[@]}"; do EXTRA_ARGS+=(--extra-packages "$p"); done
 "$BT/aapt2" link -o $B/base.apk -I "$PLAT" --manifest AndroidManifest.xml -A assets \
-  --min-sdk-version 27 --target-sdk-version 28 --version-code 75 --version-name 18.47 \
+  --min-sdk-version 27 --target-sdk-version 28 --version-code 76 --version-name 18.48 \
   --java $B/gen --auto-add-overlay "${EXTRA_ARGS[@]}" $B/flat/all.zip
 echo "LINK OK"
 find $B/gen -name 'R.java' | head -5

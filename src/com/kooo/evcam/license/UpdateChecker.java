@@ -33,9 +33,9 @@ public final class UpdateChecker {
     private static final long CHECK_MS = 3_000L;
 
     public interface Callback {
-        /** 主线程回调：有新版本。version=新版本名，url=下载地址，notes=更新说明。 */
-        void onNewVersion(String version, String url, String notes);
-        void onMessage(String msg);
+        /** 主线程回调：有新版本。version=新版本名，url=下载地址，notes=更新说明，manual=是否手动触发。 */
+        void onNewVersion(String version, String url, String notes, boolean manual);
+        void onMessage(String msg, boolean manual);
         /** 下载进度回调（主线程，percent 0-100）。 */
         void onProgress(int percent);
     }
@@ -43,6 +43,8 @@ public final class UpdateChecker {
     private static final ExecutorService io = Executors.newSingleThreadExecutor();
     private static final Handler main = new Handler(Looper.getMainLooper());
     private static volatile boolean running;
+    /** 本次会话里被用户叉掉的新版本（自动检测不再重复弹，手动检查仍弹）。 */
+    private static volatile String dismissedKey;
 
     private UpdateChecker() { }
 
@@ -62,6 +64,11 @@ public final class UpdateChecker {
         main.postDelayed(task[0], CHECK_MS);
     }
 
+    /** 用户叉掉了这个版本的自动弹窗（本次运行内不再自动弹）。 */
+    public static void markDismissed(String version, String url) {
+        dismissedKey = version + "|" + url;
+    }
+
     /** 手动立即检查（设置页"检查更新"）。 */
     public static void checkNow(Context ctx, Callback cb) {
         final Context app = ctx.getApplicationContext();
@@ -72,18 +79,20 @@ public final class UpdateChecker {
         try {
             JSONObject upd = LicenseManager.lastUpdateInfo();
             if (upd == null) {
-                if (manual) post(() -> cb.onMessage("未取到更新信息，稍后重试"));
+                if (manual) post(() -> cb.onMessage("未取到更新信息，稍后重试", true));
                 return;
             }
             String serverV = upd.optString("v", "");
             String url = upd.optString("u", "");
             if (serverV.length() == 0 || url.length() == 0) {
-                if (manual) post(() -> cb.onMessage("服务器未配置更新"));
+                if (manual) post(() -> cb.onMessage("服务器未配置更新", true));
                 return;
             }
             String localV = localVersion(app);
-            if (compare(serverV, localV) <= 0) {
-                if (manual) post(() -> cb.onMessage("已是最新版本 " + localV));
+            // 只要比对结果不同就算新版本（服务器 v 可能是 1.1 这类独立编号，
+            // 也可能是 18.48 这类跟版本名走的编号——两种都覆盖）
+            if (serverV.equals(localV)) {
+                if (manual) post(() -> cb.onMessage("已是最新版本 " + localV, true));
                 return;
             }
             // 防重复安装：同一版本+地址只装一次（否则安装重启 app 后
@@ -92,18 +101,24 @@ public final class UpdateChecker {
             android.content.SharedPreferences sp = app.getSharedPreferences("update", Context.MODE_PRIVATE);
             if (key.equals(sp.getString("lastInstalled", ""))) {
                 AppLog.d(TAG, "版本 " + serverV + " 已安装过，跳过");
+                if (manual) post(() -> cb.onMessage("版本 " + serverV + " 已安装过", true));
                 return;
             }
+            if (!manual && key.equals(dismissedKey)) {
+                return;   // 用户已叉掉，本次运行不再自动弹
+            }
             String notes = upd.optString("notes", "");
-            post(() -> cb.onNewVersion(serverV, url, notes));
+            post(() -> cb.onNewVersion(serverV, url, notes, manual));
         } catch (Throwable t) {
             AppLog.w(TAG, "检查更新失败: " + t);
-            if (manual) post(() -> cb.onMessage("检查更新失败: " + t.getMessage()));
+            if (manual) post(() -> cb.onMessage("检查更新失败: " + t.getMessage(), true));
         }
     }
 
-    /** 调用系统安装器安装 APK（无需 Device Owner，弹系统安装确认界面）。 */
+    /** 调用系统安装器安装 APK。Device Owner 优先走静默安装（免确认，且不受
+     *  ROM 拦截"未知来源"覆盖装影响）；失败回退系统安装确认界面。 */
     public static void installWithSystemInstaller(Context app, File apk) {
+        if (silentInstall(app, apk)) return;
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -126,9 +141,38 @@ public final class UpdateChecker {
         }
     }
 
-    private static final int MAX_RETRY = 3;
+    /** Device Owner 静默自更新：PackageInstaller 直接提交会话，无任何确认界面。 */
+    private static boolean silentInstall(Context app, File apk) {
+        try {
+            android.content.pm.PackageInstaller pi =
+                    app.getPackageManager().getPackageInstaller();
+            android.content.pm.PackageInstaller.SessionParams p =
+                    new android.content.pm.PackageInstaller.SessionParams(
+                            android.content.pm.PackageInstaller.SessionParams.MODE_FULL_INSTALL);
+            int sid = pi.createSession(p);
+            android.content.pm.PackageInstaller.Session s = pi.openSession(sid);
+            java.io.OutputStream os = s.openWrite("base", 0, apk.length());
+            java.io.InputStream in = new java.io.FileInputStream(apk);
+            try {
+                byte[] buf = new byte[8192];
+                int n;
+                while ((n = in.read(buf)) > 0) os.write(buf, 0, n);
+                s.fsync(os);
+            } finally {
+                try { in.close(); } catch (Throwable ignored) { }
+                try { os.close(); } catch (Throwable ignored) { }
+            }
+            s.commit(null);   // Device Owner + INSTALL_PACKAGES 权限：静默生效
+            s.close();
+            AppLog.d(TAG, "Device Owner 静默安装已提交");
+            return true;
+        } catch (Throwable t) {
+            AppLog.w(TAG, "静默安装不可用，走系统安装器: " + t);
+            return false;
+        }
+    }
 
-    /** 下载 APK 并调用系统安装器安装（后台下载，失败自动重试 3 次）。 */
+    private static final int MAX_RETRY = 3;    /** 下载 APK 并调用系统安装器安装（后台下载，失败自动重试 3 次）。 */
     public static void downloadAndInstall(Context app, String url, String version, Callback cb) {
         downloadWithRetry(app, url, version, cb, 0);
     }
@@ -141,11 +185,11 @@ public final class UpdateChecker {
             if (apk == null) {
                 if (retry < MAX_RETRY) {
                     post(() -> cb.onProgress(0));
-                    post(() -> cb.onMessage("下载失败，第" + retry + "次重试中…"));
+                    post(() -> cb.onMessage("下载失败，第" + retry + "次重试中…", false));
                     try { Thread.sleep(2000); } catch (InterruptedException ignored) { }
                     downloadWithRetry(app, url, version, cb, retry);
                 } else {
-                    post(() -> cb.onMessage("下载失败，请检查网络后重试"));
+                    post(() -> cb.onMessage("下载失败，请检查网络后重试", false));
                 }
                 return;
             }
@@ -166,23 +210,6 @@ public final class UpdateChecker {
         } catch (Throwable t) {
             return "0";
         }
-    }
-
-    /** 版本比较：按数字段逐段比（1.2.10 > 1.2.9）。 */
-    private static int compare(String a, String b) {
-        String[] as = a.split("\\.");
-        String[] bs = b.split("\\.");
-        int len = Math.max(as.length, bs.length);
-        for (int i = 0; i < len; i++) {
-            int x = i < as.length ? parseIntSafe(as[i]) : 0;
-            int y = i < bs.length ? parseIntSafe(bs[i]) : 0;
-            if (x != y) return x > y ? 1 : -1;
-        }
-        return 0;
-    }
-
-    private static int parseIntSafe(String s) {
-        try { return Integer.parseInt(s.trim()); } catch (Throwable t) { return 0; }
     }
 
     private interface ProgressCb { void onProgress(int percent); }
