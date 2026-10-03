@@ -1,7 +1,6 @@
 package com.jietu.clustercast;
 
 import android.content.Context;
-import android.os.Build;
 import android.os.PowerManager;
 
 import com.kooo.evcam.AppConfig;
@@ -139,8 +138,9 @@ public final class SentinelController {
 
     // ---------- 深度休眠兜底：RTC 闹钟唤醒节拍 ----------
     // 厂商整机深度休眠会无视 wakelock 冻结 CPU（实车验证：锁车过夜后开门
-    // 收不到）。setExactAndAllowWhileIdle 走硬件 RTC，深休眠中仍能唤醒 CPU；
-    // 唤醒后所有常驻轮询线程（哨兵+迎宾）自动恢复检查。targetSdk 28 无
+    // 收不到）。用 setAlarmClock（闹钟语义，系统最高优先级：精确触发、
+    // 不受 Doze 限频、保证唤醒 CPU）——setExactAndAllowWhileIdle 在标准
+    // Doze 下有每 app 9 分钟限频，做不到 45 秒节拍。targetSdk 28 无
     // SCHEDULE_EXACT_ALARM 声明要求。
 
     private static android.app.PendingIntent sWakePi;
@@ -149,9 +149,8 @@ public final class SentinelController {
         try {
             android.app.AlarmManager am =
                     (android.app.AlarmManager) app.getSystemService(Context.ALARM_SERVICE);
-            // canScheduleExactAlarms 是 API 31+；低版本系统 setExactAndAllowWhileIdle 无限制
-            if (am == null || (Build.VERSION.SDK_INT >= 31 && !am.canScheduleExactAlarms())) {
-                AppLog.w(TAG, "精确闹钟不可用，深度休眠兜底失效");
+            if (am == null) {
+                AppLog.w(TAG, "AlarmManager 不可用，深度休眠兜底失效");
                 return;
             }
             if (sWakePi == null) {
@@ -161,8 +160,12 @@ public final class SentinelController {
                         android.app.PendingIntent.FLAG_UPDATE_CURRENT
                                 | android.app.PendingIntent.FLAG_IMMUTABLE);
             }
-            am.setExactAndAllowWhileIdle(android.app.AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                    android.os.SystemClock.elapsedRealtime() + WAKE_ALARM_MS, sWakePi);
+            // setAlarmClock：走墙钟（与用户闹钟同通道最高优先级），链式重排
+            // 使墙钟漂移无累积影响
+            am.setAlarmClock(
+                    new android.app.AlarmManager.AlarmClockInfo(
+                            System.currentTimeMillis() + WAKE_ALARM_MS, null),
+                    sWakePi);
         } catch (Throwable t) {
             AppLog.w(TAG, "唤醒闹钟排定失败: " + t);
         }
