@@ -409,6 +409,8 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         ui.removeCallbacks(tick);
         ui.post(tick);
         enterTab(curTab);
+        // 重建/回前台后同步授权 UI：未激活停轮询期间也要保证激活框在
+        showLicenseDialogIfNeeded(false);
     }
 
     @Override protected void onPause() {

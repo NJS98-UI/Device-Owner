@@ -90,7 +90,8 @@ public final class LicenseManager {
 
     public synchronized void start(Context ctx, Listener l) {
         app = ctx.getApplicationContext();
-        listener = l;
+        // 服务侧兜底启动传 null：不覆盖界面已注册的 listener
+        if (l != null || listener == null) listener = l;
         if (running) return;
         running = true;
         io.execute(this::poll);
@@ -215,6 +216,7 @@ public final class LicenseManager {
 
     private void poll() {
         if (!running) return;
+        boolean stopLoop = false;
         try {
             JSONObject root = fetchRoot();
             JSONObject payload = readPayload(root);
@@ -241,6 +243,8 @@ public final class LicenseManager {
             } else {
                 ns = State.NOT_ACTIVATED;
                 msg = "未激活，请试用或输入激活码";
+                // 未激活：云端检测无意义，停轮询等用户点"试用/激活"后再开始
+                stopLoop = true;
             }
             failStreak = 0;
             applyState(ns, remain, msg, upd);
@@ -251,7 +255,9 @@ public final class LicenseManager {
                 applyState(State.BLOCKED, 0, "无法连接激活服务器，已停止使用", null);
             }
         }
-        if (running) {
+        // 未激活停轮询；其余（试用/已激活/断网停用）保持 3 秒检测——
+        // 断网恢复后可自动回到试用/已激活状态
+        if (running && !stopLoop) {
             main.postDelayed(() -> io.execute(this::poll), POLL_MS);
         }
     }
