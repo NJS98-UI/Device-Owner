@@ -109,6 +109,7 @@ public final class QuadAutoRecord {
      * 用户已确认熄屏停录；当前分段正常收尾成文件，唤醒后新分段续录。
      */
     public static synchronized void suspendForSleep(Context ctx) {
+        sResumeGen++;   // 作废挂起的续录任务：唤醒后 2.5 秒内又熄屏时不得开录
         if (sComposer == null) return;
         // 「息屏录制」开着：前台服务持 PARTIAL_WAKE_LOCK 系统不进休眠（HAL 无跨休眠风险），
         // 不挂起，熄屏继续录新分段。关闭时走原路：停录收尾成文件，唤醒续录。
@@ -122,12 +123,51 @@ public final class QuadAutoRecord {
         AppLog.d(TAG, "熄屏暂停录像，相机已全部释放");
     }
 
-    /** 唤醒：休眠前在录就自动续录（新分段）。 */
+    /** 唤醒：休眠前在录就自动续录（新分段）。SCREEN_ON 瞬间 HAL/ISP 还没上电，
+     *  立刻开 4 路相机容易失败——延迟 2.5 秒再开，失败自动重试 3 次。 */
     public static synchronized void resumeFromSleep(Context ctx) {
         if (!sSleepPaused || sComposer != null) return;
-        sSleepPaused = false;
-        AppLog.d(TAG, "唤醒续录");
+        sResumeAttempts = 0;
+        scheduleResume(ctx, RESUME_DELAY_MS);
+        AppLog.d(TAG, "唤醒，" + (RESUME_DELAY_MS / 1000) + " 秒后续录（等 HAL 就绪）");
+    }
+
+    private static final long RESUME_DELAY_MS = 2500;
+    private static final long RESUME_RETRY_MS = 5000;
+    private static final int RESUME_MAX_RETRY = 3;
+    private static final android.os.Handler sUi =
+            new android.os.Handler(android.os.Looper.getMainLooper());
+    /** 续录代次：scheduleResume 递增，suspendForSleep 取消旧任务靠它失效。 */
+    private static volatile int sResumeGen = 0;
+    private static int sResumeAttempts = 0;
+
+    private static void scheduleResume(Context ctx, long delay) {
+        final Context app = ctx.getApplicationContext();
+        final int gen = ++sResumeGen;
+        sUi.postDelayed(() -> {
+            if (gen == sResumeGen) finishResume(app, gen);
+        }, delay);
+    }
+
+    private static void finishResume(Context ctx, int gen) {
+        synchronized (QuadAutoRecord.class) {
+            if (!sSleepPaused || sComposer != null) return;
+        }
+        AppLog.d(TAG, "唤醒续录尝试 " + (sResumeAttempts + 1));
         start(ctx);
+        if (sComposer != null) {
+            sSleepPaused = false;
+            sResumeAttempts = 0;
+            AppLog.d(TAG, "唤醒续录成功");
+        } else if (sResumeAttempts < RESUME_MAX_RETRY) {
+            sResumeAttempts++;
+            AppLog.w(TAG, "续录未就绪，" + (RESUME_RETRY_MS / 1000) + " 秒后重试");
+            scheduleResume(ctx, RESUME_RETRY_MS);
+        } else {
+            // sSleepPaused 保持 true：下次 SCREEN_ON 会再走一遍续录
+            sResumeAttempts = 0;
+            AppLog.w(TAG, "续录多次失败，等下次亮屏再试");
+        }
     }
 
     private static void stopInternal() {

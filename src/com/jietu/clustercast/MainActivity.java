@@ -182,18 +182,6 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         // 一机一码激活/试用：3 秒轮询云端，状态驱动徽标/激活框/录像拦截
         com.kooo.evcam.license.LicenseManager.get().start(this,
                 (state, remain, message) -> applyLicenseState(state, remain, message, false));
-        // 自更新：启动立即检测，之后每 3 秒静默检测；发现新版本弹窗确认后下载安装
-        com.kooo.evcam.license.UpdateChecker.start(this,
-                new com.kooo.evcam.license.UpdateChecker.Callback() {
-                    @Override public void onNewVersion(String version, String url, String notes, boolean manual) {
-                        showUpdateDialog(version, url, notes, manual);
-                    }
-                    @Override public void onMessage(String msg, boolean manual) {
-                        if (manual) showUpdateResultDialog(msg);
-                        else Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
-                    }
-                    @Override public void onProgress(int percent) { }
-                });
         maybeAutoStartRecording(getIntent());
         // 手动打开（非开机链路）："启动自动录制"开关管这里；开机链路归"开机自动录像"开关（maybeAutoStartRecording）
         Intent launch = getIntent();
@@ -3368,18 +3356,26 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         txOwner.setText(isOwner ? "已授权，投屏时自动隐藏原车地图" : "未授权，投屏时无法隐藏原车地图");
         body.addView(txOwner, Ui.lw());
         body.addView(vsp(8));
-        TextView txCmd1 = Ui.text(this, 11, Ui.D_TEXT_SUB, Typeface.BOLD, 4);
-        txCmd1.setTypeface(Typeface.MONOSPACE);
-        // 车载管理模式先放开 DesaySV ROM 的 dpm 限制（残留账号也能授权），
-        // 再设 Device Owner。实车验证过的两条命令（2026-10-01）
-        txCmd1.setText("adb shell setprop persist.sys.sv.isl true");
-        body.addView(txCmd1, Ui.lw());
-        body.addView(vsp(8));
-        TextView txCmd2 = Ui.text(this, 11, Ui.D_TEXT_SUB, Typeface.BOLD, 4);
-        txCmd2.setTypeface(Typeface.MONOSPACE);
-        txCmd2.setText("adb shell dpm set-device-owner com.jietu.clustercast/.CastAdminReceiver");
-        body.addView(txCmd2, Ui.lw());
-        body.addView(vsp(8));
+        // 完整授权命令序列（按顺序执行）。蓝牙通讯录账号（pbapsink）会挡住
+        // dpm 授权——"already some accounts"——靠临时清"已完成开机设置"标记绕过。
+        String[] cmds = {
+                "adb shell setprop persist.sys.sv.isl true",
+                "adb shell settings put secure user_setup_complete 0",
+                "adb shell settings put global device_provisioned 0",
+                "adb shell dpm set-device-owner com.jietu.clustercast/.CastAdminReceiver",
+                "adb shell settings put secure user_setup_complete 1",
+                "adb shell settings put global device_provisioned 1",
+                "adb shell appops set com.jietu.clustercast SYSTEM_ALERT_WINDOW allow",
+                "adb shell appops set com.jietu.clustercast GET_USAGE_STATS allow",
+        };
+        for (String c : cmds) {
+            TextView tx = Ui.text(this, 11, Ui.D_TEXT_SUB, Typeface.BOLD, 4);
+            tx.setTypeface(Typeface.MONOSPACE);
+            tx.setText(c);
+            body.addView(tx, Ui.lw());
+            body.addView(vsp(6));
+        }
+        body.addView(vsp(2));
         if (isOwner) {
             TextView btnClearOwner = Ui.darkButton(this, "解除授权", 14, Ui.D_BTN, 0xFFFF8080);
             Ui.click(btnClearOwner, new Runnable() {
@@ -3395,30 +3391,6 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
             });
             body.addView(btnClearOwner, Ui.lw());
         }
-        body.addView(vsp(20));
-
-        // ===== 检查更新 =====
-        TextView lblUpdate = Ui.text(this, 14, Ui.D_TEXT, Typeface.BOLD, 1);
-        lblUpdate.setText("版本更新");
-        body.addView(lblUpdate, Ui.lw());
-        body.addView(vsp(8));
-        TextView btnCheckUpdate = Ui.darkButton(this, "检查更新", 14, Ui.D_BTN, Ui.D_TEXT);
-        Ui.click(btnCheckUpdate, new Runnable() {
-            @Override public void run() {
-                Toast.makeText(MainActivity.this, "正在检查更新…", Toast.LENGTH_SHORT).show();
-                com.kooo.evcam.license.UpdateChecker.checkNow(MainActivity.this,
-                        new com.kooo.evcam.license.UpdateChecker.Callback() {
-                            @Override public void onNewVersion(String version, String url, String notes, boolean manual) {
-                                showUpdateDialog(version, url, notes, manual);
-                            }
-                            @Override public void onMessage(String msg, boolean manual) {
-                                showUpdateResultDialog(msg);
-                            }
-                            @Override public void onProgress(int percent) { }
-                        });
-            }
-        });
-        body.addView(btnCheckUpdate, Ui.lw());
         body.addView(vsp(20));
 
         // 权限提示（只显示缺了什么，一行一条）
@@ -3501,111 +3473,6 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         inSettings = false;
     }
 
-    // ---------- 版本更新弹窗 ----------
-
-    /** 防止重复弹窗（3 秒周期检测每次都提示，但同一时刻只弹一个）。 */
-    private boolean updateDialogShowing = false;
-
-    private void showUpdateDialog(final String version, final String url, final String notes,
-                                  final boolean manual) {
-        if (updateDialogShowing) return;
-        updateDialogShowing = true;
-
-        // 构建弹窗内容：消息 + 进度条（下载前隐藏，点击下载后显示）
-        LinearLayout dialogBody = new LinearLayout(this);
-        dialogBody.setOrientation(LinearLayout.VERTICAL);
-        dialogBody.setPadding(Ui.dp(this, 24), Ui.dp(this, 8), Ui.dp(this, 24), 8);
-
-        TextView tvMsg = new TextView(this);
-        StringBuilder msg = new StringBuilder();
-        msg.append("发现新版本 v").append(version);
-        if (notes != null && notes.length() > 0) {
-            msg.append("\n\n").append(notes);
-        }
-        msg.append("\n\n是否下载并安装？");
-        tvMsg.setText(msg.toString());
-        tvMsg.setTextColor(0xFFE0E0E0);
-        tvMsg.setTextSize(14);
-        dialogBody.addView(tvMsg, new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-
-        // 进度条 + 百分比文字
-        final android.widget.ProgressBar pb = new android.widget.ProgressBar(this, null,
-                android.R.attr.progressBarStyleHorizontal);
-        pb.setMax(100);
-        pb.setProgress(0);
-        pb.setVisibility(View.GONE);
-        LinearLayout.LayoutParams pbLp = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, Ui.dp(this, 20));
-        pbLp.topMargin = Ui.dp(this, 12);
-        dialogBody.addView(pb, pbLp);
-
-        final TextView tvPct = new TextView(this);
-        tvPct.setText("下载中 0%");
-        tvPct.setTextColor(0xFF80FFA0);
-        tvPct.setTextSize(12);
-        tvPct.setVisibility(View.GONE);
-        dialogBody.addView(tvPct, new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-
-        final AlertDialog[] dlg = new AlertDialog[1];
-        dlg[0] = new AlertDialog.Builder(this)
-                .setTitle("版本更新")
-                .setView(dialogBody)
-                .setPositiveButton("下载安装", (d, w) -> {
-                    // 切换到下载中状态
-                    tvMsg.setVisibility(View.GONE);
-                    pb.setVisibility(View.VISIBLE);
-                    tvPct.setVisibility(View.VISIBLE);
-                    // 禁用按钮防止重复点击
-                    dlg[0].getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
-                    dlg[0].getButton(AlertDialog.BUTTON_POSITIVE).setText("下载中…");
-                    dlg[0].getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(false);
-                    com.kooo.evcam.license.UpdateChecker.downloadAndInstall(
-                            MainActivity.this, url, version,
-                            new com.kooo.evcam.license.UpdateChecker.Callback() {
-                                @Override public void onNewVersion(String v, String u, String n, boolean m) { }
-                                @Override public void onMessage(String m, boolean mm) {
-                                    tvPct.setText(m);
-                                    // 全部重试失败才恢复按钮允许手动重试
-                                    if (m.contains("请检查网络")) {
-                                        dlg[0].getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
-                                        dlg[0].getButton(AlertDialog.BUTTON_POSITIVE).setText("重试下载");
-                                        dlg[0].getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(true);
-                                    }
-                                    Toast.makeText(MainActivity.this, m, Toast.LENGTH_SHORT).show();
-                                }
-                                @Override public void onProgress(int percent) {
-                                    pb.setProgress(percent);
-                                    tvPct.setText("下载中 " + percent + "%");
-                                    if (percent >= 100) {
-                                        // 下载完成，即将弹出系统安装器，关闭本弹窗
-                                        dlg[0].dismiss();
-                                        updateDialogShowing = false;
-                                    }
-                                }
-                            });
-                })
-                .setNegativeButton("取消", (d, w) -> {
-                    if (!manual) {
-                        // 自动检测被叉掉：本次运行内不再自动弹（手动检查仍会弹）
-                        com.kooo.evcam.license.UpdateChecker.markDismissed(version, url);
-                    }
-                    updateDialogShowing = false;
-                })
-                .setOnCancelListener(d -> updateDialogShowing = false)
-                .create();
-        dlg[0].show();
-    }
-
-    /** 手动检查结果弹窗（每次检查都有反馈，不用 Toast）。 */
-    private void showUpdateResultDialog(String msg) {
-        new AlertDialog.Builder(this)
-                .setTitle("检查更新")
-                .setMessage(msg)
-                .setPositiveButton("知道了", null)
-                .show();
-    }
 
     // ---------- 开门迎宾语（车门开/关事件 → 内置 TTS 或自定义 MP3，监听在 DoorGreeting） ----------
 

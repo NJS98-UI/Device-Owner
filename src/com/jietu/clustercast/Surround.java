@@ -334,7 +334,8 @@ public final class Surround {
     private void scheduleReconnect() {
         if (stopped || reconnectPending) return;
         reconnectPending = true;
-        main.postDelayed(reconnectRun, RECONNECT_DELAY_MS);
+        // 唤醒瞬间多路同时 open 会互相撞 HAL（in-use），按 camId 错峰
+        main.postDelayed(reconnectRun, RECONNECT_DELAY_MS + (camId % 4) * 400L);
     }
 
     /** 关掉旧会话（不动 CameraDevice）再按当前 tex/recTex 重建。 */
@@ -345,6 +346,8 @@ public final class Surround {
     }
 
     private void runSession() {
+        // 回调期间 release() 可能把 ht 置 null（休眠闸门/stop 竞态），先固定住
+        final Handler h = ht != null ? new Handler(ht.getLooper()) : main;
         try {
             if (cam == null || (tex == null && recTex == null && motionReader == null)) return;
             sessionStartedAt = System.currentTimeMillis();
@@ -364,22 +367,24 @@ public final class Surround {
                                 for (Surface sf : targets) rb.addTarget(sf);
                                 rb.set(CaptureRequest.CONTROL_MODE,
                                         CaptureRequest.CONTROL_MODE_AUTO);
-                                sess.setRepeatingRequest(rb.build(), frameCb,
-                                        new Handler(ht.getLooper()));
+                                sess.setRepeatingRequest(rb.build(), frameCb, h);
                                 scheduleWatchdog();
                             } catch (Throwable t) {
                                 say("下发预览失败：" + t);
                                 release();
+                                scheduleReconnect();
                             }
                         }
                         @Override public void onConfigureFailed(CameraCaptureSession s) {
-                            say("会话配置失败");
+                            say("会话配置失败，重试");
                             release();
+                            scheduleReconnect();
                         }
-                    }, new Handler(ht.getLooper()));
+                    }, h);
         } catch (Throwable t) {
             say("建会话失败：" + t);
             release();
+            scheduleReconnect();
         }
     }
 
