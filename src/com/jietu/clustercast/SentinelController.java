@@ -263,8 +263,10 @@ public final class SentinelController {
         startWindow();
     }
 
-    /** 开 Smart 检测流（幂等）：熄屏值守 + 未在录像窗口才开。 */
-    private static void startMotionStream() {
+    /** 开 Smart 检测流（幂等）：熄屏值守 + 未在录像窗口才开。
+     *  必须持类锁：闹钟节拍和录像窗口开/停并发时，防止 cam7 在
+     *  QuadAutoRecord 四路开到一半时被检测流抢开（两个客户端互踢）。 */
+    private static synchronized void startMotionStream() {
         if (sMotionCam != null) return;
         if (!new AppConfig(sApp).isSentinelMotionEnabled()) return;
         if (!sScreenDark || sWindowActive || QuadAutoRecord.isActive()) return;
@@ -284,7 +286,7 @@ public final class SentinelController {
     }
 
     /** 停 Smart 检测流（幂等）。实例整个丢弃，reader 由 Surround.release 关闭。 */
-    private static void stopMotionStream() {
+    private static synchronized void stopMotionStream() {
         Surround s = sMotionCam;
         sMotionCam = null;
         if (s == null) return;

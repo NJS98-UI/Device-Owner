@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.jietu.clustercast"
-    android:versionCode="78"
-    android:versionName="18.50">
+    android:versionCode="79"
+    android:versionName="18.51">
 
     <uses-sdk android:minSdkVersion="27" android:targetSdkVersion="28"/>
     <!-- 前台服务保活：常驻监听车机系统发的三指手势广播 -->

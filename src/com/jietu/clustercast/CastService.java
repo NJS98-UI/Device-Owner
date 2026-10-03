@@ -104,18 +104,6 @@ public class CastService extends Service {
     public void castNow() { mWork.post(mCast); }
     public void exitNow() { mWork.post(mExit); }
 
-    /** 设置页开关：主桌面音乐卡片（代发 + 原卡片位自绘同款）。 */
-    public void setMusicCard(boolean on) {
-        if (on) {
-            if (mMusicPublisher == null) mMusicPublisher = new MusicCardPublisher();
-            mMusicPublisher.start();
-            DesktopMusicCard.start(this);
-        } else {
-            if (mMusicPublisher != null) mMusicPublisher.stop();
-            DesktopMusicCard.stop();
-        }
-    }
-
     @Override public void onCreate() {
         super.onCreate();
         sInst = this;
@@ -136,14 +124,8 @@ public class CastService extends Service {
         if (mCfg.greeting()) DoorGreeting.start(this);
         // 哨兵模式（停车守卫）：幂等自适应，开关开着就随服务常驻监听车门信号
         SentinelController.refresh(this);
-        // 主桌面音乐卡片代发：云听不上报 VDMediaItem，卡片空白时代发 MediaSession 元数据
-        if (mCfg.musicCard()) {
-            mMusicPublisher = new MusicCardPublisher();
-            mMusicPublisher.start();
-            // 原车卡片只认媒体中心自带音源（网易云/云听/蓝牙/USB），第三方音源时
-            // 在原卡片位置自绘同款卡片，原车音源接管时自动隐藏
-            DesktopMusicCard.start(this);
-        }
+        // Root 防休眠：开关开着就在服务起来时把内核级休眠锁持上（重启后锁会丢）
+        if (mCfg.rootGuard()) RootGuard.ensureAsync(null);
         registerReceiver(new GestureRx(this), new IntentFilter(GESTURE_ACTION));
         // 熄火（屏幕灭）时如果还投着屏且压着高德：自动退出投屏并恢复高德，别让它压着过夜。
         // 同时熄屏/亮屏驱动相机休眠闸门：跨休眠持有 Camera2 会话会把 HAL 卡死
@@ -158,6 +140,8 @@ public class CastService extends Service {
                     }
                     SentinelController.setScreenDark(true);
                     QuadAutoRecord.suspendForSleep(ctx);
+                    // Root 防休眠开着：熄屏时重申内核级休眠锁（锁被清/重启后丢也能补上）
+                    if (mCfg.rootGuard()) RootGuard.ensureAsync(null);
                     // 「息屏录制」开着时 QuadAutoRecord 未挂起，其 Surround 流不得被闸门关掉
                     if (!new com.kooo.evcam.AppConfig(ctx).isScreenOffRecordingEnabled()) {
                         Surround.suspendAll();
@@ -231,14 +215,11 @@ public class CastService extends Service {
         // 熄火/休眠时系统可能销毁前台服务但进程还在：此时绝不能停掉开门迎宾语
         // （停它会释放唤醒锁+杀轮询线程 → 解锁开门不再播报，要等下次点火）。
         // 真正退出走 MainActivity.exitApp 的 stopService + DoorGreeting.stop()。
-        if (mMusicPublisher != null) { mMusicPublisher.stop(); mMusicPublisher = null; }
-        DesktopMusicCard.stop();
         if (mOverlay != null && mCastViaOverlay) mOverlay.teardown();
         super.onDestroy();
     }
 
     private BroadcastReceiver mScreenOffRx;
-    private MusicCardPublisher mMusicPublisher;
 
     // ---------- 动作 ----------
 

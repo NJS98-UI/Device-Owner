@@ -68,15 +68,23 @@ public final class QuadAutoRecord {
             sComposer = q;
             AppLog.d(TAG, "自动录像启动（服务侧，无界面）");
             for (int i = 0; i < CAMS.length; i++) {
-                Surround s = new Surround(app, CAMS[i]);
-                sCams[i] = s;
                 android.graphics.SurfaceTexture rec = q.getInputTexture(i);
                 if (rec == null) {
                     AppLog.w(TAG, "cam" + CAMS[i] + " 拿不到合成纹理");
                     continue;
                 }
-                s.setRecordTexture(rec);
-                s.start(rec);   // recTex-only：没有预览面，纯录像
+                // 界面侧已在流的实例直接收编（双输出，页面预览不断），别再开
+                // 新实例去抢同一路——两套客户端互 evict 会死循环（实车实锤）
+                Surround s = Surround.findLive(CAMS[i]);
+                if (s != null) {
+                    s.setRecordTexture(rec);
+                    AppLog.d(TAG, "cam" + CAMS[i] + " 收编界面侧在流实例（双输出）");
+                } else {
+                    s = new Surround(app, CAMS[i]);
+                    s.setRecordTexture(rec);
+                    s.start(rec);   // recTex-only：没有预览面，纯录像
+                }
+                sCams[i] = s;
             }
         } catch (Throwable t) {
             AppLog.w(TAG, "自动录像启动失败: " + t);

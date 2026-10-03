@@ -60,6 +60,10 @@ public class Cfg {
     public boolean clusterMusic() { return sp.getBoolean("cluster_music", false); }
     public void setClusterMusic(boolean on) { sp.edit().putBoolean("cluster_music", on).apply(); }
 
+    /** Root 防休眠（需 root：持内核级休眠锁挡厂商整机休眠）。默认关。 */
+    public boolean rootGuard() { return sp.getBoolean("root_guard", false); }
+    public void setRootGuard(boolean on) { sp.edit().putBoolean("root_guard", on).apply(); }
+
     // ---------- 开门迎宾语 ----------
 
     /** 开门迎宾语总开关（车门开/关变化时播语音）。默认关。 */
@@ -103,12 +107,6 @@ public class Cfg {
     public void setAudio(String storeKey, String json) {
         sp.edit().putString("greet_audio_" + storeKey, json).apply();
     }
-
-    // ---------- 主桌面音乐卡片 ----------
-
-    /** 主桌面音乐卡片代发（云听等源不上报总线曲目时补 MediaSession 元数据）。默认开。 */
-    public boolean musicCard() { return sp.getBoolean("music_card", true); }
-    public void setMusicCard(boolean on) { sp.edit().putBoolean("music_card", on).apply(); }
 
     // ---------- 盲区侧摄拉直（鱼眼矫正） ----------
 

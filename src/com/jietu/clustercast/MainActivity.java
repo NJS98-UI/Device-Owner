@@ -1877,6 +1877,9 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
 
     /** 全量清理：投屏/补盲/悬浮窗/MJPEG/心跳/保活链路全部停掉，最后杀进程。 */
     private void teardown() {
+        // 退出 app 一切后台功能都停了：root 防休眠开关若开着也一并释放（同步跑完再杀进程，
+        // 异步会被 killProcess 掐掉），别让车机整夜不睡；下次打开 app 熄屏时会自动重新持锁
+        try { if (cfg != null && cfg.rootGuard()) com.jietu.clustercast.RootGuard.release(); } catch (Throwable ignored) { }
         try {
             com.kooo.evcam.CameraForegroundService.sSuppressRestart = true;
             // 四路相机引擎整体释放（预览/录像/取流全停）
@@ -3313,25 +3316,62 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
         });
         rowM.addView(capMusic, new LinearLayout.LayoutParams(Ui.dp(this, 52), Ui.dp(this, 28)));
         body.addView(rowM, Ui.lw());
-        body.addView(vsp(20));
+        body.addView(vsp(8));
 
-        // 主桌面音乐卡片（launcher 媒体卡片数据代发：云听等源不上报时补位）
-        LinearLayout rowCard = new LinearLayout(this);
-        rowCard.setOrientation(LinearLayout.HORIZONTAL);
-        rowCard.setGravity(Gravity.CENTER_VERTICAL);
-        TextView lblCard = Ui.text(this, 14, Ui.D_TEXT, Typeface.BOLD, 1);
-        lblCard.setText("显示原车音乐卡片");
-        rowCard.addView(lblCard, Ui.weighted(1, ViewGroup.LayoutParams.WRAP_CONTENT));
-        CapsuleSwitch capCard = new CapsuleSwitch(MainActivity.this, cfg.musicCard());
-        capCard.setOnChange(new CapsuleSwitch.OnChange() {
+        // Root 防休眠（需 root）：持内核级休眠锁挡厂商整机休眠
+        LinearLayout rowRg = new LinearLayout(this);
+        rowRg.setOrientation(LinearLayout.HORIZONTAL);
+        rowRg.setGravity(Gravity.CENTER_VERTICAL);
+        TextView lblRg = Ui.text(this, 14, Ui.D_TEXT, Typeface.BOLD, 1);
+        lblRg.setText("Root 防休眠");
+        rowRg.addView(lblRg, Ui.weighted(1, ViewGroup.LayoutParams.WRAP_CONTENT));
+        final CapsuleSwitch capRg = new CapsuleSwitch(MainActivity.this, cfg.rootGuard());
+        capRg.setOnChange(new CapsuleSwitch.OnChange() {
             @Override public void changed(boolean on) {
-                cfg.setMusicCard(on);
-                CastService s = CastService.inst();
-                if (s != null) s.setMusicCard(on);
+                cfg.setRootGuard(on);
+                if (on) {
+                    Toast.makeText(MainActivity.this, "正在申请 root…", Toast.LENGTH_SHORT).show();
+                    RootGuard.ensureAsync(new RootGuard.Result() {
+                        @Override public void onDone(final boolean ok) {
+                            runOnUiThread(new Runnable() {
+                                @Override public void run() {
+                                    if (ok) {
+                                        Toast.makeText(MainActivity.this,
+                                                "root 休眠锁已持上：整机不再休眠，息屏录像不间断",
+                                                Toast.LENGTH_LONG).show();
+                                    } else {
+                                        capRg.setOnSilent(false);
+                                        cfg.setRootGuard(false);
+                                        Toast.makeText(MainActivity.this,
+                                                "未获取到 root，开关已还原（需要先给车机刷 root）",
+                                                Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    RootGuard.releaseAsync(new RootGuard.Result() {
+                        @Override public void onDone(final boolean ok) {
+                            runOnUiThread(new Runnable() {
+                                @Override public void run() {
+                                    Toast.makeText(MainActivity.this,
+                                            ok ? "root 休眠锁已释放" : "释放失败（可能已无 root），重启车机也会释放",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                    });
+                }
             }
         });
-        rowCard.addView(capCard, new LinearLayout.LayoutParams(Ui.dp(this, 52), Ui.dp(this, 28)));
-        body.addView(rowCard, Ui.lw());
+        rowRg.addView(capRg, new LinearLayout.LayoutParams(Ui.dp(this, 52), Ui.dp(this, 28)));
+        body.addView(rowRg, Ui.lw());
+        TextView hintRg = Ui.text(this, 11, Ui.D_TEXT_SUB, Typeface.NORMAL, 3);
+        hintRg.setText("需要 root 权限：打开即申请 root，持内核级休眠锁从源头阻止厂商整机休眠"
+                + "（框架 wakelock 挡不住它）。持锁期间摄像头跨夜不黑、息屏/休眠录像整夜不断。"
+                + "无 root 车机此开关无效，打开后自动还原。");
+        body.addView(hintRg, Ui.lw());
         body.addView(vsp(20));
 
         // 开门迎宾语设置（子页在应用区内打开，不铺满整屏）
@@ -3707,6 +3747,8 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
             });
         }
         void setOnChange(OnChange c) { cb = c; }
+        /** 只改显示状态不触发回调（异步操作失败时还原开关）。 */
+        void setOnSilent(boolean v) { on = v; invalidate(); }
         @Override protected void onDraw(Canvas cv) {
             float r = getHeight() / 2f;
             Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);

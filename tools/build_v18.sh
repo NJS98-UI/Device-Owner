@@ -68,7 +68,7 @@ EXTRA=(com.kooo.evcam androidx.appcompat androidx.appcompat.resources androidx.c
   com.google.android.material com.bumptech.glide)
 EXTRA_ARGS=(); for p in "${EXTRA[@]}"; do EXTRA_ARGS+=(--extra-packages "$p"); done
 "$BT/aapt2" link -o $B/base.apk -I "$PLAT" --manifest AndroidManifest.xml -A assets \
-  --min-sdk-version 27 --target-sdk-version 28 --version-code 78 --version-name 18.50 \
+  --min-sdk-version 27 --target-sdk-version 28 --version-code 79 --version-name 18.51 \
   --java $B/gen --auto-add-overlay "${EXTRA_ARGS[@]}" $B/flat/all.zip
 echo "LINK OK"
 find $B/gen -name 'R.java' | head -5
