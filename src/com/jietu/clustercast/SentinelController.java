@@ -1,6 +1,7 @@
 package com.jietu.clustercast;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.PowerManager;
 
 import com.kooo.evcam.AppConfig;
@@ -34,6 +35,8 @@ public final class SentinelController {
     private static final long POLL_MS = 150L;
     /** Smart 值守检测流相机：7=后路环视（撬尾门/车后靠近最常见）。 */
     private static final int MOTION_CAM_ID = 7;
+    /** 深度休眠兜底：RTC 闹钟唤醒间隔（厂商整机休眠无视 wakelock，实车验证）。 */
+    private static final long WAKE_ALARM_MS = 45_000;
 
     private static volatile boolean sRun;
     private static Thread sThread;
@@ -97,6 +100,7 @@ public final class SentinelController {
     private static void startInternal(Context app) {
         sApp = app;
         sRun = true;
+        startWakeAlarm(app);
         // 服务可能在熄屏态被拉起（熄火后台）：按真实屏幕状态初始化，
         // 否则要等下一次 SCREEN_OFF 广播才进入值守，漏掉中间的开门触发
         try {
@@ -128,8 +132,56 @@ public final class SentinelController {
         if (t != null) t.interrupt();
         stopMotionStream();
         endWindow(true);
+        stopWakeAlarm();
         dropCpu();
         AppLog.d(TAG, "哨兵模式已停止");
+    }
+
+    // ---------- 深度休眠兜底：RTC 闹钟唤醒节拍 ----------
+    // 厂商整机深度休眠会无视 wakelock 冻结 CPU（实车验证：锁车过夜后开门
+    // 收不到）。setExactAndAllowWhileIdle 走硬件 RTC，深休眠中仍能唤醒 CPU；
+    // 唤醒后所有常驻轮询线程（哨兵+迎宾）自动恢复检查。targetSdk 28 无
+    // SCHEDULE_EXACT_ALARM 声明要求。
+
+    private static android.app.PendingIntent sWakePi;
+
+    static void startWakeAlarm(Context app) {
+        try {
+            android.app.AlarmManager am =
+                    (android.app.AlarmManager) app.getSystemService(Context.ALARM_SERVICE);
+            // canScheduleExactAlarms 是 API 31+；低版本系统 setExactAndAllowWhileIdle 无限制
+            if (am == null || (Build.VERSION.SDK_INT >= 31 && !am.canScheduleExactAlarms())) {
+                AppLog.w(TAG, "精确闹钟不可用，深度休眠兜底失效");
+                return;
+            }
+            if (sWakePi == null) {
+                android.content.Intent i =
+                        new android.content.Intent(app, SentinelWakeReceiver.class);
+                sWakePi = android.app.PendingIntent.getBroadcast(app, 1001, i,
+                        android.app.PendingIntent.FLAG_UPDATE_CURRENT
+                                | android.app.PendingIntent.FLAG_IMMUTABLE);
+            }
+            am.setExactAndAllowWhileIdle(android.app.AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                    android.os.SystemClock.elapsedRealtime() + WAKE_ALARM_MS, sWakePi);
+        } catch (Throwable t) {
+            AppLog.w(TAG, "唤醒闹钟排定失败: " + t);
+        }
+    }
+
+    /** 链式续排（SentinelWakeReceiver 每次触发后调）。 */
+    static void scheduleNextWake(Context ctx) {
+        if (!sRun) return;   // 哨兵已停，链子断掉
+        startWakeAlarm(ctx.getApplicationContext());
+    }
+
+    private static void stopWakeAlarm() {
+        if (sWakePi == null) return;
+        try {
+            android.app.AlarmManager am =
+                    (android.app.AlarmManager) sApp.getSystemService(Context.ALARM_SERVICE);
+            if (am != null) am.cancel(sWakePi);
+        } catch (Throwable ignored) { }
+        sWakePi = null;
     }
 
     private static void loop(Context app) {
