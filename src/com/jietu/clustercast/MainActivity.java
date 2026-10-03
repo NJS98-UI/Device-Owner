@@ -104,8 +104,12 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
     };
     private boolean sinkBound = false;
 
+    @Override protected void attachBaseContext(android.content.Context base) {
+        // 密度在 Context 包装阶段生效：首帧即 960dp 基准，无事后跳变
+        super.attachBaseContext(Ui.applyDensity(base));
+    }
+
     @Override protected void onCreate(Bundle b) {
-        Ui.fit1050(this);
         super.onCreate(b);
         // 全屏：透明状态栏/导航栏 + 隐藏系统栏，避免底部白条
         getWindow().setFlags(

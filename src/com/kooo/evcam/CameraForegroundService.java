@@ -137,6 +137,14 @@ public class CameraForegroundService extends Service {
                 AppLog.d(TAG, "MainActivity 已在运行，跳过启动");
                 return;
             }
+            // 未激活/试用到期时拉起 MainActivity 也开不了录（整机授权拦截），
+            // 反而会在后台弹激活框、用户点图标时二次切换造成闪屏——直接不拉。
+            // start 幂等：顺带恢复落盘的授权状态（进程复活后先信缓存）
+            com.kooo.evcam.license.LicenseManager.get().start(this, null);
+            if (!com.kooo.evcam.license.LicenseManager.get().isAllowed()) {
+                AppLog.d(TAG, "授权未放行，跳过后台自动续录启动");
+                return;
+            }
             
             AppLog.d(TAG, "自动录制已启用，启动 MainActivity（后台模式）...");
             

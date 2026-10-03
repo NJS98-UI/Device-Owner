@@ -94,9 +94,36 @@ public final class LicenseManager {
         app = ctx.getApplicationContext();
         // 服务侧兜底启动传 null：不覆盖界面已注册的 listener
         if (l != null || listener == null) listener = l;
+        if (state == State.PENDING) restoreCachedState();
         if (running) return;
         running = true;
         io.execute(this::poll);
+    }
+
+    /** 进程复活（服务 sticky 重启）时先信上次缓存的状态：已激活设备服务才能
+     *  直接后台续录；未激活设备不白拉界面。3 秒内轮询会以云端为准纠正。 */
+    private void restoreCachedState() {
+        try {
+            android.content.SharedPreferences sp =
+                    app.getSharedPreferences("license_state", 0);
+            String s = sp.getString("state", null);
+            if (s == null) return;
+            State cached = State.valueOf(s);
+            if (cached == State.PENDING) return;
+            state = cached;
+            trialRemainingMs = sp.getLong("remain", 0);
+            lastMessage = sp.getString("msg", "");
+        } catch (Throwable ignore) { }
+    }
+
+    private void persistState() {
+        try {
+            app.getSharedPreferences("license_state", 0).edit()
+                    .putString("state", state.name())
+                    .putLong("remain", trialRemainingMs)
+                    .putString("msg", lastMessage == null ? "" : lastMessage)
+                    .apply();
+        } catch (Throwable ignore) { }
     }
 
     public State getState() { return state; }
@@ -271,6 +298,8 @@ public final class LicenseManager {
         state = ns;
         trialRemainingMs = remain;
         lastMessage = msg;
+        // 非检查中状态落盘：进程复活后服务/开机链路据此决定是否拉界面续录
+        if (ns != State.PENDING) persistState();
         // 无界面兜底：allowed→denied 边沿直接停服务侧录像（试用到期/断网即时生效），
         // 有界面时 MainActivity 会再走一遍（stop 幂等）
         boolean denied = ns == State.NOT_ACTIVATED || ns == State.BLOCKED;

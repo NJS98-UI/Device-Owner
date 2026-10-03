@@ -85,6 +85,26 @@ public final class Ui {
         a.getResources().updateConfiguration(cfg, dm);
     }
 
+    /**
+     * 密度前置版 fit1050：attachBaseContext 里包装 Context，让首帧 inflate/measure
+     * 就用 960dp 基准密度——避免 onCreate 里事后 updateConfiguration 造成的
+     * 布局二次跳变（打开软件"闪一下"的来源）。
+     */
+    public static Context applyDensity(Context c) {
+        try {
+            if (c.getResources().getConfiguration().orientation
+                    != Configuration.ORIENTATION_LANDSCAPE) return c;
+            int w = c.getResources().getDisplayMetrics().widthPixels;
+            if (w <= 0) return c;
+            float density = w / 960f;
+            Configuration cfg = new Configuration(c.getResources().getConfiguration());
+            cfg.densityDpi = (int) (density * 160f);
+            return c.createConfigurationContext(cfg);
+        } catch (Throwable t) {
+            return c;
+        }
+    }
+
     /** 界面整体缩放（顶栏「调整大小」键切换，Cfg 持久化；dp 和字号都乘它）。 */
     public static float uiScale = 1f;
 

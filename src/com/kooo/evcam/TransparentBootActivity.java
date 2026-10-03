@@ -86,17 +86,25 @@ public class TransparentBootActivity extends Activity {
         
         // 只有自动录制需要启动 MainActivity（因为需要摄像头）
         if (shouldAutoRecord) {
-            AppLog.d(TAG, "启动自动录制功能已启用，需要启动 MainActivity（摄像头需要 Activity）");
-            AppLog.d(TAG, "启动 MainActivity（后台模式）...");
-            
-            // 启动 MainActivity 初始化摄像头（后台模式）
-            Intent mainIntent = new Intent(this, MainActivity.class);
-            mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION);
-            mainIntent.putExtra("auto_start_from_boot", true);
-            mainIntent.putExtra("silent_mode", true);
-            startActivity(mainIntent);
-            
-            AppLog.d(TAG, "MainActivity 已启动（后台模式）");
+            // 未激活/试用到期时整机被授权拦截，后台拉 MainActivity 开不了录，
+            // 只会在后台弹激活框造成闪屏——未放行就不拉。
+            // start 幂等：开机新进程先恢复落盘的授权状态
+            com.kooo.evcam.license.LicenseManager.get().start(this, null);
+            if (!com.kooo.evcam.license.LicenseManager.get().isAllowed()) {
+                AppLog.d(TAG, "授权未放行，开机跳过 MainActivity 启动");
+            } else {
+                AppLog.d(TAG, "启动自动录制功能已启用，需要启动 MainActivity（摄像头需要 Activity）");
+                AppLog.d(TAG, "启动 MainActivity（后台模式）...");
+
+                // 启动 MainActivity 初始化摄像头（后台模式）
+                Intent mainIntent = new Intent(this, MainActivity.class);
+                mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                mainIntent.putExtra("auto_start_from_boot", true);
+                mainIntent.putExtra("silent_mode", true);
+                startActivity(mainIntent);
+
+                AppLog.d(TAG, "MainActivity 已启动（后台模式）");
+            }
         } else {
             AppLog.d(TAG, "无需启动 MainActivity（自动录制未启用），仅保持后台运行");
         }
