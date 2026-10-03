@@ -60,7 +60,7 @@
             android:exported="true"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
-            android:configChanges="density|orientation|screenSize|screenLayout|smallestScreenSize|keyboardHidden|fontScale">
+            android:configChanges="mcc|mnc|locale|layoutDirection|touchscreen|keyboard|keyboardHidden|navigation|uiMode|colorMode|fontScale|screenLayout|screenSize|smallestScreenSize|orientation|density">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

@@ -16,7 +16,6 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -77,7 +76,7 @@ final class LicenseDialog {
         FrameLayout mask = new FrameLayout(ctx);
         mask.setBackgroundColor(0xDD0A1224);
 
-        // 深蓝横向大卡片（超高可滚动）
+        // 深蓝横向大卡片：固定大小填满遮罩（留边距），内部权重分配，不滚动
         LinearLayout card = new LinearLayout(ctx);
         card.setOrientation(LinearLayout.VERTICAL);
         GradientDrawable cardBg = new GradientDrawable();
@@ -87,14 +86,13 @@ final class LicenseDialog {
         int pad = Ui.dp(ctx, 20);
         card.setPadding(pad, pad, pad, pad);
 
-        ScrollView sv = new ScrollView(ctx);
-        sv.setVerticalScrollBarEnabled(false);
-        sv.addView(card, new FrameLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        FrameLayout.LayoutParams svLp = new FrameLayout.LayoutParams(
-                Ui.dp(ctx, 880), ViewGroup.LayoutParams.WRAP_CONTENT);
-        svLp.gravity = Gravity.CENTER;
-        mask.addView(sv, svLp);
+        FrameLayout.LayoutParams cardLp = new FrameLayout.LayoutParams(
+                Ui.dp(ctx, 880), ViewGroup.LayoutParams.MATCH_PARENT);
+        cardLp.gravity = Gravity.CENTER;
+        int marginV = Ui.dp(ctx, 26);
+        cardLp.topMargin = marginV;
+        cardLp.bottomMargin = marginV;
+        mask.addView(card, cardLp);
         FrameLayout.LayoutParams maskLp = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
@@ -189,11 +187,13 @@ final class LicenseDialog {
         ImageView qr = new ImageView(ctx);
         qr.setImageResource(R.drawable.qr_wechat);
         qr.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        int qs = Ui.dp(ctx, 170);
-        LinearLayout.LayoutParams qrLp = new LinearLayout.LayoutParams(qs, qs);
+        // 高度弹性（weight 填满左栏剩余），宽度上限固定，FIT_CENTER 保比例不变形
+        LinearLayout.LayoutParams qrLp = new LinearLayout.LayoutParams(
+                Ui.dp(ctx, 240), 0, 1f);
         qrLp.gravity = Gravity.CENTER_HORIZONTAL;
+        qrLp.topMargin = Ui.dp(ctx, 8);
         left.addView(qr, qrLp);
-        bottom.addView(left, Ui.weighted(1f, ViewGroup.LayoutParams.WRAP_CONTENT));
+        bottom.addView(left, Ui.weighted(1f, ViewGroup.LayoutParams.MATCH_PARENT));
 
         // 白色竖线
         View vline = new View(ctx);
@@ -201,9 +201,10 @@ final class LicenseDialog {
         bottom.addView(vline, new LinearLayout.LayoutParams(Ui.dp(ctx, 2),
                 ViewGroup.LayoutParams.MATCH_PARENT));
 
-        // 右栏：说明
+        // 右栏：说明（整体垂直居中）
         LinearLayout right = new LinearLayout(ctx);
         right.setOrientation(LinearLayout.VERTICAL);
+        right.setGravity(Gravity.CENTER_VERTICAL);
         right.setPadding(Ui.dp(ctx, 16), 0, 0, 0);
 
         TextView brand = new TextView(ctx);
@@ -249,9 +250,10 @@ final class LicenseDialog {
         price.setPadding(0, Ui.dp(ctx, 10), 0, 0);
         right.addView(price, Ui.lw());
 
-        bottom.addView(right, Ui.weighted(1f, ViewGroup.LayoutParams.WRAP_CONTENT));
+        bottom.addView(right, Ui.weighted(1f, ViewGroup.LayoutParams.MATCH_PARENT));
+        // 下半区占卡片剩余全部高度（顶行+横线固定，这里 weight 补满），整卡不滚动
         card.addView(bottom, new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, Ui.dp(ctx, 320)));
+                ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f));
 
         d.setContentView(mask, maskLp);
         // Activity 重建/销毁边缘弹窗可能 BadTokenException——吞掉，避免把整个软件闪崩
