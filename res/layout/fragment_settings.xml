@@ -984,7 +984,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="应用启动后自动开始录制，运行期间保持录制（长时间录制会占用大量性能，请谨慎使用）"
+                        android:text="手动打开应用时自动开始录制并保持（长时间录制占用大量性能，请谨慎使用）。开机后无人值守的录像由「开机自动录像」负责"
                         android:textColor="@color/text_secondary"
                         android:textSize="16sp"
                         android:layout_marginTop="4dp" />
@@ -1024,7 +1024,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="车机开机后自动开始录像（无需打开应用，服务被杀重启后也会自动续录）；关闭后开机不自动录像"
+                        android:text="车机开机后自动开始录像（无需打开应用，服务被杀重启后也会自动续录）。行车录像主线开关，与息屏录制/哨兵模式配合覆盖锁车场景"
                         android:textColor="@color/text_secondary"
                         android:textSize="16sp"
                         android:layout_marginTop="4dp" />
@@ -1066,7 +1066,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="开启后息屏时继续录制；关闭后息屏10秒自动停止录制，亮屏10秒后恢复"
+                        android:text="锁车全程录像档：开启后熄屏期间持续录像（车机常供电不断），适合长时间停车监控，与哨兵模式二选一即可。关闭后息屏10秒自动停止录制，亮屏10秒后恢复"
                         android:textColor="@color/text_secondary"
                         android:textSize="16sp"
                         android:layout_marginTop="4dp" />

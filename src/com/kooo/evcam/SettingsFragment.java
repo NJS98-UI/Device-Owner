@@ -458,7 +458,7 @@ public class SettingsFragment extends Fragment {
         screenOffRecordingSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (getContext() != null && appConfig != null) {
                 appConfig.setScreenOffRecordingEnabled(isChecked);
-                String message = isChecked ? "息屏录制已启用，息屏时将继续录制" : "息屏录制已禁用，息屏10秒后将自动停止录制";
+                String message = isChecked ? "息屏录制已启用：锁车熄屏后全程持续录像（与哨兵模式二选一）" : "息屏录制已禁用，息屏10秒后将自动停止录制";
                 Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
                 AppLog.d("SettingsFragment", message);
             }
