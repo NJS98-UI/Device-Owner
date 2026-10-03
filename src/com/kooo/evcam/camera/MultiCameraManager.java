@@ -739,6 +739,14 @@ public class MultiCameraManager {
     }
 
     /**
+     * 设置修复抑制（熄屏休眠窗口用）：抑制期间 checkAndRepairCameras 不重开任何相机。
+     * 熄屏期间所有"断开"都是主动释放，重开会卡死 HAL。
+     */
+    public void setRepairSuppressed(boolean suppressed) {
+        repairSuppressed = suppressed;
+    }
+
+    /**
      * 开始录制所有摄像头（自动生成时间戳）
      */
     public boolean startRecording() {
@@ -2281,6 +2289,10 @@ public class MultiCameraManager {
         
         for (Map.Entry<String, SingleCamera> entry : cameras.entrySet()) {
             SingleCamera camera = entry.getValue();
+            // 生命周期主动暂停的（熄屏/后台）不得重开：跨休眠持有相机会卡死 HAL
+            if (camera.isPausedByLifecycle()) {
+                continue;
+            }
             if (!camera.isConnected()) {
                 disconnectedCount++;
                 AppLog.d(TAG, "Camera " + entry.getKey() + " reconnecting...");

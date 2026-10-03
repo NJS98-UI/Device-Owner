@@ -2857,6 +2857,11 @@ public class SingleCamera {
         return cameraDevice != null;
     }
 
+    /** 是否因生命周期主动暂停（熄屏/后台）：暂停中的相机不得被修复循环重开。 */
+    public boolean isPausedByLifecycle() {
+        return isPausedByLifecycle;
+    }
+
     /**
      * 生命周期：暂停摄像头（App退到后台时调用）
      * 暂停时不会触发自动重连，因为是主动暂停
