@@ -3543,11 +3543,13 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity impleme
                             new com.kooo.evcam.license.UpdateChecker.Callback() {
                                 @Override public void onNewVersion(String v, String u, String n) { }
                                 @Override public void onMessage(String m) {
-                                    // 下载失败：恢复弹窗允许重试
-                                    dlg[0].getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
-                                    dlg[0].getButton(AlertDialog.BUTTON_POSITIVE).setText("重试下载");
-                                    dlg[0].getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(true);
                                     tvPct.setText(m);
+                                    // 全部重试失败才恢复按钮允许手动重试
+                                    if (m.contains("请检查网络")) {
+                                        dlg[0].getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+                                        dlg[0].getButton(AlertDialog.BUTTON_POSITIVE).setText("重试下载");
+                                        dlg[0].getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(true);
+                                    }
                                     Toast.makeText(MainActivity.this, m, Toast.LENGTH_SHORT).show();
                                 }
                                 @Override public void onProgress(int percent) {

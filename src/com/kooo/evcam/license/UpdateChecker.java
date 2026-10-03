@@ -126,15 +126,29 @@ public final class UpdateChecker {
         }
     }
 
-    /** 下载 APK 并调用系统安装器安装（后台下载，主线程回调进度）。 */
+    private static final int MAX_RETRY = 3;
+
+    /** 下载 APK 并调用系统安装器安装（后台下载，失败自动重试 3 次）。 */
     public static void downloadAndInstall(Context app, String url, String version, Callback cb) {
+        downloadWithRetry(app, url, version, cb, 0);
+    }
+
+    private static void downloadWithRetry(Context app, String url, String version,
+                                          Callback cb, int attempt) {
+        final int retry = attempt + 1;
         io.execute(() -> {
             File apk = download(app, url, (pct) -> post(() -> cb.onProgress(pct)));
             if (apk == null) {
-                post(() -> cb.onMessage("下载失败，请检查网络"));
+                if (retry < MAX_RETRY) {
+                    post(() -> cb.onProgress(0));
+                    post(() -> cb.onMessage("下载失败，第" + retry + "次重试中…"));
+                    try { Thread.sleep(2000); } catch (InterruptedException ignored) { }
+                    downloadWithRetry(app, url, version, cb, retry);
+                } else {
+                    post(() -> cb.onMessage("下载失败，请检查网络后重试"));
+                }
                 return;
             }
-            // 标记已安装，防止重启后同版本再次触发弹窗
             String key = version + "|" + url;
             app.getSharedPreferences("update", Context.MODE_PRIVATE)
                     .edit().putString("lastInstalled", key).apply();
