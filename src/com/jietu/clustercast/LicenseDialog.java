@@ -87,7 +87,7 @@ final class LicenseDialog {
         card.setPadding(pad, pad, pad, pad);
 
         FrameLayout.LayoutParams cardLp = new FrameLayout.LayoutParams(
-                Ui.dp(ctx, 880), ViewGroup.LayoutParams.MATCH_PARENT);
+                Ui.dp(ctx, 760), ViewGroup.LayoutParams.MATCH_PARENT);
         cardLp.gravity = Gravity.CENTER;
         int marginV = Ui.dp(ctx, 26);
         cardLp.topMargin = marginV;
@@ -96,18 +96,10 @@ final class LicenseDialog {
         FrameLayout.LayoutParams maskLp = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
-        // ===== 顶行：标题 | 输入框 | 激活 | 试用 =====
+        // ===== 顶行：激活码输入框 | 激活 | 试用（按钮紧贴输入框） =====
         LinearLayout top = new LinearLayout(ctx);
         top.setOrientation(LinearLayout.HORIZONTAL);
         top.setGravity(Gravity.CENTER_VERTICAL);
-
-        TextView title = new TextView(ctx);
-        title.setText("捷途行车记录仪");
-        title.setTextSize(20);
-        title.setTypeface(Typeface.DEFAULT_BOLD);
-        title.setTextColor(0xFFFFC94D);
-        top.addView(title, new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
         final EditText codeBox = new EditText(ctx);
         codeBox.setHint("请输入激活码");
@@ -122,9 +114,8 @@ final class LicenseDialog {
         boxBg.setCornerRadius(Ui.dp(ctx, 10));
         codeBox.setBackground(boxBg);
         LinearLayout.LayoutParams boxLp = new LinearLayout.LayoutParams(
-                0, Ui.dp(ctx, 46));
+                0, Ui.dp(ctx, 44));
         boxLp.weight = 1f;
-        boxLp.leftMargin = Ui.dp(ctx, 14);
         boxLp.rightMargin = Ui.dp(ctx, 10);
         top.addView(codeBox, boxLp);
 
@@ -140,12 +131,12 @@ final class LicenseDialog {
             host.onActivateClicked(code);
         });
         top.addView(actBtn, new LinearLayout.LayoutParams(
-                Ui.dp(ctx, 110), Ui.dp(ctx, 46)));
+                Ui.dp(ctx, 92), Ui.dp(ctx, 44)));
 
         TextView trialBtn = pillButton(ctx, "试  用", 0xFF4A8CF0);
         trialBtn.setOnClickListener(v -> host.onTrialClicked());
         top.addView(trialBtn, new LinearLayout.LayoutParams(
-                Ui.dp(ctx, 110), Ui.dp(ctx, 46)));
+                Ui.dp(ctx, 92), Ui.dp(ctx, 44)));
         ((LinearLayout.LayoutParams) trialBtn.getLayoutParams()).leftMargin = Ui.dp(ctx, 8);
 
         card.addView(top, Ui.lw());
@@ -170,7 +161,7 @@ final class LicenseDialog {
 
         TextView msg = new TextView(ctx);
         msg.setText(message == null ? "" : message);
-        msg.setTextSize(15);
+        msg.setTextSize(14);
         msg.setTextColor(0xFFE8EEFF);
         msg.setGravity(Gravity.CENTER);
         left.addView(msg, Ui.lw());
@@ -178,7 +169,7 @@ final class LicenseDialog {
 
         TextView buyTip = new TextView(ctx);
         buyTip.setText("请扫下方二维码购买");
-        buyTip.setTextSize(14);
+        buyTip.setTextSize(13);
         buyTip.setTextColor(0xFFE8EEFF);
         buyTip.setGravity(Gravity.CENTER);
         buyTip.setPadding(0, Ui.dp(ctx, 6), 0, Ui.dp(ctx, 6));
@@ -189,9 +180,9 @@ final class LicenseDialog {
         qr.setScaleType(ImageView.ScaleType.FIT_CENTER);
         // 高度弹性（weight 填满左栏剩余），宽度上限固定，FIT_CENTER 保比例不变形
         LinearLayout.LayoutParams qrLp = new LinearLayout.LayoutParams(
-                Ui.dp(ctx, 240), 0, 1f);
+                Ui.dp(ctx, 190), 0, 1f);
         qrLp.gravity = Gravity.CENTER_HORIZONTAL;
-        qrLp.topMargin = Ui.dp(ctx, 8);
+        qrLp.topMargin = Ui.dp(ctx, 6);
         left.addView(qr, qrLp);
         bottom.addView(left, Ui.weighted(1f, ViewGroup.LayoutParams.MATCH_PARENT));
 
@@ -209,7 +200,7 @@ final class LicenseDialog {
 
         TextView brand = new TextView(ctx);
         brand.setText("【捷途行车记录仪】");
-        brand.setTextSize(18);
+        brand.setTextSize(16);
         brand.setTypeface(Typeface.DEFAULT_BOLD);
         brand.setTextColor(0xFFFFFFFF);
         brand.setGravity(Gravity.CENTER);
@@ -219,7 +210,7 @@ final class LicenseDialog {
         final String mc = com.kooo.evcam.license.LicenseManager.machineCode(ctx);
         TextView mcView = new TextView(ctx);
         mcView.setText("机器码：" + mc);
-        mcView.setTextSize(18);
+        mcView.setTextSize(16);
         mcView.setTypeface(Typeface.MONOSPACE, Typeface.BOLD);
         mcView.setTextColor(0xFFFFFFFF);
         mcView.setGravity(Gravity.CENTER);
