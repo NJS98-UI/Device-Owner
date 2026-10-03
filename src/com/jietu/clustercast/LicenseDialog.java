@@ -80,10 +80,11 @@ final class LicenseDialog {
 
         LinearLayout.LayoutParams cardLp = new LinearLayout.LayoutParams(
                 Ui.dp(ctx, 420), ViewGroup.LayoutParams.WRAP_CONTENT);
-        mask.addView(card, cardLp);
+        FrameLayout.LayoutParams cardFlp = new FrameLayout.LayoutParams(cardLp);
+        cardFlp.gravity = Gravity.CENTER;
+        mask.addView(card, cardFlp);
         FrameLayout.LayoutParams maskLp = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        mask.setGravity(Gravity.CENTER);
 
         // 标题（金黄）
         TextView title = new TextView(ctx);
