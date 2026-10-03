@@ -7,9 +7,7 @@ import android.os.Build;
 
 import com.kooo.evcam.AppLog;
 
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashSet;
 
 /**
  * Device Owner 防杀加固：把"被系统/用户杀后台"的每一条路都封上。
@@ -18,8 +16,8 @@ import java.util.HashSet;
  * 1. 强行停止（用户误点/厂商省电静默 force-stop）→ setUserControlDisabledPackages：
  *    系统设置里"强行停止"按钮灰掉。force-stop 是最彻底的杀——sticky 重启失效、
  *    Alarm 清空、WorkManager 停摆，其余一切保活手段都会被它废掉，必须优先封死。
- * 2. App Standby / Doze / 省电模式 / 深度休眠 → setApplicationExemptions
- *    （API 33+ 三项豁免）+ 电池优化白名单（ensureDozeWhitelist 弹窗式申请）
+ * 2. App Standby / Doze / 省电模式 → 电池优化白名单（ensureDozeWhitelist）
+ *    + targetSdk 28 的宽松待机策略
  * 3. 低内存杀进程 → START_STICKY 自动重启（CameraForegroundService/CastService
  *    均已配置）+ KeepAliveManager 15 分钟 WorkManager tick 兜底
  * 4. 卸载 / 权限被收回 → setUninstallBlocked + setPermissionGrantState 静默
@@ -61,17 +59,9 @@ public final class KeepAliveGuard {
             AppLog.w(TAG, "防卸载设置失败: " + t);
         }
 
-        // 3. 省电三豁免（API 33+）：App Standby / Battery Saver / Hibernation
-        try {
-            if (Build.VERSION.SDK_INT >= 33) {
-                dpm.setApplicationExemptions(pkg, new HashSet<>(Arrays.asList(
-                        DevicePolicyManager.USAGE_EXEMPTED_FROM_APP_STANDBY,
-                        DevicePolicyManager.USAGE_EXEMPTED_FROM_BATTERY_SAVER,
-                        DevicePolicyManager.USAGE_EXEMPTED_FROM_HIBERNATION)));
-            }
-        } catch (Throwable t) {
-            AppLog.w(TAG, "省电豁免设置失败: " + t);
-        }
+        // 3. 省电豁免：setApplicationExemptions 是 API 33 的受限 API（公开 SDK 无符号，
+        //    且车机系统普遍低于 13），App Standby/Doze 豁免由电池优化白名单
+        //    （ensureDozeWhitelist）+ targetSdk 28 的宽松策略覆盖
 
         // 4. 运行时权限静默永久授权（权限须已在 manifest 声明）
         grant(dpm, admin, pkg, android.Manifest.permission.CAMERA);
